@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="${encoding}">
+<title>Insert title here</title>
+</head>
+<body>
+${cursor}
+	<h2>타이틀</h2>
+
+
+
+</body>
+<script type="text/javascript">
+/* 
+# 
+*/
+
+
+
+</script>
+</html>
