@@ -41,8 +41,26 @@ var bananaPrice = 3000
 var isPriceOver = bananaPrice>=5000
 document.write("바나나의 가격:"+bananaPrice+"<br>")
 document.write("바나나가 비싼지 여부:"+isPriceOver+"<br>")
+/*
+# 함수형 function
+1. 함수를 선언하여 그 함수의 내용을 처리할 때, 사용되는 데이터 유형을 말한다.
+2. 기본 형식
+    // 함수 정의
+	var fun01 = function(){
+		document.write("함수가 호출")
+    }
+    // 함수 호출
+    fun01()  
+    fun01()
+    document.write("데이터 유형:"+typeof(fun01) )
 
-
+*/
+var fun01 = function(){
+	document.write("함수 호출<br>")    	
+}
+fun01()
+fun01()
+document.write("데이터 유형:"+typeof(fun01))
 
 
 
