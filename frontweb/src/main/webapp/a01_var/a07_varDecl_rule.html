@@ -33,7 +33,17 @@ var name_01 = "홍길동" // 허용되는 특수문자 _
 var $age = 25 // 허용되는 특수문자 $
 //var #nation = "한국" 그외 특수문자는 허용되지 않는다.
 document.write("이름:"+name_01)
-document.write("나이:"+$age)
+document.write(", 나이:"+$age+"<br>")
+
+// ex) $, _ 활용해서 좋아하는 취미와 생일을 할당하는 변수를 선언하고,
+//    출력하세요..
+var my_hobby = "음악감상"
+var $goto_school = "프로그래밍을 배우러 가다"
+var $birthday = "2024-03-14"
+document.write("나의 취미:"+my_hobby+"<br>")
+document.write("나의 생일:"+$birthday+"<br>")
+document.write("기타 변수 선언:"+$goto_school)
+
 		
 		
 		
