@@ -61,6 +61,28 @@ var fun01 = function(){
 fun01()
 fun01()
 document.write("데이터 유형:"+typeof(fun01))
+/*
+# 객체형 object
+1. 객체는 변수와 기능메서드를 가지고는 복합체이다.
+2. 여러가지 유형의 데이터를 가지고 있을 뿐만아니라, 여러가지 기능도 처리할 수 있는 것을 말한다.
+3. 객체의 가장 대표적인 유형 json(javascript object notation)를 예로 확인해보자.
+                   
+    1) 객체 선언
+	var person = { name:"홍길동", age : 25, loc:"수원" }
+         객체명  = { 속성 : 속성값 }
+	2) 객체의 선언된 내용 호출..
+	person.name   : 객체명.속성 : 해당 객체가 가지고 있는 할당값
+	person.age  : person객체가 가지고 있는 age의 속성값을 호출.
+	person.loc : person객체가 가지고 있는 loc의 속성값을 호출..
+	typeof(person) ==> object
+
+*/
+var person = {name:"홍길동", age: 25, loc:"수원"}
+document.write("객체 호출:"+person+"<br>")
+document.write("person의 name 속성 호출:"+person.name+"<br>")
+document.write("person의 age 속성 호출:"+person.age+"<br>")
+document.write("person의 loc 속성 호출:"+person.loc+"<br>")
+document.write("데이터 유형:"+typeof(person)+"<br>")
 
 
 
