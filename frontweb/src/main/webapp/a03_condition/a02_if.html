@@ -44,12 +44,22 @@ bdObj.innerHTML += "프로세스 처리 끝<br>"
 3. 온도가 @@도 입니다.
 4. 조건문 처리..
 5. 라면  끊이기 프로세스 끝
-
-
-
-
-
  */
+var waterTemp = 100
+bdObj.innerHTML += "# 라면 끊이기 프로세스 #<br>"
+bdObj.innerHTML += "1. 물을 넣습니다.<br>"
+bdObj.innerHTML += "2. 물을 끊입니다.<br>"
+bdObj.innerHTML += "3. 온도가 "+waterTemp+"도 입니다.<br>"
+if( waterTemp>= 100){
+	bdObj.innerHTML += "4. 100C라서 라면을 넣습니다.<br>"
+}
+bdObj.innerHTML += "5. 라면 끊이기 프로세스 끝<br>"
+
+
+
+
+
+
 
 
 
