@@ -13,10 +13,40 @@
 </body>
 <script type="text/javascript">
 var bdObj = document.body
-bdObj.innerHTML += "화면에 나타낼 데이터<br>"
+
 /* 
-# 
+# if else
+1. 특정한 조건문에서 true와 false 나누어서 분기를 처리할 때, 활용하는 구분이다.
+2. 점수에 따라서 합격/불합격을 처리해야 하는 경우 등을 말한다.
+3. 기본 형식
+	if(조건문){
+		true일 때, 처리할 내용
+	}else{
+		조건문이 false 일 때 처리할 내용
+	}
 */
+var point = 50
+bdObj.innerHTML += "획득 점수:"+point+"점<br>"
+if(point>=60){
+	bdObj.innerHTML += "합격입니다.<br>"
+}else{
+	bdObj.innerHTML += "불합격입니다.<br>"	
+}
+// ex) 나이를 입력받아서 나이를 출력하고, 18이상이면 성년, 그외는 미성년을 출력하세요
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
