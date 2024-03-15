@@ -65,6 +65,21 @@ if(pt>100 || pt < 0){
 	bdObj.innerHTML += "데이터 입력은 숫자로 입력하여야 합니다.<br>"
 }
 // ex) 현재 시간을 입력 받아 오전/오후/0~23시간입력범위/숫자로 입력하세요 라고 나누어서 처리하세요.
+// 0미만이거나 23초과시 0~23시간으로 입력 가능합니다.
+// 오전 0~11, 
+// 오후 12~23
+// 그외 숫자로 입력하여야 합니다.
+var hour = prompt("시간을 입력하세요","0")
+bdObj.innerHTML += "입력한 시간은 "+hour+"시 입니다.<br>"
+if( hour < 0 || hour > 23){
+	bdObj.innerHTML += "시간의 입력범위는 0~23시입니다.<br>"
+}else if(hour < 12){  // hour>=0 && hour < 12
+	bdObj.innerHTML += "오전 입니다.<br>"
+}else if(hour < 24){  // hour>12 && hour < 24
+	bdObj.innerHTML += "오후 입니다.<br>"
+}else{   // 입력하지 않거나 문자열로 입력되었을 때, 처리
+	bdObj.innerHTML += "시간 숫자로 입력하여야 합니다.<br>"
+}
 
 
 
