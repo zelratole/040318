@@ -24,7 +24,7 @@ var bdObj = document.body
 		반복수행할 내용..
 	}
 */
-// var cnt=1 : 초기값을 1부터 시작
+// var cnt=1 : 초기값을 1부터 시작 : 반복프로세스에서 1번만 호출..
 // cnt<=10 : 반복 block({})이 수행될 조건을 지정  10이하까지만 수행한다는 의미
 // cnt++ : 증가단위로 1씩 증가 처리한다는 의미
 for(var cnt=1;cnt<=10;cnt++){
@@ -35,6 +35,22 @@ for(var cnt=1;cnt<=10;cnt++){
 //         3) cnt++
 //         4) cnt<=10
 //         그 이후  2, 3, 4 프로세스를 계속 반복해서 처리된다.
+for(var cnt=15;cnt<=50;cnt++){
+	bdObj.innerHTML += cnt+", "
+}
+bdObj.innerHTML += "<br>"
+for(var cnt=15;cnt<=50;cnt+=3){
+	bdObj.innerHTML += cnt+", "
+}
+bdObj.innerHTML += "<br>"
+for(var cnt=100;cnt>=0;cnt--){
+	bdObj.innerHTML += cnt+", "
+}
+bdObj.innerHTML += "<br>"
+
+	
+
+
 
 </script>
 </html>
