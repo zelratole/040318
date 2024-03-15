@@ -33,7 +33,13 @@ if(point>=60){
 	bdObj.innerHTML += "불합격입니다.<br>"	
 }
 // ex) 나이를 입력받아서 나이를 출력하고, 18이상이면 성년, 그외는 미성년을 출력하세요
-
+var age = prompt("나이를 입력하세요:","0")
+bdObj.innerHTML +="입력된 나이는 "+age+"살 <br>"
+if( age >= 18){
+	bdObj.innerHTML +="성년 입니다. <br>"
+}else{
+	bdObj.innerHTML +="미성년자 입니다. <br>"
+}
 
 
 
