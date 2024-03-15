@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h2>조건문</h2>
+
+
+
+</body>
+<script type="text/javascript">
+// DOM객체의 body를 이용한 코드 입력 처리..
+
+// bdObj의 속성 innerHTML을 이용해서 "화면에 나타낼 데이터<br>"를 이용해서
+// 출력하여 처리..
+var bdObj = document.body
+bdObj.innerHTML += "# 라면을 끊이는 흐름 순서 #<br>"
+
+/* 
+# 흐름 처리
+1. 모든 프로그래밍은 처리 순서를 가장 먼저 생각하여야 한다.
+2. 기본적인 프로그램 흐름을 먼저 정한 후에 처리를 한다.
+3. 아래 내용과 같이 라면을 끊이는 순서를 정리해보자.
+*/
+bdObj.innerHTML += "1. 500cc 물을 넣고 끊인다.<br>"
+bdObj.innerHTML += "2. 물이 끊는 것을 확인하고 라면과 스프와 계란을 넣는다.<br>"
+bdObj.innerHTML += "3. 3분정도 충분이 면이 익었을 때, 불을 끄고, <br>"
+bdObj.innerHTML += "4. 담을 그릇을 준비하고, 반찬과 함께 맛있게 먹는다. <br>"
+var price = prompt("물건의 가격 입력", "0")
+var cnt = prompt("물건의 갯수 입력","0")
+var tot = price*cnt
+bdObj.innerHTML += "물건의 가격:"+price+"<br>"
+bdObj.innerHTML += "물건의 갯수:"+cnt+"<br>"
+bdObj.innerHTML += "총비용:"+tot+"<br>"	
+/*
+# 두개의 값을 입력받아(물건가격과 갯수) 총계를 화면에 처리하는 프로그램을 순서로 처리해보자.
+1. 데이터를 입력 처리하는 코드 처리
+   1) 첫번째 물건의 가격 입력 처리
+      var price = prompt("물건의 가격 입력", "0")
+   2) 두번째 물건의 갯수 입력 처리
+      var cnt = prompt("물건의 갯수 입력","0")
+   3) 연산처리( 산술연산자(*)를 이용해서 두개의 데이터 곱셈처리)를 하고,
+      대입연산으로 특정한 변수 tot에 할당한다
+      var tot = price*cnt
+   4) 위 변수들을 출력형식을 정리하고,
+   	  물건의 가격:@@@
+   	  물건의 갯수:@@@
+   	  총비용:@@@
+   	  
+   5) 출력처리할 기능 메서드와 속성의 선언하고
+   	  bdObj.innerHTML += "물건의 가격:"+변수명+"<br>"
+   	  
+   	  bdObj.innerHTML += "물건의 가격:"+price+"<br>"
+   	  bdObj.innerHTML += "물건의 갯수:"+cnt+"<br>"
+   	  bdObj.innerHTML += "총비용:"+tot+"<br>"
+   	  
+   6) 실행을 통해서 화면에 확인한다.
+      ctrl + f11
+   7) 혹시 실행이 안되는 경우 f12번을 클릭하고 console 창을 확인하여
+   	  에러 라인을 확인하고, 
+      다시, 코드에서 에러를 수정하고, ctrl+s를 통해 저장한 후,
+      화면에서 f5를 클릭해서 정상적인 화면이 나올 때까지 반복한다.
+   8) 정상적인 화면을 확인한다.
+   
+*/
+
+
+
+
+
+
+
+/*
+# 조건문
+
+
+
+
+*/
+
+
+
+</script>
+</html>

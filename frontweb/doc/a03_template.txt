@@ -12,6 +12,8 @@ ${cursor}
 
 </body>
 <script type="text/javascript">
+var bdObj = document.body
+bdObj.innerHTML += "화면에 나타낼 데이터<br>"
 /* 
 # 
 */
