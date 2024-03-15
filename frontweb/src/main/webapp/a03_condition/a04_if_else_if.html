@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h2>if else if else 구문</h2>
+
+
+
+</body>
+<script type="text/javascript">
+var bdObj = document.body
+
+/* 
+# 분기 조건이 여러 개일 때, 사용하는 if else if 문..
+1. 하나의 분기 조건이 아니고, 여러 개의 분기 조건이 필요할 때,
+사용되는 구문이다.
+2. 기본 형식
+	if(조건1){
+		조건1일 때, 처리할 구문
+	}else if(조건2){
+		조건2일 때, 처리할 구문
+	}else if(조건3){
+		조건3일 때, 처리할 구문
+	}...  : 그외 조건들이 있을 때, 추가할 수 있다.
+	}else{
+		위에 나열된 조건이 제외한 내용 처리할 때..
+	}
+	ex) 90~100 A
+	    80~89  B
+	    ..
+    if(pt>=90 && pt<=100){
+    	A등급 처리
+    }   
+	if(pt>=80 && pt<90){
+		B등급 처리..
+	}
+	==> 위 내용을 아래와 같이 처리 가능하다..
+	if(pt>100 || pt<0){
+		범위를 초과 했습니다.
+	}else if( pt>= 90){   else : 상위에 있는 조건을 제외하고..
+		A등급
+	}else if( pt>= 80){
+		B등급
+	}
+*/
+var pt = 85
+bdObj.innerHTML += "입력된 점수는 "+pt+"점 입니다.<br>"
+if(pt>100 || pt < 0){
+	bdObj.innerHTML += "점수 입력 범위는 0~100사이 입니다.<br>"
+}else if(pt>=90){
+	bdObj.innerHTML += "90~100 이므로 A등급입니다.<br>"
+}else if(pt>=80){
+	bdObj.innerHTML += "80~90 이므로 B등급입니다.<br>"
+}else if(pt>=70){
+	bdObj.innerHTML += "70~80 이므로 C등급입니다.<br>"
+}else if(pt>=60){
+	bdObj.innerHTML += "60~70 이므로 D등급입니다.<br>"
+}else if(pt>=0){
+	bdObj.innerHTML += "0~60 이므로 F등급입니다.<br>"
+}else{
+	bdObj.innerHTML += "데이터 입력은 숫자로 입력하여야 합니다.<br>"
+}
+// ex) 현재 시간을 입력 받아 오전/오후/0~23시간입력범위/숫자로 입력하세요 라고 나누어서 처리하세요.
+
+
+
+
+</script>
+</html>
