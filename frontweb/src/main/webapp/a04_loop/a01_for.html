@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h2>반복문 처리</h2>
+
+
+
+</body>
+<script type="text/javascript">
+var bdObj = document.body
+
+/* 
+# 반복문 for
+1. 반복문은 화면이나 알고리즘으로 원하는 처리를 반복 수행할 때, 활용된다.
+2. 반복문의 종류로는 while, do while, for문이 있는데, 
+	대표적인 것이 for문이라고 할 수 있다.
+3. for문의 기본적인 형식
+	for(초기값설정;반복할조건;증감연산자){
+		반복수행할 내용..
+	}
+*/
+// var cnt=1 : 초기값을 1부터 시작
+// cnt<=10 : 반복 block({})이 수행될 조건을 지정  10이하까지만 수행한다는 의미
+// cnt++ : 증가단위로 1씩 증가 처리한다는 의미
+for(var cnt=1;cnt<=10;cnt++){
+	bdObj.innerHTML += "카운트업:"+cnt+"<br>"
+}
+// 위 내용는 1) var cnt=1  
+//         2) bdObj.innerHTML += "카운트업:"+cnt+"<br>"
+//         3) cnt++
+//         4) cnt<=10
+//         그 이후  2, 3, 4 프로세스를 계속 반복해서 처리된다.
+
+</script>
+</html>
