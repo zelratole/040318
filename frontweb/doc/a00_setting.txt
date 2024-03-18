@@ -41,7 +41,50 @@
    
 # 웹프로젝트 실행
 1. 프로젝트명/src/main/webapp/
-   하위에서 파일을 만들고 실행하여야 한다.      
+   하위에서 파일을 만들고 실행하여야 한다.     
+   
+   
+1. 설치할 개발 환경
+   1) 크롬브라우저설치/구글계정가입 
+      구글미트로 
+      https://meet.google.com/ach-hcka-pmz
+
+      카카오톡 설치
+      오픈채팅방 
+      
+      chorome browser 설치 후, 위 링크로 들어 오세요.
+      https://open.kakao.com/o/glbDAKfg
+
+   2) total commander설치
+         next로 설치진행(기본으로)..
+	 설치가 다 되고 초기화면이 나온 분들 
+	 구글 meet에서 손들기 해주세요.
+
+      editplus
+	다운로드 및 기본으로 설치
+
+
+      vscode 설치
+
+      설치구조 totcommander
+      왼쪽 폴드 c:\Users\human\Downloads\
+      오른쪽 폴드 c:\a00_javaexp\ 생성
+         하위에 workspace1, workspace2, tomcat
+ 
+      
+   3) open jdk 17 version 설치, 
+      고급환경설정으로 path
+      download open jdk 17
+      c:\a00_javaexp\jdk-17\bin\
+      경로를 복사
+
+      win + e
+
+   4) eclipse/환경설정
+      - web프로젝트만들기
+      - tomcat 설정
+      - git서버 연동처리
+          
        
        
       
