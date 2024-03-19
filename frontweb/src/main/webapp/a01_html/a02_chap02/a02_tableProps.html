@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 
+# 테이블의 속성
+1. 테이블을 여러가지 속성을 통해, 정렬(전체화면 대비 위치), 
+	넓이, 높이 등을 지정할 수 있다.
+2. 테이블의 tbody는 생략하여 처리할 수 있다. 하지만, 최종 생성된
+	코드에는 포함되어 처리가 된다.
+3. 테이블의 주요 속성
+	0) 형식 : table 속성="속성값"
+	1) align : 속성값으로 left, right, center를 지정할 수 있으며
+		전체 화면에서 테이블의 정렬위치를 지정한다.
+	2) width/height : 테이블의 높이와 넓이를 지정한다.
+		절대적인 속성값을 @@pt, @@px 등을 지정할 수 있다.
+		상대적인 속성값으로 화면전체대비 @@%인지를 설정하여 처리할 수 있다.
+	3) border : 테이블의 굵기를 지정할 수 있다.
+		설정하지 않거나 border='0'으로 하면 셀간의 구분선이 사라진다.
+	4) cellpadding : 테이블 내부의 글자와 셀간의 간격이다.
+	5) cellspacing : 테이블의 border 즉, 셀간의 가격을 지정한다.
+4. 기타 추가 하위 태그
+	col : table 바로 밑에 선언하여 열간의 간격을 지정할 때, 사용된다.
+5. td, th의 속성 colspan="병합될 셀의 갯수"
+ -->
+	<table width="100" height="100" ><tr><td>테이블(기본)</td></tr></table> 
+	<table width="100" height="100" border><tr><td>테이블(border)</td></tr></table> 
+	<table width="50%" height="100" border><tr><td>테이블(width 상태크기 지정)</td></tr></table> 
+	<table width="100" height="100" border="10"><tr><td>테이블(border=10)</td></tr></table> 
+	<table width="100" height="100" border align="center"><tr><td>테이블(정렬중앙)</td></tr></table> 
+	<table width="100" height="100" border align="right"><tr><td>테이블(정렬왼쪽)</td></tr></table> 
+	<table width="100" height="100" border cellpadding="20"><tr><td>테이블(cellpadding)</td></tr></table>
+	<table width="100" height="100" border cellspacing="20"><tr><td>테이블()cellspacing)</td></tr></table>
+	 
+	
+	
+	
+	
+ 
+ 
+</body>
+</html>
