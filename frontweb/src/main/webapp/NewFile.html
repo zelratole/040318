@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2>절대 경로에 있는 가장 상위 폴드 파일!!</h2>
+	<h3>webapp 폴드와   서버상 프로젝트명은 같은 위치에 있다.</h3>
+	<!-- 
+	frontweb\src\main\webapp\NewFile.html
+	http://localhost:8080/frontweb/NewFile.html
+	
+	http://localhost:8080/frontweb으로 호출되는 위치는
+	물리적인 폴드로 webapp 하위 폴드에 있는 것으로
+	이미지나 공통설정에 webapp/ 하위에 설정해서 호출하는 경우가
+	많다.
+	 -->
+	<h3>웹서버의 가장 상위에 있는 절대 위치에 있는 이미지 호출</h3>
+	<img src="/frontweb/Elvis.png" width="100" height="200"/>
+</body>
+
+</html>
