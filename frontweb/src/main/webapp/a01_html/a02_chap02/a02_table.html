@@ -17,16 +17,22 @@
 	5) tbody : 데이터 셀 그룹
 	6) tfoot : 바닥 셀 그룹
 	7) tr : 행항목으로 여러가의 td, th 포함한다.
-	8) th : 열 제목(헤딩) 셀
+	8) th : 열 제목(헤딩) 셀 : 진하게 중앙정렬
 	9) td : 데이터 셀..
  -->
-	<table border> <!-- border : 테이블 전체 cell border 굵기 -->
+	<table width="200" border> <!-- border : 테이블 전체 cell border 굵기 -->
 		<caption>1학기 성적</caption>
 		<thead>
-			<tr><th>이름</th><th>html</th><th>css</th></tr>
+			<tr>
+				<th>이름</th>
+				<th>html</th>
+				<th>css</th>
+			</tr>
 		</thead>
 		<tbody>
-			<tr><td>황기태</td><td>80</td><td>70</td></tr>
+			<tr>
+				<td>황기태</td><td>80</td><td>70</td>
+			</tr>
 			<tr><td>이재문</td><td>95</td><td>99</td></tr>
 			<tr><td>이병은</td><td>40</td><td>65</td></tr>
 		</tbody>
@@ -34,6 +40,56 @@
 			<tr><th>합</th><th>225</th><th>230</th></tr>
 		</tfoot>
 	</table> 
+<!-- 
+ex) 위 테이블 구성요소를 이용하여 아래와 같은 쇼핑몰 구매 내역을 출력하세요.
+		   물 품 구 매 내역
+번호   	구매물품      가격    구매수량
+1       @@@			@@		@@@
+2       @@@			@@		@@@
+3       @@@			@@		@@@
+총계                 @@@     @@@
 
+
+
+ -->	
+    <table border>
+    	<caption>물 품 구 매 내역</caption>
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th>구매물품</th>
+                <th>가격</th>
+                <th>구매수량</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>티셔츠</td>
+                <td>20000원</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>청바지</td>
+                <td>40000원</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>운동화</td>
+                <td>60000원</td>
+                <td>1</td>
+            </tr>
+        <tbody>
+        <tfoot>
+            <tr>
+                <th>총계</th>
+                <th></th>
+                <td>120000원</td>
+                <td>4</td>
+            </tr>
+        </tfoot>
+    </table>	
 </body>
 </html>
