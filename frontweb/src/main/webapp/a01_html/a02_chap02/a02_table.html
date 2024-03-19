@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 
+# 표만들기(table)
+1. html에서 가장 중요한 데이터들의 정렬이나 이미지들을 효과적으로 출력하기 위한
+틀구조가 테이블이라고 할 수 있다.
+2. 테이블의 구성 요소들
+	1) 테이블은 계층 구조로 여러가지 구성요소들이 있다.
+	2) table : 테이블 태그의 최상위로 표 전체를 담는 컨테이너 역할을 한다.
+	3) caption : 표 제목
+	4) thead : 헤딩 셀 그룹
+	5) tbody : 데이터 셀 그룹
+	6) tfoot : 바닥 셀 그룹
+	7) tr : 행항목으로 여러가의 td, th 포함한다.
+	8) th : 열 제목(헤딩) 셀
+	9) td : 데이터 셀..
+ -->
+	<table border> <!-- border : 테이블 전체 cell border 굵기 -->
+		<caption>1학기 성적</caption>
+		<thead>
+			<tr><th>이름</th><th>html</th><th>css</th></tr>
+		</thead>
+		<tbody>
+			<tr><td>황기태</td><td>80</td><td>70</td></tr>
+			<tr><td>이재문</td><td>95</td><td>99</td></tr>
+			<tr><td>이병은</td><td>40</td><td>65</td></tr>
+		</tbody>
+		<tfoot>
+			<tr><th>합</th><th>225</th><th>230</th></tr>
+		</tfoot>
+	</table> 
+
+</body>
+</html>
