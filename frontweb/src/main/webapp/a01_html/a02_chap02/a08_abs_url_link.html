@@ -19,6 +19,31 @@
 	<h2>상대주소로 페이지 호출</h2>
 	<a href="../a01_chap01/a10_img.html">
 		상위폴드에서 폴드명과 파일명으로 이동</a><br> 
+		
+<!-- 
+2. 절대주소
+	1) 내부웹서버
+		(물리적 경로)frontweb\src\main\webapp\aaa.html
+		(웹서버 경로)http://localhost:8080/frontweb/aaa.html
+			==> a href="/frontweb/aaa.html"
+		물리적 경로와 웹서버의 경로는 위 경우 동일한 위치이기때문에
+		hyper link에서도 활용할 수 있다.	
+	2) 외부웹서버(외부페이지)
+ -->
+	<a href="/frontweb/aaa.html">웹서버 절대 경로로 페이지 호출</a><br>
+	<a href="/frontweb/a01_html/a01_chap01/a06_spec_tag.html">
+		기준점 경로에서 해당 페이지로 호출 처리</a><br>
+	<!-- 
+	ex) frontweb\src\main\webapp 폴드 하위에
+		z01_test 폴드 만들어서
+			a01_apple.html, a02_banana.html 페이지를 만들어,
+		현재페이지에서 절대 주소로 이동하여 호출되게 하세요..
+		
+			
+	
+	 -->	
+		
+		
 </body>
 </html>
 
