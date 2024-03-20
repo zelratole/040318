@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 
+ ex) 1. 내부페이지로 a07_login.html 페이지 호출,
+ 	 2. 외부페이지로 gmarket페이지 호출
+ 	 하여 하나의 화면에 2개의 페이지가 호출되게 처리하세요.
+ 	 ==> a10_inlineDual.html
+ --> 
+<h2>듀얼 페이지 호출</h2>
+<iframe src="a07_login.html" width="400" height="500"></iframe> 
+<iframe src="https://www.gmarket.co.kr/" width="400" height="500"></iframe>
+<!-- 
+a11_main.html : 메인페이지
+a12_login.html : 로그인페이지
+a13_cart.html : 카트페이지
+ -->
+<h3>하이프링크로 페이지 이동 처리하기</h3>
+<ul type="none">
+	<li><a href="a11_main.html" target="frame01">메인페이지</a> |
+	<li><a href="a12_login.html" target="frame01">로그인페이지</a> |
+	<li><a href="a13_cart.html" target="frame01">카트페이지</a> |
+	<li><a href="https://www.gmarket.co.kr/" target="frame01">g마켓페이지</a> |
+	<li><a href="https://okky.kr/" target="frame01">okjsp페이지</a> |
+	<li><a href="https://www.human.or.kr/" target="frame01">휴먼교육센터</a>
+</ul>
+<style>
+	li{display:inline;}
+</style>
+<!-- target="프레임의 name"과 연동해서 클릭시마다, 해당 frame의 내용을
+변경처리한다. -->
+<iframe srcdoc="<h2>초기 페이지</h2>" name="frame01" 
+	width="800" height="500"></iframe> 
+ 
+
+
+</body>
+</html>

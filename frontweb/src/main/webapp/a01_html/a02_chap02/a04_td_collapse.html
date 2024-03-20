@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2>셀병합 연습..</h2>
+	<!-- 
+	# cell병합 처리 방법
+	1. 일단 구조를 확인하여 병합 전의 n x m의 테이블을 생성한다.
+	2. 병합할 셀을 확인하여 병합할 갯수와 함께
+		1) 열단위로 병합할 경우 colspan="병합할갯수"로 지정하고,
+			병합 후, 필요 없는 td는 삭제 한다.
+		2) 행단위로 병합할 경우 rowspan="병합할갯수"로 지정하고
+			병합 후, 필요 없는 td는 삭제 한다.
+		3) 열/행 단위 모두 병할할 경우 해당 
+		    td에 colspan, rowspan
+			을 선언한 후, 그외 필요 없는 셀을 모두다 삭제한다.
+	 -->
+	<!-- 3 X 3 테이블에서 상단 열 모두 열단위 병합, 
+		가장 오른쪽 열아래로 병합처리 -->
+	<table width="100" height="100" border>
+		<tr>
+			<td colspan="3"></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td rowspan="2"></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+		</tr>
+	</table>	
+	<h2>연습1</h2>
+	<table width="300" height="100" border>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>	
+		<tr>
+			<td colspan="3"></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td  colspan="2"></td>
+		</tr>
+	</table>		
+	<h2>연습2</h2>
+	<table width="400" height="100" border>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>	
+		<tr>
+			<td colspan="2"></td>
+			<td></td>
+			<td rowspan="3"></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>			
+		<tr>
+			<td colspan="3"></td>
+			
+		</tr>
+	</table>		
+	<h2>연습3</h2>
+	<table width="400" height="200" border>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td colspan="2" 
+			    rowspan="5"></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+		</tr>
+
+		<tr>
+			<td></td>
+			<td></td>
+		</tr>
+
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</table>	
+	<!-- 
+	학생의 성적표(1학년3반)
+	no   이름    국어    영어    수학     총점   평균
+	1    @@@    @@@    @@@    @@@     @@    @@
+	2    @@@    @@@    @@@    @@@     @@    @@
+	3    @@@    @@@    @@@    @@@     @@    @@
+ 	 반평균       @@@    @@@    @@@          @@@
+	
+	
+	 -->
+	<h2 align="center">학생의 성적표(1학년3반)</h2>
+	<table align="center" width="80%" border>
+		<col width="10%"><!-- 열별로 크기 조절 -->
+		<col width="15%">
+		<col width="15%">
+		<col width="15%">
+		<col width="15%">
+		<col width="15%">
+		<col width="15%">
+		<tr>
+			<th>no</th>
+			<th>이름</th>
+			<th>국어</th>
+			<th>영어</th>
+			<th>수학</th>
+			<th>총점</th>
+			<th>평균</th>
+		</tr>	
+		<tr><td>1</td><td>홍길동</td><td>70</td><td>80</td><td>90</td>
+			<td>240</td><td>80</td></tr>
+		<tr><td>2</td><td>김길동</td><td>70</td><td>80</td><td>90</td>
+			<td>240</td><td>80</td></tr>
+		<tr><td>3</td><td>신길동</td><td>70</td><td>80</td><td>90</td>
+			<td>240</td><td>80</td></tr>
+		<tr><td colspan="2">반평균</td><td>70</td><td>80</td><td>90</td>
+			<td>240</td><td>80</td></tr>			
+		
+	</table>	 
+	 
+	
+			
+			 
+</body>
+</html>

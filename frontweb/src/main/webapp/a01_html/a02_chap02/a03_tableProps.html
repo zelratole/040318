@@ -18,13 +18,15 @@
 	2) width/height : 테이블의 높이와 넓이를 지정한다.
 		절대적인 속성값을 @@pt, @@px 등을 지정할 수 있다.
 		상대적인 속성값으로 화면전체대비 @@%인지를 설정하여 처리할 수 있다.
-	3) border : 테이블의 굵기를 지정할 수 있다.
+	3) border : 테이블의 테두리 굵기를 지정할 수 있다.
 		설정하지 않거나 border='0'으로 하면 셀간의 구분선이 사라진다.
 	4) cellpadding : 테이블 내부의 글자와 셀간의 간격이다.
 	5) cellspacing : 테이블의 border 즉, 셀간의 가격을 지정한다.
 4. 기타 추가 하위 태그
 	col : table 바로 밑에 선언하여 열간의 간격을 지정할 때, 사용된다.
-5. td, th의 속성 colspan="병합될 셀의 갯수"
+5. td, th의 속성 
+	colspan="열단위 병합될 셀의 갯수"
+	rowspan="행단위 병합될 셀의 갯수"
  -->
 	<table width="100" height="100" ><tr><td>테이블(기본)</td></tr></table> 
 	<table width="100" height="100" border><tr><td>테이블(border)</td></tr></table> 
@@ -39,6 +41,7 @@
 	<table width="100" height="100" border>
 		<col width="30%">
 		<col width="70%">
+		<!-- 컴럼의 크기를 조절하는 옵션.. -->
 		<tr>
 			<td>컴럼1</td><td>컬럼2</td>
 		</tr>

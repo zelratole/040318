@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- 
+# 미디어 삽입
+1. html화면에서 동영상이나 음악파일이 나오게 처리하는 것을 말한다.
+2. html5에서 웹 페이지 미디어 삽입의 표준환
+	1) <audio>, <video>태그
+		html5에서 오디오 비디오를 삽입하는 표준 태그
+		플러그인 필요없음
+		html5 표준 브라우저는 플러그인 없이 오두오 비디오 재쟁
+3. 비 표준 미디어 재생시
+	1) 비 표준 미디어 : 플래시 등
+		<embed>, <object>태그
+	
+	 -->
+	<h2>비디오 삽입</h2>
+	<video src="/frontweb/a01_html/a01_chap01/media/bear.mp4"
+		width="320" height="240" controls autoplay	
+	>
+	</video>
+	<h3>오디오 삽입</h3>
+	페이지 로드 즉시 음악이 연주됩니다.<br>
+	<audio src="/frontweb/a01_html/a01_chap01/media/EmbraceableYou.mp3" 
+		controls autoplay="autoplay" loop>
+		브라우저가 audio 태그를 지원하지 않습니다.	
+	</audio> 
+</body>
+</html>

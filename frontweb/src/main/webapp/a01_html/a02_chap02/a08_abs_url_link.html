@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 
+# 주소이동
+1. 상대주소
+	현재페이지를 기준으로 하위 폴드, 상위 폴드 등에
+	있는 페이지로 이동하는 것을 말한다.
+	1) 현재 페이지의 동일 폴드하위에 페이지는 페이지 그대로 사용하여 이동가능
+	2) 하위 폴드에 있는 페이지는 
+		href="폴드명/페이지명" 형식으로 이동한다.
+	3) 상위 폴드에 있는 페이지는
+		href="../페이지명" 형식으로 이동한다.
+ -->
+	<h2>상대주소로 페이지 호출</h2>
+	<a href="../a01_chap01/a10_img.html">
+		상위폴드에서 폴드명과 파일명으로 이동</a><br> 
+		
+<!-- 
+2. 절대주소
+	1) 내부웹서버
+		(물리적 경로)frontweb\src\main\webapp\aaa.html
+		(웹서버 경로)http://localhost:8080/frontweb/aaa.html
+			==> a href="/frontweb/aaa.html"
+		물리적 경로와 웹서버의 경로는 위 경우 동일한 위치이기때문에
+		hyper link에서도 활용할 수 있다.	
+	2) 외부웹서버(외부페이지)
+ -->
+	<a href="/frontweb/aaa.html">웹서버 절대 경로로 페이지 호출</a><br>
+	<a href="/frontweb/a01_html/a01_chap01/a06_spec_tag.html">
+		기준점 경로에서 해당 페이지로 호출 처리</a><br>
+	<!-- 
+	ex) frontweb\src\main\webapp 폴드 하위에
+		z01_test 폴드 만들어서
+			a01_apple.html, a02_banana.html 페이지를 만들어,
+		현재페이지에서 절대 주소로 이동하여 호출되게 하세요..
+		
+			
+	
+	 -->	
+	<!-- 절대 주소로 이동 -->
+	<a href="/frontweb/z01_test/a01_apple.html">사과페이지 이동(tomcat)</a><br>		
+	<a href="/frontweb/z01_test/a02_banana.html">바나나페이지 이동(tomcat)</a><br>		
+	<a href="/z01_test/a01_apple.html">사과페이지 이동(vscode)</a><br>		
+	<a href="/z01_test/a02_banana.html">바나나페이지 이동(vscode)</a><br>
+	<h2>외부 link 페이지(즐겨찾는 페이지)</h2>
+	<ol>
+		<li><a href="https://www.w3schools.com/">w3school(html공부)</a>
+		<li><a href="https://www.gmarket.co.kr/">g마켓</a>
+		<li><a href="https://okky.kr/">okjsp(개발자공부)</a>
+	</ol>
+	<h2>외부 link 페이지(이미지)</h2>
+	<table >
+		<col width="33%"><col width="33%"><col width="33%">
+		<tr>
+			<td>
+				<a href="https://www.google.co.kr/?hl=ko">
+					<img src="a01_google.png" width="70" height="30">
+				</a>
+			</td>
+			<td>
+				<a href="https://www.gmarket.co.kr/">
+					<img src="a02_gmarket.png" width="70" height="30">
+				</a>
+			</td>
+			<td><a href="https://www.daum.net/">
+				<img src="a03_daum.png" width="70" height="30">
+				</a>
+			</td>
+		</tr>	
+			
+	</table>	
+	
+			
+			
+</body>
+</html>
+
+
+
