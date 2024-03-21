@@ -32,17 +32,17 @@
  -->
 <h2>여러가지 버튼들!!</h2>
 <form>
-	검색:<input type="text" size="10" value=""><br>
-	<input type="button" value="검색1(기본버튼)"/>
-	<button type="button">검색2(button태그)</button><br>
+	검색:<input type="text" name="sch" size="10" value=""><br>
+	<input type="button" value="검색1(기본버튼)" onclick="alert('버튼클릭1!!')" />
+	<button type="button"  onclick="alert('버튼클릭2!!')" >검색2(button태그)</button><br>
 	submit버튼:<input type="submit" value="전송버튼1">
 	<button type="submit">전송번트2(button태그)</button><br>
 	reset버튼:<input type="reset" value="초기화버튼1">
 	<button type="reset">초기화번트2(button태그)</button><br>
-	이미지버튼	
-	
-
-
+	이미지버튼	:<input type="image"  onclick="alert('버튼클릭3!!')"  src="media/button.png" alt="이미지버튼">
+	<button type="button"  onclick="alert('버튼클릭4!!')" >
+		<img src="media/button.png" alt="이미지버튼">
+	</button>
 </form>	 
  
 </body>
