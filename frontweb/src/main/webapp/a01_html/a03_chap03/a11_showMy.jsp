@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<h1>자소서 등록 결과</h1>
+	<h2>이름:${param.name}</h2>
+	<h2>암호:${param.pwd}</h2>
+	<h2>자소서:${param.intro}</h2>
 </body>
 </html>
