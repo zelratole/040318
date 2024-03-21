@@ -32,19 +32,23 @@
 ex) 위 속성값을 활용하여
 구매할 물건정보(물건명, 가격, 갯수)를 선언하여 입력할 form을 구성해보세요.
  -->
+<!-- 
+form에 포함된 경우 required 옵션을 통해 기본적으로 전송하기 전에 필수 옵션을
+확인할 수 있다. minlength를 지정하면 최소 글자수까지 제한하여 처리할 수 있다.
+ --> 
 <h2>구매정보</h2> 
 <form>
 	물건명:<input type="text" name="pname" placeholder="물건명 입력(10자이내)"
-			size="20" maxlength="10"/><br>
+			size="20" maxlength="10" required/><br>
 	가 격:<input type="text" name="price" placeholder="가격입력(10자이내)"
-			size="20" maxlength="10"/><br>
+			size="20" minlength="3" maxlength="10" required/><br>
 	갯 수:<input type="text" name="cnt" placeholder="갯수입력(5자이내)"
-			size="20" maxlength="5"/><br>
+			size="20" maxlength="5" required/><br>
 	<input type="submit" value="구매"/>
 </form>			
 					
 
-</form> 	 
+ 
  
  
  
