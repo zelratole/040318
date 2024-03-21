@@ -21,6 +21,40 @@
 	비밀번호:<input type="password" name="pwd" size="15" value=""><br>
 	<input type="submit" value="완료">
 </form>
+<!-- 
+위 화면에서 type="submit"를 클릭시, 아래와 같은 주소를 
+생성해준다.
+a05_receive.jsp?id=himan&pwd=7777
+form의 속성과  form 하위 태그에 의해서 영향을 받는다.
+form 속성 action
+하위 태그 name="id", name="pwd"
+화면에서 입력한 값
+이렇게 해서 데이터를 요청하면, server에 있는 jsp 코드는 위 내용을 
+java로 해서해서 출력한다(jsp)
+${param.@@@}
+${param.@@@}
+
+param.id  : id=himan ==> himan
+param.pwd : pwd=7777 ===> 7777
+
+
+
+
+ -->
+<h2>요청값 전달 연습</h2>
+<form action="a06_rev.jsp">
+	등록할 사원명:<input name="empname"/><br>
+	<input type="submit"/>
+</form>
+<!-- 
+a06_rev.jsp?empname=홍길동
+submit 클릭시, 주소창이 위와 같이 만들어 진다.
+
+a06_rev.jsp 파일에서는
+${param.empname}으로 데이터를 받을 수 있다.
+
+
+ -->
 
 
 
