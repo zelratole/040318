@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>로그인폼</h1>
+<form action="0321_1.jsp">
+  <label for="username">사용자명:</label>
+  <input type="text" id="username" name="username" placeholder="사용자명 입력" required><br>
+  <label for="password">비밀번호:</label>
+  <input type="password" id="password" name="password" placeholder="비밀번호 입력" required><br>
+  <input type="submit" value="로그인">
+</form>
+<h1>사용자 피드백</h1>
+<form action="0321_2.jsp">
+  <label for="name">이름:</label>
+  <input type="text" id="name" name="name" required><br>
+  <label for="email">이메일:</label>
+  <input type="email" id="email" name="email" required><br>
+  <label for="message">피드백 메시지:</label>
+  <textarea id="message" name="message" rows="4" cols="50" required></textarea><br>
+  <input type="submit" value="제출">
+</form>
+<h1>음식 주문</h1>
+<form action="0321_3.jsp">
+  <p>음식 선택:</p>
+  <input type="checkbox" id="pizza" name="food" value="피자">
+  <label for="pizza">피자</label><br>
+  <input type="checkbox" id="pasta" name="food" value="파스타">
+  <label for="pasta">파스타</label><br>
+  <input type="checkbox" id="salad" name="food" value="샐러드" checked>
+  <label for="salad">샐러드</label><br>
+  <label for="drink">선호하는 음료:</label>
+  <input list="drinks" id="drink" name="drink">
+  <datalist id="drinks">
+    <option value="콜라">
+    <option value="사이다">
+    <option value="물">
+  </datalist><br>
+  <input type="submit" value="주문하기">
+</form>
+
+<h1>회원 가입 </h1>
+
+<form action="0321_4.jsp">
+  <label for="name">이름:</label>
+  <input type="text" id="name" name="name" required><br>
+  <label for="email">이메일:</label>
+  <input type="email" id="email" name="email" required><br>
+  <label for="password">비밀번호:</label>
+  <input type="password" id="password" name="password" required><br>
+  <label for="gender">성별:</label>
+  <input type="radio" id="male" name="gender" value="남성">
+  <label for="male">남성</label>
+  <input type="radio" id="female" name="gender" value="여성">
+  <label for="female">여성</label><br>
+  <label for="country">국가:</label>
+  <input list="countries" id="country" name="country">
+  <datalist id="countries">
+    <option value="한국">
+    <option value="미국">
+    <option value="일본">
+  </datalist><br>
+  <input type="submit" value="가입하기">
+</form>
+<h2>설문조사</h2>
+<form action="0321_5.jsp">
+  <p>연령대:</p>
+  <input type="radio" id="20s" name="age" value="20대">
+  <label for="20s">20대</label><br>
+  <input type="radio" id="30s" name="age" value="30대">
+  <label for="30s">30대</label><br>
+  <input type="radio" id="40s" name="age" value="40대">
+  <label for="40s">40대</label><br>
+
+  <p>선호하는 제품 색상:</p>
+  <input type="radio" id="colorRed" name="color" value="빨간색">
+  <label for="colorRed">빨간색</label><br>
+  <input type="radio" id="colorBlue" name="color" value="파란색">
+  <label for="colorBlue">파란색</label><br>
+  <input type="radio" id="colorGreen" name="color" value="초록색">
+  <label for="colorGreen">초록색</label><br>
+
+  <label for="additionalComments">추가 의견:</label>
+  <textarea id="additionalComments" name="additional_comments" rows="4" cols="50"></textarea><br>
+
+  <input type="submit" value="설문 제출">
+</form>
+  
+  
+</form>
+</body>
+</html>
