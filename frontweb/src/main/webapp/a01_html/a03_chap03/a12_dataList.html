@@ -40,9 +40,37 @@
 ex).가장 좋아하는 음료 선택(커피, 녹차, 탄산수, 주스),
     여행지 선호도 조사 선택(이탈리아, 일본, 뉴질랜드, 캐나다)
     ==> a13_choice.jsp 선택 후, 전송까지..
-    
-
+    <h2>선택된 선호</h2>
+    <h3>가장좋아하는 음료:${param.favorite_drink}</h3>
+    <h3>가장가고싶은 여행지:${param.travel_destination}</h3>
  -->
+ 	<h2>가장 좋아하는!!</h2>
+	<form action="a13_choice.jsp">
+		<!-- 
+		label for="아이디명"
+		<input id="아이디명"
+		 -->
+		<label for="favorite-drink">가장 좋아하는 음료를 선택하거나 입력하세요:</label><br>
+		<input type="text" id="favorite-drink" name="favorite_drink" list="drinks">
+		<datalist id="drinks">
+		  <option value="커피">
+		  <option value="녹차">
+		  <option value="탄산수">
+		  <option value="주스">
+		</datalist><br>
+		<label for="travel-destination">방문하고 싶은 국가를 선택하거나 입력하세요:</label><br>
+		<input type="text" id="travel-destination" name="travel_destination" list="destinations">
+		<datalist id="destinations">
+		  <option value="이탈리아">
+		  <option value="일본">
+		  <option value="뉴질랜드">
+		  <option value="캐나다">
+		</datalist><br>
+		<input type="submit" value="선택"/>
+			
+	
+	
+	</form>	 
 	
 </body>
 </html>
