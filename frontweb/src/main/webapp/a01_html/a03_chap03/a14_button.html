@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 
+# 버튼 처리
+1. form 하위 태그중에 button을 처리하는 여러가지 형식이 있는데,
+	이것은 기능적 의미뿐 아니라 화면에서 이벤트 처리도 하고 있다.
+2. 버튼 처리의 종류
+	1) input type="button|reset|submit|image" value="버튼의 문자열"
+		input의 type으로 지정한 것을 말한다.
+		
+		value : 버튼이 가지고 있는 레이블을 표시할 때 사용된다.
+		src : type이 image인 경우에 이미지의 파일을 지정할 때 사용된다.	
+	2) button type="button|reset|submit">버튼의 문자열</button>
+		# 주의 button 태그의 default type은 submit이다(실수를 많이 함)
+		  그래서, button 기능으로 사용할 때는 type="button"으로 지정
+		  하여야 한다.	
+3. 주요 공통 속성
+	1) id : 버튼을 식별하는 식별자이다. 주로 javascript에서 호출할 때,
+		사용한다.
+	2) type의 속성값
+		reset : form 하위의 값을 초기값으로 설정
+		submit : form 하위의 입력된 값을 key=value형식으로 서버에 전송
+		button : 버튼 모양으로 화면에 표현하여 주로 클릭 이벤트로 처리한다.
+		
+		
+
+ -->
+<h2>여러가지 버튼들!!</h2>
+<form>
+	검색:<input type="text" size="10" value=""><br>
+	<input type="button" value="검색1(기본버튼)"/>
+	<button type="button">검색2(button태그)</button><br>
+	submit버튼:<input type="submit" value="전송버튼1">
+	<button type="submit">전송번트2(button태그)</button><br>
+	reset버튼:<input type="reset" value="초기화버튼1">
+	<button type="reseet">초기화번트2(button태그)</button><br>
+	이미지버튼	
+	
+
+
+</form>	 
+ 
+</body>
+</html>
