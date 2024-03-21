@@ -62,7 +62,31 @@ a10_introMy.html
 이름, 암호(최대4글자), 자소서(다중행)를 작성하여 form형식에 넣고,
 a11_showMy.jsp에 작성완료버튼 클릭시, 출력되게 하세요..
 모든 입력 항목은 반드시 입력하게 처리하세요.
- 
+
+# 개발 순서
+1. 파일만들기
+	a10_introMy.html
+	a11_showMy.jsp
+2. 핵심로직
+	form action="a11_showMy.jsp"	
+		name="name" value="홍길동"
+ 		type="submit" 클릭시,
+ 	==> a11_showMy.jsp?name=홍길동
+3. form화면 만들기(a10_introMy.html)
+	<form action="a11_showMy.jsp">
+		이름:<input name="name" required/><br>
+		암호:<input type="password" name="pwd" required/><br>
+		자소서:<textarea name="intro" cols="10" rows="10 required></textarea><br>
+		<input type="submit" value="등록"/>
+4. 출력화면 만들기(a11_showMy.jsp)
+	<h1>자소서 등록 결과</h1>
+	<h2>이름:${param.name}</h2>
+	<h2>암호:${param.pwd}</h2>
+	<h2>자소서:${param.intro}</h2>
+		
+		 
+ 		
+ 		
  -->
  
  
