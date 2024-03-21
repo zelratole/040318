@@ -16,4 +16,12 @@
 	<h3>선택3:${paramValues.chinaFoods[2]}</h3>
 </body>
 </html>
+<!-- 
+a17_myFavorSong.html 좋아하는 음악 여러 개 리스트 checkbox로 선택하여 전송
+
+a18_choiceMuti.jsp
+	전송된 음악 출력..
+	
+
+ -->
 
