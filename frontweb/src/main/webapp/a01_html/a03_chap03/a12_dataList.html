@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>데이터 목록을 가진 텍스트 입력</title>
+</head>
+<body>
+<!-- 
+# input에 입력할 목록 리스트를 선택적으로 처리할 때
+1. input의 속성으로 list 속성값 지정.
+ 	ex)	<input list="list01">
+2. <datalist id="위input의 list 속성값지정">
+		<option value="데이터1">
+		<option value="데이터2">
+		<option value="데이터3">
+		..
+	ex)
+	<datalist id="list01">
+		<option value="사과">		
+		<option value="바나나">		
+		<option value="딸기">		
+ -->
+	<h3>가보고 싶은 곳</h3>
+	<hr>
+	<form>
+	나라:<input type="text" name="country" list="countries"><br>
+	<datalist id="countries">
+		<option value="가나">
+		<option value="스위스">
+		<option value="브라질">
+	</datalist>
+	보고싶은것:<input type="text" name="see" list="what"><br>
+	<datalist id="what">
+		<option value="산">
+		<option value="바다">
+		<option value="도시">
+	</datalist>
+	</form>
+<!-- 
+ex).가장 좋아하는 음료 선택(커피, 녹차, 탄산수, 주스),
+    여행지 선호도 조사 선택(이탈리아, 일본, 뉴질랜드, 캐나다)
+    ==> a13_choice.jsp 선택 후, 전송까지..
+    
+
+ -->
+	
+</body>
+</html>
