@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 
+# html에서 색상 처리 
+1. html에서 여러 요소객체들에 대한 색상을 처리하는 경우가 많다.
+	기본적으로 색 이름으로 간단하게 적용하는 경우가 많으나, 많은 색상을 표현하기에
+	한계가 있어서 16진수로 3자리로 표기 한다(16*16*16 가지 색상표현)
+2. 이와같이 다양한 색상을 표현하기 위해서 다음과 같이 색상 코드를 지원하고 있ㄷ다.
+	#8000FF
+	8비트 범위(0~255)로 16진수(0~FF)로 표기
+	80 : red 표현
+	00 : green 표현
+	FF : blue 표현
+	그래서 빨간색 성분, 초록색 성분, 파란색 성분이 혼합된 색상을 표현한다.
+3. 기본적인 색상 설정 부분.
+	<h1 style="color:#8000FF">안녕하세요</h1>
+	==> 글자 색상을 #8000FF 표현형태로 표현 처리..
+4. 색이름과 색 코드 
+	brown #A52A2A
+	blueviolet #8A2BE2
+	darkorange #FF8C00
+ -->
+	<h2 style="color:#8000FF">안녕하세요</h2> 
+	<h2 style="background:yellow;color:blue;">안녕하세요</h2> 
+<!-- 
+# 색상 처리 입력 폼
+1. <input type="color">
+	1) 컬러 다이얼로그 출력, 사용자로부터 색선택
+	2) 사용 예 : <input type="color" value="#00FF00">
+ -->
+ 	입력할 색상:<input type="color" value="#00FF00" 
+ 				onchange="document.body.style.background=this.value"/>
+	<!-- 색상을 지정하면 현재 body의 배경색상으로 처리한다. -->
+<!-- 
+ex) 색상코드표를 검색하여 원하는 색상의 코드를 확인하고,
+	테이블로 다음 주 일정을 날짜와 월~일 설정하고, 해당 요일별 배경색상을
+	다르게 출력하세요..
+	25(월)  26(화)  27(수)  28(목)  29(금)   30(토)   31(일)
+ -->
+	<table width="50%" height="100px" align="center" border>
+		<tr><th style="background:#FFD700;">25(월)</th>
+			<th style="background:#FFA07A;">26(화)</th>
+			<th style="background:#98FB98;">27(수)</th>
+			<th style="background:#ADD8E6;">28(목)</th>
+			<th style="background:#F08080;">29(금)</th>
+			<th style="background:#D3D3D3;">30(토)</th>
+			<th style="background:#FFB6C1;">31(일)</th>
+		</tr>	
+	</table> 
+ 
+ 
+</body>
+</html>
