@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 
+# label로 폼 요소의 캡션 만들기
+1. label 요소의 캡션은 사용자 인터페이스의 일부로, 폼 컨트롤(예:입력 필드,
+라디오 버튼, 체크박스 등)에 대한 설명이나 이름을 제공하는 텍스트를 말합니다.
+label요소는 폼 컨트롤과 연결되어 사용자가 해당 텍스트를 클릭함으로써 관련된
+폼 컨트롤을 선택하거나 활성화할 수 있게 해줍니다. 이는 특히 라디오 버튼이나
+체크박스와 같은 작은 타켓 영역을 가진 컨트롤의 접근성과 사용성을 향상시키는데
+유용합니다.
+2. label 요소를 폼 컨트롤에 연결하는 방법은 주로 두가지입니다.
+	1) for속성사용: label의 for속성을 사용해 해당 label이 설명하는 폼
+		컨트롤의 id를 지정합니다. 이 방법은 라벨과 폼 컨트롤이 서로 다른
+		html 요소로 분리되어 있을 때 사용됩니다.
+		
+		<label for="username">사용자 이름:</label>
+		<input type="text" id="username" name="username">
+		
+		여기서 label의 for속성값은 input의 id 속성 값과 일치해야 합니다.
+		사용자가 사용자이름 텍스트를 클릭하면 연결된 input 필드가 활성화
+		됩니다.
+	2) 포함관계 사용 : label 요소 내부에 폼 컨트롤을 직접 배치함으로써
+		자동으로 연결됩니다. 이 방법은 label과 폼 컨트롤이 함께 그룹화되어
+		있을 때 사용됩니다.
+		<label>
+			이메일 주소:<input type="email" name="email">
+		</label>
+		이 경우 이메일 주소 텍스트를 클릭하면 input 필드가 활성화됩니다.
+		
+	label 요소의 사용은 웹 접근성을 향상시키는 중요한 방법 중 하나로, 스크린
+	리더와 같은 보조 기술을 사용하는 사람들이 웹 컨트롤을 더 쉽게 이해하고
+	사용할 수 있게 해줍니다.	
+ -->
+		<label for="username">사용자 이름:</label>
+		<input type="text" id="username" name="username">
+		<br> 
+		<label>
+			이메일 주소:<input type="email" name="email">
+		</label>		
+</body>
+</html>
