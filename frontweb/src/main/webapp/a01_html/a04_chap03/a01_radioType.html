@@ -5,7 +5,7 @@
 <title>라디오 버튼 만들기</title>
 </head>
 <body>
-<!-- 
+	<!-- 
 # type="radio"
 1. 여러개의 중에 단일로 선택할 때, 주로 사용된다.
 2. 기본형식
@@ -16,18 +16,56 @@
 	위와 같이 name이 같은 속성일 경우, 이 중에서
 	하나만 선택되게 처리된다.
  -->
-	<h2>먹고 싶은 하나만 선택</h2> 
+	<h2>먹고 싶은 하나만 선택</h2>
 	<hr>
-	<form action="a02_orderMenu.jsp"> <!--  주문된 메뉴 ${param.china} -->
-		<input type="radio" name="china" value="짜장면">짜장면<br>
-		<img src="media/jajang.png"><br>
-		<input type="radio" name="china" value="짬뽕">짬뽕<br>
-		<img src="media/jjambbong.png"><br>
-		<input type="radio" name="china" value="탕수육">탕수육<br>
-		<img src="media/tangsuyuk.png"><br>
-		<input type="submit" value="주문"/>
+	<form action="a02_orderMenu.jsp">
+		<!--  주문된 메뉴 ${param.china} -->
+		<input type="radio" name="china" value="짜장면">짜장면<br> <img
+			src="media/jajang.png"><br> <input type="radio"
+			name="china" value="짬뽕">짬뽕<br> <img
+			src="media/jjambbong.png"><br> <input type="radio"
+			name="china" value="탕수육">탕수육<br> <img
+			src="media/tangsuyuk.png"><br> <input type="submit"
+			value="주문" />
 	</form>
+	<!-- 
+	ex) 선호도 선택
+		1) 다양한 여행지 중에서 선호하는 여행지를 선택하게 하는 설문조사를 만듭니다. 
+			예를 들어, 파리, 로마, 뉴욕, 도쿄 등이 있습니다. 
+			사용자는 가장 가보고 싶은 곳을 선택
+		2) 사용자가 가장 응원하는 스포츠 팀을 선택할 수 있도록 하는 투표입니다. 
+			예를 들어, 축구, 농구, 야구 등 다양한 스포츠와 관련된 팀을 나열할 수 있습니다.
+			
+
+html
+			
+		
 	
+	 -->
+	<h1>선호 조사</h1>
+	<form action="a03_myFavor.jsp">
+		<!-- 가고 싶은 여행지 선택: ${param.destination} -->
+		<!-- 가장 응원하는 스포츠 선택: ${param.sportTeam} -->
+		<h2>가장 가보고 싶은 여행지는 어디인가요?</h2>
+		<input type="radio" id="paris" name="destination" value="paris">
+		<label for="paris">파리</label><br>
+		<input type="radio" id="rome" name="destination" value="rome"> 
+		<label for="rome">로마</label><br>
+		<input type="radio" id="newYork" name="destination" value="newYork">
+		<label for="newYork">뉴욕</label><br>
+		<input type="radio" id="tokyo" name="destination" value="tokyo"> 
+		<label for="tokyo">도쿄</label><br>
+		<h2>가장 응원하는 스포츠 팀을 선택해주세요.</h2>
+		<input type="radio" id="soccer" name="sportTeam" value="soccer">
+		<label for="soccer">축구</label><br>
+		<input type="radio" id="basketball" name="sportTeam" value="basketball"> 
+		<label for="basketball">농구</label><br>
+		<input type="radio" id="baseball" name="sportTeam" value="baseball">
+		<label for="baseball">야구</label><br>
+		<button type="submit">투표</button>
+	</form>
+
+
 
 </body>
 </html>
