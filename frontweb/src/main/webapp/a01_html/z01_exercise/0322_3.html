@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+   <title>호텔 예약 폼</title>
+</head>
+<body>
+    <form>
+        <label for="roomType">방 타입:</label>
+        <select id="roomType" name="roomType">
+            <option value="single">싱글</option>
+            <option value="double">더블</option>
+            <option value="suite">스위트</option>
+        </select><br>
+
+        <label for="checkin">체크인 날짜:</label>
+        <input type="date" id="checkin" name="checkin" required><br>
+
+        <label for="checkout">체크아웃 날짜:</label>
+        <input type="date" id="checkout" name="checkout" required><br>
+
+        <label for="requests">특별 요청 사항:</label>
+        <textarea id="requests" name="requests"></textarea><br>
+
+        <input type="checkbox" id="agree" name="agree" required>
+        <label for="agree">약관에 동의합니다.</label><br>
+
+        <input type="submit" value="예약하기">
+    </form>
+</body>
+</html>
