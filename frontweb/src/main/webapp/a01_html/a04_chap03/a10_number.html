@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 
+# 스핀버튼과 슬라이드로 편리한 숫자 입력
+1. 숫자형 데이터를 입력할 때, 주로 활용되는 type을 말한다.
+	스핀버튼으로 step까지 설정할 수도 있고,  range type을 이용해서
+	슬라이드로 날짜 데이터를 처리할 수도 있다.
+2. 기본 형식
+	1) type="number"
+		<input type="number" min="0.0" max="10.0" step="0.5">
+		span버튼으로 0.5씩 증가	
+	2) type="range"
+		<input type="range" min="0" max="100" list="temp">
+		<datalist id="temp>
+			<option value="10" label="low">
+			<option value="50" label="medium">
+			<option value="90" label="high">
+		</datalist>
+ -->
+지속시간(0~10):<input type="number" min="0.0" max="10.0" step="0.5"><br>
+온도(0~100):0&deg;
+	<input type="range" min="0" max="100" list="temp">100&deg;
+		<datalist id="temp">
+			<option value="10" label="low">
+			<option value="50" label="medium">
+			<option value="90" label="high">
+		</datalist>
+</body>
+</html>
