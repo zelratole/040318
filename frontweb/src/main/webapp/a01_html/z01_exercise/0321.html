@@ -56,6 +56,11 @@
   <label for="male">남성</label>
   <input type="radio" id="female" name="gender" value="여성">
   <label for="female">여성</label><br>
+  <!-- 
+  type="radio"이고 name속성이 여러 개일 때, 선택을 하나만 할 수 있게
+  처리된다.(단일선택) ==>${param.name명} (단일값)
+  
+   -->
   <label for="country">국가:</label>
   <input list="countries" id="country" name="country">
   <datalist id="countries">
