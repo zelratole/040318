@@ -38,9 +38,64 @@
 				<option >인사</option>
 				<option >재무</option>
 				<option >기획</option>				
-				
-					
-	
  -->
+ 	<form>
+		국적 선택:<br>
+		<select name="country">
+			<option value="us">미국</option>
+			<option value="ca">캐나다</option>
+			<option value="ko" selected>한국</option>
+			<option value="uk">영국</option>
+		</select><br>
+		좋아하는 동물 선택:<br>
+		<select name="animal" size="2" multiple>
+			<option>고양이</option>
+			<option>개</option>
+			<option>토끼</option>
+			<option>이구아나</option>
+		</select><br>
+		<input type="submit" value="선택"/>
+	</form>
+<!-- country=ca&animal=고양이&animal=토끼
+	위와 같이 요청값을 처리했을 때, server에서 value값이 넘어가고 ,
+	multiple시에는 다중의 값이 넘어 가는 것을 확인할 수 있다.
+ex) 
+    사용자가 좋아하는 음식 카테고리를 여러 개 선택할 수 있게 하는 드롭다운 메뉴를 
+	만듭니다. 이를 위해 multiple 속성을 사용합니다.
+    사용자가 영화 장르를 선택할 수 있는 드롭다운을 만들되, size 속성을 사용하여 
+	한 번에 보이는 옵션의 수를 조정합니다.	
+
+
+-->
+<form>
+  <label for="food">좋아하는 음식 카테고리를 선택하세요 (여러 개 선택 가능):</label>
+  <br>
+  <select id="food" name="food" multiple>
+    <option value="korean">한식</option>
+    <option value="chinese">중식</option>
+    <option value="japanese">일식</option>
+    <option value="italian">이탈리안</option>
+  </select>
+  <label for="genre">영화 장르 선택:</label>
+  <br>
+  <select id="genre" name="genre" size="4">
+    <option value="action">액션</option>
+    <option value="romance">로맨스</option>
+    <option value="horror">호러</option>
+    <option value="comedy">코미디</option>
+    <option value="sci-fi">SF</option>
+  </select><br>
+  <button type="submit">제출</button>
+</form>
+
+
+
+
+
+
+
+
+
+ 
 </body>
 </html>
