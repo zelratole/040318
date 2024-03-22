@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>라디오 버튼 만들기</title>
+</head>
+<body>
+<!-- 
+# type="radio"
+1. 여러개의 중에 단일로 선택할 때, 주로 사용된다.
+2. 기본형식
+	input type="radio" name="선택1"
+	input type="radio" name="선택1"
+	input type="radio" name="선택2"
+	input type="radio" name="선택2"
+	위와 같이 name이 같은 속성일 경우, 이 중에서
+	하나만 선택되게 처리된다.
+ -->
+	<h2>먹고 싶은 하나만 선택</h2> 
+	<hr>
+	<form action="a02_orderMenu.jsp"> <!--  주문된 메뉴 ${param.china} -->
+		<input type="radio" name="china" value="짜장면">짜장면<br>
+		<img src="media/jajang.png"><br>
+		<input type="radio" name="china" value="짬뽕">짬뽕<br>
+		<img src="media/jjambbong.png"><br>
+		<input type="radio" name="china" value="탕수육">탕수육<br>
+		<img src="media/tangsuyuk.png"><br>
+		<input type="submit" value="주문"/>
+	</form>
+	
+
+</body>
+</html>
