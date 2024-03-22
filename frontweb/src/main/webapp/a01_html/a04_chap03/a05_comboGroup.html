@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 
+# 그룹별 콤보박스 처리
+1. select는 optgroup이라는 option 그룹으로
+	여러개의 그룹별로 처리하는 옵션을 처리할 수 있다.
+2. 기본 형식
+	select
+		optgroup label="그룹레이블1"
+			option
+			option
+		optgroup label="그룹레이블2"
+			option
+			option
+
+ -->
+<form>
+	<label for="class">학년 및 반 선택:</label><br>
+	<select id="class" name="class">
+		<optgroup label="1학년">
+			<option value="1-1">1학년 1반</option>
+			<option value="1-2">1학년 2반</option>
+			<option value="1-3">1학년 3반</option>
+		</optgroup>
+		<optgroup label="2학년">
+			<option value="2-1">2학년 1반</option>
+			<option value="2-2">2학년 2반</option>
+			<option value="2-3">2학년 3반</option>
+		</optgroup>
+		<optgroup label="3학년">
+			<option value="3-1">3학년 1반</option>
+			<option value="3-2">3학년 2반</option>
+			<option value="3-3">3학년 3반</option>
+		</optgroup>
+		
+	
+	</select>
+	<input type="submit"/>
+
+</form> 
+ 
+
+</body>
+</html>
