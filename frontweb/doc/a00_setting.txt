@@ -77,9 +77,10 @@
       download open jdk 17
       c:\a00_javaexp\jdk-17\bin\
       경로를 복사
-
+		
       win + e
-
+      cmd
+      java -version
    4) eclipse/환경설정
       - web프로젝트만들기
       - tomcat 설정
