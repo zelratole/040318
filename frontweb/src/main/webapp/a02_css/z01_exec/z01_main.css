@@ -1,0 +1,14 @@
+@charset "UTF-8";
+/* ID 선택자 */
+#uniqueElement {
+    background-color: lightblue;
+}
+
+/* 태그 선택자 */
+p {
+    background-color: orange;
+}
+
+body {
+    background-color: #f0f0f0; /* 또는 원하는 색상 */
+}
