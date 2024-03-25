@@ -52,12 +52,13 @@
 		하위에 재정의된 내용을 선언하여 출력해보자.(글자크기, 글자색상 등 활용) 
 	 -->
 	<h1>가족구성원</h1>	 
-	<ul style="font-size:20pt;color:purple;">
-		<li>아버지</li>
-		<li style="color:pink">어머니</li>
+	<ul style="font-size:20pt;color:purple;"><!-- 모두 적용될 공통될 내용 -->
+		<li>아버지</li><!-- 상속에 의해 적용 -->
+		<li style="color:pink">어머니</li><!-- color만 재정의하여 처리됨 -->
 		<li>장녀</li>
 		<li style="font-size:30pt;
 				   background-color:yellow;"	>장남</li>
+		<!-- 재정의와 추가 정의 처리.. -->
 		<li>막내딸</li>
 	</ul>	 
 	 
