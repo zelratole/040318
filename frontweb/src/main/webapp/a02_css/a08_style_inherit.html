@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<style type="text/css">
+/*
+# 스타일 상속
+1. 태그의 계층관계
+	1) 태그는 상위(부모)/하위(자식) 태그로 구성되어 있다.
+		<table>
+			<thead>
+				<tr>
+					<th>
+					<td>
+		위 각각의 태그들은 상호간에 상위/하위 관계에 있다.
+		table 자식 태그로 thead
+		thead 자식 태그로 tr
+		th의 부모 태그는 tr
+		tr의 부모 태그는 thead	
+		th의 상위 태그 :  tr, thead, table
+		thead의 하위 태그 : tr, th, td
+2. 태그는 계층관계에 있을 때, 상위에 선언한 내용은 하위에서 상속되어
+	적용된다. 
+	tr에 style로 font-size:30pt 선언하고 하위에 있는 th, td
+		모두가 font-size:30pt가 된다..
+3. 상위에 선언한 태그의 속성을 변경하여 하위에 선언하면, 하위 태그에서
+	선언한 내용이 적용된다. 위와같이 tr에 font-size:30pt 선언되었을
+	지라도 th에 font-size:45pt th는 45pt가 된다.		
+*/
+	
+	</style>
+
+</head>
+<body>
+	<table border width="30%" style="color:green;">
+		<tr>
+			<th>번호</th><th>이름</th><th>점수</th>
+		</tr>
+		<tr  style="font-size:30pt">
+			<!-- 상속에 의해 하위 td에 있는 내용에 적용 -->
+			<td>1</td><td style="font-size:20pt">홍길동</td><td>80</td>
+			<!-- 상속을 하지만 상위에 적용된 내용을 재정의하면 재정의된
+				내용으로 적용이 된다. -->
+		</tr>	
+		<tr>
+			<td>2</th><th style="color:blue;">신길동</th><th>90</th>
+		</tr>	
+	</table>
+	<!-- 
+	ex) 위 상속개념에 의거하여 ul/li 내용도 상위(ul)에서 공통된 내용,
+		하위에 재정의된 내용을 선언하여 출력해보자.(글자크기, 글자색상 등 활용) 
+	 -->
+	 
+	
+	
+
+</body>
+</html>
