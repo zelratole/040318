@@ -10,6 +10,13 @@
 1. 콤보박스 형태인 select 태그는 드롭다운 리스트 형식으로 목록 중 하나를 
 	선택할 때, 주로 사용된다.
 2. 기본 형식
+	<select name="요청값">
+		<option>선택1</option>
+		<option>선택2</option>
+		<option>선택3</option>
+	</select>
+	==> ${param.요청값}
+		
 	<select name="요소 이름" size="화면에 보일 갯수(default 1개)" 
 		    multiple(다중선택가능) >
 		<option value="값" selected>레이블</option>
@@ -47,6 +54,10 @@
 			<option value="ko" selected>한국</option>
 			<option value="uk">영국</option>
 		</select><br>
+		<!-- 
+		country=ko  ==> 등으로 요청값을 value값에 설정된 값으로 전송한다.
+		
+		 -->
 		좋아하는 동물 선택:<br>
 		<select name="animal" size="2" multiple>
 			<option>고양이</option>
