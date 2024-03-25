@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="${encoding}">
+<title>Insert title here</title>
+	<style type="text/css">
+/*
+# 
+
+*/
+	
+	</style>
+
+</head>
+<body>
+${cursor}
+</body>
+</html>
