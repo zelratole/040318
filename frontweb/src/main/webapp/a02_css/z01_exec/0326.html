@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<style type="text/css">
+/*
+# 
+
+*/
+/*문제 1: 조합 셀렉터 사용 */
+ul a {
+    color: blue;
+}
+/*문제 2: 자식 셀렉터 활용 */
+div > p {
+    color: dodgerblue;
+}
+/*문제 3: 자손 셀렉터 활용 */
+article em {
+    font-style: italic;
+    color: purple;
+}
+/*문제 4: 가상 클래스 :first-letter 활용 */
+p:first-letter {
+    font-size: 36px;
+    color: red;
+}
+/*문제 5: 구조적 가상 클래스 :nth-child() 활용 */
+li:nth-child(odd) {
+    background-color: lightgrey;
+}
+/*문제 6: 가상 클래스와 구조적 가상 클래스 복합 활용 */
+p:first-of-type {
+    background-color: lightblue;
+}
+
+p:first-of-type::first-letter {
+    font-size: 20px;
+    color: navy;
+}
+/*
+과제 1: CSS 복합적 셀렉터의 특징과 한계
+CSS의 복합적 셀렉터는 웹 페이지 내의 요소를 더 구체적으로 선택할 수 있게 해줍니다. 예를 들어, 자식 셀렉터(>)는 바로 아래 계층의 요소를 선택할 때 사용하고, 자손 셀렉터( )는 하위 모든 계층의 요소를 대상으로 합니다. 이러한 셀렉터들은 스타일링을 더 세밀하게 적용할 수 있게 해주지만, 복잡한 CSS 셀렉터는 렌더링 성능에 영향을 줄 수 있으며, 코드의 가독성과 유지보수를 어렵게 만들 수 있는 한계가 있습니다.
+
+과제 2: CSS 가상 클래스의 활용법
+CSS의 가상 클래스는 요소의 특정 상태(예: :hover)나 조건(:nth-child(), :first-letter)에 따라 스타일을 적용할 수 있게 해줍니다. 예를 들어, :hover는 사용자가 마우스를 요소 위에 올렸을 때, :nth-child()는 요소의 순서에 따라 다른 스타일을 적용할 수 있게 해줍니다. 이러한 가상 클래스를 활용하면, 사용자 인터랙션에 반응하는 동적인 웹 페이지를 만들거나, 텍스트의 첫 글자나 특정 순서의 요소에 스페셜 스타일을 적용하는 등, 웹 페이지 디자인의 다양성과 상호작용성을 높일 수 있습니다.
+
+
+*/	
+	</style>
+
+</head>
+<body>
+<h2>문제 1: 조합 셀렉터 사용</h2>
+<ul>
+    <li><a href="#">Link 1</a></li>
+    <li><a href="#">Link 2</a></li>
+</ul>
+
+<h2>문제 2: 자식 셀렉터 활용</h2>
+<div>
+    <p>직계 자식 P 태그입니다.</p>
+    <section>
+        <p>이 P 태그는 직계 자식이 아닙니다.</p>
+    </section>
+</div>
+
+<h2>문제 3: 자손 셀렉터 활용</h2>
+<article>
+    This is an article, and <em>emphasized text</em> is here.
+</article>
+
+<h2>문제 4: 가상 클래스 :first-letter 활용</h2>
+<p>각 문단의 첫 글자에 스타일이 적용됩니다.</p>
+
+<h2>문제 5: 구조적 가상 클래스 :nth-child() 활용</h2>
+<ol>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+</ol>
+
+<h2>문제 6: 가상 클래스와 구조적 가상 클래스 복합 활용</h2>
+<p>첫 번째 문단입니다.</p>
+<p>두 번째 문단입니다.</p>
+</body>
+</html>
