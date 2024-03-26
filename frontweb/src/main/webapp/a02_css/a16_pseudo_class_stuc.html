@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<style type="text/css">
+/*
+# 
+	4) 블럭
+		:first-letter : p, div 등과 같은 블록형 태그의 첫 글자에 스타일 적용
+			:first-letter와 동일하면 span과 같은 인라인 태그에는 적용 않됨
+		:first-line :  p, div 등과 같은 블록형 태그의 첫 라인에 스타일 적용
+			:first-line과 동일 
+	5) 구조
+		:nth-child(even) : 짝수번째 모든 자식 태그의 스타일 적용
+		:nth-child(odd) : 홀수번째 모든 자식 태그의 스타일 적용
+		:nth-child(3n+1) : 3개씩단위로 설정할 때, 첫번째
+		:nth-child(3n+2) : 3개씩단위로 설정할 때, 두번째 
+		:nth-child(3n) : 
+		:nth-child(1) : 첫번째 자식 태그의 스타일 적용
+		:nth-child(5) : 다섯번째 자식 태그의 스타일 적용
+*/
+		h2:first-letter{color:red;font-size:30pt;}
+		p:first-line{color:blue;background:orange;}
+		td{text-align:center;}
+		tr:nth-child(1){background:navy;color:yellow;}
+		/*tr의 첫번째값 배경색상과 글자 색상 지정*/
+		tr:nth-child(even){background:#fff8cb;}
+		/*tr의 짝수번째 배경색성 설정 - 반복 처리*/
+		td:nth-child(2){color:green;}
+		/*모든 td의 2번째 글자 색상을 green
+		  주의 부모로 부터 반복될 내용을 지정하는 것..
+		  td의 부모인 모든 tr의 2번째 td를 글자색상을 지정 처리..
+		*/
+	</style>
+
+</head>
+<body>
+	<table width="70%" align="center" border>
+		<tr><th>no</th><th>물건명</th><th>가격</th><th>갯수</th></tr>
+		<tr><td>1</td><td>사과</td><td>3000</td><td>3</td></tr>
+		<tr><td>1</td><td>사과</td><td>3000</td><td>3</td></tr>
+		<tr><td>1</td><td>사과</td><td>3000</td><td>3</td></tr>
+		<tr><td>1</td><td>사과</td><td>3000</td><td>3</td></tr>
+		<tr><td>1</td><td>사과</td><td>3000</td><td>3</td></tr>
+		<tr><td>1</td><td>사과</td><td>3000</td><td>3</td></tr>
+		<tr><td>1</td><td>사과</td><td>3000</td><td>3</td></tr>
+		<tr><td>1</td><td>사과</td><td>3000</td><td>3</td></tr>
+	
+	</table>
+	<h2>Javascript</h2>
+	<p>Ecma International의 프로토타입 기반의 프로그래밍 언어로, 스크립트 언어에 해당된다. 특수한 목적이 아닌 이상 모든 웹 브라우저에 인터프리터가 내장되어 있다. 오늘날 HTML, CSS와 함께 웹을 구성하는 요소 중 하나다. HTML이 웹 페이지의 기본 구조를 담당하고, CSS가 디자인을 담당한다면 JavaScript는 클라이언트 단에서 웹 페이지가 동작하는 것을 담당한다.[1] 웹 페이지를 자동차에 비유하자면, HTML은 자동차의 뼈대, CSS는 자동차의 외관, JavaScript는 자동차의 동력원인 엔진이라고 볼 수 있다.
+	</p>
+	<h2>spring</h2>
+	<p>'스프링'이라는 이름의 유래는 이전에 Java EE(엔터프라이즈 에디션)의 스펙을 구현한 EJB가 기술의 복잡도가 증가해서 성능이 느렸던 것을 탈피하여, EJB 시절을 "겨울"에 빗대어 겨울 후의 "봄"으로 새로운 시작한다는 것을 의미하는 스프링(봄)이 되었다. 그러나 아직 춥다 Java Virtual Machine에서 작동하며, 아파치 라이선스 2.0을 따르는 오픈 소스 프레임워크이다.</p>
+	<h2>데이터베이스</h2>
+	<p>데이터베이스는 전자적으로 저장되고 체계적인 데이터 모음입니다. 여기에는 단어, 숫자, 이미지, 비디오 및 파일을 포함한 모든 유형의 데이터가 포함될 수 있습니다. DBMS (데이터베이스 관리 시스템) 라는 소프트웨어를 사용하여 데이터를 저장, 검색 및 편집할 수 있습니다.</p>
+	
+</body>
+</html>
