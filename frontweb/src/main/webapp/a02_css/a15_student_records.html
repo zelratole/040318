@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<style type="text/css">
+/*
+# 
+
+*/
+		/*
+		ex) 학생 성적 등록 form을 만들어, 성적이 등록되는 
+			번호 		이름    국어   영어   수학
+			1		[  ]   [  ]  [  ]  [  ]
+			2		[  ]   [  ]  [  ]  [  ]
+			3		[  ]   [  ]  [  ]  [  ]
+			==> 국어,영어, 수학이 입력되는 곳 포커스 되었을 때,
+			배경색상과 글자색상, 글자크기가 변경되게 처리하세요..
+		*/	
+		[type=number]{width:40px;}
+		[type=number]:focus{background:yellow;color:green;
+							font-size:15pt;}
+		tr *{text-align:center;}			
+		/*tr하위 계층 상관없이 모든 요소객체들의 정렬은 중앙정렬 처리.*/		
+							
+	</style>
+
+</head>
+<body>
+	<h2>성적등록</h2>
+	<table border>
+		<tr>
+			<th>번호</th><th>이름</th><th>국어</th>
+			<th>영어</th><th>수학</th>
+		</tr>
+		<tr><td>1</td>
+			<td><input size="4"/></td>
+			<td><input type="number" size="2"/></td>
+			<td><input type="number" size="2"/></td>
+			<td><input type="number" size="2"/></td>
+		</tr>
+		<tr><td>2</td>
+			<td><input size="4"/></td>
+			<td><input type="number" size="2"/></td>
+			<td><input type="number" size="2"/></td>
+			<td><input type="number" size="2"/></td>
+		</tr>
+		<tr><td>3</td>
+			<td><input size="4"/></td>
+			<td><input type="number" size="2"/></td>
+			<td><input type="number" size="2"/></td>
+			<td><input type="number" size="2"/></td>
+		</tr>
+		<tr><td>4</td>
+			<td><input size="4"/></td>
+			<td><input type="number" size="2"/></td>
+			<td><input type="number" size="2"/></td>
+			<td><input type="number" size="2"/></td>
+		</tr>
+		<tr><td>5</td>
+			<td><input size="4"/></td>
+			<td><input type="number" size="2"/></td>
+			<td><input type="number" size="2"/></td>
+			<td><input type="number" size="2"/></td>
+		</tr>								
+	</table>
+</body>
+</html>
