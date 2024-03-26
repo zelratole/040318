@@ -13,13 +13,26 @@
 		h4.cls01{background:yellow;} 
 		/* 선택자가 h4이고 속성 class="cls01" 두가지 선택자 내용이 
 		다 맞을 때, 배경색상을 yellow로 처리..*/
+		/*
+		ex) 하단에 있는 태그와 추가 태그를 사용하여
+		1. 두가지 이상 선택자로 같은 속성,속성값 선언
+		2. 선택자속성값 형태의 선택자를 통해 속성 속성값을 선언
+		*/
+		h1, h3, h5, .alg01{text-align:center;}
+		/*h1, h3, h5, 클래스 속성값이 alg01 인 것은 중앙 정렬처리.*/
+		h3#ck01{color:green;}
+		/*태그명 h3이고 속성 id가 ck01인 속성값을 가진 선택자*/
+		h5.cls01{background:orange;}
+		/*태그명 h5이고 속성 class가 cls01인 속성값을 가진 선택자*/
 	</style>
 
 </head>
 <body>
 	<h1 class="cls01">안녕하세요1</h1>
-	<h2>안녕하세요2</h2>
-	<h3>안녕하세요3</h3>
+	<h2 class="alg01">안녕하세요2</h2>
+	<h3 >안녕하세요3</h3>
+	<h3 id="ck01">안녕하세요3</h3>
+	<h3 >안녕하세요3</h3>
 	<h4 class="cls01">안녕하세요4</h4>
 	<h5 class="cls01">안녕하세요5</h5>
 	
