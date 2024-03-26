@@ -24,16 +24,30 @@
 		ex) .cls01 p{background-color:yellow}
 		상위계층에 클래스로 cls01이라고 선언된 하위계층에 p태그는
 		배경색상을 노랑색으로 처리한다.
-			
-			
-			
-
 */
-	
+		.warning{ color:red }/*클래스로 선언된 경우*/
+		#list{background:mistyrose}/*아이디로 선언된 경우*/
+		h3, li{color:brown;}/*2개이상의 선택자를 한번에 선언하는 경우*/
+		body.main{background:aliceblue;}
+			/* 선택자.클랙스 : 특정선택자가 속성으로 클래스가 선언된 경우*/	
 	</style>
-
 </head>
-<body>
+<body class="main">
+	<h2>웹 프로그래밍</h2>
+	<hr>
+	<div>
+		<div>1학기 <strong>학습 내용</strong>입니다</div>
+		<ul id="list">
+			<li><span>HTML5</span></li>
+			<li><strong>CSS3</strong></li>
+			<li>javascript</li>
+		</ul>
+		<div class="warning">60점 이하는 F</div>
+	
+	</div>
+
+
+
 
 </body>
 </html>
