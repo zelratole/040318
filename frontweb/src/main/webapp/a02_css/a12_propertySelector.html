@@ -33,15 +33,24 @@ ex) table *{color:blue}  : 태그블의 모든 하위 태그에 적용할 글자
 			위 형태로 글자색상으로 파랑색으로 하세요*/	
 		input[id=ck01]{color:blue;}	
 		#ck01{background:orange;}
+		input[value=값1]{color:red;}	
+		[id]{font-size:25pt}
+		/*[속성] : 속성이 있기만 한 경우*/
+		[name=name01]{border:1px solid red}
+		/*[속성=속성값]* : 속성=속성값이 있는 경우 설정*/
+		*{color:purple;}
+		/* 전체 글자색상 지정 : *  - 전체 지정..*/
 	</style>
 
 </head>
 <body>
+	<h2>안녕하세요</h2>
+	<h4>반갑습니다.</h4>
 	<input type="text" value="값1"><br>
 	<input type="text" id="ck01" value="값2"><br>
 	<input type="password" class="cls01" value="값3"><br>
 	<input type="text" class="cls02" value="값4"><br>
-	<input  value="값5"><br>
+	<input  value="값5" name="name01"><br>
 	<input type="text"><br>
 
 </body>
