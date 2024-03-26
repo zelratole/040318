@@ -28,17 +28,31 @@
 		<h1 class="cls01" ==> h1.cls01{속성:속성값} 	
 		<h2 id="id01" ==> h2#id01{속성:속성값}
 		<h3 class="cls01"
-			
+		<tr id="tr01" class="cls02" ==> #tr01.cls02{속성:속성값}
 */
 		.warning{ color:red }/*클래스로 선언된 경우*/
 		#list{background:mistyrose}/*아이디로 선언된 경우*/
 		h3, li{color:brown;}/*2개이상의 선택자를 한번에 선언하는 경우*/
 		body.main{background:aliceblue;}
-			/* 선택자.클랙스 : 특정선택자가 속성으로 클래스가 선언된 경우*/	
+		/* 선택자.클랙스 : 특정선택자가 속성으로 클래스가 선언된 경우*/
+		/*
+		ex) 아래 코드를 기준으로 
+		1. 2가지 이상 선택자를 동일한 속성으로 처리해보세요
+		2. 선택자속성선택자를 조합으로 속성을 처리해보세요.
+		*/	
+		span, strong{font-size:20pt;}
+		h3.cls01{border:1px solid blue;}
+		/* 테두리의 굵기는 1px 한라인으로 테두리색상을 파랑색..
+		h3이고 class 속성값이 cls01일 때
+		*/
+		h3#id01{color:red;}/* 태그가 h3이고 속성으로 id속성값이 id01일 때*/
 	</style>
 </head>
 <body class="main">
-	<h2>웹 프로그래밍</h2>
+	<h2>웹 프로그래밍1</h2>
+	<h3 class="cls01">웹 프로그래밍2</h3>
+	<h3 id="id01">웹 프로그래밍3</h3>
+	<h4 class="cls01">웹 프로그래밍4</h4>
 	<hr>
 	<div>
 		<div>1학기 <strong>학습 내용</strong>입니다</div>
