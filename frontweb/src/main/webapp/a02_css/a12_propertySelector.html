@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<style type="text/css">
+/*
+# 속성 선택자
+1. 태그는 속성과 속성값을 가진 경우가 많다.
+2. 특정한 태그에 속성과 속성값이 설정되어 있는 경우에 css 속성/속성값으로 적용할 때,
+	사용하는 경우를 말한다.
+3. 기본 형식
+	선택자[태그의속성=태그의속성값]{css속성:css속성값}
+		특정한 선택자 안에 속성과 속성값이 있을 때	
+	[태그의속성]{css속성:css속성값}	
+		태그나 선택자 상관없이 속성만 있을 때
+	[태그의속성=태그의속성값]{css속성:css속성값}
+		태그나 선택자 상광없이 속성과 속성값이 있을 때.	
+# 전체 선택자
+1. 전체 선택자는 일반적을 *를 사용하는데, 그냥 *를 쓰면 화면 전체를 나타내고,
+2. 특정한 태그 하위의 * 경우는  선택자 *로 형식으로 표현한다.
+3. 그외에 여러개의 계증구조나 부모자식관계 선언 후 *로 표현하는 경우도 있다.
+ex) table *{color:blue}  : 태그블의 모든 하위 태그에 적용할 글자색상은 파랑색
+	div>*{background:green} : div의 바로 밑 태그에 대하여 배경색상을 green
+
+
+*/
+			
+		input[type=text]{background:yellow;}
+		/*input이라는 태그의 속성이 type이고 속성값이 text일 때,
+			배경색상을 노랑색으로 처리*/	
+		/* ex) 아래 내용 중에 input태그이고 id속성이 ck01인 경우,
+			위 형태로 글자색상으로 파랑색으로 하세요*/	
+		input[id=ck01]{color:blue;}	
+		#ck01{background:orange;}
+	</style>
+
+</head>
+<body>
+	<input type="text" value="값1"><br>
+	<input type="text" id="ck01" value="값2"><br>
+	<input type="password" class="cls01" value="값3"><br>
+	<input type="text" class="cls02" value="값4"><br>
+	<input  value="값5"><br>
+	<input type="text"><br>
+
+</body>
+</html>
