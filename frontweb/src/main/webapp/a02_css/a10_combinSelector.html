@@ -81,9 +81,31 @@
 		h3이고 class 속성값이 cls01일 때
 		*/
 		h3#id01{color:red;}/* 태그가 h3이고 속성으로 id속성값이 id01일 때*/
+		
+		.cls01>th{text-align:center;background:pink;}
+		tbody td{color:blue;}
 	</style>
 </head>
 <body class="main">
+		<h2>계층형 선택자!!</h2>
+		<table border width="50%">
+			<thead>
+				<tr class="cls01">
+					<th>부모>자식</th>
+					<td>안녕하세요</td>
+				</tr>
+			</thead>			
+			<tbody>
+				<tr>
+					<td>조상 자손</td>
+					<td>조상 자손</td>
+				</tr>
+			</tbody>
+		</table>		
+					
+
+
+
 	<h2>웹 프로그래밍1</h2>
 	<h3 class="cls01">웹 프로그래밍2</h3>
 	<h3 id="id01">웹 프로그래밍3</h3>
