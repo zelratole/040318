@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<style type="text/css">
+/*
+# 텍스트를 꾸미는 css3 스타일 시트
+1. text-indent:길이 또는 %표현
+	텍스트의 들여쓰기에 대한 설정을 할 때, 사용한다.
+2. text-align: left|right|center|justify
+	텍스트의 정렬처리시 사용한다.
+3. text-decoration: none|underline|overline|line-through
+	텍스트 꾸미기 옵션으로 하단에 줄표시, 상단에 줄표시, 사선표시, 
+	꾸미기 옵션 삭제(a href 경우 기본적으로 하단 언더라인이 들어가 있다. 
+		이건경우 없일 때, none옵션을 사용한다.)		
+	ex) <a href="http://www.naver.com" style="text-decoration:none;">
+			네이버</a>
+*/
+		h3{text-align:center;}
+		span{text-decoration:line-through;}/* 중간 줄 사선*/
+		strong{text-decoration:overline;} 
+		.p1{ text-indent:3em; text-align:justify; }
+		/* em:상대적 크기설정, justify : 양쪽 정렬*/
+		.p2{ text-indent:1em;text-align:center;} 
+		/* 1글자 들여쓰기, 중앙 정렬*/
+	</style>
+</head>
+<body>
+	<h3>텍스트 꾸미기</h3>
+	<p class="p1">HTML의 태그만으로 기존의 워드 프로세스와 같이
+		들여쓰기, 정렬, 공백, 간격 등과 세밀한 <span>텍스트 제어</span>
+		를 할 수 있다.	
+	</p>
+	<p class="p2">그러나, <strong>스타일 시트</strong>는 이를
+		가능하게 한다. 들여쓰기, 정렬에 대해서 알아본다.</p>
+	<a href="http://www.naver.com" 
+		style="text-decoration:none;">밑줄이 없는 네이버 링크</a>
+	<!--
+	ex) 
+	h1~h3(과일명)까지 선언하고,
+	h1 ==> 중앙정렬 언더라인 처리
+	h2 ==> 오른쪽정렬 오버라인 처리
+	h3 ==> 들어쓰기 1em  사선 처리
+	 -->
+	<h1 style="text-align:center;text-decoration:underline;">사과</h1>	 	
+	<h2 style="text-align:right;text-decoration:overline;">바나나</h2>	 	
+	<h3 style="text-align:left;
+		text-indent:1em;text-decoration:line-through;">딸기</h3>	 	
+		
+</body>
+</html>
