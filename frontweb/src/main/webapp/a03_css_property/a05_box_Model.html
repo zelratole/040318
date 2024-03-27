@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<style type="text/css">
+/*
+# css3의 박스 모델
+1. html 태그는 사각형 박스로 다루어진다.
+	1) 각 html 태그 요소를 하나의 박스로 다룸
+	2) 박스 크기, 배경색, 여백, 옆 박스와의 거리 등 제어 가능
+2. div의 박스 모델
+	1) content < padding < border < margin
+# 박스모델의 구성
+1. 컨텐츠(content)
+	html 태그의 텍스트나 이미지가 출력되는 부분
+	보통 해당 요소객체의 크기를 지정할 때 주로 사용된다. 
+	width, height : 크기 지정
+2. 패딩(padding)
+	컨텐츠를 직접 둘러싸고 있는 내부 여백 크기
+	기본 옵션으로 전체(상하좌우) 여백 설정 : padding
+	각 방향별로 옵션 설정 가능
+		padding-top,padding-bottom,padding-left,padding-right
+		포함된 글자/이미지/내용태그와 border와의 사이 간격
+	색상옵션 없음
+3. 테두리(border)
+	패딩 외부에 테두리로서, 직선이나 점선 혹은 이미지로 테두리를 그릴 수 있음
+	1) border:굵기 종류 색상  :한번에 전체 4가지 방향 모두 옵션 설정
+	2) border-top:굵기 종류 색상(위)
+	   border-bottom:굵기 종류 색상(아래)	
+	   border-left:굵기 종류 색상(왼쪽)
+	   border-right:굵기 종류 색상(오른쪽)
+	3) 위내용에서 전체 옵션, 각방향별 굵기
+	   border-width : 전체 방향에 굵기 설정.
+	   border-top-width,border-bottom-width,
+	   border-left-width,border-right-width,
+	4) 위내용에서 전체 옵션, 각방향별 종류
+	   border-style
+	   border-top-style, ....
+	5) 위내용에서 전체 옵션, 각방향별 색상옵션.
+	   border-color
+	   border-top-color, ....    
+4. 여백(margin)
+	박스의 맨 바깥 영역이며 테두리 바깥의 공간으로 인접한 아래/위 이웃 
+	태그의 박스와의 거리
+	
+*/
+		div{
+			background:yellow;
+			width:100px;height:100px;
+			padding:30px;
+			border:2px solid green; 
+		}
+		div.cls1{
+			background:red;
+			padding-top:10px;
+			padding-bottom:20px;
+			padding-left:30px;
+			padding-right:40px;
+			border-top:2px solid blue; 
+			border-bottom:4px solid green; 
+			border-left:5px double yellow; 
+			border-right:7px double orange; 
+		}
+		/*
+		ex) div에 cls2를 추가하고, 각 방향별로 border 옵션을 설정하여
+			출력해보세요..
+			
+		*/
+		div.cls2{
+			background:pink;
+			border-top:1px double blue; 
+			border-bottom:3px solid green; 
+			border-left:5px double yellow; 
+			border-right:9px solid orange; 
+		}		
+	</style>
+</head>
+<body>
+	<div>DIVDIV</div>
+	<div class="cls1">DIVDIVDIVDIVDIV</div>
+	<div class="cls2">안녕하세요<br>(border)</div>
+</body>
+</html>
