@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<style type="text/css">
+/*
+# css에서 색상 표현 
+1. 색상의 표현 방법 3가지
+	1) 16진수 코드로 표현
+		#8A2BE2  형식으로 8A(빨간색 성분 표현 - R), 2B(초록색 성분 표현 - G),
+		E2(파란색 성분 표현 - B)로 이 색성분이 조합되어 보라색을 표현한다.
+	2) 10진수 코드와 RGB()로 표현
+		rgb(138, 43, 226) 138(빨간색 성분 표현 - R), 43(초록색 성분 표현 - G),
+		226(파란색 성분 표현 - B)로 이 10진수 색성분이 조합되어 보라색 색상표현
+	3) 색이름으로 표현
+		css 표준에서는 140개 색의 이름을 정하고 있음(한계..)
+	ex)
+	div{color:#8A2BE2;}
+	div{color:rgb(138,43,226);}
+	div{color:blueviolet;}
+
+# 색관련 css3 프로퍼티들
+1. 주요 내용
+	color : 텍스트 글자색
+	background, background-color : 배경색상
+	border-color : 테두리 색상을 지정할 때 사용
+	ex)
+	div{
+		color:blueviolet;
+		background-color:gold;
+		border-color:#3b8e23
+	}		
+			
+			
+		
+
+*/
+		div{
+			margin:10px;
+			border:1px solid black;
+		}	
+		/* margin : border와 외부 다른 요소와의 간격을 지정
+		   border : 테두리에 대한 속성을 1px(굵기), solid(종류), black(색상)
+		   	을 지정
+		*/
+	</style>
+</head>
+<body>
+	<h2>CSS3 색 활용</h2>
+	<hr>
+	<div style="background-color:deepskyblue;">deepskyblue(#00bff)</div>
+	<div style="background-color:brown;">brown(#a52a2a)</div>
+	<div style="background-color:fuchsia;">fuchsia(#ff00ff)</div>
+	<div style="background-color:darkorange;">darkorange(#ff8c00)</div>
+	<div style="background-color:#008b8b;">darkcyan(#008b8b)</div>
+	<div style="background-color:#6b8e23;">olivedrab(#6b8e23)</div>
+</body>
+</html>
