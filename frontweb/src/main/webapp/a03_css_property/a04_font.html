@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<style type="text/css">
+/*
+# css3의 폰트와 모양
+1. css3에서는 여러가지 폰트가 해당 로컬 pc와 브라우저 기준으로 처리할 수 있다.
+	https://www.codingfactory.net/10551
+2. 포트형 특징
+	Serif형 : 영문기준으로 끝에 폰트가 각진 모양이 표현되는 것을 말한다.
+	Monospace형 : 글자폭이 동일하게 처리된 경우
+3. 그외 한글의 경우 font-family로 궁서체, 고딕체, 맑은 고딕 등
+	운영체제에서 지원하는 유형을 내용을 선언하여 사용하거나, 해당 글자체를
+	다운받아서 사용하는 경우도 많다.
+# 폰트 제어 css3 프로퍼티
+1. 폰트 패밀리(font-family)
+	font-family: Arial, "Times New Roman", Serif;
+	위와 같이 나열된 경우 해당 pc내에서 지원되는 글자체가 있는 경우와
+	없는 경우를 대비해서 우선순위로 적용을 순차적으로 선언한다.
+	Arial부터 적용하여 글자체가 없으면 Times New Roman을 적용하고,
+	그것도 없으면 Serif로 적용 처리하는 것을 말한다.
+2. 폰트 크기(font-size)
+	font-size:40px  - 40픽셀 크기
+	font-size:medium - 중간 크기, 크기는 브라우저마다 다름
+	font-size:1.6em - 현재 폰트의 1.6배 크기
+3. 폰트 스타일(font-style)
+	font-style:italic - 이탤릭 스타일로 기울 글씨체이다.
+4. 폰트 굵기(font-weight)
+	font-weight:300;  - 100~900의 범위에서 300정도 굵기
+	font-weight:bold;  - 굴게 700크기
+
+# 단축 프로퍼티
+1. 위에서 선언한 font관련 내용을 모두다 한꺼번에 적용도 가능하다.
+	font-style, font-weight, font-size, font-family를 순서대로
+	지정하는 단축 프로퍼티
+	font:font-style font-weight font-size font-family
+	ex) 20픽셀로 이탤릭 스타일에 bold 굵기로 consolas 체
+	font : italic bold 20px consolea, sans-serif;
+	font : 20px consolas, sans-serif
+	-- font-size, font-family외 생략 가능
+*/
+		body{font-family:"Times New Roman", Serif;
+			 font-size:large;}
+		h3{ font: italic bold 40px consolas, sans-serif;}	
+		h4{ font: italic bold 40px 궁서체, sans-serif;}	
+		 	
+	</style>
+</head>
+<body>
+	<h2>Consolas font</h2>
+	<h4>안녕하세요</h4>
+	<hr>
+	<p style="font-weight:900">font-weight:900</p>	
+	<p style="font-weight:100">font-weight:100</p>	
+	<p style="font-style:italic">italic style</p>	
+	<p style="font-style:olique">olique style</p>	
+	<p >
+		현재 크기의 <span style="font-size:1.5em;">1.5배</span>
+		크기로
+	</p>	
+	<!-- ex) 한글 관련 font-family를 검색하여 3개 정도
+		h1, h2, h3를 적용하여 굵기까지 설정해 보세요. -->
+	<h1 style="font-family:굴림체;font-weight:200">굴림체</h1>	
+	<h1 style="font-family:궁서체;font-weight:500">궁서체</h1>	
+	<h1 style="font-family:명조체;font-weight:900">명조체</h1>	
+		
+</body>
+</html>
