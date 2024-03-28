@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<style type="text/css">
+/*
+# 텍스트 그림자(text-shadow)
+1. text-shadow 프로퍼티
+	텍스트에서 해당 그림자가 있으면, 타이틀이나 이모티콘 등을 처리할 때 효과적이다.
+	보통 웹디자인이 되어 이미지를 이용해서 아이콘과 링크이미지를 만드는 경우가 있는데,
+	앞에서 배운 border-style과 text-shadow를 적용하면 이미지에 가까운 디자인으로
+	효과적으로 텍스트를 표현할 수 있다.
+	1) 형식
+		text-shadow:h-shadow v-shadow blur-radius color|none
+	2) 속성값 내용
+		h-shadow : 오른쪽 수평 shadow(그림자)를 만드는  것으로 기본 
+			text에서 오른쪽으로 얼마나 이동되어 표현하는지 나타낸다.
+		v-shadow : 아래쪽 수평 그림자를 만드는 것으로 기본 text에서 아래쪽으로
+			얼마나 이동되어 표현하는지를 나타낸다.	
+		blur-radius : 흐릿한 그림자를 만드는 효과로 흐릿하게 번지는 정도/길이를
+			설정한다.
+		color|none : 해당 그림자의 색상을 지정하거나 지정하지 않을 때 설정한다.
+*/
+		div.red{ text-shadow:3px 3px red;}
+		div.blur{ text-shadow:3px 3px 3px blue;}
+		/*ex) h1~h3를 설정하여 퍼짐정도를 다르게, 색상을 다르게 설정하여
+			출력하세요..*/
+		h1{ text-shadow:2px 2px 2px orange;}	
+		h2{ text-shadow:3px 4px 3px pink;}	
+		h3{ text-shadow:5px 2px 4px green;}	
+	</style>
+
+</head>
+<body>
+	<h1>안녕하세요!!^^</h1>
+	<h2>안녕하세요!!^^</h2>
+	<h3>안녕하세요!!^^</h3>
+	<div class="red"> Drop Shadow </div>
+	<div class="blur"> Drop Shadow </div>
+</body>
+</html>
