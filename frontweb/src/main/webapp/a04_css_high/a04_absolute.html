@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<style type="text/css">
+/*
+# 절대위치 지정
+1. 기준점을 전체 화면
+	왼쪽 상단(top/left)의 꼭지점 기준
+	오른쪽 하단(bottom/right)의 꼭지점 기준
+	해서 top, left, bottom, right의 설정값으로
+	기준해서 처리하는 것을 말한다. 
+2. 기본 형식
+	position:절대위치;
+	top:@@;left:@@;bottom:@@;right:@@;
+	position:absolute;
+	top:10px;left:10px;
+*/
+		div{
+			background:green;
+			width:100px;height:100px;
+			position:absolute;
+		}	
+		div#div01{
+			top:50px;left:50px;
+		}	
+		div#div02{
+			top:50px;right:50px;
+		}	
+		div#div03{
+			bottom:50px;left:50px;
+		}	
+		div#div04{
+			bottom:50px;right:50px;
+		}	
+	</style>
+</head>
+<body>
+	<div id="div01">#div01</div>
+	<div id="div02">#div02</div>
+	<div id="div03">#div03</div>
+	<div id="div04">#div03</div>
+</body>
+</html>
