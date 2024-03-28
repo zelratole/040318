@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<style type="text/css">
+/*
+# 하단화면으로 스크롤이 되더라도 특정한 위치에 고정되는 fixed
+1. 기본 설정
+	position:fixed;
+	left:@@;
+	top:@@;
+*/
+		div{
+			width:40%;
+			height:100px;
+			background:pink;
+			border:1px solid red;
+		}	
+		div#fixed{
+			position:fixed;
+			top:10px;right:10px;
+			background:yellow;
+		}
+		/*
+		ex) a06_fixedExp.html
+		공지사항 타이틀과 테이블(50x4)형태의 게시판 리스트를 만들고
+		중앙에 긴급공지사항이라고 해서 div로 메시지가 로딩되어
+		게시판 리스트가 스크롤될더다로 볼 수 있게 처리..
+		
+		
+		
+		*/
+		
+	</style>
+
+</head>
+<body>
+	<div id="fixed">
+		안녕하세요!(고정)
+	</div>
+	<div>div01</div>
+	<div>div02</div>
+	<div>div03</div>
+	<div>div03</div>
+	<div>div04</div>
+	<div>div05</div>
+	<div>div01</div>
+	<div>div02</div>
+	<div>div03</div>
+	<div>div03</div>
+	<div>div04</div>
+	<div>div05</div>
+	<div>div01</div>
+	<div>div02</div>
+	<div>div03</div>
+	<div>div03</div>
+	<div>div04</div>
+	<div>div05</div>
+		
+</body>
+</html>
