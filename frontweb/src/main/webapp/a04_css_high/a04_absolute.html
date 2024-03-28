@@ -33,10 +33,29 @@
 		}	
 		div#div04{
 			bottom:50px;right:50px;
-		}	
+		}
+		/*
+		ex) h1을 5개로 width/hight 설정하고/배경색상을 설정한 후
+			화면 전체 기준으로 아래와 같이 만들어 주세요
+			#
+		 #  #  #
+		    #
+			
+		*/	
+		h1{width:10%;height:10%;background:blue;position:absolute}
+		h1#h01{top:0px;left:45%;}	
+		h1#h02{top:45%;left:0px;}	
+		h1#h03{top:45%;left:45%;}	
+		h1#h04{top:45%;right:0px;}	
+		h1#h05{bottom:0px;left:45%;}	
 	</style>
 </head>
 <body>
+	<h1 id="h01"></h1>
+	<h1 id="h02"></h1>
+	<h1 id="h03"></h1>
+	<h1 id="h04"></h1>
+	<h1 id="h05"></h1>
 	<div id="div01">#div01</div>
 	<div id="div02">#div02</div>
 	<div id="div03">#div03</div>
