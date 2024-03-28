@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<style type="text/css">
+/*
+# 마우스 커서 제어 cursor
+1. cursor 프로퍼티
+	마우스커서는 온라인상 여러 모양으로 여러 용도로 사용될 수 있다.
+	대상 요소 대그에 효과적인 커서를 통해 보다 사용자 시각적 편의성을
+	높이고자 한다.
+2. html 태그 위에 마우스가 올라갈 때 마우스의 커서 모양 지정
+3. 기본형식
+	cursor:속성값
+	지정할 수 있는 속성값(마우스 커서 모양을 나타내는 값):
+		auto, crosshair, pointer, move, copy, help, progress,
+		text, wait, zoom-in, zoom-out, e-resize, ne-resize,
+		nw-resize, n-resize, se-resize, sw-resize, s-resize,
+		w-resize, url 중 하나 지정됨.
+*/
+		td{text-align:center;font-size:25pt;}
+	</style>
+</head>
+<body>
+	<h3>마우스 커서</h3>
+	아래의 마우스를 올려 보세요. 커서가 변합니다.
+	<hr>
+	<p style="cursor:crosshair">십자가 모양 커서</p>
+	<p style="cursor:help">도움말 모양 커서</p>
+	<p style="cursor:pointer">포인트 모양 커서</p>
+	<p style="cursor:progress">프로그램 실행 중 모양 커서</p>
+	<p style="cursor:n-resize">상하 크기 조절 모양 커서</p>
+	<!-- ex) 3X3테이블을 만들고, 해당 셀마다 위에 지정된 커서모양이
+		다르게 처리해서 출력하세요.  -->
+	<h2>커서 테이블</h2>
+	<table width="500px" height="500px" border>
+		<tr>
+			<td style="cursor:move">move</td>
+			<td style="cursor:copy">copy</td>
+			<td style="cursor:text">text</td>
+		</tr>
+		<tr>
+			<td style="cursor:wait">wait</td>
+			<td style="cursor:zoom-in">zoom-in</td>
+			<td style="cursor:zoom-out">zoom-out</td>
+		</tr>
+		<tr>
+			<td style="cursor:n-resize">n-resize</td>
+			<td style="cursor:e-resize">e-resize</td>
+			<td style="cursor:ne-resize">ne-resize</td>
+		</tr>				
+	</table>
+		
+		
+
+
+</body>
+</html>
