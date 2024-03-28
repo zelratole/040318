@@ -5,14 +5,46 @@
 <title>Insert title here</title>
 	<style type="text/css">
 /*
-# 
+# 박스의 배치 :position
+1. normal flow
+	1) 웹 페이지에 나타난 순서대로 html  태그 배치
+	2) position 프로퍼티를 이용하여 noraml flow문시 가능
+2. position 프로퍼티를 이용한 배치 방법
+	1) 정적 배치 - position : static(default)
+	2) 상대 배치 - position : relative
+	3) 절대 배치 - position : absolute
+	4) 고정 배치 - position : fixed
+	5) 유동 배치 - float : left 혹은 float: right
+3. position 프로퍼티를 사용할 때, 태그의 위치와 크기
+	1) top, bottom, left, right, width, height 프로퍼티 지정
+		이들 프로퍼티는 배치방법에 따라 다르게 사용됨
+	 
 
 */
+		div{
+			display:inline-block;
+			height:50px;width:50px;
+			border:1px solid lightgray;
+			text-align:center;
+			color:white;
+			background:red;
+		}
+		.up:hover{
+			position:relative;/*relative는 현재 해당 위치 기준으로*/
+			right:20px;/*왼쪽에서 오른쪽으로 20px 설정*/
+			bottom:20px; /*아래에서 위로 20px설정*/
+		}
 	
 	</style>
 
 </head>
-<body>
+<body><br><br><br>
+	<div>T</div>
+	<div class="up">h</div>
+	<div>a</div>
+	<div class="up">n</div>
+	<div>k</div>
+	<div class="up">s</div>
 
 </body>
 </html>
