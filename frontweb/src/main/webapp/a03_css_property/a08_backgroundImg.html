@@ -12,13 +12,16 @@
 2. 배경 이미지의 위치 지정
 	background-position:center center ==> 박스 중간에 이미지 출력
 3. 배경 이미지 반복 출력		
+	background-repeat이 없을 시 default로 x,y 축 반복 처리.
 	background-repeat:repeat-y ==> y축 즉 아래 위로 이미지 반복출력
+	background-repeat:repeat-x ==> x축 즉 아래 위로 이미지 반복출력
+	background-repeat:no-repeat ==> 반복하지 않음.
 	ps) 이 속성이 없으면 배경이미지는 기본적으로 반복해서 출력이 된다.
 
 */
 		div{
 			background-color:skyblue;
-			background-size:120px 120px;
+			background-size:120px 120px; /*배경 이미지에 대한 크기*/
 			background-image:url('media/spongebob.png');
 			background-repeat:no-repeat; /*반복하지 않게 설정*/
 			background-position:center bottom; 
@@ -26,7 +29,7 @@
 			위아래로 중앙, top bottom center*/
 		}	
 		div{
-			width:200px;
+			width:200px;  /*전체 크기 지정*/
 			height:200px;
 			color:blueviolet;
 			font-size:16px;
