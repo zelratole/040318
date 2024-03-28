@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<style type="text/css">
+/*
+# 배치
+1. css3로 html 태그가 출력되는 위치 지정
+	- html태그는 웹 페이지에 작성된 순서와 달리 배치가 가능
+2. 배치 기능의 css3 프로퍼티들
+	1) display
+	2) position
+	3) left, right, top, bottom
+	4) float
+	5) z-index
+	6) visibility
+	7) overflow
+# 블록 박스와 인라인 박스(display 속성 설정-css에서 설정으로 변경 가능)
+1. html 태그는 인라인 태그와 블록 태그로 나뉨
+	- 인라인 태그는 인라인 박스, 블록 태그는 블록 박스로 출력
+2. 블록 박스와 인라인 박스의 디폴트 출력 모양
+	1) 해당 내용이 나열될 때 줄바꿈 처리 됨 :블록 
+		<태그>
+		<태그>
+		<태그> 줄바꿈
+		각 태그의 width, height 를 지정해서 크기를 설정
+		padding, border, margin 적용
+	2) 해당 내용이 나열될 때 줄바꿈 처리 되지 않고 옆으로 나열 : 인라인
+		<태그><태그><태그><태그> 줄바꿈 처리 안되고.
+		width, height 지정하지 못 함..
+		margin-top, margin-bottom 조절 불가능
+3. 인라인블럭 속성(inline-block)
+	1) css에서 추가된 속성으로 인라인 속성과 블럭 속성을 다 가지고 있는 것을
+		말한다.
+	2) 새 라인에서 시작 못함
+		모든 박스 내 배치 가능
+		옆에 다른 요소 배치 가능
+		width, height 크기 조절 가능
+		padding, border, margin의 조절 가능..
+			
+		<태그><태그><태그><태그><태그> 줄바꿈을 안되지만,
+		width, height 설정이 가능하고,
+		padding, border, margin 적용
+	
+
+*/
+		h1{border:1px solid green;width:300px;height:100px;
+			background:yellow;}	
+		.ch_inline{display:inline;}	
+/* ex1) h2로 5개 선언하고, 중간3개 클래스 ch_inline2로 inline 처리했을 때, 
+        화면 확인
+   ex2) span 5개 선언하고, 중간3개 클래스 ch_inline3로 block 변경
+   		  width/height로 설정하여 확인..
+   
+*/		
+		h2{background:pink;width:300px;height:100px;}
+		.ch_inline2{display:inline;}	
+		span{background:orange;border:1px solid red;}
+		.ch_inline3{display:block;width:300px;height:100px;}	
+	</style>
+
+</head>
+<body>
+	<span>인라인 속성 span</span><span>인라인 속성 span</span>
+	<span class="ch_inline3">블럭 속성 span</span>
+	<span class="ch_inline3">블럭 속성 span</span>
+	<span class="ch_inline3">블럭 속성 span</span>
+	<span>인라인 속성 span</span><span>인라인 속성 span</span>
+	<h2>블록 속성 h2</h2>
+	<h2 class="ch_inline2">인라인 속성 h2</h2>
+	<h2 class="ch_inline2">인라인 속성 h2</h2>
+	<h2 class="ch_inline2">인라인 속성 h2</h2>
+	<h2>블록 속성 h2</h2>
+	
+	<h1>블럭 속성 태그</h1>
+	
+	<h1 class="ch_inline">변경된 속성 태그</h1>
+	<h1 class="ch_inline">변경된 속성 태그</h1>
+	<h1 class="ch_inline">변경된 속성 태그</h1>
+	<h1>블럭 속성 태그</h1>
+	
+	
+</body>
+</html>
