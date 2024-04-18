@@ -73,6 +73,7 @@ public class A04_VarBasic {
 		System.out.println(apple+banaPrice+strawPrice);
 		System.out.println("총계:"+(apple+banaPrice+strawPrice));	
 		// () 우선 연산 수행 처리..
+		
 	}
 
 }
