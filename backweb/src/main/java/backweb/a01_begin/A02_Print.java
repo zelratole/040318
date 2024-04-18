@@ -19,6 +19,13 @@ public class A02_Print {
 		System.out.print("김길동,");
 		System.out.print("신길동");
 		System.out.println();
+/*
+ex) 위 println()과 print()를 활용해서 아래와 같이 출력하세요
+국어 70
+영어 80
+수학 90
+
+ */		
 		
 	}
 
