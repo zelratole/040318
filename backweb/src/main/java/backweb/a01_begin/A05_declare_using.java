@@ -37,6 +37,7 @@ public class A05_declare_using {
 		System.out.println(arr2); // heap영역의 주소값 확인
 		
 		
+		
 	}
 
 }
