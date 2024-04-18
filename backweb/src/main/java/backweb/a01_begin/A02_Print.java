@@ -24,8 +24,13 @@ ex) 위 println()과 print()를 활용해서 아래와 같이 출력하세요
 국어 70
 영어 80
 수학 90
-
- */		
+ */
+		System.out.print("국어 ");
+		System.out.println(70);
+		System.out.print("영어 ");
+		System.out.println(80);
+		System.out.print("수학 ");
+		System.out.println(90);		
 		
 	}
 
