@@ -52,7 +52,8 @@ public class A04_VarBasic {
 		// 총계도 출력하세요.(var, int 혼합)	
 		int kor = 80;
 		var eng = 90;
-		int math = 95;
+		int math;
+		math= 95;
 		System.out.println("국어:"+kor);
 		System.out.println("영어:"+eng);
 		System.out.println("수학:"+math);
@@ -70,7 +71,8 @@ public class A04_VarBasic {
 		System.out.println("총계(?):"+apple+banaPrice+strawPrice);		
 		System.out.print("총계:");
 		System.out.println(apple+banaPrice+strawPrice);
-		System.out.println("총계:"+(apple+banaPrice+strawPrice));		
+		System.out.println("총계:"+(apple+banaPrice+strawPrice));	
+		// () 우선 연산 수행 처리..
 	}
 
 }
