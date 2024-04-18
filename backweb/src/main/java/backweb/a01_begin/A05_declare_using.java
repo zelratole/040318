@@ -35,6 +35,7 @@ public class A05_declare_using {
 		// java는 {}로 배열을 선언할당한다.. 주의)다른 프로그램과 차이나는 부분..
 		System.out.println(str2); // 문자열이기에 기본적으로 할당 데이터 확인
 		System.out.println(arr2); // heap영역의 주소값 확인
+		
 	}
 
 }
