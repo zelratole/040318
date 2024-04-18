@@ -47,8 +47,30 @@ public class A04_VarBasic {
 		System.out.println("25" + 25);
 		System.out.println(25 + 5 + "30");
 		System.out.println("25" + 5 + 7);
-		
-		
+		// ex) 국어, 영어, 수학 점수를 영문명으로 변수를
+		// 선언하여, 항목별로 출력하고,
+		// 총계도 출력하세요.(var, int 혼합)	
+		int kor = 80;
+		var eng = 90;
+		int math = 95;
+		System.out.println("국어:"+kor);
+		System.out.println("영어:"+eng);
+		System.out.println("수학:"+math);
+		System.out.print("합산:");
+		System.out.println(kor+eng+math);		
+		// ex) 사과가격, 바나나가격, 딸기가격을 영문변수로
+		// 선언하고, 가격데이터를 할당한 후, 항목별로 출력하고,
+		// 총비용을 출력하세요.(var, int 혼합)
+		int apple = 1000;
+		var banaPrice= 4000;
+		var strawPrice = 12000;
+		System.out.println("사과:"+apple);
+		System.out.println("바나나:"+banaPrice);
+		System.out.println("딸기:"+strawPrice);
+		System.out.println("총계(?):"+apple+banaPrice+strawPrice);		
+		System.out.print("총계:");
+		System.out.println(apple+banaPrice+strawPrice);
+		System.out.println("총계:"+(apple+banaPrice+strawPrice));		
 	}
 
 }
