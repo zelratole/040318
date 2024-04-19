@@ -59,7 +59,7 @@ public class A07_TypeChange {
 //      총비용을 출력하고
 		byte price = 100;
 		byte cnt = 5;
-//		byte tot = price*cnt; 에러발생  연산자가 들어가서 int형이 필요..
+//		byte tot = price*cnt; 에러발생  연산자가 들어가서 int형이 필요(주의)
 	    int tot = price*cnt;
 	    System.out.println("총비용:"+tot);
 // ex2) 위 총비용을 할인율 30%(0.3)으로 할인된 값을 casting으로 소숫점 이하를 
