@@ -33,6 +33,11 @@ public class A06_DataType {
 			**double(8byte)
 			double dbl = 3.14;
 	3) boolean
+		비교연산식/논리연산식의 결과값으로 true/false값 가져오는 데이터 처리시
+		할당하는 type
+		boolean isBool = true;
+		boolean isPass = point>=70;
+		boolean isLoginSuccess = false; // 로그인 성공여부..
 		
 */
 		for(int cnt = 1;cnt<=127;cnt++) {
@@ -65,7 +70,17 @@ public class A06_DataType {
 		System.out.println("double:"+num06);
 		System.out.println("char:"+ch01);
 		System.out.println("code value:"+codeVal);
-		
+		boolean isTrue = true;
+		int point = 80;
+		boolean isPass = point>=70;
+		boolean isLogin = true;
+		System.out.println(isTrue);
+		System.out.println(point+":"+isPass);
+		System.out.println(isLogin);
+		// ex) age와 변수를 지정해서 나이와 성인여부를 출력하세요..
+		int age = 19;
+		boolean isAdult = age>=18;
+		System.out.println("입력한 나이:"+age+", 성인여부:"+isAdult);
 		
 		
 		
