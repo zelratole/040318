@@ -10,6 +10,7 @@ public class A04_VarBasic {
 	1) 기본유형(stack영역을 선언과 할당)
 	정수형(byte, short, int, long), 
 	실수형(float, double), boolean,
+	문자형(char):글자한자 'A'
 	2) 객체유형(stack/heap영역으로 선언과 할당) 
 	객체형으로 크게 나누고 있다.
 2. 변수의 선언 형식
@@ -26,6 +27,16 @@ public class A04_VarBasic {
 		int num = 0; String str = null;
 		double num2; num2 = 3.14; //선언후, 할당 가능
 		var num3 = 25; var str2 = "안녕";
+		char ch01 = 'A'; // 글자 한자가 모여서 문자배열을 이루고, 
+		// 이 문자 배열이 자주 사용되어 문자열 데이터 유형이 만들어 지게 됨.
+		// 문자배열  저장은 정수형으로 저장되어 code값과 연결된 문자가 처리 됨.
+		char ch02 = 66;
+		System.out.println("66번 코드값:"+ch02);
+		
+		char[] chArr = {'H','e','l','l','o'}; // 객체
+		// 문자열
+		String str05 = "Hello"; // 객체 
+		
 //		var num4;(X)
 //		var str3 = null;(X)
 /*

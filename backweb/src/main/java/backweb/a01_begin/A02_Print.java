@@ -1,6 +1,7 @@
 package backweb.a01_begin;
 
 public class A02_Print {
+	
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
