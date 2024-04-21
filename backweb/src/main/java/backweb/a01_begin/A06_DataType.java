@@ -40,7 +40,7 @@ public class A06_DataType {
 		boolean isLoginSuccess = false; // 로그인 성공여부..
 		
 */
-		for(int cnt = 1;cnt<=127;cnt++) {
+		for(int cnt = 1;cnt<=65535;cnt++) {
 			System.out.println(cnt+" "+(char)cnt);
 		}
 		// -128~127
