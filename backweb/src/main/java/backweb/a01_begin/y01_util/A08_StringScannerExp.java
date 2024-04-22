@@ -21,6 +21,7 @@ public class A08_StringScannerExp {
 		System.out.println("여행지:"+info01);
 		System.out.println("예정일:"+info02);
 		System.out.println("동행자:"+info03);
+		// 12:05~
 		
 	}
 
