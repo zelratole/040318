@@ -29,10 +29,17 @@ public class A05_ConsoleInput {
 		// Scanner() 생성자
 		// 매개변수로 System.in를 할당처리..
 		Scanner sc = new Scanner(System.in);
-		System.out.println("정수를 입력하세요!");
+		System.out.println("첫번째 정수를 입력하세요!");
 		int num01 = sc.nextInt();
 		System.out.println("입력된 정수:"+num01);
 		System.out.println("연산된 정수:"+(num01+100));
+		System.out.println("두번째 정수를 입력하세요!");
+		int num02 = sc.nextInt();
+		System.out.println("입력된 정수:"+num02);
+		int tot = num01 + num02;
+		System.out.println(num01+" + "+num02 +" = "+tot);
+		// ex) 구구단의 단과 수를 입력 받아 결과 값을 출력 하세요..
+		///    A06_ScannerGugu.java
 		
 		
 	}
