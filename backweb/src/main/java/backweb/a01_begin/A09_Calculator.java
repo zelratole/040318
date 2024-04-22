@@ -50,7 +50,7 @@ public class A09_Calculator {
 		// 0<=Math.random()<1
 		// Math.floor() : 내림처리 리턴 실수형
 		// (int)Math.floor( Math.random()*101 ) :0~100 임의의 정수
-		int pt2 =Integer.parseInt( ""+Math.random()*101 );
+		//	int pt2 =(int)Double.parseDouble( ""+Math.random()*101 );
 		// 0~100점수 랜덤 처리..
 		System.out.println("점수:"+pt+", 결과:"+(pt>=70?"합격":"불합격"));
 		// ex) A팀과 B팀 주사위를 2개씩 굴려
