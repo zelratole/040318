@@ -25,10 +25,26 @@ public class A01_InputData {
 			args[2] : 딸기
 			와 같이 할당되어 이 것을 main() 메서드 {} 코드 블럭안에서 외부데이터
 			입력으로 사용할 수 있다.
+	==> eclispe 툴은 위 컴파일 과정을 저장할 때, 처리하고, ctrl+f11에 의해 실행
+	할 때, java @@@ 로 클래스 파일을 실행 시킨다. 그럼, 위와 같이 매개변수로 데이터
+	가 있는 것은?
 			
 
 2. Scanner 객체를 통한 입력
  * */
+	
+		
+		String fruit1 = args[0];
+		String fruit2 = args[1];
+		String fruit3 = args[2];
+		System.out.println(fruit1);
+		System.out.println(fruit2);
+		System.out.println(fruit3);
+		// ex) A02_InputData.java 
+		//     arguments옵션에  이름 나이 사는곳 입력해서 출력하세요.
+// 10:05~아		
+		
+		
 	}
 
 }
