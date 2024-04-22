@@ -16,6 +16,10 @@ public class A07_StringScanner {
 		System.out.println("이름:"+name);
 		System.out.println("나이:"+age);
 		System.out.println("사는곳:"+loc);
+		// ex) A08_StringScannerExp.java
+		//     가고싶은 여행지, 예정일, 함께 가고 싶은 사람  
+		//     위 세가지 정보를 입력하여 출력하세요.
+		
 	}
 
 }
