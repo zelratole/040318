@@ -36,6 +36,8 @@ public class A17_Array {
 		List<String> members = Arrays.asList(ids);
 		for(int idx=0;idx<members.size();idx++) {
 			System.out.println(members.get(idx));
+			String member = members.get(idx);
+			//System.out.println(member);
 		}
 		for(String member:members) {
 			System.out.println(member);
