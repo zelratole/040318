@@ -47,6 +47,32 @@ public class A01_ObjectMemo {
 			   - 내장된 api 객체
 			   - class로 선언하여 호출하는 사용자 정의 객체
 		*/
+		System.out.println("# stack영역에 할당되는 데이터 #");
+		int num01 = 25;
+		System.out.println("기본유형:num01에 있는 데이터:"+num01);
+		int[] arry = {1000,2000,3000};
+		System.out.println("객체유형:arry에 있는 데이터:"+arry);
+		// [I@3caeaf62  : [I - 배열 의미, 3caeaf62 heap영역의 주소값
+		// 도면을 기반으로 만들어진 실제 건물과 같은 객체.
+		Person p01 = new Person();
+		// p01가 heap영역에 특정한 주소에 만들듯..
+		System.out.println("객체유형:p01에 있는 데이터:"+p01);
+		// p02라는 이름으로 heap영역에 특정한 주소에 객체를 생성
+		Person p02 = new Person();
+		System.out.println("객체유형:p02에 있는 데이터:"+p02);
+		
+		// backweb.a02_object.Person@5577140b
+		// 패키지명.객체명@주소값..
+		// stack영역에 저장되는 데이터는 heap영역의 주소값..
 	}
-
 }
+// 사용자 정의 객체로 사용할 수 있는 틀역할을 하는 클래스..
+// 붕어빵 틀, 건물의 도면..
+class Person{
+	
+	
+}
+
+
+
+
