@@ -22,6 +22,45 @@ public class A16_loop_if {
 		}			
 		// 전역변수 tot를 활용하여 누적된 cnt를 처리할 수 있다.
 		System.out.println("1~100까지의 총합:"+tot);
+		// ex1) 1~30까지 출력하되 3의 배수는 짝!이라고 표시, 그외는 숫자 표시
+		for(int cnt=1;cnt<=30;cnt++) {
+			if(cnt%3!=0) {
+				System.out.print(cnt);
+			}else { // 나누었을 때. cnt%3==0
+				System.out.print("짝");
+			}
+			System.out.print(", ");
+		}
+		
+		System.out.println();
+		// ex2) 1~10까지 숫자에 따라 홀/짝 표시..
+		for(int cnt=1;cnt<=10;cnt++) {
+			System.out.print(cnt);
+			if(cnt%2==0) {
+				System.out.print("(짝)");
+			}else { // 
+				System.out.print("(홀)");
+			}
+			System.out.print(", ");
+		}		
+		// ex3) 5~20까지 아래 형식으로 표현 하고, 마지막에 합산 표현
+		//      5 + 6 + ....   20 = @@@
+		System.out.println();
+		int sum = 0; // 전역변수..
+		for(int cnt=5;cnt<=20;cnt++) {
+			sum +=cnt;
+			System.out.print(cnt);
+			if(cnt!=20) {
+				System.out.print(" + ");
+			}else { // cnt==20
+				System.out.print(" = ");
+				System.out.print(sum);
+			}
+		}			
+		
+		
+		
+		
 	}
 
 }
