@@ -60,7 +60,9 @@ do{
 		System.out.println("# 숫자 맞추기 게임 #");
 		int comCnt = (int)(Math.floor(Math.random()*10+1));
 		//System.out.println("컴퓨터의 숫자test:"+comCnt);
+		// 내가 선택한 숫자
 		int myChoice = 0;
+		// 번째로 맞출 카운트..
 		int cnt=0;
 		do {
 			System.out.print(++cnt+"회차 도전! 1~10까지 숫자를 "
@@ -74,7 +76,7 @@ do{
 				System.out.println("입력한 숫자는 컴퓨터의 숫자보다 작네요");
 			}
 		}while( comCnt!=myChoice ); 
-		//같지 않을 때, 반복 처리 맞았을 때, 종료 처리
+		//같지 않을 때, 반복 처리 맞았을 때, 반복 종료 처리
 		System.out.println(cnt+"번째 맞추었습니다.!!! 축^^");
 		System.out.println("컴퓨터의 숫자:"+comCnt);
 	
