@@ -1,6 +1,7 @@
 package backweb.a01_begin;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class A17_Array {
@@ -19,7 +20,26 @@ public class A17_Array {
 			System.out.println(no);
 		}		
 		// ex) 물건의 가격을 정적배열로 3개를 만들어 2가지 for형식으로 출력
+		int[] prices = new int[3]; // 기본크기를 지정하고 할당하는 방법
+		//  new 데이터유형[크기];
+		prices[0] = 3000;prices[1] = 4000;prices[2] = 5000;
+		for(int idx=0;idx<prices.length;idx++) {
+			System.out.println(prices[idx]);
+		}
+		for(int price:prices) {
+			System.out.println(price);
+		}
+		
 		// ex) 회원의 id를 동적배열로 3개를 만들어 가지 for형식으로 출력..
+		//  정적배열 ==> 동적배열 처리..
+		String []ids = new String[]{"himan","goodMan","higirl"};
+		List<String> members = Arrays.asList(ids);
+		for(int idx=0;idx<members.size();idx++) {
+			System.out.println(members.get(idx));
+		}
+		for(String member:members) {
+			System.out.println(member);
+		}
 		
 		
 		List<String> names = new ArrayList<String>();
