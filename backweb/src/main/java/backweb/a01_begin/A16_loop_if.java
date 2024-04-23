@@ -59,8 +59,6 @@ public class A16_loop_if {
 		}			
 		
 		
-		
-		
 	}
 
 }
