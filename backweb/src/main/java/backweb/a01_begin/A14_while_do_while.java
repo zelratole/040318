@@ -39,20 +39,45 @@ public class A14_while_do_while {
 //      ctrl + / :블럭 주석..
 //		ex) 등록할 회원을 입력받아서,  회원명단에 등록 시키세요.. += 활용..
 //		    종료시, Q
-		String memberList = "";
-		String order="";
-		while(!order.equals("Q")) {
-			System.out.print("회원명을 입력하세요! 종료할려면 Q입력:");
-			order = sc.nextLine();
-			if(!order.equals("Q")) {
-				memberList+=order+", ";
+//		String memberList = "";
+//		String order="";
+//		while(!order.equals("Q")) {
+//			System.out.print("회원명을 입력하세요! 종료할려면 Q입력:");
+//			order = sc.nextLine();
+//			if(!order.equals("Q")) {
+//				memberList+=order+", ";
+//			}
+//		}
+//		System.out.println("# 등록된 회원 list #");
+//		System.out.println(memberList);
+/*
+do{
+	최소 1번이상 처리하고,
+	조건이 맞는지 확인하여 반복 처리.
+}while(조건);
+ * */		
+		
+		System.out.println("# 숫자 맞추기 게임 #");
+		int comCnt = (int)(Math.floor(Math.random()*10+1));
+		//System.out.println("컴퓨터의 숫자test:"+comCnt);
+		int myChoice = 0;
+		int cnt=0;
+		do {
+			System.out.print(++cnt+"회차 도전! 1~10까지 숫자를 "
+					+ "입력하여 컴퓨터의 숫자를 맞춰보세요:");
+			myChoice = Integer.parseInt(sc.nextLine());
+			System.out.println("입력한 숫자:"+myChoice);
+			if(myChoice>comCnt) {
+				System.out.println("입력한 숫자는 컴퓨터의 숫자보다 크네요");
 			}
-		}
-		System.out.println("# 등록된 회원 list #");
-		System.out.println(memberList);
-		
-		
-		
+			if(myChoice<comCnt) {
+				System.out.println("입력한 숫자는 컴퓨터의 숫자보다 작네요");
+			}
+		}while( comCnt!=myChoice ); 
+		//같지 않을 때, 반복 처리 맞았을 때, 종료 처리
+		System.out.println(cnt+"번째 맞추었습니다.!!! 축^^");
+		System.out.println("컴퓨터의 숫자:"+comCnt);
+	
 		
 		
 		
