@@ -29,10 +29,18 @@ public class A13_Loop {
 7. 반복문과 배열
 	1)배열 선언
 		String [] arry = {"사과","바나나","딸기"};
+	2)배열 호출
+		- 기본 for문
 		for(int idx=0;idx<arry.length;idx++){
-			arry[idx] 
+			arry[idx]   
 		}
-
+		// index를 가지고 와서, index별로 데이터를 처리
+		- forEach구문
+		for(String fruit:arry){
+			fruit : 단위데이터를 가지고 와서 처리한다...
+			// 반복문 배열 안에 데이터가 없을 때까지 처리한다.
+		} 
+		
    
  * */
 		// 

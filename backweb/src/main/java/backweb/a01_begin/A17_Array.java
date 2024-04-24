@@ -55,7 +55,52 @@ public class A17_Array {
 		for(String name:names) {
 			System.out.println(name);
 		}
-
+/*
+# 동적배열
+1. 자바에서는 동적배열을 내장 객체 개념 중에 하나인 Collection api에 있는 
+	객체를 이용해서 처리한다.
+2. 동적배열 장점 : 메모리가 고정되지 않고, 확장/축소가 가능한 형태를 말한다.
+3. 동적배열 단점 : 읽기 속도가 정적배열에 비하여 느리다.
+4. 동적배열의 사용
+ 	1) 내장된 객체를 이용하고, 기본적인 내장객체가 아니기에 import하여야 한다.
+ 	2) import java.util.List; 
+ 	   import java.util.ArrayList;
+ 	   상속개념에 의해서 상위 = 하위 형태로 처리된다(다형성이라는 효율을 위해)
+ 	3) 기본 선언
+ 	   List<데이터유형> list = new ArrayList<데이터유형>();
+ 	   <데이터유형> : generic 개념(해당 객체유형만 입력되게 선언하는 형태)
+ 	   ex)
+ 	   List<String> list1 = new ArrayList<String>(); //문자열데이터 입력
+ 	   List<Integer> list2 = new ArrayList<Integer>(); /숫자형데이터 입력
+ 	   list1.add("홍길동"); // 추가 처리
+ 	   list1.size(); // 크기를 가져오기.
+ 	   list2.add(3000); 
+ 	   list2.add(4000); 
+ 	   list2.size(); // 크기 가져오기..
+ 	   // 추가 처리 원래는 list2.add(new Integer(3000)); auto boxing에 의해가능
+ 	   list1.get(0); // 첫번째 데이터 홍길동 가져온다.
+ 	   list2.get(1); // 두번째 데이터 4000을 가져온다.
+ 	4) for에서 활용
+ 	   for(int idx=0;idx<list2.size();idx++){
+ 	   		list2.get(idx)
+ 	   }
+ 	   for(String str:list1){
+ 	   
+ 	   }
+# 정적배열을 동적배열 전환방법
+1. 정적배열
+ 	 String[] fruits = {"사과","바나나","딸기"};
+2. Arrays.asList(정적배열)을 통해서 List형으로 변환시킨다.
+ 	 List<String> list = Arrays.asList(fruits);
+ 	 단, 위 단계로는 동적배열이 아니라 List형 정적배열이 된다.(크기변경불가능)
+3. new ArrayList<>() 생성자에 매개변수로 할당하여야 동적배열이 된다.
+     List<String> frList = new ArrayList<>(list);
+==> 위, 2~3번 단계를 한꺼번에 처리할려면
+     List<String> fruitList = new ArrayList<>(Arrays.asList(fruits));
+     로 처리하면 된다.(추가 삭제가 가능한 상태 즉 동적배열로 처리가 가능)
+          
+ 	   
+ * */
 		
 		
 /*
