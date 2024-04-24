@@ -17,6 +17,23 @@ public class A01_ObjectMemo {
 			cf) 도서관과 서점에서 실제 도서가 있는 곳과 단말기(컴퓨터)를 통해 위치를 
 				가르켜주고, 그 위치 코드를 출력해주는 것처럼
 				java프로그램에서 stack과 heap영역을 사용하는 내용을 비유할 수 있다.
+				ex) 
+				Person p01 = new Person();
+				new Person()이라는 객체를 생성하면서 heap영역에 특정한 위치에 저장
+				p01이란 참조변수(reference variables)이름으로 heap영역의 주소값을
+				stack영역에 저장하여 가지고 있다.
+				==> Person 이라는 객체 유형을 p01이라는 이름으로 선언하고,
+				heap영역 new Person()이라는 실제 객체를 저장하고, 그 주소값을
+				p01에 할당하여 사용한다.
+				p01.name : 해당객체에 속성 name을 접근하여 호출
+				p01.show() : 해당객체에 메서드 show() 호출.
+				
+				
+				
+				
+				
+				
+				
 			6) stack영역만 쓰는 데이터와 stack과 heap영역을 쓰는 데이터의 구분기준은
 				일정하게 한정되어 있는 데이터(기본유형)이냐 확장성이 있는 
 				데이터(객체유형)이냐로 나눈다.
