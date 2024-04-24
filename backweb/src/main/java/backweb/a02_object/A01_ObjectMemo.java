@@ -20,8 +20,8 @@ public class A01_ObjectMemo {
 				ex) 
 				Person p01 = new Person();
 				new Person()이라는 객체를 생성하면서 heap영역에 특정한 위치에 저장
-				p01이란 참조변수(reference variables)이름으로 heap영역의 주소값을
-				stack영역에 저장하여 가지고 있다.
+				p01이란 참조변수(reference variables)이름으로 heap영역의 
+				주소값을 stack영역에 저장하여 가지고 있다.
 				==> Person 이라는 객체 유형을 p01이라는 이름으로 선언하고,
 				heap영역 new Person()이라는 실제 객체를 저장하고, 그 주소값을
 				p01에 할당하여 사용한다.
@@ -52,6 +52,9 @@ public class A01_ObjectMemo {
 			3) 종류 
 			   - 배열형 데이터
 			   		ex) new int[5]; {1000,2000}
+			   			int[] arr = new int[5];
+			   			int[] arr2 = new int[5]{1000,2000,3000,4000,5000};
+			   			int[] arr3 = {1000,2000,3000,4000,5000};
 			   		    new String(); 문자열(문자배열형)
 			   		    new String[2]; {"사과","바나나"}
 			   		    new Person[2];
