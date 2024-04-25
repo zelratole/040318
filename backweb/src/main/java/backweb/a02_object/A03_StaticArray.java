@@ -25,13 +25,47 @@ public class A03_StaticArray {
 	 		ex) String[] arr2 = new String[]{"사과","딸기","오렌지"};
 	 		ex) String[] arr3 = {"사과","딸기","오렌지"};
 	 		위와 같이 선언과 동시에 할당하는 것은 위 두가지 형식 모두가 허용을 한다.
-	 		
-	 		
-	 		
-	 		
-	 		
 	 
 */
+		// 숫자형 배열
+		int[] arr01; // 배열 선언
+		arr01 = null; // 초기화(heap영역할당되지 않음)
+		arr01 = new int[3]; // 배열의 크기 지정.. heap영역할당.
+		// 개별 데이터 할당.
+		arr01[0] = 1000;
+		arr01[1] = 2000;
+		arr01[2] = 3000;
+		System.out.println("배열의 크기:"+arr01.length);
+		// 반복문을 통한 배열의 데이터 가져오기..
+		for(int idx=0;idx<arr01.length;idx++) {
+			System.out.println(arr01[idx]);
+		}
+		// ex) 실수형 3개 double값으로 점수 소숫점 1자리까지를
+		//  위와 같은 형태로 만들고 출력까지 하세요..
+		double arr02[]; // 배열 선언
+		arr02 = null;
+		arr02 = new double[3]; //
+		arr02[0] = 80.5;
+		arr02[1] = 70.5;
+		arr02[2] = 95.2;
+		System.out.println("배열의 크기:"+arr02.length);
+		for(int idx=0;idx<arr02.length;idx++) {
+			System.out.println( arr02[idx]) ;
+		}
+		// 선언과 할당 처리.
+		int [] arry03 = new int[] {100,200,300};
+		int [] arry04 = {200,300,400};
+		
+		
+		
+		
+		
+		
+		
+		
 	}
+	
+	
+	
 
 }
