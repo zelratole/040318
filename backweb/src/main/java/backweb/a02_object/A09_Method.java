@@ -59,6 +59,7 @@ public class A09_Method {
 		}
 		Calculator c1 = new Calculator();
 		c1.show();
+		c1.showCalcu();
 	}
 }
 class Calculator{
@@ -66,7 +67,13 @@ class Calculator{
 		System.out.println("화면에 계산합니다. 라고 출력만 void");
 	}
 	//ex) void를 사용해서 25 + 30 = 55 라고 System.out.으로 출력되는 메서드를 선언하고 main()에서 호출하세요.
-	
+	void showCalcu() {
+		int num01 = 25;
+		int num02 = 30;
+		System.out.println(num01+" + "+num02 + " = "+(num01+num02));
+	}
+	// ex) 리턴값을 int로 해서 정수 80을 리턴하고 출력하게 하세요.
+	//     임의의 점수 0~100사이 점수를 int로 리턴하여 호출되게 하세요
 }
 // ex) Calculator 클래스 선언..  
 //    void(계산합니다 출력), int(두수를 곱한값 리턴), double(실수를 더한값 리턴), boolean(종료 여부 true리턴)
