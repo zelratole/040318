@@ -60,6 +60,7 @@ public class A09_Method {
 		Calculator c1 = new Calculator();
 		c1.show();
 		c1.showCalcu();
+		System.out.println("랜덤값:"+c1.callRandom());
 	}
 }
 class Calculator{
@@ -74,7 +75,33 @@ class Calculator{
 	}
 	// ex) 리턴값을 int로 해서 정수 80을 리턴하고 출력하게 하세요.
 	//     임의의 점수 0~100사이 점수를 int로 리턴하여 호출되게 하세요
+	// 	int num01 = 25;
+	// 		Calculator c01 = new Calculator();
+	// 		c01.callRet() : 80
+	/// 	int num05 = c01.callRet()
+	/// 	System.out.println(c01.callRet())
+	
+	// int num01 = 80;
+	int callRet() {
+		return 80;
+	}
+	// int num02 = (int)(Math.random()*101)
+	int callRandom() {
+		return (int)(Math.random()*101);
+	}
+	// 객체의참조변수.callRandom()
 }
+//  LottTower seoul = new LottTower();
+//  seoul.retPay() : 서울에 있는 롯데타워의 기능메서드 입장금액을 리턴해주는 것을 확인
+//  LottTower pusan = new LottTower();
+//  pusan.retPay(); 부산에 있는 롯데타워의 기능메서드 입장금액을 리턴해주는 것을 확인
+class LottTower{
+	int retPay() {
+		return 60000;
+	}
+}
+
+
 // ex) Calculator 클래스 선언..  
 //    void(계산합니다 출력), int(두수를 곱한값 리턴), double(실수를 더한값 리턴), boolean(종료 여부 true리턴)
 //    선언과 main()에서 호출하세요..
