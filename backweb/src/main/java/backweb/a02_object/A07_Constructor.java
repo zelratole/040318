@@ -53,6 +53,37 @@ public class A07_Constructor {
 			Person(String name, int age){}
 		- 매개변수의 type이 다르면 선언가능하다.
 		- 매개변수의 여러개 일 때, type이 다른 순서로 선언하면 가능하다.
+	Info(){
+		생성자1
+	}
+	Info(){  에러 발생.
+		생성자2
+	}
+	Info(String name){  
+		생성자3
+	}
+	Info(int cnt){  
+		생성자4
+	}
+	Info(String fruit, int cnt){  
+		생성자5
+	}		
+	Info(int cnt, String fruit){  
+		생성자6
+	}		
+			
+	int num01;	
+	int num01; // 에러발생. 같은 이름으로 선언..
+	new Info();	
+	new Info();(x)	
+	new Info("사과");  갯수
+	new Info(25);  타입
+	new Info("사과",25);  타입
+	new Info(25,"사과");  타입이 다른 순서도 식별이 가능
+	// 매개변수의 갯수에 따라 호출되는 곳에서 식별할 수 있기에 같은 이름으로 선언하는 것이 가능.
+	 *  
+		
+		
 		
  * */
 		Man m1 = new Man(); // default 생성자가 호출되어 있기에 가능하다.
