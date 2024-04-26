@@ -41,6 +41,19 @@ public class A07_Constructor {
 		Person p01 = new Person("홍길동", "남자");
 		p01.name : "홍길동"이 할당되어 있음.
 		p01.gender : "남자"가 할당되어 있음.
+3. 특징
+	1) default 생성자를 생성자를 선언하지 않았을 때 호출이된다.
+	2) 생성자는 주요 기능이 필드 초기화이므로 기능메서드와 달리 리턴값이 없다.
+	3) 생성자를 클래스명과 동일하여야 한다.
+	4) 하나의 클래스 안에서 여러 개 생성자를 선언할 수 있다. 단, overloading 규칙에 적합하여야 한다.
+	ps) overloading 규칙 생성자뿐만아니라 메서드에서도 적용된다.
+		- 매개변수의 갯수가 다르면 선언가능하다.
+			Person(){}
+			Person(String name){}
+			Person(String name, int age){}
+		- 매개변수의 type이 다르면 선언가능하다.
+		- 매개변수의 여러개 일 때, type이 다른 순서로 선언하면 가능하다.
+		
  * */
 		Man m1 = new Man(); // default 생성자가 호출되어 있기에 가능하다.
 		Woman w1 = new Woman();
