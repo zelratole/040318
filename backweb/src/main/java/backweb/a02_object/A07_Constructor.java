@@ -68,7 +68,67 @@ public class A07_Constructor {
 		Baby by1 = new Baby("귀염둥이 아기"); // 맞는 매개변수로 할당하여야 한다. 
 		System.out.println(by1.name);
 		Baby by2 = new Baby("이쁜둥이 아기"); // 맞는 매개변수로 할당하여야 한다. 
-		System.out.println(by2.name);		
+		System.out.println(by2.name);
+		//ex) Car01(필드-제조사,이름,최고속도)를 선언하고, 생성자를 통해, 필드 초기화 객체를 3개를 생성하여 
+		//   속성값을 출력하세요.
+		Car01 c1 = new Car01("현대","그랜저",250);
+		Car01 c2 = new Car01("기아","k7",260);
+		Car01 c3 = new Car01("현대","산타페",230);
+		System.out.println(c1.comp+","+c1.kind+","+c1.maxSpeed);
+		System.out.println(c2.comp+","+c2.kind+","+c2.maxSpeed);
+		System.out.println(c3.comp+","+c3.kind+","+c3.maxSpeed);
+		/*
+		ex2) 계좌번호, 예금주 이름, 잔액 필드를 가진 BankAccount 클래스 생성
+			 생성자를 통해 초기 계좌번호, 예금주 이름, 잔액 설정
+		ex3) 이름, 체력, 공격력, 방어력 필드를 가진 Character 클래스 생성
+			 생성자를 통해 캐릭터 이름, 체력, 공격력, 방어력 설정	 
+		 * */
+		BankAccount ba01 = new BankAccount("342343-433-34332","김철수",1000000);
+		BankAccount ba02 = new BankAccount("553422-433-78883","오영희",2000000);
+		Character ch01 = new Character("영웅", 100,50,20);
+		Character ch02 = new Character("몬스터", 80,40,30);
+		
+		System.out.println(ch01.name+","+ch01.hp+","+ch01.attack+","+ch01.defense);
+		System.out.println(ch02.name+","+ch02.hp+","+ch02.attack+","+ch02.defense);
+	}
+}
+class Character{
+	String name;
+	int hp;
+	int attack;
+	int defense;
+	Character(String name, int hp, int attack, int defense){
+		this.name = name;
+		this.hp = hp;
+		this.attack = attack;
+		this.defense = defense;
+		System.out.println(this+"객체 생성");
+	}
+}
+class BankAccount{
+	String accountNumber;
+	String accountName;
+	int balance;
+	BankAccount(String accountNumber, String accountName, int balance){
+		this.accountNumber = accountNumber;
+		this.accountName = accountName;
+		this.balance = balance;
+		System.out.println("# 계좌 객체 생성("+this+")");
+		System.out.println("계좌 번호:"+this.accountNumber);
+		System.out.println("계좌 소유자:"+this.accountName);
+		System.out.println("계좌 잔액:"+this.balance);
+	}
+	
+}
+class Car01{
+	String comp;
+	String kind;
+	int maxSpeed;
+	Car01(String comp, String kind, int maxSpeed){
+		this.comp = comp;
+		this.kind =kind;
+		this.maxSpeed = maxSpeed;
+		System.out.println(this+"객체 생성");
 	}
 }
 class Baby{
