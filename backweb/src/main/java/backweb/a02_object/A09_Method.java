@@ -49,12 +49,51 @@ public class A09_Method {
 		int num02 = b01.call02()+3;
 		// 리턴유형과 실제 리턴할 데이터가 숫자형이기 연산이 가능하다.
 		
+		AutoSelling as = new AutoSelling();
+		as.selling();
+		System.out.println(as.buyProd());
+		int num03 = as.retRest();
+		double num04 = as.retDouble();
+		if(!as.retBool()) {
+			System.out.println("리턴값이 false일 때..");
+		}
+		Calculator c1 = new Calculator();
+		c1.show();
 	}
 }
+class Calculator{
+	void show() {
+		System.out.println("화면에 계산합니다. 라고 출력만 void");
+	}
+	//ex) void를 사용해서 25 + 30 = 55 라고 System.out.으로 출력되는 메서드를 선언하고 main()에서 호출하세요.
+	
+}
+// ex) Calculator 클래스 선언..  
+//    void(계산합니다 출력), int(두수를 곱한값 리턴), double(실수를 더한값 리턴), boolean(종료 여부 true리턴)
+//    선언과 main()에서 호출하세요..
+
+
 // ex) class AutoSelling 자동판매기로 
 //     기능메서드로 void, String, int, double, boolean으로 리턴 유형을 선언하고
 //     임의로 리턴값을 넣은 후, main()에서 호출하세요..
-//
+class AutoSelling{
+	void selling() {
+		System.out.println("자동 판매기로 물건을 팔다.");
+	}
+	String buyProd() {
+		return "물건1";
+	}
+	int retRest() {
+		return 3000;
+	}
+	double retDouble() {
+		return 3.14;
+	}
+	boolean retBool() {
+		boolean isPass = false;
+		return isPass;
+	}
+}
 class Object01{
 	void call() {
 		System.out.println("리턴유형 없음");
