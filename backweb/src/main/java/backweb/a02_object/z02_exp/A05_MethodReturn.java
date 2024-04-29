@@ -53,8 +53,26 @@ public class A05_MethodReturn {
 		System.out.println(c.plus());
 		Calcu c2 = new Calcu(50);
 		System.out.println(c2.plus());
+		
+		TempSensor ts = new TempSensor();
+		System.out.println("리턴값 출력:"+ts.getTemp());
+		double retdata = ts.getTemp() +10;
+		System.out.println("리턴된 데이터 합산해서 처리 :"+retdata);
+		// ex1) Man 클래스 선언 필드 age=5로 설정  getAge()로 age 리턴 해당 메서드 호출..
+		
 	}
 }
+class TempSensor{
+	// 전역변수 선언
+	double temp = 36.5;
+	// 전역변수에 있는 데이터 리턴
+	double getTemp() {
+		return temp;
+	}
+}
+
+
+
 //ex) Calcu    필드로 num01 
 //기본생성자와 num01할당하는 생성자.
 //메서드 void setNum01() 위 필드에 있는 num01할당 처리 메서드 정의
