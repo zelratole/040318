@@ -168,6 +168,9 @@ class Product {
     	tot += quantity*price;   // 매개변수를 입력 받은 내용을 누적처리..
     }
 }
+
+
+
 ### 5. 메서드(리턴값)
 21. `Person` 클래스에 이름을 반환하는 `getName` 메서드를 추가하세요.
 22. `Book` 클래스에 제목을 반환하는 `getTitle` 메서드를 만드세요.
@@ -194,6 +197,7 @@ class Product {
 		System.out.println(c1.model);
 		System.out.println(c1.year);
 		System.out.println(c1.color);
+		/*
 		Person p01 = new Person();
 		p01.setName("홍길동");
 		System.out.println(p01.name);
@@ -202,7 +206,8 @@ class Product {
 		Person p02 = new Person("마길동",25);
 		System.out.println(p02.name);
 		p02.setName("신길동");
-		System.out.println(p02.name);	
+		System.out.println(p02.name);
+		*/	
 // 생성자와 메서드의 데이터 할당의 차이점? 		
 	}
 }
@@ -275,6 +280,7 @@ class Product {
 	String productName;
 	double price;
 	int quantity;
+	Product(){}
     // productName만 설정하고 나머지는 기본값
     Product(String productName) {
         this.productName = productName;
