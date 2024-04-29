@@ -17,6 +17,7 @@ class Taxi{
 	Taxi(){
 		System.out.println("택시1 호출");
 	}
+
 	Taxi(String name){
 		System.out.println("택시2 호출:"+name);
 	}	
