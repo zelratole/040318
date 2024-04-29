@@ -1,10 +1,11 @@
 package backweb.a02_object.vo;
-
+// backweb.a02_object.vo.Product
 public class Product {
 	// private : 외부 클래스에서 접근이 불가능 하게 하는 접근제어자.
 	private String name;
 	private int price;
 	private int cnt;
+	
 	public Product() {
 	}
 	
