@@ -36,6 +36,41 @@ public class A0426 {
    - B) 매개변수의 개수나 타입이 달라야 한다
    - C) 반환 타입이 다르면 오버로딩이 성립된다
    - D) 매개변수의 순서가 다를 수 있다
+여기에 각 문제에 대한 정답과 설명을 제공하겠습니다.
+
+### 개념 정리 문제 정답
+1. **객체의 필드가 가지는 역할은 무엇인가요?**
+   - 객체의 상태를 저장하는 변수입니다. 필드는 객체의 속성을 나타내며, 클래스 내에서 정의된 변수로서 객체의 특징이나 상태 정보를 저장합니다.
+
+2. **생성자의 주요 용도는 무엇인가요?**
+   - 객체를 생성할 때 초기화를 담당합니다. 생성자는 객체가 생성될 때 자동으로 호출되며, 필드 초기화나 객체 생성 초기 작업을 수행합니다.
+
+3. **메소드와 함수의 차이점은 무엇인가요?**
+   - 함수는 독립적인 기능을 수행하는 반면, 메소드는 클래스 내에 정의되어 객체의 행동을 나타내는 함수입니다. 메소드는 객체에 종속적이며 클래스의 일부입니다.
+
+4. **오버로딩(overloading)의 정의와 조건에는 어떤 것들이 있나요?**
+   - 오버로딩은 같은 이름의 메소드를 매개변수의 타입, 개수, 순서를 다르게 하여 여러 번 정의하는 것입니다. 오버로딩된 메소드는 같은 이름을 공유하지만, 매개변수의 리스트가 달라야 합니다.
+
+5. **생성자와 일반 메소드의 주요 차이점은 무엇인가요?**
+   - 생성자는 객체 생성시 호출되며 반환 타입이 없고, 클래스 이름과 동일합니다. 일반 메소드는 객체 생성 후 호출되며, 반환 타입이 필요하고 이름이 자유롭습니다.
+
+### 사지선다형 문제 정답
+1. **B) 메소드의 반환 타입을 정의**
+   - 필드는 데이터를 저장하는 공간이며, 메소드의 반환 타입과는 관련이 없습니다.
+
+2. **B) 생성자는 반드시 값을 반환해야 한다**
+   - 생성자는 값을 반환하지 않습니다. 생성자의 목적은 객체를 초기화하는 것이며, 반환 타입이 없습니다.
+
+3. **B) 항상 객체 외부로부터 매개변수를 받아야 한다**
+   - 메소드는 매개변수 없이 정의될 수 있습니다. 매개변수는 선택적이며, 메소드의 동작에 필요한 외부 데이터를 제공하기 위해 사용됩니다.
+
+4. **C) 객체를 생성하는 역할을 한다**
+   - 생성자는 객체의 생성과 초기화를 담당합니다. 이름이 클래스명과 같고, 반환 타입이 없습니다.
+
+5. **C) 반환 타입이 다르면 오버로딩이 성립된다**
+   - 오버로딩은 메소드 이름이 같고, 매개변수의 개수나 타입이 달라야 하며, 반환 타입은 오버로딩을 결정하는 요소가 아닙니다.
+
+
 
 ### 실습 문제
 1. 이름과 나이를 필드로 가지는 `Person` 클래스를 작성하고, 이름과 나이를 초기화하는 생성자를 만드세요.
@@ -49,10 +84,204 @@ public class A0426 {
 #9. `Temperature` 클래스를 만들고, 섭씨온도를 필드로 가지며, 섭씨를 화씨로 변환하는 메소드를 작성하세요.
 #10. `EmailValidator` 클래스를 만들고, 이메일 주소가 유효한 형식인지 검증하는 메소드를 작성하세요.
 
+
+아래는 각 실습 문제에 대한 자바 클래스 설계 방법을 설명합니다. 이를 통해 각 클래스와 메소드를 어떻게 구현할지 개념적인 이해를 돕습니다.
+
+### 1. `Person` 클래스
+```java
+public class Person {
+    private String name;
+    private int age;
+
+    // 생성자
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+}
+```
+
+### 2. `Car` 클래스
+```java
+public class Car {
+    private int speed;
+
+    // 속도 증가 메소드
+    public void speedUp(int increment) {
+        speed += increment;
+    }
+}
+```
+
+### 3. `Book` 클래스
+```java
+public class Book {
+    private String name;
+    private String author;
+
+    // 생성자
+    public Book(String name, String author) {
+        this.name = name;
+        this.author = author;
+    }
+
+    // 책 정보 반환 메소드
+    public String getBookInfo() {
+        return name + ", " + author;
+    }
+}
+```
+
+### 4. `ArrayProcessor` 클래스
+```java
+public class ArrayProcessor {
+    private int[] array;
+
+    // 배열의 최대값과 최소값 반환 메소드
+    public int getMax() {
+        int max = array[0];
+        for (int num : array) {
+            if (num > max) max = num;
+        }
+        return max;
+    }
+
+    public int getMin() {
+        int min = array[0];
+        for (int num : array) {
+            if (num < min) min = num;
+        }
+        return min;
+    }
+}
+```
+
+### 5. `Student` 클래스
+```java
+public class Student {
+    private String name;
+    private int grade;
+    private double score;
+
+    // 성적 출력 메소드
+    public void printGrade() {
+        System.out.println(name + " in grade " + grade + " has a score of " + score);
+    }
+}
+```
+
+### 6. `Calculator` 클래스
+```java
+public class Calculator {
+    // 오버로딩 메소드들
+    public int add(int a, int b) {
+        return a + b;
+    }
+
+    public int subtract(int a, int b) {
+        return a - b;
+    }
+
+    public int multiply(int a, int b) {
+        return a * b;
+    }
+
+    public double divide(double a, double b) {
+        if (b == 0) throw new ArithmeticException("Division by zero");
+        return a / b;
+    }
+}
+```
+
+### 7. `Employee` 클래스
+```java
+public class Employee {
+    private String name;
+    private String department;
+    private double salary;
+
+    // 생성자
+    public Employee(String name, String department, double salary) {
+        this.name = name;
+        this.department = department;
+        this.salary = salary;
+    }
+}
+```
+
+### 8. `Circle` 클래스
+```java
+public class Circle {
+    private double radius;
+
+    // 원 면적 계산 메소드
+    public double getArea() {
+        return Math.PI * radius * radius;
+    }
+}
+```
+
+### 9. `Temperature` 클래스
+```java
+public class Temperature {
+    private double celsius;
+
+    // 섭씨를 화씨로 변환 메소드
+    public double toFahrenheit() {
+        return (celsius * 9 / 5) + 32;
+    }
+}
+```
+
+### 10. `EmailValidator` 클래스
+```java
+public class EmailValidator {
+    // 이메일 유효성 검사 메소드
+    public boolean isValidEmail(String email) {
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+        return email.matches(emailRegex);
+    }
+}
+```
+
 ### 토론 과제
 1. 객체 지향 프로그래밍에서 생성자와 메서드의 차이점에 대해 토론하세요.
 2. 메소드 오버로딩이 프로그램에 제공하는 이점과 잠재적인 문제점에 대해 토론하세요.
 3. 자바에서 리턴값의 유형에 따른 특성을 토론하세요.
+
+### 1. 객체 지향 프로그래밍에서 생성자와 메서드의 차이점에 대해 토론하세요.
+
+#### 정답
+- **기본 차이**: 생성자는 객체가 생성될 때 자동으로 호출되며, 객체의 초기 상태를 설정하는 데 사용됩니다. 반면, 메서드는 객체에 대한 행동을 정의하고, 객체가 생성된 후에 객체 상태를 변경하거나 정보를 반환하는 데 사용됩니다.
+- **기능적 차이**: 생성자는 객체를 초기화하는 역할만 수행하며, 값을 반환하지 않습니다 (생성자는 리턴 타입을 가지지 않습니다). 메서드는 다양한 기능을 수행하고, 필요에 따라 값 또는 객체를 반환할 수 있으며, 리턴 타입이 필요합니다.
+- **호출 시점**: 생성자는 new 키워드를 통해 객체를 생성할 때만 호출됩니다. 메서드는 객체가 이미 생성된 이후에 언제든지 호출될 수 있으며, 객체의 생애주기 동안 여러 번 호출될 수 있습니다.
+- **명명법**: 생성자의 이름은 항상 클래스의 이름과 동일해야 합니다. 메서드는 어떠한 이름도 가질 수 있으며, 클래스 내에서 유일하거나 오버로딩 규칙에 따라 같은 이름을 가질 수 있습니다.
+
+### 2. 메소드 오버로딩이 프로그램에 제공하는 이점과 잠재적인 문제점에 대해 토론하세요.
+
+#### 정답
+- **이점**:
+  - **코드의 가독성 향상**: 같은 기능을 수행하는 메소드에 같은 이름을 사용할 수 있어, 프로그래머가 다양한 매개변수를 가진 같은 기능의 메소드를 쉽게 이해하고 사용할 수 있습니다.
+  - **사용의 유연성**: 메소드를 호출할 때 매개변수의 타입이나 개수에 따라 서로 다른 방식으로 메소드를 실행할 수 있어, 메소드 사용 시 유연성이 증가합니다.
+  - **유지 관리의 편리성**: 비슷한 기능을 하는 메소드를 같은 이름으로 그룹화함으로써, 코드를 조직화하고 관리하기가 쉬워집니다.
+
+- **문제점**:
+  - **혼란의 가능성**: 매개변수의 수나 타입이 비슷한 경우, 오버로딩된 메소드 간에 혼란을 초래할 수 있으며, 특히 매개변수의 수가 많은 경우 어떤 메소드가 호출되는지 추적하기 어려울 수 있습니다.
+  - **디버깅의 어려움**: 오버로딩된 메소드가 많은 경우, 특정 메소드를 디버깅할 때 어떤 메소드가 실제로 실행되고 있는지 파악하기 어려울 수 있습니다.
+  - **성능 저하**: 메소드를 호출할 때 적절한 메소드를 찾기 위해 추가적인 시간이 소요될 수 있습니다.
+
+### 3. 자바에서 리턴값의 유형에 따른 특성을 토론하세요.
+
+#### 정답
+- **기본 자료형**: 기본 자료형(int, double 등)을 리턴할 때, 메소드는 값을 복사하여 호출자에게 전달합니다. 따라서 호출자는 원래 값에 영향을 받지 않는 독립적인 값을 받게 됩니다.
+- **객체 참조**: 객체 참조를 리턴할 때, 메
+
+소드는 객체의 메모리 주소를 리턴합니다. 이 경우 호출자는 리턴된 객체에 대한 참조를 받게 되므로, 호출자의 작업이 원래 객체에 영향을 줄 수 있습니다. 이는 객체의 상태를 변경할 가능성을 열어줍니다.
+- **void**: 메소드가 void 타입인 경우, 리턴값이 없습니다. 이런 메소드는 주로 상태를 변경하거나 특정 작업을 수행하는 데 사용되며, 호출자에게 어떤 결과도 반환하지 않습니다.
+- **배열과 컬렉션**: 배열이나 컬렉션 객체를 리턴하는 경우, 이들 역시 객체 참조를 통해 반환되기 때문에, 호출 코드에서 해당 데이터 구조를 수정할 경우 원본 객체에 영향을 미칩니다.
+
+이 정답들은 객체 지향 프로그래밍의 기본 개념과 자바의 메소드 사용 방법에 대한 깊은 이해를 제공합니다.
+
 
 # 다음의 각 내용에 대하여 개인별로 점검하시고, 내일 발전할 내용도 적어주세요.(조장님이 취합해서 전달)
 1. 오늘 출결사항(전날결석, 9:00 지각/조퇴사유), 
