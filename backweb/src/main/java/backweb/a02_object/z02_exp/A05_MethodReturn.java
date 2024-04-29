@@ -59,7 +59,17 @@ public class A05_MethodReturn {
 		double retdata = ts.getTemp() +10;
 		System.out.println("리턴된 데이터 합산해서 처리 :"+retdata);
 		// ex1) Man 클래스 선언 필드 age=5로 설정  getAge()로 age 리턴 해당 메서드 호출..
-		
+		Man m1 = new Man();
+		m1.age = 17;
+		System.out.println("리턴값 출력:"+m1.getAge());
+		int age2 = m1.getAge()+10;
+		System.out.println("리턴 후 연산:"+age2);
+	}
+}
+class Man{
+	int age = 5;
+	int getAge() {
+		return age;
 	}
 }
 class TempSensor{
