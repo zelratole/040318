@@ -120,11 +120,54 @@ class Product {
 
 ### 4. 메서드(매개변수)
 16. `Person` 클래스에 이름을 설정하는 `setName` 메서드를 추가하세요.
+class Person {
+    String name;
+    int age;
+    void setName(String name) {
+        this.name = name;
+    }
+}
 17. `Book` 클래스에 제목을 변경할 수 있는 `setTitle` 메서드를 작성하세요.
 18. `Car` 클래스에 모델을 설정하는 `setModel` 메서드를 만드세요.
 19. `Student` 클래스에 학년을 변경하는 `setGrade` 메서드를 추가하세요.
 20. `Product` 클래스에 수량을 변경하는 `setQuantity` 메서드를 작성하세요.
+class Book {
+    String title;
+    void setTitle(String title) {
+        this.title = title;
+    }
+}
 
+class Car {
+    String model;
+    int year;
+    String color;
+    void setModel(String model) {
+        this.model = model;
+    }
+}
+
+class Student {
+    String id;
+    String name;
+    String grade;
+    void setGrade(String grade) {
+        this.grade = grade;
+    }
+}
+class Product {
+    String productName;
+    double price;
+    int quantity;
+    int tot;
+    void setQuantity(int quantity) {
+        this.quantity += quantity; // 필드를 누적처리하는 기능내용.
+    }
+    // 메서드 오버로딩
+    void setQuantity(int quantity,  double price){
+    	tot += quantity*price;   // 매개변수를 입력 받은 내용을 누적처리..
+    }
+}
 ### 5. 메서드(리턴값)
 21. `Person` 클래스에 이름을 반환하는 `getName` 메서드를 추가하세요.
 22. `Book` 클래스에 제목을 반환하는 `getTitle` 메서드를 만드세요.
@@ -151,8 +194,32 @@ class Product {
 		System.out.println(c1.model);
 		System.out.println(c1.year);
 		System.out.println(c1.color);
+		Person p01 = new Person();
+		p01.setName("홍길동");
+		System.out.println(p01.name);
+		p01.setName("신길동");
+		System.out.println(p01.name);
+		Person p02 = new Person("마길동",25);
+		System.out.println(p02.name);
+		p02.setName("신길동");
+		System.out.println(p02.name);	
+// 생성자와 메서드의 데이터 할당의 차이점? 		
 	}
 }
+//16. `Person` 클래스에 이름을 설정하는 `setName` 메서드를 추가하세요.
+class Person {
+	String name;
+	int age;
+	Person(){}
+	Person(String name, int age){
+		this.name=name;
+		this.age=age;
+	}
+    void setName(String name) {
+        this.name = name;
+    }
+}
+
 class Car {
     String model;
     int year;
