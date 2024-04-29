@@ -64,8 +64,96 @@ public class A05_MethodReturn {
 		System.out.println("리턴값 출력:"+m1.getAge());
 		int age2 = m1.getAge()+10;
 		System.out.println("리턴 후 연산:"+age2);
+		Prod p1 = new Prod("사과");
+		System.out.println("생성자를 통한 초기화 후 메서드 리턴 호출:"+p1.getName());
+		p1.name = "오렌지";
+		System.out.println("필드값 변경후, 메서드 리턴 호출:"+p1.getName());
+		// ex) Music에 singer 필드를 주고, 기본생성자, singer를 할당하는 생성자와 이 singer를 리턴하는 메서드를 호출하여
+		//     위와 같에 메인메서드에서 호출하세요..
+		Music mu1= new Music("BTS");
+		System.out.println(mu1.getSinger());
+		Person per01 = new Person("홍길동", 25, "수원");
+		System.out.println(per01.getName());
+		System.out.println(per01.getLoc());
+		System.out.println(per01.getAge());
+		Clock cl1 = new Clock(15,47,30);
+		System.out.print(cl1.getHour()+"시 ");
+		System.out.print(cl1.getMinute()+"분 ");
+		System.out.println(cl1.getSecond()+"초");
 	}
 }
+// ex) 클래스 Clock 속성 hour, minute, second (필드), default생성자, 위 데이터 설정하는 생성자 및  getHour()
+//     getMinute(), getSecond() 메서드로 리턴하여 출력되게 하세요. 
+class Clock{
+	int hour;
+	int minute;
+	int second;
+	Clock(){}
+	Clock(int hour, int minute, int second){
+		this.hour =hour;
+		this.minute = minute;
+		this.second = second;
+	}
+	int getHour() {
+		return hour;
+	}
+	int getMinute() {
+		return minute;
+	}
+	int getSecond() {
+		return second;
+	}
+}
+class Person{
+	String name;
+	int age;
+	String loc;
+	Person(){
+		name ="익명";
+		age = 1;
+		loc = "미지정";
+	}
+	Person(String name, int age, String loc){
+		this.name = name;
+		this.age = age;
+		this.loc = loc;
+	}
+	String getName() {
+		return name;
+	}
+	int getAge() {
+		return age;
+	}
+	String getLoc() {
+		return loc;
+	}
+	
+	
+}
+class Music{
+	String singer;
+	Music(){
+		
+	}
+	Music(String singer){
+		this.singer = singer;
+	}
+	String getSinger() {
+		return singer;
+	}
+}
+class Prod{
+	String name;
+	Prod(){}
+	Prod(String name){
+		this.name = name;
+	}
+	String getName() {
+		return name;
+	}
+}
+
+
 class Man{
 	int age = 5;
 	int getAge() {
@@ -192,12 +280,14 @@ class Product {
         return price;
     }
 }
+/*
 class Person {
 	String name;
     String getName() {
         return name;
     }
 }
+*/
 class Book{
 	String getTitle() {
 		return "호모사피엔스(유발하라리)";
