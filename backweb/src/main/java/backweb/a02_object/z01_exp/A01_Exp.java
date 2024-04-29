@@ -207,6 +207,7 @@ class Product {
 	}
 }
 //16. `Person` 클래스에 이름을 설정하는 `setName` 메서드를 추가하세요.
+/*
 class Person {
 	String name;
 	int age;
@@ -219,6 +220,7 @@ class Person {
         this.name = name;
     }
 }
+*/
 
 class Car {
     String model;
