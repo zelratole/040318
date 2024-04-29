@@ -13,6 +13,9 @@ public class A01_Exp {
 3. `Car` 클래스를 만들고, 필드로 `model`, `year`, `color`를 포함하세요.
 4. 학생의 `id`, `name`, `grade` 세 가지 필드를 가진 `Student` 클래스를 작성하세요.
 5. `Product` 클래스를 만들고, `productName`, `price`, `quantity` 세 개의 필드를 정의하세요.
+=====> ~9:40
+
+
 
 ### 2. 생성자와 필드
 6. `Book` 클래스에 생성자를 추가하여 모든 필드를 초기화할 수 있도록 하세요.
