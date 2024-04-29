@@ -259,4 +259,99 @@ class Movie{
 
  * */
 
+class Coffee {
+    String type;
+    String origin;
+    String roastLevel;
 
+    // 커피 유형만 초기화
+    Coffee(String type) {
+        this.type = type;
+    }
+
+    // 커피 유형과 원산지 초기화
+    Coffee(String type, String origin) {
+        this.type = type;
+        this.origin = origin;
+    }
+
+    // 커피 유형, 원산지, 로스팅 레벨 초기화
+    Coffee(String type, String origin, String roastLevel) {
+        this.type = type;
+        this.origin = origin;
+        this.roastLevel = roastLevel;
+    }
+}
+class Gadget {
+    String model;
+    String manufacturer;
+    int yearOfRelease;
+
+    // 모델만 초기화
+    Gadget(String model) {
+        this.model = model;
+    }
+
+    // 모델과 제조사 초기화
+    Gadget(String model, String manufacturer) {
+        this.model = model;
+        this.manufacturer = manufacturer;
+        yearOfRelease=2024; // 
+    }
+
+    // 모델, 제조사, 출시 연도 초기화
+    Gadget(String model, String manufacturer, int yearOfRelease) {
+        this.model = model;
+        this.manufacturer = manufacturer;
+        this.yearOfRelease = yearOfRelease;
+    }
+}
+class Course {
+    String name;
+    String instructorName;
+    int creditHours;
+
+    // 과정 이름만 초기화
+    Course(String name) {
+        this.name = name;
+        instructorName="미할당";
+        creditHours=1;
+        		
+    }
+
+    // 과정 이름과 강사 이름 초기화
+    Course(String name, String instructorName) {
+        this.name = name;
+        this.instructorName = instructorName;
+    }
+
+    // 과정 이름, 강사 이름, 학점 시간 초기화
+    Course(String name, String instructorName, int creditHours) {
+        this.name = name;
+        this.instructorName = instructorName;
+        this.creditHours = creditHours;
+    }
+}
+class Plant {
+    String species;
+    String commonName;
+    int lifeSpan;
+
+    // 종만 초기화
+    Plant(String species) {
+        this.species = species;
+    }
+
+    // 종과 일반 이름 초기화
+    Plant(String species, String commonName) {
+        this.species = species;
+        this.commonName = commonName;
+    }
+
+    // 종, 일반 이름, 수명 초기화
+    Plant(String species, String commonName, int lifeSpan) {
+        this.species = species;
+        this.commonName = commonName;
+        this.lifeSpan = lifeSpan;
+    }
+}
