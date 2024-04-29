@@ -219,20 +219,39 @@ class Product {
     }
     
 }
+class Movie{
+	String title;
+	String director;
+	int releaseYear;
+	Movie(String title){
+		this.title = title;
+	}
+	Movie(String title, String director){
+		this.title = title;
+		this.director = director;
+	}
+	Movie(String title, String director, int releaseYear){
+		this.title = title;
+		this.director = director;
+		this.releaseYear = releaseYear;
+	}
+}
 /*
-다음은 생성자를 이용한 오버로딩을 연습할 수 있는 5개의 문제입니다:
 
 ### 문제 1: `Movie` 클래스
 
-**문제**: `Movie` 클래스를 설계하세요. 이 클래스는 한 개의 생성자를 사용하여 영화의 `title`만 초기화하고, 두 번째 생성자는 `title`과 `director`를 초기화합니다. 세 번째 생성자는 `title`, `director`, 그리고 `releaseYear`를 초기화합니다.
+**문제**: `Movie` 클래스를 설계하세요. 이 클래스는 한 개의 생성자를 사용하여 영화의 `title`만 초기화하고, 
+*두 번째 생성자는 `title`과 `director`를 초기화합니다. 세 번째 생성자는 `title`, `director`, 그리고 `releaseYear`를 초기화합니다.
 
 ### 문제 2: `Coffee` 클래스
 
-**문제**: `Coffee` 클래스를 설계하세요. 첫 번째 생성자는 커피의 `type`만 초기화하고, 두 번째 생성자는 `type`과 `origin` (원산지)를 초기화합니다. 세 번째 생성자는 `type`, `origin`, `roastLevel` (로스팅 레벨)을 초기화합니다.
+**문제**: `Coffee` 클래스를 설계하세요. 첫 번째 생성자는 커피의 `type`만 초기화하고, 두 번째 생성자는 
+`type`과 `origin` (원산지)를 초기화합니다. 세 번째 생성자는 `type`, `origin`, `roastLevel` (로스팅 레벨)을 초기화합니다.
 
 ### 문제 3: `Gadget` 클래스
 
-**문제**: `Gadget` 클래스를 설계하세요. 첫 번째 생성자는 기기의 `model`만 초기화하고, 두 번째 생성자는 `model`과 `manufacturer`를 초기화합니다. 세 번째 생성자는 `model`, `manufacturer`, 그리고 `yearOfRelease`를 초기화합니다.
+**문제**: `Gadget` 클래스를 설계하세요. 첫 번째 생성자는 기기의 `model`만 초기화하고, 
+두 번째 생성자는 `model`과 `manufacturer`를 초기화합니다. 세 번째 생성자는 `model`, `manufacturer`, 그리고 `yearOfRelease`를 초기화합니다.
 
 ### 문제 4: `Course` 클래스
 
