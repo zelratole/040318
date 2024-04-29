@@ -13,9 +13,6 @@ public class A01_Exp {
 3. `Car` 클래스를 만들고, 필드로 `model`, `year`, `color`를 포함하세요.
 4. 학생의 `id`, `name`, `grade` 세 가지 필드를 가진 `Student` 클래스를 작성하세요.
 5. `Product` 클래스를 만들고, `productName`, `price`, `quantity` 세 개의 필드를 정의하세요.
-=====> ~9:40
-
-
 
 ### 2. 생성자와 필드
 6. `Book` 클래스에 생성자를 추가하여 모든 필드를 초기화할 수 있도록 하세요.
@@ -23,6 +20,8 @@ public class A01_Exp {
 8. `Car` 클래스에 모든 필드를 초기화할 수 있는 생성자를 작성하세요.
 9. `Student` 클래스에 모든 필드를 매개변수로 받아 초기화하는 생성자를 만드세요.
 10. `Product` 클래스에 모든 필드를 초기화하는 생성자를 추가하세요.
+
+~ 9:45
 
 ### 3. 생성자와 메서드 오버로딩
 11. `Person` 클래스에 나이만 설정하는 생성자를 오버로딩하세요.
@@ -62,4 +61,36 @@ public class A01_Exp {
  */
 	}
 
+}
+
+//### 1. 필드
+//1. 하나의 필드를 가지는 클래스 `Book`을 생성하고, 필드는 `title` (책 제목)으로 정의하세요.
+
+class Book {
+    String title;
+}
+//2. 두 개의 필드 `name`과 `age`를 가지는 `Person` 클래스를 만드세요.
+
+class Person {
+    String name;
+    int age;
+}
+//3. `Car` 클래스를 만들고, 필드로 `model`, `year`, `color`를 포함하세요.
+class Car {
+    String model;
+    int year;
+    String color;
+}
+//4. 학생의 `id`, `name`, `grade` 세 가지 필드를 가진 `Student` 클래스를 작성하세요.
+
+class Student {
+    String id;
+    String name;
+    String grade;
+}
+//5. `Product` 클래스를 만들고, `productName`, `price`, `quantity` 세 개의 필드를 정의하세요.
+class Product {
+    String productName;
+    double price;
+    int quantity;
 }
