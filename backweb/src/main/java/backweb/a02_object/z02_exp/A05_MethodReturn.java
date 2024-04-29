@@ -47,10 +47,35 @@ public class A05_MethodReturn {
 		System.out.println(num01);
 		System.out.println(ob.call03()); // 지역변수리턴
 		System.out.println(ob.call04()); // 전역변수리턴
-		
-		
+		Calcu c = new Calcu();
+		System.out.println(c.plus());
+		c.setNum01(25);
+		System.out.println(c.plus());
+		Calcu c2 = new Calcu(50);
+		System.out.println(c2.plus());
 	}
 }
+//ex) Calcu    필드로 num01 
+//기본생성자와 num01할당하는 생성자.
+//메서드 void setNum01() 위 필드에 있는 num01할당 처리 메서드 정의
+//메서드 int plus()로 설정하고 위 num01을 리턴하게 처리
+//main()에서 객체 생성하고 호출하여 처리해보세요.
+class Calcu{
+	int num01;
+	Calcu(){}
+	Calcu(int num01){
+		this.num01 = num01;
+	}
+	void setNum01(int num01) {
+		System.out.println("저장하는 메서드");
+		this.num01 = num01;
+	}
+	int plus() {
+		System.out.println("리턴하는 메서드..!!");
+		return num01;
+	}
+}
+
 /*
 # 메서드의 리턴값 
 1. 메서드를 호출시 리턴되는 데이터를 말한다.
@@ -79,12 +104,26 @@ class Obj01{
 		return no;
 	}	
 	String name="전역변수(문자열)";
+	Obj01(){}
+	Obj01(String name){
+		this.name =name;
+	}
+	void setName(String name) {
+		this.name = name;
+	}
+	// Obj01 ob = new Obj01();
+	// ob.call04() : "전역변수(문자열)"
+	// Obj01 ob1 = new Obj01("안녕하세요");
+	// ob1.call04() : "안녕하세요"
+	// ob1.setName("하이");
+	// ob1.call04() : "하이"
 	String call04() {
 		System.out.println("리턴하는 데이터가 문자열형(전역변수-필드 사용) 일 때");
 		return name;
 	}	
 	
 }
+
 
 class RandomGenerator{
 	int getDice() {
