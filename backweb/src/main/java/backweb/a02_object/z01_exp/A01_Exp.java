@@ -13,6 +13,38 @@ public class A01_Exp {
 3. `Car` 클래스를 만들고, 필드로 `model`, `year`, `color`를 포함하세요.
 4. 학생의 `id`, `name`, `grade` 세 가지 필드를 가진 `Student` 클래스를 작성하세요.
 5. `Product` 클래스를 만들고, `productName`, `price`, `quantity` 세 개의 필드를 정의하세요.
+//### 1. 필드
+//1. 하나의 필드를 가지는 클래스 `Book`을 생성하고, 필드는 `title` (책 제목)으로 정의하세요.
+
+class Book {
+    String title;
+}
+//2. 두 개의 필드 `name`과 `age`를 가지는 `Person` 클래스를 만드세요.
+
+class Person {
+    String name;
+    int age;
+}
+//3. `Car` 클래스를 만들고, 필드로 `model`, `year`, `color`를 포함하세요.
+class Car {
+    String model;
+    int year;
+    String color;
+}
+//4. 학생의 `id`, `name`, `grade` 세 가지 필드를 가진 `Student` 클래스를 작성하세요.
+
+class Student {
+    String id;
+    String name;
+    String grade;
+}
+//5. `Product` 클래스를 만들고, `productName`, `price`, `quantity` 세 개의 필드를 정의하세요.
+class Product {
+    String productName;
+    double price;
+    int quantity;
+}
+
 
 ### 2. 생성자와 필드
 6. `Book` 클래스에 생성자를 추가하여 모든 필드를 초기화할 수 있도록 하세요.
@@ -20,11 +52,67 @@ public class A01_Exp {
 8. `Car` 클래스에 모든 필드를 초기화할 수 있는 생성자를 작성하세요.
 9. `Student` 클래스에 모든 필드를 매개변수로 받아 초기화하는 생성자를 만드세요.
 10. `Product` 클래스에 모든 필드를 초기화하는 생성자를 추가하세요.
-
-~ 9:45
-
-### 3. 생성자와 메서드 오버로딩
 11. `Person` 클래스에 나이만 설정하는 생성자를 오버로딩하세요.
+
+
+### 2. 생성자와 필드
+
+```java
+class Book {
+    String title;
+
+    Book(String title) {
+        this.title = title;
+    }
+}
+
+class Person {
+    String name;
+    int age;
+
+    Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+}
+
+class Car {
+    String model;
+    int year;
+    String color;
+
+    Car(String model, int year, String color) {
+        this.model = model;
+        this.year = year;
+        this.color = color;
+    }
+}
+
+class Student {
+    String id;
+    String name;
+    String grade;
+
+    Student(String id, String name, String grade) {
+        this.id = id;
+        this.name = name;
+        this.grade = grade;
+    }
+}
+
+class Product {
+    String productName;
+    double price;
+    int quantity;
+	// 초기화 : 필드값을 객체 생성자에 의해서 초기 데이터를 할당..
+    Product(String productName, double price, int quantity) {
+        this.productName = productName;
+        this.price = price;
+        this.quantity = quantity;
+    }
+}
+
+### 3. 생성자와 메서드 오버로딩(같은 이름의 여러개 생성자/메서드를 선언할 수 있는 규칙)
 12. `Book` 클래스에 제목만 설정하고 나머지 필드는 기본값을 사용하는 생성자를 오버로딩하세요.
 13. `Car` 클래스에 색상만 매개변수로 받고 나머지는 기본값으로 설정하는 생성자를 추가하세요.
 14. `Student` 클래스에 `id`와 `name`만 받아 초기화하고 `grade`는 기본값으로 설정하는 생성자를 오버로딩하세요.
@@ -59,38 +147,77 @@ public class A01_Exp {
 35. `Product` 클래스에 할인율을 매개변수로 받아 할인된 가격을 계산하고 반환하는 메서드를 작성하세요.
  
  */
+		Car c1 = new Car("그렌저",2024,"빨강");
+		System.out.println(c1.model);
+		System.out.println(c1.year);
+		System.out.println(c1.color);
 	}
-
 }
-
-//### 1. 필드
-//1. 하나의 필드를 가지는 클래스 `Book`을 생성하고, 필드는 `title` (책 제목)으로 정의하세요.
-
-class Book {
-    String title;
-}
-//2. 두 개의 필드 `name`과 `age`를 가지는 `Person` 클래스를 만드세요.
-
-class Person {
-    String name;
-    int age;
-}
-//3. `Car` 클래스를 만들고, 필드로 `model`, `year`, `color`를 포함하세요.
 class Car {
     String model;
     int year;
     String color;
+    // 생성자를 통한 초기..
+    Car(String model, int year, String color){
+    	this.model = model;
+    	this.year = year;
+    	this.color = color;
+    }
 }
-//4. 학생의 `id`, `name`, `grade` 세 가지 필드를 가진 `Student` 클래스를 작성하세요.
-
+// 14. `Student` 클래스에 `id`와 `name`만 받아 초기화하고 
+//     `grade`는 기본값으로 설정하는 생성자를 오버로딩하세요.
 class Student {
     String id;
     String name;
     String grade;
+
+    Student(String id, String name, String grade) {
+        this.id = id;
+        this.name = name;
+        this.grade = grade;
+    }
+    // 매개변의 갯수가 다르기 때문에 선언이 가능..
+    Student(String id, String name){
+        this.id = id;
+        this.name = name;
+        grade = "Ungraded";  // 기본값을 설정..
+    }
 }
-//5. `Product` 클래스를 만들고, `productName`, `price`, `quantity` 세 개의 필드를 정의하세요.
+class Person {
+	String name;
+	int age;
+	// age를 생성하면서 매개변수 없이 처리..
+	Person(){
+		age = 1;
+	}
+    // 나이만 설정하는 생성자 오버로딩
+    Person(int age) {
+        this.age = age;
+    }
+    Person(String name){
+    	this.name = name;
+    }
+    Person(String name, int age){
+    	this.age = age;
+    	this.name = name;
+    }    
+}
 class Product {
-    String productName;
-    double price;
-    int quantity;
+	String productName;
+	double price;
+	int quantity;
+    // productName만 설정하고 나머지는 기본값
+    Product(String productName) {
+        this.productName = productName;
+        this.price = 0.0;
+        this.quantity = 0;
+    }
+    Product(String productName, double price, int quantity){
+        this.productName = productName;
+        this.price = price;
+        this.quantity = quantity;
+    }
+    
 }
+
+
