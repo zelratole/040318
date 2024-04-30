@@ -28,6 +28,10 @@ public class A01_Exp {
 			return 전체페이지수- 현재페이지수
 		}	
 33. `Car` 클래스에 기름을 매개변수로 받아 남은 주행 가능 거리를 계산하고 반환하는 메서드를 작성하세요.
+		Car 필드 : 차량명, 리트당주행거리, 현주유량
+			생성자 : 차량명, 리트당주행거리
+			메서드 : 주유주입(주유량),  남은 주행 가능 거리()
+			
 34. `Student` 클래스에 현재 점수와 추가 점수를 매개변수로 받아 총점을 계산하고 반환하는 메서드를 추가하세요.
 35. `Product` 클래스에 할인율을 매개변수로 받아 할인된 가격을 계산하고 반환하는 메서드를 작성하세요.
 
@@ -41,10 +45,35 @@ public class A01_Exp {
 		int curPage = b1.readPageCurpage(40);
 		System.out.println("현재 페이지 번호:"+curPage);
 		System.out.println("남은 페이지 수:"+b1.restPage());
-		
-		
+		Car c1 = new Car("그랜저", 12.5);
+		c1.addFuel(50);
+		c1.addFuel(50);
+		System.out.println("이동할 수 있는 거리:"+c1.remainDistance()+"km");
 	}
 }
+class Car{
+	String name;
+	double fuelEff;  // 차량연비(km/l) : 리트당 주행거리
+	int fuel;
+	Car(String name, double fuelEff){
+		this.name = name;
+		this.fuelEff = fuelEff;
+		System.out.println("#차량 출고#");
+		System.out.println("차량명:"+name);
+		System.out.println("연비:"+fuelEff+"km/l");
+	}
+	void addFuel(int fuel) {
+		this.fuel +=fuel;
+		System.out.println("차량에 주유 주입:"+fuel+"l");
+		System.out.println("현재 주유량:"+this.fuel);
+	}
+	int remainDistance() {
+		return (int)(fuel*fuelEff);
+	}
+	
+}
+
+
 class Book{
 	String title;
 	int totPage;
