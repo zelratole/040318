@@ -96,8 +96,26 @@ class Person{
 		 누적되는 변수(totalSubjects-전체과목수), 전체점수(totalScorce) 
 30. `Product` 클래스에판매 수량을 매개변수로 받아 총 판매량을 업데이트하고 반환하는 메서드를 작성하세요.
  
+Product p01 = new Product("사과");
+p01.inputPayRetTot(1000); 
+p01.inputPayRetTot(2000); 
+int tot = p01.inputPayRetTot(3000);
+System.out.println("총판매금액:"+tot);
  * */
-
+class Product{
+	int totSelling;
+	String name;
+	Product(String name){
+		this.name = name;
+	}
+	int inputPayRetTot(int pay) {
+		System.out.print(name);
+		System.out.println("이번에 판매한 금액:"+pay);
+		totSelling+=pay;
+		return totSelling;
+	}
+	
+}
 
 
 class Calculator{
