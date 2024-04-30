@@ -62,7 +62,7 @@ class Car{
 		System.out.println("차량명:"+name);
 		System.out.println("연비:"+fuelEff+"km/l");
 	}
-	void addFuel(int fuel) {
+	void addFuel(int fuel) { 
 		this.fuel +=fuel;
 		System.out.println("차량에 주유 주입:"+fuel+"l");
 		System.out.println("현재 주유량:"+this.fuel);
