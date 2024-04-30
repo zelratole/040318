@@ -80,8 +80,37 @@ public class A05_MethodReturn {
 		System.out.print(cl1.getHour()+"시 ");
 		System.out.print(cl1.getMinute()+"분 ");
 		System.out.println(cl1.getSecond()+"초");
+		Calculator01 cal = new Calculator01(25,5);
+		cal.plus();
+		cal.minus();// 데이터만 있는 상황..
+		System.out.println(cal.minus());
+		int num03 = cal.minus()+10; // 리턴되는 데이터는 호출하는 곳에 데이터 전송해주고, 출력/연산을 처리해준다.
+		System.out.println(num03);
 	}
 }
+class Calculator01{
+	int num01;
+	int num02;
+	Calculator01(int num01, int num02){
+		this.num01 = num01;
+		this.num02 = num02;
+	}
+	void plus() {
+		System.out.println(num01 + " + "+ num02 + " = "+(num01 + num02));
+	}
+	int minus() {
+		return num01 - num02;
+	}
+	int multi() {
+		return num01 * num02;
+	}
+	double divide() {
+		return num01 /(double) num02;
+	}
+	
+	
+}
+
 // ex) 클래스 Clock 속성 hour, minute, second (필드), default생성자, 위 데이터 설정하는 생성자 및  getHour()
 //     getMinute(), getSecond() 메서드로 리턴하여 출력되게 하세요. 
 class Clock{
@@ -274,6 +303,20 @@ class Student {
         return id;
     }
 }
+/*
+# 생성자 + 메서드 처리(기초)
+
+Student st = new Student("himan"); // 초기데이터 할당
+st.getId() "himan"  // 가져오는 메서드
+st.setId("higirl")  // 설정하는 메서드..
+st.getId() "higirl"
+
+
+ * */
+// 생성자, 메서드 역할 어떤 구분이 되는지?
+/**/
+
+
 class Product {
 	double price;
     double getPrice() {
