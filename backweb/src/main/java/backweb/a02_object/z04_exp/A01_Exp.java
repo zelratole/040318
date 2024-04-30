@@ -20,6 +20,13 @@ public class A01_Exp {
              
              
 32. `Book` 클래스에 현재 페이지와 읽은 페이지 수를 매개변수로 받아 남은 페이지 수를 계산하고 반환하는 메서드를 추가하세요.
+		생성자(도서명, 전체페이지수, 현재페이지수)
+		readPageCurPage(읽은페이지수)
+		    현재페이지수  += 읽은페이지수
+			return 현재페이지수
+		restPage(){
+			return 전체페이지수- 현재페이지수
+		}	
 33. `Car` 클래스에 기름을 매개변수로 받아 남은 주행 가능 거리를 계산하고 반환하는 메서드를 작성하세요.
 34. `Student` 클래스에 현재 점수와 추가 점수를 매개변수로 받아 총점을 계산하고 반환하는 메서드를 추가하세요.
 35. `Product` 클래스에 할인율을 매개변수로 받아 할인된 가격을 계산하고 반환하는 메서드를 작성하세요.
@@ -28,9 +35,42 @@ public class A01_Exp {
 		Person p01 = new Person("홍길동", 25);
 		int futureAge= p01.getFutureAge(2024, 2035);
 		System.out.println("미래 나이:"+futureAge);
+		Book b1 = new Book("자바기초", 400);
+		b1.readPageCurpage(50);
+		b1.readPageCurpage(30);
+		int curPage = b1.readPageCurpage(40);
+		System.out.println("현재 페이지 번호:"+curPage);
+		System.out.println("남은 페이지 수:"+b1.restPage());
+		
+		
 	}
-
 }
+class Book{
+	String title;
+	int totPage;
+	int curPage;
+	// 제목과 전체 페이지 수 설정..
+	Book(String title, int totPage){
+		this.title = title;
+		this.totPage = totPage;
+		// curPage = 0  : 기본적으로 객체경우 default값이 설정이된다.
+	}
+	int readPageCurpage(int readPage) {
+		System.out.println("# 도서명:"+title);
+		System.out.println("읽은 페이지 수:"+readPage);
+		curPage += readPage;
+		return curPage;
+	}
+	int restPage() {
+		System.out.println("# 도서명:"+title);
+		System.out.println("전체 페이지 수:"+totPage);
+		System.out.println("현재 읽은 페이지수 :"+curPage);
+		
+		return totPage-curPage;
+	}
+}
+
+
 class Person{
 	String name;
 	int age;
