@@ -55,7 +55,24 @@
 				
 					
 		 
-
+# 앞으로 과목별 진도 계획
+1. front/backend
+	java 초급
+	jsp 초급
+	javascript 중급	Database
+	jquery초급			
+	java 중급			Database
+	jsp  중급			Database
+	spring			jquery/bootstrap
+	
+2. 프로젝트:매일1시간 진행 필수..
+	
+	
+	
+	
+	
+	
+	
 
 
 
