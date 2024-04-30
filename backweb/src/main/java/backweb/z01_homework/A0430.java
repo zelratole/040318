@@ -107,6 +107,154 @@ public class A0430 {
 **문제 3**
 - 접근 제어자를 사용하여 API를 디자인할 때의 고려 사항에 대해 토론하세요. 특히, 외부에 공개되는 클래스와 내부에서만 사용되는 클래스의 접근 제어를 어떻게 결정할지에 대해 논의하세요.
 
+
+### 자바 클래스 예시 풀이
+
+#### 1. 간단한 계산기 클래스 (`SimpleCalculator`)
+```java
+public class SimpleCalculator {
+    private double value;
+
+    public SimpleCalculator(double initialValue) {
+        this.value = initialValue;
+    }
+
+    public void add(double num) {
+        value += num;
+    }
+
+    public void subtract(double num) {
+        value -= num;
+    }
+
+    public void multiply(double num) {
+        value *= num;
+    }
+
+    public void divide(double num) {
+        if (num != 0) {
+            value /= num;
+        } else {
+            System.out.println("Cannot divide by zero.");
+        }
+    }
+
+    public double getValue() {
+        return value;
+    }
+}
+```
+
+#### 2. 온도 변환기 클래스 (`TemperatureConverter`)
+```java
+public class TemperatureConverter {
+    public static double celsiusToFahrenheit(double celsius) {
+        return (celsius * 9/5) + 32;
+    }
+
+    public static double fahrenheitToCelsius(double fahrenheit) {
+        return (fahrenheit - 32) * 5/9;
+    }
+}
+```
+
+#### 3. 직원 관리 시스템 (`Employee`)
+```java
+public class Employee {
+    private String name;
+    private double salary;
+
+    public Employee(String name, double salary) {
+        this.name = name;
+        this.salary = salary;
+    }
+
+    public void raiseSalary(double percentage) {
+        salary += salary * percentage / 100;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getSalary() {
+        return salary;
+    }
+}
+```
+
+#### 4. 간단한 은행 계좌 클래스 (`BankAccount`)
+```java
+public class BankAccount {
+    private String accountNumber;
+    private double balance;
+
+    public BankAccount(String accountNumber, double initialBalance) {
+        this.accountNumber = accountNumber;
+        this.balance = initialBalance;
+    }
+
+    public void deposit(double amount) {
+        balance += amount;
+    }
+
+    public void withdraw(double amount) {
+        if (amount <= balance) {
+            balance -= amount;
+        } else {
+            System.out.println("Insufficient funds.");
+        }
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+}
+```
+
+#### 5. 자동차 관리 시스템 (`Car`)
+```java
+public class Car {
+    private String make;
+    private String model;
+    private int year;
+
+    public Car(String make, String model, int year) {
+        this.make = make;
+        this.model = model;
+        this.year = year;
+    }
+
+    public void updateModel(String model) {
+        this.model = model;
+    }
+}
+```
+
+### 개념 문제 풀이
+
+**문제 1:** 자바에서 네 가지 주요 접근 제어자는 `public`, `private`, `protected`, `default` (아무 접근 제어자를 명시하지 않은 경우)입니다. `public`은 모든 클래스에서 접근 가능하며, `private`은 해당 클래스 내에서만 접근 가능합니다. `protected`는 같은 패키지 내부 또는 상속받은 클래스에서 접근 가능합니다. `default`는 동일 패키지 내에서만 접근 가능합니다.
+
+**문제 2:** `private` 접근 제어자는 멤버변수나 메서드를 클래스 외부에서 접근하지 못하게 하여, 객체의 캡슐화와 정보 은닉을 강화합니다. 이는 외부에서 내부 구현을 임의로 변경하거나 예상치 못한 사용을 방지하여 객체의 무결성을 유지하는 데 도움을 줍니다.
+
+**문제 3:** `default` 접근 제어자가 적용된 멤버는 같은 패키지 내의 클래스들에서만 접근 가능합니다. 다른 패키지에서는 접근할 수 없어, 패키지 내부에서만 사용되는 내부 클래스나 멤버의 경우 유용하게 사용됩니다.
+
+### 4지선다 문제
+
+**문제 1:** B) `private`
+**문제 2:** D) `default`
+**문제 3:** C) `protected`
+
+### 토론할 과제
+
+**문제 1:** `public`은 완전한 접근을 허용하고 `private`은 매우 제한적입니다. 캡슐화는 외부에서 내부 구현에 의존하지 않도록 하여 코드의 유지보수성을 높이는 원칙입니다. 클래스의 중요한 부분을 `private`로 설정하여 내부 로직을 숨기고, 사용자에게 필요한 부분만 `public` 인터페이스로 제공함으로써 캡슐화를 구현할 수 있습니다.
+
+**문제 2:** `default` 접근 제어자는 동일 패키지 내에서만 사용될 기능에 적합하며, 패키지 외부로의 불필요한 노출을 막아줍니다. 이는 패키지 구조를 깔끔하게 유지하는 데 도움을 줍니다. `public`은 모든 곳에서 접근 가능하며, `private`은 클래스 내부만, `protected`는 상속 관계에 있는 클래스까지 접근 가능하게 합니다.
+
+**문제 3:** API 디자인 시 접근 제어자를 사용하여 어떤 클래스나 메서드를 외부에 공개할지 결정합니다. 공개 API는 `public`으로 설정하여 안정성과 호환성을 유지하며, 내부 구현은 `private`이나 `default`로 설정하여 외부에서의 접근을 제한합니다. 이는 API를 안전하게 유지하고, 사용자가 내부 구현에 의존하지 않도록 하는 데 중요합니다.
+
+
+
 # 다음의 각 내용에 대하여 개인별로 점검하시고, 내일 발전할 내용도 적어주세요.(조장님이 취합해서 전달)
 1. 오늘 출결사항(전날결석, 9:00 지각/조퇴사유), 
    수업시간/프로젝트시간 수업시간 준수 및 교실밖 이동 자제 
