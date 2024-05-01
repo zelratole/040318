@@ -1,0 +1,46 @@
+# 내용계열화에 따른 jsp 학습 순서
+1. jsp 기본 개념
+	1) 개요 및 동작 원리 이해
+	2) 기본 문법 및 구조 소개
+	3) 내장 객체 및 기능 소개
+2. jsp 기본 문법
+	1) 스크립트 요소 : scriptlet, expression, declaration
+	2) 디렉티브: 페이지 지시자, include지시지
+	3) 액션 태그 : jsp:include, jsp:forward	
+3. jsp와 서블릿
+	1) 차이점
+	2) jsp와 서블릿의 변환 과정
+	3) jsp와 서블릿을 함께 사용하는 방법
+4. jsp의 내장 객체 활용
+	1) request, response, session, application등의 범위에 따른 내장 객체
+	2) 내장 객체의 스코프와 라이프 사이클 이해.
+	3) form객체를 통한 처리 예제
+	
+5. 웹 애플리케이셔 예외 처리
+----------------------
+6. 쿠키값 설정/session 설정
+7. jsp:useBean 활용
+8. el태그와 jsp 태그 라이브러리(jstl) 활용
+9. mvc 아키텍처 패턴
+10. 데이터베이스 연동 실무 예제
+
+# jsp의 핵심
+1. 페이지 호출 시,
+	1) form데이터를 서버에 요청값으로 전달 방식 이해
+	2) form데이터를 VO 객체에 할당하여 처리
+2. session scope에 따른 처리
+3. database 연동 화면 처리
+4. front단과 효과적으로 연동하여 처리(html 코드, javascript 처리)
+5. 에러가 발생할 때, 효과적으로 처리 능력..
+	
+	
+
+
+
+
+
+
+
+
+
+	
