@@ -1,5 +1,8 @@
 package backweb.a02_object.a02_relation;
 
+import backweb.a02_object.a02_relation.vo.Car;
+import backweb.a02_object.a02_relation.vo.Engine;
+
 public class A01_CallVo {
 
 	public static void main(String[] args) {
@@ -31,6 +34,15 @@ public class A01_CallVo {
 	6) main()에서 실제 객체를 생성하고, 처리내용 확인..
 		
  * */
+		Engine en01 = new Engine(125);
+		Car c1 = new Car("산타페", en01);
+		c1.showInfo();
+		// ex) IDCard(cardNumber카드번호) 
+		//     Student(name이름, IDCard, showInfo()를 통해 정보 출력)
+		//     클래스를 backweb.a02_object.a02_relation.vo 안에 선언하고
+		// 	  호출하세요
+		
+		
 	}
 
 }
