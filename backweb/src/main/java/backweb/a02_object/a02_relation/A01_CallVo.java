@@ -1,7 +1,11 @@
 package backweb.a02_object.a02_relation;
 
 import backweb.a02_object.a02_relation.vo.Car;
+import backweb.a02_object.a02_relation.vo.Computer;
 import backweb.a02_object.a02_relation.vo.Engine;
+import backweb.a02_object.a02_relation.vo.IDCard;
+import backweb.a02_object.a02_relation.vo.Monitor;
+import backweb.a02_object.a02_relation.vo.Student;
 
 public class A01_CallVo {
 
@@ -41,8 +45,13 @@ public class A01_CallVo {
 		//     Student(name이름, IDCard, showInfo()를 통해 정보 출력)
 		//     클래스를 backweb.a02_object.a02_relation.vo 안에 선언하고
 		// 	  호출하세요
-		
-		
+		Student st = new Student("김영희", new IDCard("3422IS555"));
+		st.showInfo();
+		// ex) 컴퓨터(Computer-Monitor, 모델명(model) - showInfo()컴퓨터정보와 모니터 해상도 출력) 
+		//     와 모니터(Monitor-해상도 resolution)
+		Computer computer = new Computer("삼성워크스테이션", new Monitor("1920x1080"));
+		computer.showInfo();
+
 	}
 
 }
