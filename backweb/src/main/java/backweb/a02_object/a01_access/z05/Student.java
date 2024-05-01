@@ -10,6 +10,18 @@ public class Student {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	// 필요에 따라 객체 생성시, 특정 필드를 초기화 하는 생성자를 중복정의(overloading)
+	// 가능하다.
+	public Student(String name) {
+		super();
+		this.name = name;
+	}	
+	public Student(int kor, int eng, int math) {
+		super();
+		this.kor = kor;
+		this.eng = eng;
+		this.math = math;
+	}
 	public Student(String name, int kor, int eng, int math) {
 		super();
 		this.name = name;
@@ -17,6 +29,8 @@ public class Student {
 		this.eng = eng;
 		this.math = math;
 	}
+
+
 	public String getName() {
 		return name;
 	}

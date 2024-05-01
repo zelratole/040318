@@ -6,11 +6,12 @@ public class Teacher {
 	private String name;
 	private String subject;
 	private int regYear;
-	private Student stud;
+	private Student stud;   // public class Student; 접근제어자 범위 안에 있을 때
 	void callStudent() {
-		stud = new Student(); // public Student()생성자이게 접근가능
+		stud = new Student(); 
+		// public Student()생성자이게 접근가능
 		stud.getEng(); // public메서드이기에 접근 가능..
-//		stud.eng;// private이기에 접근 불가
+//		stud.eng;// private이기에 접근 불가(private int eng;)
 	}
 	public Teacher() {
 		super();

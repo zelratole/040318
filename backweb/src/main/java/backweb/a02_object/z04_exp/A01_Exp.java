@@ -46,8 +46,8 @@ public class A01_Exp {
 		System.out.println("현재 페이지 번호:"+curPage);
 		System.out.println("남은 페이지 수:"+b1.restPage());
 		Car c1 = new Car("그랜저", 12.5);
-		c1.addFuel(50);
-		c1.addFuel(50);
+		c1.addFuel(50); 
+		c1.addFuel(50);// 주유할 때 마다 주유량 변경...
 		System.out.println("이동할 수 있는 거리:"+c1.remainDistance()+"km");
 	}
 }
@@ -55,6 +55,8 @@ class Car{
 	String name;
 	double fuelEff;  // 차량연비(km/l) : 리트당 주행거리
 	int fuel;
+	// 1. 생성자를 통해서 초기 객체를 생성하는데, 활용되고 있다.
+	// 2. 생성자는 초기 데이터를 설정하는데 사용된다.
 	Car(String name, double fuelEff){
 		this.name = name;
 		this.fuelEff = fuelEff;
@@ -62,11 +64,13 @@ class Car{
 		System.out.println("차량명:"+name);
 		System.out.println("연비:"+fuelEff+"km/l");
 	}
+	// 3. 메서드는 호출할 때, 마다 변경할 데이터를 설정할 때 활용된다.
 	void addFuel(int fuel) { 
 		this.fuel +=fuel;
 		System.out.println("차량에 주유 주입:"+fuel+"l");
 		System.out.println("현재 주유량:"+this.fuel);
 	}
+	// 4. return값을 통해서 연산된 결과값을 리턴받아서 확인할 수 있다.
 	int remainDistance() {
 		return (int)(fuel*fuelEff);
 	}
