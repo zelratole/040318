@@ -49,4 +49,14 @@
     <servlet-name>call02.do</servlet-name>
     <url-pattern>/call02.do</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>call03.do</display-name>
+    <servlet-name>call03.do</servlet-name>
+    <servlet-class>backweb.a03_servlet.A03_Servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>call03.do</servlet-name>
+    <url-pattern>/call03.do</url-pattern>
+  </servlet-mapping>
 </web-app>
