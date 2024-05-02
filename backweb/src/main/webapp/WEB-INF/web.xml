@@ -9,4 +9,44 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>A01_Servlet</display-name>
+    <servlet-name>A01_Servlet</servlet-name>
+    <servlet-class>backweb.a02_object.A01_Servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>A01_Servlet</servlet-name>
+    <url-pattern>/A01_Servlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>call01</display-name>
+    <servlet-name>call01</servlet-name>
+    <servlet-class>backweb.a02_object.A02_servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>call01</servlet-name>
+    <url-pattern>/call01</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>call01.do</display-name>
+    <servlet-name>call01.do</servlet-name>
+    <servlet-class>backweb.a03_servlet.A01_Servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>call01.do</servlet-name>
+    <url-pattern>/call01.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>call02.do</display-name>
+    <servlet-name>call02.do</servlet-name>
+    <servlet-class>backweb.a03_servlet.A02_Servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>call02.do</servlet-name>
+    <url-pattern>/call02.do</url-pattern>
+  </servlet-mapping>
 </web-app>
