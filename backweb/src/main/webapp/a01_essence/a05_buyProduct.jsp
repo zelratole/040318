@@ -7,17 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>등록할 회원명</h2>
-	<%--
-	a04_registerMember.jsp?name=홍길동
-	==> String name = request.getParameter("name");
-	
-	
-	 --%>
-	<form action="a04_registerMember.jsp">
-	회원명:<input type="text" name="name" />
-	<input type="submit" value="등록"/>
-	</form>
 	<%--
 	ex) a05_buyProduct.jsp
 			물건명:[    ]
@@ -27,11 +16,12 @@
 			구매정보
 			물건명:@@@
 			가격:@@@
-	
-	
-	
 	 --%>
-	
+	<form action="a06_buyList.jsp">
+		물건명:<input type="text" name="name"><br>
+		가격:<input type="text" name="price"><br>
+		<input type="submit" value="구매"><br> 	
+	</form>	 
 	
 </body>
 </html>
