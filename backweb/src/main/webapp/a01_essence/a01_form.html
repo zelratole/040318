@@ -15,6 +15,19 @@ window.onload=function(){
 </head>
 <body>
 	<h2></h2>
+
+	<!-- 
+	id와 pwd를 입력하고, type="submit" 버튼 클릭시, 
+	action으로 설정된 곳으로 a02_receiveData.jsp 페이지가
+	이동 되면서 요청값으로 ?id=입력한아이디&pwd=입력한패스워드  전송을 한다.
+							
+	a02_receiveData.jsp 페이지에서는 
+	request.getParameter("id") : 입력한 데이터를 문자열로 받는다..
+	request.getParameter("pwd")
+	
+	위 내용을 자바프로그램을 받는다.
+	 -->
+	
 	<form action="a02_receiveData.jsp">
 	아이디:<input type="text" name="id"/><br>
 	패스워드:<input type="password" name="pwd"/><br>
