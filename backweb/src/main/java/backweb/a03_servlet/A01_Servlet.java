@@ -29,6 +29,9 @@ public class A01_Servlet extends HttpServlet {
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		// 브라우저(클라이언트)   vs   톰켓서버(서버)
+
+		
 		// html코드(html과 자바코드 혼합된 내용)를 브라우저에 전송(스트림으로)해주는 역할 
 		PrintWriter out =  response.getWriter();
 		// 자바 프로그램과 혼합해서 문자열로 html코드를 만들어 브라우저에 전송..
