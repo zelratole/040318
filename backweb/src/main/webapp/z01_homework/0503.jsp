@@ -45,6 +45,153 @@
 5. **짝수/홀수 판별** - 임의로 숫자를 변수로 만들어 그 숫자가 짝수인지 홀수인지를 판별하여 출력하는 페이지를 만드세요.
 
 
+아래는 JSP 페이지를 사용한 요청들에 대한 예제 코드들입니다.
+
+### 1. 선언 태그를 사용하여 사용자 정의 함수 작성 및 호출
+
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Custom Function Example</title>
+</head>
+<body>
+<%!
+    public int square(int x) {
+        return x * x;
+    }
+%>
+<%
+    int result = square(5);
+%>
+<p>The square of 5 is: <%= result %></p>
+</body>
+</html>
+```
+
+### 2. 사용자의 이름을 변수에 저장하고 출력하기
+
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Display Name</title>
+</head>
+<body>
+<%
+    String name = "John Doe";
+%>
+<p>Hello, <%= name %>!</p>
+</body>
+</html>
+```
+
+### 3. 사용자로부터 입력받은 나이를 저장하고 성인 여부 판별
+
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Age Check</title>
+</head>
+<body>
+<%
+    String ageStr = request.getParameter("age");
+    int age = Integer.parseInt(ageStr);
+    String result = age >= 18 ? "성인입니다." : "미성년자입니다.";
+%>
+<form action="" method="get">
+    나이: <input type="text" name="age" />
+    <input type="submit" value="제출" />
+</form>
+<p><%= result %></p>
+</body>
+</html>
+```
+
+### 4. JSP에서 서블릿으로 데이터 전송 및 결과 출력
+
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Servlet Response</title>
+</head>
+<body>
+<form action="responseServlet" method="post">
+    이름: <input type="text" name="name" />
+    <input type="submit" value="전송" />
+</form>
+</body>
+</html>
+```
+**responseServlet 서블릿 코드:**
+```java
+protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    response.setContentType("text/html;charset=UTF-8");
+    PrintWriter out = response.getWriter();
+    String name = request.getParameter("name");
+    out.println("<html><body>");
+    out.println("<h1>Response from Servlet</h1>");
+    out.println("<p>Received Name: " + name + "</p>");
+    out.println("</body></html>");
+}
+```
+
+### 5. 조건문을 사용해 입력 데이터에 따른 결과 출력
+
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Condition Check</title>
+</head>
+<body>
+<%
+    String userInput = request.getParameter("data");
+    String message = "default message";
+    if (userInput != null && userInput.equals("hello")) {
+        message = "Hello, world!";
+    } else {
+        message = "Try saying hello.";
+    }
+%>
+<form action="" method="get">
+    데이터: <input type="text" name="data" />
+    <input type="submit" value="제출" />
+</form>
+<p><%= message %></p>
+</body>
+</html>
+```
+
+### 6. 짝수/홀수 판별
+
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Even or Odd</title>
+</head>
+<body>
+<%
+    int number = 7; // 임의의 숫자
+    String result = (number % 2 == 0) ? "짝수입니다." : "홀수입니다.";
+%>
+<p>Number <%= number %> is <%= result %>.</p>
+</body>
+</html>
+```
+
+이 예제들은 JSP 페이지에서 다양한 기능을 구현하는 방법을 보여줍니다.
+
+
 ### JSP 요청값과 서버 클라이언트 관련 토론 내용 문제
 
 1. JSP 페이지에서 클라이언트로부터 전송된 데이터의 인코딩 문제를 어떻게 해결할 수 있을까요? 이에 대한 다양한 방법과 그 장단점을 논의해보세요.
