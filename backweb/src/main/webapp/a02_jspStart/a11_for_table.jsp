@@ -38,7 +38,46 @@ for(int row=1;row<=3;row++){
 	<%
 	}
 	%>
-</table> 
+</table>
+<h2>테이블만들기2(행/열)</h2>
+<form>
+	행:<input type="text" name="rows" size="2"/><br>
+	열:<input type="text" name="cols" size="2"/><br>
+	<input type="submit" value="테이블 생성"/>
+</form>
+<%
+String rowsStr = request.getParameter("rows");
+String colsStr = request.getParameter("cols");
+if(rowsStr!=null){
+	int rows = Integer.parseInt(rowsStr);
+	int cols = Integer.parseInt(colsStr);
+%>
+<table>
+	<%
+	// 행!!
+	for(int row=1;row<=rows;row++){
+	%>
+		<tr>
+		<%
+		for(int col=1;col<=cols;col++){
+		%>
+		<td><%=row%>행, <%=col%>열</td>
+		<%
+		}
+		%>
+		
+		</tr>
+	<%
+	}
+	%>
+</table>
+
+
+<%
+}
+%>
+
+ 
  
 </body>
 </html>
