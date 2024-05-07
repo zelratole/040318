@@ -1,5 +1,5 @@
 package backweb.vo;
-
+// backweb.vo.Student
 public class Student {
 	private int no;
 	private String name;
