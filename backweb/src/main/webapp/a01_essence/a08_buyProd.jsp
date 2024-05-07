@@ -18,7 +18,7 @@
 	<%
 	String pname = request.getParameter("pname");
 	String pcnt = request.getParameter("pcnt");
-	if(pname!=null){
+	if(pname!=null){ // 초기 요청값이 없을 때와 요청값이 있을 때를 구분하기 위한 처리..
 	%>
 		<h2>구매정보</h2>
 		<h3>물건명:<%=pname %></h3>

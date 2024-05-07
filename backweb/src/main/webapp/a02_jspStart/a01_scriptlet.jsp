@@ -44,15 +44,28 @@
 	int getAge(){
 		return 25;
 	}
+	class Person{
+		private String name;
+		private int age;
+		Person(String name, int age){
+			this.name = name;
+			this.age = age;
+		}
+		
+	}
 %> 
+
 <%
+	Person p01 = new Person("홍길동",25);
 	// scriptlet
 	String adult = getAge()>=18?"성인":"미성년";
 	for(int cnt=1;cnt<=10;cnt++){
 %>
 	<h2><%=cnt %>번째 반복문 수행..</h2>		
 <%} %>
-
+	<h2><%=p01.name %></h2>
+	<h2><%=p01.age %></h2>
+	
  	<h2>선언부 호출:<%=name %></h2> <!-- 출력 처리.. -->
  	<h2>선언부 호출:<%=getAge() %></h2>
  	<h2>스클릿틀릿 호출:<%=adult %></h2>
