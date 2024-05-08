@@ -1,0 +1,38 @@
+# scriptlet과 요청값 처리(단계별 연습내용)
+1. form에 의해서 요청값을 받는 처리
+2. 요청값에 따른 scriplet 처리(html코드와 자바코드 처리)
+	1) html 코드로 최종 결과를 만들기..
+		ex) 요청값으로 나이에 따라 성년/미성년자 표현하는 처리
+		- html 성년 미성년자 화면 구현
+		<h1>성년입니다</h1>
+		<h1>미성년입니다</h1>
+	2) form과 화면과 함께 요청값을 처리..
+		name="요청키"
+		(scriplet)안에서 생성
+		String key = request.getParameter("요청키");
+	3) 같은 화면(form과 요청처리 동시일어날 떄)에서는 null 처리하고
+		<%
+		if(key!=null){
+		%>
+		
+		<%	
+		}
+		%>
+	4) 조건문을 만들어진 최종 html에서 scriptlet(자바코드를 처리한다)
+		- null 조건안에서 형변환 처리(숫자형일 때)
+		int age = Integer.parseInt(key);
+		- html과 script를 효과적으로 처리..
+		<%
+		if(age>=18){
+		%>
+		<h1>성년입니다</h1>
+		<%
+		}else{
+		%>
+		<h1>미성년입니다</h1>
+		<%
+		}
+		%>
+	
+	
+	 
