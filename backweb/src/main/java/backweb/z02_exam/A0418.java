@@ -27,7 +27,18 @@ class Woman{
 // # UML 다이어그램 그리기
 // 1. staruml 설치
 // 2. class 다이어그램 그리기..
-//    1) 각 구성요소에 대한 분명한 속성 확인
+
+/*
+2.1
+String id = "human01";
+#id.chatAt()
+for(int idx=0;idx<id.length();idx++){
+	System.out.println(id.chatAt(idx));
+}
+ * */
+//2.2
+//
+//1) 각 구성요소에 대한 분명한 속성 확인
 // # 문자열 구성요소 코드 확인 메서드
 // # 문자열 입력받아 길이 반환하는 공통 메서드
 class String01{
@@ -35,8 +46,23 @@ class String01{
 		
 			return str.length();
 	}
-	
 }
+/*
+2.3
+Memo newMemo= null; // 객체가 생성되지 않음. nullpointerexception 발생..
+newMemo = new Memo()/  // 객체 생성..
+
+
+3.2
+
+Memo m1 = new Memo();
+Memo m2 = m1;
+System.out.println(m1 == m2); 주소값으로 객체가 같은지 여부를 확인할 수 있다.
+
+ * */
+
+
+// 3.2 
 // # 객체는 데이터를 입력할 때, 객체를 생성 후, setXXX메서드를 통해 입력 가능..
 // Woman w = null;
 // w.setName("홍길동")   ==> 위 내용에서 빠진 부분 Woman w = new Woman();
