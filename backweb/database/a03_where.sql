@@ -70,10 +70,20 @@ SELECT *
 FROM emp
 WHERE sal + comm < empno*10;
 --ex1) 급여(SAL)에 500을 더했을 때 부서번호(DEPTNO)의 50배보다 큰 직원을 찾는 쿼리를 작성하세요.
---------------------------
+SELECT *
+FROM emp
+where sal + 500 > deptno*50;
 --ex2)부서번호(DEPTNO)가 급여(SAL)을 40으로 나눈 결과보다 작거나 같은 직원을 찾는 쿼리를 작성하세요.
+-----------------------
+SELECT *
+FROM emp
+WHERE deptno <= sal/40;
 --ex3)커미션(COMM)이 급여(SAL)의 15% 이하인 직원 중 급여가 2500 이상인 직원을 찾는 쿼리를 작성하세요.
 --    (논리식포함and)
+SELECT *
+FROM emp
+WHERE comm <= sal*0.15
+AND sal>=2500;
 
 
 
