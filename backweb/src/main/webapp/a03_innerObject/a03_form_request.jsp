@@ -53,7 +53,11 @@
 	if(season==null) season = "";
 	%>
 	<h2>선택한계절:<%=season.equals("")?"":season%></h2>
-
+	<%--
+	ex) 사용자가 점심 메뉴(lunch)를 여러 개 중에 선택해서 해당 점심메뉴라 출력되게 하세요..
+	
+	
+	 --%>
 
 </body>
 </html>
