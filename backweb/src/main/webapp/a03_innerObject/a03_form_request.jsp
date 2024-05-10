@@ -55,9 +55,20 @@
 	<h2>선택한계절:<%=season.equals("")?"":season%></h2>
 	<%--
 	ex) 사용자가 점심 메뉴(lunch)를 여러 개 중에 선택해서 해당 점심메뉴라 출력되게 하세요..
-	
-	
 	 --%>
+	<form>
+		<input type="radio" name="lunch" value="pizza">피자,
+		<input type="radio" name="lunch" value="pasta">파스타,
+		<input type="radio" name="lunch" value="salad">샐러드<br>
+		<input type="submit"/>
+	</form>
+	<%
+	String lunch = request.getParameter("lunch");
+	if(lunch==null) lunch=""; // 초기화면일 때, ""으로 처리..
+	%>
+	<h2>선택한 점심 메뉴:<%=lunch%></h2>	 
+	 
+	 
 
 </body>
 </html>
