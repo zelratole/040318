@@ -91,6 +91,8 @@ SELECT DISTINCT job
 FROM emp;
 SELECT DISTINCT mgr
 FROM emp;
+SELECT DISTINCT deptno, job -- 두개 컬럼 모두를 기준으로 동일하지 않게 출력..
+FROM emp;
 /*
 # 컬럼명 별칭으로 사용하기
 1. 모든 테이블의 구성요소 컬럼은 select 컬럼명으로 사용하여 호출 할 수 있다.
@@ -107,6 +109,10 @@ FROM emp;
 		"특수문자 "
 		와 같이 "" 사이에 넣어서 처리한다.
  * */
+SELECT *
+FROM emp; -- 초기에 컬럼명과 해당 구조로 테이블을 만들었기에 그 기본 순서를 출력 해준다.
+-- 컬럼명과 컬럼순서, 타입과 구성요소를 변경.. ==> alias명, ||, 연산자 활용하여 처리..
+
 SELECT empno, empno AS 사원번호별칭, ename 사원명, job "##직 책##",
        empno||ename AS "사원번호와 사원명"
 FROM emp;
