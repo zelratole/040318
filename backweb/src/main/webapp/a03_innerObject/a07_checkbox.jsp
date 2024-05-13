@@ -64,7 +64,7 @@ if(roles!=null){
 <h3>국가선택</h3>
 <form>
 	<label for="countries">국가선택:</label>
-	<select name="countries" multiple="multiple" id="countries" size="5">
+	<select name="countries" multiple="multiple" id="countries" size="3">
 		<option value="USA">미국</option>
 		<option value="UK">영국</option>
 		<option value="France">프랑스</option>
