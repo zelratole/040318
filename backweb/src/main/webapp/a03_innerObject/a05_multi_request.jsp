@@ -38,9 +38,7 @@
 	<%--
 	ex1) 좋아하는 색상(여러 개 입력) 출력
 		1단계) 색상명 출력만
-		2단계) 색테이블(h3)로 색상과 함께 출력
-		---------------------------------
-		
+		2단계) 색테이블(h3)로 색상과 함께 출력	
 	ex2) 과목별 점수를 입력받아 출력(동일한 요청key points)사용
 		총점과 평균을 출력(2단계)
 		Integer.parseInt() 활용..
@@ -96,7 +94,39 @@
 	<h3 style="background:<%=color%>;"><%=color%></h3>
 	<%	}
 	}
+	%>
+	<%
+	String subjects[] = {"국어","영어","수학"};
 	%>	
+	<h2>과목별로 점수를 입력하세요</h2>
+	<form>
+	<%
+	for(String sub:subjects){
+	%>
+		<%=sub%>:<input type="text" name="point" value="0"/><br>
+	<%
+	}
+	%>
+	<input type="submit" value="점수입력(통계처리)"/>
+	</form>
+	<%
+	String []points = request.getParameterValues("point");
+	if(points!=null){
+		int tot = 0;
+		for(int idx=0;idx<points.length;idx++){
+			tot += Integer.parseInt(points[idx]);
+		%>
+			<h2><%=idx+1%>) <%=subjects[idx]%>:<%=points[idx]%></h2>
+		<%
+		}
+		%>
+		<h2>총점:<%=tot %>점, 평균:<%=tot/points.length%>점</h2>
+	<%
+	}
+	%>
+	
+	
+		
 		 
 </body>
 </html>
