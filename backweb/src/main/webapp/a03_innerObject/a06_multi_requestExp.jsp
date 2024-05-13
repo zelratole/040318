@@ -37,21 +37,27 @@ ex) 1단계 구매한 물건의 갯수를 다중으로 입력하게 하고, 총 
  
 <%
 String cnts[] = request.getParameterValues("cnt");
+System.out.println(cnts);
 if(cnts!=null){
+	System.out.println(cnts);
 	// 누적변수를 위해서 for 밖에서 전역변수 선언.. 
 	// 변수의 block({})단위 처리와 전역변수와 지역변수 구분 처리 이해...
 	int totCnt = 0;
+	System.out.println("초기 totCnt:"+totCnt);
 	for(String cntStr:cnts){
 		int cnt = Integer.parseInt(cntStr); // 숫자형 문자열 "25" ==> 25
 		totCnt += cnt;
+		System.out.println(cnt+":"+totCnt);
 %> 
 		<h2>구매한 갯수:<%=cntStr%></h2>
 <%
 	}
+	System.out.println("최종 totCnt:"+totCnt);
 %>
 	<h2>총 갯수:<%=totCnt%></h2>
 <%	
 }
+// 12:05~
 %>
 </body>
 </html>
