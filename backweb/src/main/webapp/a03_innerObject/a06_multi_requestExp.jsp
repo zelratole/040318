@@ -57,7 +57,61 @@ if(cnts!=null){
 	<h2>총 갯수:<%=totCnt%></h2>
 <%	
 }
-// 12:05~
+%>
+<%--
+	2단계 배열로 물건명과 가격을 선언 후, 
+	사과(@@@원)  [ ]개 
+	바나나(@@@원) [ ]개 
+	딸기(@@@원)  [ ]개
+	[총비용확인] 
+	총비용이 출력되게 하세요
+1. form에 출력할 배열 데이터 선언
+	물건명배열 : String[]fNames;
+	가격 배열 int[]prices;
+2. for에 의해서 화면구성..
+3. 요청값을 넘겼을 때, 처리
+	String [] cnts = request.getParamterValues("cnt");
+4. for문 처리
+    int totPay = 0;
+	for(int idx=0;idx<cnts.length;idx++){
+		int cnt = Integer.parseInt(cnts[idx]);
+		int price = prices[idx];
+		totPay += cnt*price;
+	}	
+5. 총비용 출력
+	<%=totPay%>	
+--%>
+<h2>배열로 구매 처리</h2>
+<form>
+<%
+String []fNames = {"사과","바나나","딸기"};
+int [] prices = {2000,4000,12000};
+
+for(int idx=0;idx<fNames.length;idx++){
+%>
+	<%=fNames[idx]%>(<%=prices[idx]%>원):<input type="text" name="cnt2" value="0"/>
+<%
+}
+%>
+<input type="submit" value="총비용확인"/>
+</form>
+<h3>구매한 물건과 갯수</h3>
+<%
+String []cnts2 = request.getParameterValues("cnt2");
+if(cnts2!=null){
+	int totPay =0;
+	for(int idx=0;idx<fNames.length;idx++){
+		int price = prices[idx];
+		int cnt = Integer.parseInt(cnts2[idx]);
+		totPay +=price*cnt;	
+	%>
+		<h3><%=fNames[idx] %>, <%=prices[idx] %>, <%=cnts2[idx] %>개</h3>
+	<%
+	}
+	%>
+	<h3>총비용:<%=totPay %></h3>
+	<%
+}
 %>
 </body>
 </html>
