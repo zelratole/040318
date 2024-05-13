@@ -41,12 +41,37 @@
 			contentType : jsp가 생성할 문서의 타입을 지정
 			import : jsp 페이지에서 사용할 자바 클래스를 지정
 			session : jsp 페이지가 세션을 사용할 지 여부 지정
+				데이터를 유형을 기준으로 저장
+				==> 유형 + 지속기간
+				ex)
+				int num01 = 25;
+				==> session.setAttribute("num01", 25);
+					세션범위까지 데이터가 지속처리..(브라우저가 닫힐 때까지 서버와 연동하는 범위)
+					- page/request/session/application 범위
+					
+				
 			info : jsp페이지에 대한 설명을 입력
 			errorPage : 에러가 발생할 때, 보여 줄 페이지 지정
+				에러가 발생했을 때, 에러가 중단되지 않고, 화면에 에러 코드 보다.
+				상세한 설명으로 신뢰성 확보..
 			isErrorPage : 해당 페이지가 에러를 처리할 때 출력할 페이지인지 여부를 지정
 	2) taglib : 사용할 태그 라이브러리를 지정
 			보통 jsp에서 jstl을 설정한다.
-	3) include : 다른 문서를 포함 할 때, 설정.
+			request.getParameter("요청키") ==> ${param.요청키}
+			<%
+			for(Person p : plist){
+			%>
+				<%=p.getName()%>
+			<%
+			}
+			%>
+			==>
+			<c:forEach var="p" items="${plist}">
+				${p.name}
+			</c:>
+	3) include : 다른 문서를 포함할 때, 설정.
+		css/js외부 페이지 호출, 화면구현자체를 외부 jsp 페이지 호출 하여 처리할 때 사용..
+		주의) iframe(front단), jsp include(back단) 호출하여 처리됨..
 	
  --%>    
     

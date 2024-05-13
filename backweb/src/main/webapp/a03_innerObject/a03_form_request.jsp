@@ -22,6 +22,8 @@
        기본옵션은 여러개 중에 단일 선택하므로 단일값 전송
     3) textarea 
        다중행을 단일값을 전송한다.
+    ps) type="file" 내용을 client(브라우저)에서 server(tomcat)으로 stream으로
+    파일을 전송하여 처리한다.   
      	
 2. 다중 데이터 처리(String []arry = request.getParameterValues("다중요청키"))
 	1) input type="text" name="요청키"
@@ -33,7 +35,7 @@
 	  input type="checkbox" name="요청키"
 	  input type="checkbox" name="요청키"
 	  type="checkbox"인 경우, checked가 된 것만 배열로 요청값을 받을 수 있다.
-   3) select multiple
+   3) select multiple size="3"
    	      option value="데이터1" 
    	      option value="데이터2" 
    	      option value="데이터3"
