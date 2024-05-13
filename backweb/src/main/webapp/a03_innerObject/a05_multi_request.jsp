@@ -38,8 +38,9 @@
 	<%--
 	ex1) 좋아하는 색상(여러 개 입력) 출력
 		1단계) 색상명 출력만
-		---------------------------------
 		2단계) 색테이블(h3)로 색상과 함께 출력
+		---------------------------------
+		
 	ex2) 과목별 점수를 입력받아 출력(동일한 요청key points)사용
 		총점과 평균을 출력(2단계)
 		Integer.parseInt() 활용..
@@ -80,7 +81,22 @@
 		}
 	}
 	%>
-	
+	<h2>좋아하는 색상을 3가지 입력하세요(색테이블-영문입력시)</h2>
+	<form>
+		색상1:<input type="text" name="color"/><br>
+		색상2:<input type="text" name="color"/><br>
+		색상3:<input type="text" name="color"/><br>
+		<input type="submit"/><br>
+	</form>
+	<%
+	String colors2[]  = request.getParameterValues("color");
+	if(colors2!=null){
+		for(String color:colors2){
+	%>
+	<h3 style="background:<%=color%>;"><%=color%></h3>
+	<%	}
+	}
+	%>	
 		 
 </body>
 </html>
