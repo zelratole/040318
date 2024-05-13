@@ -60,7 +60,29 @@ if(roles!=null){
 	}
 }
 %> 
- 
+<h2>콤보박스 다중 요청값 처리..</h2>
+<h3>국가선택</h3>
+<form>
+	<label for="countries">국가선택:</label>
+	<select name="countries" multiple="multiple" id="countries" size="5">
+		<option value="USA">미국</option>
+		<option value="UK">영국</option>
+		<option value="France">프랑스</option>
+		<option value="Germany">독일</option>
+		<option value="South Korea">대한민국</option>
+	</select>	
+	<input type="submit" value="나라선택"/>
+</form>
+<%
+String countries[] = request.getParameterValues("countries");
+if(countries!=null){
+	for(String country:countries){
+%>
+ 	<h3><%=country %></h3>
+<%
+	}
+}
+%>
  
 
 </body>
