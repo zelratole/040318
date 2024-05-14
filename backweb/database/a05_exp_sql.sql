@@ -45,8 +45,30 @@ SELECT ename, sal, comm
 FROM emp
 WHERE sal>=1500
 AND nvl(comm,0)>0; -- nvl(컬럼,0) : 컬럼에 null일때...
+-- sal + comm : 둘 중에 하나라도 null 값을 연산을 하지 못한다. 즉 null
+-- null일 때, default로 0으로 처리할려면 반드시 nvl()함수를 통해서 처리하여야 한다.
+-- select sal + nvl(comm, 0) ==> null일 경우 0으로 처리한다.
+-- where 조건문에서는 0인 경우와 null인 경우를 모두 제외하고 검색할 때.. 
+-- where nvl(comm,0)>0으로 처리하여야 한다.
+
 --2. 부서 번호가 10이 아니며, 급여가 3000 이하인 직원들의 이름과 급여, 부서 번호를 조회하시오.
+SELECT ename, sal, deptno
+FROM emp
+WHERE deptno<>10 AND sal <=3000;
 -------------------------------------------
 --#### 6. 복잡한 논리 연산
 --1. 직책이 'SALESMAN' 또는 'CLERK'이면서 부서 번호가 10 또는 30이 아닌 직원들의 이름, 직책, 부서 번호를 조회하시오.
+SELECT ename, job, deptno
+FROM emp
+WHERE (job = 'SALESMAN' OR job='CLERK')
+AND deptno NOT IN (10,30);
+
+
 --2. 직책이 'MANAGER'가 아니며 급여가 2000 이상인 직원들의 이름과 직책을 조회하시오.
+SELECT ename, job
+FROM emp
+WHERE job !='MANAGER'
+AND sal>=2000;
+
+
+

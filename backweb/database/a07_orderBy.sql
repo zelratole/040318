@@ -12,7 +12,7 @@
 	select
 	from 테이블
 	where  조건
-	order by 컬럼명 [asc|desc], 컬럼2 [asc|desc]
+	order by 컬럼명 [asc|desc], 컬럼2 [asc|desc], 컬럼3.....
 	
 	asc : 모든 정렬을 오름차순이 default이다. 즉, 옵션을 정하지 않으면 오름차순
 		order by  컬럼1  : 컬럼1을 오름차순 정렬

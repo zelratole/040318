@@ -22,9 +22,75 @@
 			해당 설정한 데이터 크기로만 메모리를 할당하는 데이터 유형
 			ex) char(10) : 최대크기 10byte로 무조건 10byte의 메모리가 설정된다.
 						
+		Date : 날짜형 데이터
 					
-					
-					
-					
-					
+3. 단계별 테이블 생성
+	1) 복사 테이블 생성 : 기존에 있는 테이블의 구조 + 데이터를 복사해서 새로운 테이블명으로
+		생성. 
+	2) 사용자 정의 테이블 생성 : 위에 나열된 컬럼명과 데이터유형에 맞게 테이블명과 함께 하나
+		씩 테이블 구조를 만드는 것을 말한다.
  * */
+SELECT * FROM emp;
+CREATE TABLE emp01
+AS SELECT * FROM emp; -- 복사테이블 생성(구조 + 데이터)
+SELECT * FROM emp01;
+SELECT * 
+FROM emp 
+WHERE 1=0;  -- WHERE 조건이 항상 FALSE 즉 데이터는 보이지 않지만 구조는 보인다.
+CREATE TABLE emp02
+AS SELECT * FROM emp 
+WHERE 1=0; -- 데이터는 복사되지 않고, 구조만 복사
+SELECT * FROM emp02;
+
+SELECT * FROM dept;
+-- ex) dept01로 데이터 + 구조 있는 테이블 생성, dept02로   구조만 있는 테이블을 생성
+-- create table 테이블명
+-- as sql구문
+SELECT * FROM dept;
+CREATE TABLE dept01
+AS SELECT * FROM dept;
+SELECT * FROM dept01;
+SELECT *
+FROM dept
+WHERE 1=0;
+CREATE TABLE dept02
+AS SELECT * FROM dept
+WHERE 1=0;
+SELECT * FROM dept02;
+
+SELECT * FROM salgrade;
+-- ex) salgrade01(구조 + 데이터), salgrade02(구조) 복사테이블 생성하세요.
+CREATE TABLE salgrade01
+AS SELECT * FROM salgrade;
+SELECT * FROM salgrade01;
+
+SELECT *
+FROM salgrade
+WHERE 1=0;
+CREATE TABLE salgrade02
+AS SELECT *
+FROM salgrade
+WHERE 1=0;
+SELECT * FROM salgrade02;
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
