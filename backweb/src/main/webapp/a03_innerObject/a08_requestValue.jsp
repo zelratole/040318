@@ -72,7 +72,21 @@ ex) url pname물건명 데이터 할당, price가격 데이터 할당하고, 화
 		회원포인트:<input type="text" name="mpoint"/><br>
 		<input type="submit"/><br>
 	</form> 
-	 
+	<h2 onclick="sendData()">데이터를  js에 의해 전송(아래 항목을 입력하고 클릭하세요)</h2>
+	회원아이디:<input type="text" id="memId"/><br>
+	회원명:<input type="text" id="mnam"/><br>
+	회원포인트:<input type="text" id="mpt"/><br>
+	<script type="text/javascript">
+	function sendData(){
+		var memIdVal = document.querySelector("#memId").value;
+		var mnamVal = document.querySelector("#mnam").value;
+		var mptVal = document.querySelector("#mpt").value;
+		// 전송 규칙을 갖추고 javascript에서 지원하는 페이지 이동 객체(location.href)로 속성값을 지정하여 전송 처리..
+		location.href="a10_requestData.jsp?memberId="+memIdVal+"&mname="+mnamVal+"&mpoint="+mptVal;
+		
+	}
+	
+	</script>
 	 
 	 
 	
