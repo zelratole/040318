@@ -60,8 +60,18 @@ ex) url pname물건명 데이터 할당, price가격 데이터 할당하고, 화
 		회원명(mname)
 		회원포인트(mpoint)를 form으로 만들어서 전송하여
 		그 결과를 확인하게 하세요.
+		<h1>요청값을 받는 페이지</h1>
+		<h2><%=request.getParameter("memberId")%></h2>
+		<h2><%=request.getParameter("mname")%></h2>
+		<h2><%=request.getParameter("mpoint")%></h2>
 	 --%>
-	 
+	<h2>회원 전송(a10_requestData.jsp)</h2> 
+	<form action="a10_requestData.jsp">
+		회원아이디:<input type="text" name="memberId"/><br>
+		회원명:<input type="text" name="mname"/><br>
+		회원포인트:<input type="text" name="mpoint"/><br>
+		<input type="submit"/><br>
+	</form> 
 	 
 	 
 	 
