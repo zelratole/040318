@@ -55,8 +55,31 @@ rd.forward(request, response); //해당 페이지로 forward 처리한다.
 	<h3><%=pageContext.getAttribute("scope01")%></h3> 
 	<h3><%=request.getAttribute("scope02")%></h3> 
 	<h3><%=session.getAttribute("scope03")%></h3> 	
+
+
+a08_requestScope.jsp
+	page scope : 이름
+	request scope : 나이
+	session scope : 사는 곳으로 설정	
+	위 내용 호출확인..
+	확인 후..
+	forward 처리 ( a09_requestShow.jsp) 
+
+a09_requestShow.jsp
+	이름, 나이, 사는 곳 확인
+	a href="a10_sessionShow.jsp"
+	
+a10_sessionShow.jsp	
+	이름, 나이, 사는 곳 확인	
+	
+	
+	
+	
+	
 	
  --%>
+ 
+ 
  
  
  
