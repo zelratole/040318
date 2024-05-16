@@ -35,7 +35,7 @@ Student stu = (Student)session.getAttribute("stu");
 <%--
 # a13_sessionObj.jsp
 <%
-Student stu = (Student)session.getAttribute("stu");
+Student stu = (Student)session.getA`ttribute("stu");
 %>   
 <h2>session에 저장된 객체 호출</h2>
 <h3><%=stu.getNo() %></h3> 
