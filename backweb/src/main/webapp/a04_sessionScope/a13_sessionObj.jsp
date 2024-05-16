@@ -11,6 +11,7 @@
 </head>
 <body>
 <%
+// 서버에 임시공간에 session 안에서 호출 되어, 가져오기에 출력할 수 있다.(session scope)
 Student stu = (Student)session.getAttribute("stu");
 %>   
 <h2>session에 저장된 객체 호출</h2>
