@@ -26,3 +26,14 @@ CREATE TABLE person(
 SELECT * FROM person;
 INSERT INTO person values('홍길동', 25,'경기 수원');
 -- insert into 테이블명 values('문자열', 숫자, '문자열');    실행  및 확인..
+-- ex) product 물건명 가격 갯수  테이블 생성, 데이터 입력, 확인 처리.
+CREATE TABLE product(
+	name varchar2(50),
+	price NUMBER,
+	cnt number
+);
+SELECT * FROM product;
+INSERT INTO product values('사과',3000,2);
+INSERT INTO product values('바나나',4000,3);
+INSERT INTO product values('수박',15000,4);
+
