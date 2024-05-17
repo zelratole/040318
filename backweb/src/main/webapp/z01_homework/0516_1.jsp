@@ -22,6 +22,7 @@
     String name = request.getParameter("language");
     if(name!=null){
     	session.setAttribute("language",name);
+    	response.sendRedirect("0516_2.jsp"); // 서버단에서 바로 이동 처리..
     %>
     <h2>언어 session 처리 완료!!</h2>
     <h3 onclick="location.href='0516_2.jsp'">세션처리 확인하러가기! gogo!!</h3>
