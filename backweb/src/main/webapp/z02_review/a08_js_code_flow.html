@@ -36,10 +36,14 @@
 window.onload=function(){
 	// DOM객체 인식가능
 	var h2Obj = document.querySelector("h2")
-	h2Obj.innerText = ""
+	h2Obj.innerText = "이건 왜 되죠??"
+			
+			
 	/*
-	
+	ex) h4에 출력.. : "onload의 효과" 라고 출력 처리 하게 코드 처리하세요..	
 	*/
+	var h4Obj = document.querySelector("h4")
+	h4Obj.innerText = "onload의 효과!!";
 }  
 //alert(no);
 //var no = 10;
@@ -55,11 +59,12 @@ h3Obj.innerText="변경!!" //  에러 이유?
 <body>
 	<h2></h2>
 	<h3>안녕하세요</h3>
+	<h4></h4>
 
 </body>
 <script type="text/javascript">
 var h3Obj = document.querySelector("h3")
-alert('h3 선언후:'+h3Obj)
+//alert('h3 선언후:'+h3Obj)
 h3Obj.innerText="변경^^!!"
 
 </script>
