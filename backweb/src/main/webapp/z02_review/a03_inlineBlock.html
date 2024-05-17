@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload=function(){
+	var h2Obj = document.querySelector("h2")
+	h2Obj.innerText = ""
+	/*
+	
+	*/
+}  
+</script>
+<style type="text/css">
+/*
+# inline-block요소
+1. 속성 정의
+	요소{display:inline-block;}
+2. inline요소의 특징과 block요소의 특징을 혼합해서 가지고 있는 속성값
+	1) block요소 : width, height, margin, padding 속성 설정
+	2) inline요소 :	새로운 줄에서 시작하지 않고 텍스트처럼 한줄에 표시된다.
+*/
+span{border:1px solid green;}
+.block{
+	display:block;width:100px;height:100px;padding:10px;
+}
+.inline_block{
+	display:inline-block;width:100px;height:100px;padding:10px;
+}
+</style>
+</head>
+<body>
+	<h2>기본 적인 span 요소</h2>
+	<span>안녕하세요1</span>
+	<span>안녕하세요2</span>
+	<span>안녕하세요3</span>
+	<h2>block 속성이 있는 span 요소</h2>
+	<span class="block">안녕하세요1</span>
+	<span class="block">안녕하세요2</span>
+	<span class="block">안녕하세요3</span>	
+	<h3>inline_block 속성이 있는 span요소</h3>
+	<span class="inline_block">안녕하세요1(inline-block)</span>	
+	<span class="inline_block">안녕하세요2(inline-block)</span>	
+	<span class="inline_block">안녕하세요3(inline-block)</span>	
+
+	<h2></h2>
+
+</body>
+</html>
