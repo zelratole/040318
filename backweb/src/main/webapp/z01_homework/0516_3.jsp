@@ -19,10 +19,9 @@
 
  --%>
 <%
-//
+// Integer : Wrapper 클래스 (자바 클래스)
 Integer visitCnt = (Integer)session.getAttribute("visitCnt");
-if(visitCnt == null)
-	visitCnt = 0;
+if(visitCnt == null) visitCnt = 0;
 // null 아니면 저장된 데이터를 가져온다.
 
 %>
