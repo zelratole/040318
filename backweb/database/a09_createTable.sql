@@ -36,4 +36,12 @@ SELECT * FROM product;
 INSERT INTO product values('사과',3000,2);
 INSERT INTO product values('바나나',4000,3);
 INSERT INTO product values('수박',15000,4);
+/**/
+
+
+
+
+
+
+
 
