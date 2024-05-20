@@ -37,6 +37,14 @@ INSERT INTO dept01 values(60,'재무','수원');
 7. commit을 하기전에 session을 닫으면 다시 이전 변경전 상태로 다시 돌아 간다.
 8. commit을 하면 다른 client도 동일한 데이터를 확인할 수 있다..
  * */
+SELECT * FROM DEPT01;
+INSERT INTO dept01 values(60,'기획','분당');
+SELECT * FROM DEPT01;
+ROLLBACK;
+SELECT * FROM DEPT01;
+INSERT INTO dept01 values(70,'총무','인천');
+COMMIT; -- 확정
+ROLLBACK; -- 하더라도 입력된 내용 확인 가능
 
 
 
