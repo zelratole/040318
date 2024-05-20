@@ -25,7 +25,7 @@ if(id.equals("himan") && pwd.equals("7777")){
 %>
 <%-- 4. 로그인 세션 출력, 로그아웃 클릭시, session 종료페이지 이동 처리.. --%>
 <h2 align="center"><%= session.getAttribute("member")%>님 로그인 중</h2>
-<h3 align="right" onclick="location.href='517_3_logout.jsp'">로그인 아웃</h3>
+<h3 align="right" onclick="location.href='0517_3_logout.jsp'">로그인 아웃</h3>
 
 
 
