@@ -4,13 +4,7 @@
     import="java.util.ArrayList"
     import="com.google.gson.Gson"
     %>
-<%
-// session에 json데이터 할당.
-session.setAttribute("pObj", new Person("홍길동",25,"수원"));
-Person p01 = (Person)session.getAttribute("pObj");
-Gson gson = new Gson();
-String json = gson.toJson(p01);// 객체로 된 내용을 json 문자열로 할당 처리..
-%>    
+  
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,9 +31,16 @@ String json = gson.toJson(p01);// 객체로 된 내용을 json 문자열로 할�
 <%--
 3. json 출력
 --%>
+<%
+// session에 json데이터 할당.
+session.setAttribute("pObj", new Person("홍길동",25,"수원"));
+Person p01 = (Person)session.getAttribute("pObj");
+Gson gson = new Gson();
+String json = gson.toJson(p01);// 객체로 된 내용을 json 문자열로 할당 처리..
+// java의 객체가 json문자열로 변환..
+%>  
 <h3><%=json%></h3>
 <h4></h4>
-
 </body>
 <script type="text/javascript">
 	// 문자열 json 데이터를 자바스트립트에서 객체로 변환
