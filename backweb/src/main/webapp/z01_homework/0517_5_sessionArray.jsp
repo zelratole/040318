@@ -29,6 +29,18 @@
 	6) 최종적으로 추가된 plist를 session에 다시 할당한다.
 		session.setAttribute("plist", plist);
 	
+	
+1. 요청값이 없는 초기화면..	
+	1) form 화면, list가 출력되지 않는다.
+2. [첫번째 입력시]form name, age, gender 입력..
+	등록버튼을 클릭..
+	1) 요청값은 있으나 ==> Person객체로 생성.. ==> session 객체를 list 할당.(1개 session  설정)
+	2) session값은 없다.
+3. [두번째 입력시]~~
+	1) 요청값도 있고,
+	2) session값도 있다.
+		
+	
  --%>
 <%
 String name = request.getParameter("name");
@@ -38,11 +50,15 @@ String gender = request.getParameter("gender");
 ArrayList<Person> plist = new ArrayList<Person>();
 ArrayList<Person> sessPlist = (ArrayList<Person>)session.getAttribute("plist");
 if(sessPlist!=null){
+	// 세션값이 있을 때는 세션 List를 plist에 할당 한다.
 	plist = sessPlist;
 }
 if(name!=null){
 	Person p01 = new Person(name, age, gender, "");
-	plist.add(p01);
+	// 세션값이 있을 때는 기본 세션에서 더 추가가..
+	// 세션값이 없을 때는 초기 1개 데이터 추가.
+	plist.add(p01);	
+	// 세션 저장 처리..
 	session.setAttribute("plist",plist);
 }
 %> 
@@ -57,8 +73,7 @@ if(name!=null){
 <table>
 	<tr><th>이름</th><th>나이</th><th>성별</th></tr>
 	<%
-	for(Person p : plist){ 
-	
+	for(Person p : plist){ 	
 	%>
 	<tr><td><%=p.getName()%></td><td><%=p.getAge()%></td><td><%=p.getGender()%></td></tr>
 	<%
