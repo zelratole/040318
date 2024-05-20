@@ -43,7 +43,8 @@ String json = gson.toJson(p01);// 객체로 된 내용을 json 문자열로 할�
 </body>
 <script type="text/javascript">
 	// 문자열 json 데이터를 자바스트립트에서 객체로 변환
-	var p01 = JSON.parse("<%=json%>");
+	var p01 = JSON.parse('<%=json%>');
+	console.log(p01)
 	var h4Obj = document.querySelector("h4")
 	h4Obj.innerText="이름:"+p01.name+", 나이:"+p01.age+", 사는곳:"+p01.loc
 	
