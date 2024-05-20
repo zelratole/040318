@@ -34,18 +34,24 @@
 <%
 // session에 json데이터 할당.
 session.setAttribute("pObj", new Person("홍길동",25,"수원"));
+session.setAttribute("pArry", new Person[]{new Person("홍길동",25,"수원"),new Person("김길동",27,"서울")});
 Person p01 = (Person)session.getAttribute("pObj");
+Person[] arry = (Person[])session.getAttribute("pArry");
 Gson gson = new Gson();
 String json = gson.toJson(p01);// 객체로 된 내용을 json 문자열로 할당 처리..
+String jsonArr = gson.toJson(arry);// 객체로 된 내용을 json 문자열로 할당 처리..
 // java의 객체가 json문자열로 변환..
 %>  
 <h3><%=json%></h3>
+<div><%=jsonArr %></div>
 <h4></h4>
 </body>
 <script type="text/javascript">
 	// 문자열 json 데이터를 자바스트립트에서 객체로 변환
 	var p01 = JSON.parse('<%=json%>');
+	var arry = JSON.parse('<%=jsonArr%>');
 	console.log(p01)
+	console.log(arry)
 	var h4Obj = document.querySelector("h4")
 	h4Obj.innerText="이름:"+p01.name+", 나이:"+p01.age+", 사는곳:"+p01.loc
 	
