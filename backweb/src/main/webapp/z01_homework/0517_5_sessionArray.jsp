@@ -61,6 +61,7 @@ if(name!=null){
 	// 세션 저장 처리..
 	session.setAttribute("plist",plist);
 }
+// 12:05~
 %> 
 <h2>회원 등록 처리(session)</h2> 
 <form>

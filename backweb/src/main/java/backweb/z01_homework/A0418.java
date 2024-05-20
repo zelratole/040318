@@ -1,8 +1,11 @@
 package backweb.z01_homework;
 
+import com.google.gson.Gson;
+
 public class A0418 {
 
 	public static void main(String[] args) {
+		Gson g = new Gson();
 		// TODO Auto-generated method stub
 //		## 자바 관련 실습문제
 //
