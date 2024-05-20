@@ -6,9 +6,6 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="/backweb/a00_com/a01_common.css" >
 <title>Insert title here</title>
-<script type="text/javascript">
-	alert("로그 아웃 되었습니다!\n로그인 페이지 이동");
-</script>
 </head>
 <body>
 <%

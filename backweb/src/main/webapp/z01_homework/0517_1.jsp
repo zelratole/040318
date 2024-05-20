@@ -20,7 +20,7 @@
 			?id=himan&pwd=7777
 			==> himan/7777 : 로그인 성공(js), session.setAttribute("member", "himan")
 			==> 그외 : 로그인 실패(js) ==> location.href="0517_1_login.jsp"
-			로그 아웃 클릭시 js) ==> location.href="0517_1_login.jsp"
+			로그 아웃 클릭시 js) ==> location.href="0517_3_logout.jsp"
 			
 	0517_3_logout.jsp : 로그 아웃시 처리되는 페이지, session.invalidate()로 세션삭제 처리
 						및 response.sendRedirect("0517_1_login.jsp")로 로그인 페이지 이동
