@@ -34,28 +34,37 @@
 String name = request.getParameter("name");
 String ageStr = request.getParameter("age");
 int age = 0; if(ageStr!=null) age = Integer.parseInt(ageStr);
-String loc = request.getParameter("loc");
+String gender = request.getParameter("gender");
 ArrayList<Person> plist = new ArrayList<Person>();
 ArrayList<Person> sessPlist = (ArrayList<Person>)session.getAttribute("plist");
 if(sessPlist!=null){
 	plist = sessPlist;
 }
 if(name!=null){
-	Person p01 = new Person(name, age, loc);
+	Person p01 = new Person(name, age, gender, "");
 	plist.add(p01);
+	session.setAttribute("plist",plist);
 }
-
 %> 
 <h2>회원 등록 처리(session)</h2> 
 <form>
 	이름:<input type="text" name="name"/><br>
 	나이:<input type="text" name="age"/><br>
-	성별:<input type="text" name="loc"/><br>
+	성별:<input type="text" name="gender"/><br>
 	<input type="submit" value="등록"/><br>
 </form> 
 <h3>세션에 등록된 회원 정보 list</h3>
 <table>
 	<tr><th>이름</th><th>나이</th><th>성별</th></tr>
+	<%
+	for(Person p : plist){ 
+	
+	%>
+	<tr><td><%=p.getName()%></td><td><%=p.getAge()%></td><td><%=p.getGender()%></td></tr>
+	<%
+	}
+	%>
 </table>
+
 </body>
 </html>
