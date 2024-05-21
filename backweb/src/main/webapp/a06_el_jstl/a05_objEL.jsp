@@ -31,6 +31,7 @@ request.setAttribute("bk01", new Book("jsp 중급으로","홍자바","아이티�
 	<h3>작가:${bk01.author}</h3>
 	<h3>출판사:${bk01.publisher}</h3>
 	<h3>가격:${bk01.price}</h3>
+<%-- session 범위로 Student 객체 설정과 property로 호출 처리. --%>	
 
 	
 </body>
