@@ -12,7 +12,7 @@
 <script src="https://code.jquery.com/jquery-3.7.1.js" type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-		$("h2").text("action 태그 include 처리");
+		//$("h2").text("action 태그 include 처리");
 		
 	})
 </script>
@@ -27,7 +27,7 @@ request.setCharacterEncoding("UTF-8");
 String name = "홍길동(단순변수)"; // 단순 변수만 선언
 String reqName ="마길동(요청값으로)"; // 요청값으로 전달된 변수 선언
 %>
-	<h2></h2>
+	<h2>action 태그 include 처리</h2>
 	<h3>현재 페이지의 변수</h3>
 	<h4>name:<%=name %></h4>
 	<h4>reqName:<%=reqName %></h4>
