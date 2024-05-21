@@ -85,6 +85,10 @@ application.setAttribute("pname", "오렌지");
 	<h3>나이:${age}</h3>
 	<h3>사는곳:${loc}</h3>
 	<h3>물건:${pname}</h3>
+	<%--
+	<jsp:forward page="a02_el_scope.jsp"/> 
+	: request범위 확인하고 싶은 분들.. 확인한 후, 다시 주석 처리하세요..
+	 --%>
 	<a href="a02_el_scope.jsp">el로 선언된 scope 내용 확인하고 싶죠? 그럼 클릭^^!!</a>
 	<%--
 	# a02_el_scope.jsp
