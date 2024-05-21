@@ -26,11 +26,24 @@ public class A01_DBConn {
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		return DriverManager.getConnection(URL,USERNAME,PASSWORD);
 	}
-
+	public static void close(AutoCloseable... resources) { // AutoCloseable를 상속받는 여러 배열을 한번에 처리
+		for(AutoCloseable resource:resources) {
+			if(resource!=null) {
+				try {
+					resource.close();
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					System.out.print(resource.getClass().getSimpleName());
+					System.out.println("닫기 실패");
+				}
+			}
+		}
+		System.out.println("자원해제처리.");
+	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		try {
-			con();
+			close( con() );
 			System.out.println("접속성공");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
