@@ -34,9 +34,15 @@ INSERT INTO dept01 values(60,'재무','수원');
 4. commit을 하기 전에는 현재 session(클라이언트/서버) 연결에서만 등록/수정/삭제 될 걸로 보인다.
 5. commit을 하기전에는 rollback을 하면 이전에 상태로 다시 돌아 간다.
 6. commit을 하면 rollback을 하더라도 복구 되지 않는다. 
-7. commit을 하기전에 session을 닫으면 다시 이전 변경전 상태로 다시 돌아 간다.
+7. commit을 하기 전에 session을 닫으면 다시 이전 변경전 상태로 다시 돌아 간다.
 8. commit을 하면 다른 client도 동일한 데이터를 확인할 수 있다..
+ps) autocommit : 자동으로 commit하는 내용으로 테스트용으로 빠르게 처리해야할 경우에 사용된다
+    현업에서는 안정성때문에 활용하지는 않는다.
+
  * */
+--DELETE 
+--FROM dept01
+--WHERE ...
 SELECT * FROM DEPT01;
 INSERT INTO dept01 values(60,'기획','분당');
 SELECT * FROM DEPT01;

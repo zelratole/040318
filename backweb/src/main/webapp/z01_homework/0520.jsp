@@ -142,9 +142,12 @@
     VALUES (1, 'John Doe', 'password123', 'john@example.com', SYSDATE);
 
     -- 회원 검색
-    SELECT * FROM membershopping WHERE member_name = 'John Doe';
-
+    SELECT * FROM membershopping WHERE member_name like '%John Doe%';
     -- 로그인 처리
+    id : [   ]
+    pwd : [    ]
+    [로그인]
+    
     SELECT * FROM membershopping WHERE member_name = 'John Doe' AND password = 'password123';
 
     -- 회원 수정
@@ -192,7 +195,7 @@
      - 트랜잭션 롤백이 불가능하여 데이터 무결성 문제 발생 가능.
 
 ## 내일 예습 범위 : JSP 모듈 처리, EL 태그, Java List, Generic
-
+흥미/궁금함??
 1. **JSP 모듈 처리:**
    - **include의 종류**: `<%@ include %>` (정적 include), `<jsp:include />` (동적 include)
    - **장단점**:
