@@ -50,7 +50,19 @@
 --%>
 	<c:set var="name" value="홍길동"/>
 	<h2>jstl 설정 성공? ${name}</h2>
+	<%--
+	ex1) 가격/갯수를 위 c:set 변수로 할당하여 출력
+	ex2) Person객체를 위 코드를 보고 c:set 변수로 할당하여 출력
 	
+	 --%>
+	<c:set var="price" value="3000"/>	 
+	<c:set var="cnt" value="5"/>
+	<h2>가격:${price}, 갯수:${cnt}, 총계:${price*cnt}</h2>
+	<c:set var="p01" value='<%=new Person("홍길동",25,"서울") %>' 
+		scope="session"/>
+	<h3>이름:${p01.name}</h3>	 
+	<h3>나이:${p01.age}</h3>	 
+	<h3>사는곳:${p01.loc}</h3>	 
 
 	
 </body>
