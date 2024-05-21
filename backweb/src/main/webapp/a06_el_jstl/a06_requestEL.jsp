@@ -38,6 +38,13 @@
 		색상3:<input type="color" name="colors"/><br>
 		<input type="submit"/>
 	</form>
-		
+<%--
+ex) 요청값을 원의 반지름을 입력받아, el로 처리하여 면적을 출력하세요..~~
+ --%>
+ 	<form>
+ 		원의 반지름:<input type="number" value="${param.radius==null?0:param.radius}" name="radius"/><br>
+ 		<input type="submit" value="면적계산">
+ 	</form>
+ 	<h2>원의 면적:${param.radius==null?0:param.radius*param.radius*3.14}</h2>
 </body>
 </html>
