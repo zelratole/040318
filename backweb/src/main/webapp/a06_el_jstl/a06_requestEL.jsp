@@ -40,7 +40,11 @@
 	</form>
 <%--
 ex) 요청값을 원의 반지름을 입력받아, el로 처리하여 면적을 출력하세요..~~
+
  --%>
+ 	<h2>요청값이 없을 때1:${param.radius==null}</h2>
+ 	<h2>요청값이 없을 때2:${empty param.radius}</h2> <!-- null 이거나 공백일때 -->
+ 	<h2>요청값이 있을 때3:${not empty param.radius}</h2> <!-- null이 아니고 공백이 아닐때 -->
  	<form>
  		원의 반지름:<input type="number" value="${param.radius==null?0:param.radius}" name="radius"/><br>
  		<input type="submit" value="면적계산">
