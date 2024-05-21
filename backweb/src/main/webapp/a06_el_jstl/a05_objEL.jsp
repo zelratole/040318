@@ -31,7 +31,19 @@ request.setAttribute("bk01", new Book("jsp 중급으로","홍자바","아이티�
 	<h3>작가:${bk01.author}</h3>
 	<h3>출판사:${bk01.publisher}</h3>
 	<h3>가격:${bk01.price}</h3>
-<%-- session 범위로 Student 객체 설정과 property로 호출 처리. --%>	
+<%-- session 범위로 Student 객체 설정과 property로 호출 처리. --%>
+<%
+session.setAttribute("st01", new Student(1,"홍길동",70,80,90));
+%>
+	<h2>세션 범위 학생</h2>
+	<h3>번호:${st01.no }</h3>
+	<h3>이름:${st01.name }</h3>
+	<h3>국어:${st01.kor }</h3>
+	<h3>영어:${st01.eng }</h3>
+	<h3>수학:${st01.math}</h3>
+	<h3>평균:${ (st01.kor+st01.eng+st01.math)/3 }</h3>
+	<h3>합격여부:${ (st01.kor+st01.eng+st01.math)/3 >= 70?'합격':'불합격' }</h3>
+	
 
 	
 </body>
