@@ -45,6 +45,397 @@
 15. [플립러닝] SQLInjection개념과 PreparedStatment 개념이 보안적으로 어떤 이점이 있는지 정리해보자.
 
 
+## 1. [토론] 웹 프로그래밍에서 외부 프로그램을 선언하는 형식 3가지 구분 및 장단점
+### 1.1 JSP Include Directive (`<%@ include file="..." %>`)
+**장점**:
+- 컴파일 시점에 포함: 서버가 JSP 페이지를 컴파일할 때 포함 파일을 삽입하므로, 한 번만 처리됨.
+- 유지 보수 용이: 여러 JSP 페이지에서 동일한 내용을 쉽게 재사용할 수 있음.
+**단점**:
+- 수정 시 재컴파일 필요: 포함된 파일이 수정되면 모든 관련 JSP 페이지를 재컴파일해야 함.
+- 성능 문제: 포함 파일이 클 경우, 컴파일 시간에 영향을 줄 수 있음.
+
+### 1.2 JSP Include Action (`<jsp:include page="..." />`)
+**장점**:
+- 런타임에 포함: 요청 시점에 포함되어 최신 내용을 항상 반영.
+- 동적 포함: 동적으로 다른 페이지나 데이터를 포함할 수 있어 유연성이 높음.
+**단점**:
+- 성능 저하: 요청 시마다 포함 파일을 처리하므로, 빈번한 호출 시 성능에 영향을 줄 수 있음.
+- 복잡한 데이터 전송: 파라미터를 전송하는 방식이 상대적으로 복잡할 수 있음.
+
+### 1.3 JavaScript 외부 파일 (`<script src="..."></script>`)
+**장점**:
+- 코드 분리: HTML과 JavaScript 코드를 분리하여 유지 보수성 향상.
+- 캐싱: 브라우저가 외부 파일을 캐싱하여 로딩 속도 향상.
+**단점**:
+- 초기 로딩 지연: 외부 파일을 로드하는 동안 초기 로딩 시간이 길어질 수 있음.
+- 종속성 관리: 여러 스크립트 간의 종속성을 관리하는 데 주의가 필요함.
+
+## 2. [실습] `<jsp:include>` 형식을 포함하는 페이지와 포함된 페이지 선언 및 데이터 전송 코드
+
+### 포함하는 페이지 (main.jsp)
+```jsp
+<%@ page contentType="text/html; charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>Include Example</title>
+</head>
+<body>
+    <jsp:include page="included.jsp">
+        <jsp:param name="name" value="John Doe" />
+        <jsp:param name="age" value="25" />
+        <jsp:param name="location" value="New York" />
+    </jsp:include>
+</body>
+</html>
+```
+
+### 포함된 페이지 (included.jsp)
+```jsp
+<%@ page contentType="text/html; charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>Included Page</title>
+</head>
+<body>
+    <p>Name: ${param.name}</p>
+    <p>Age: ${param.age}</p>
+    <p>Location: ${param.location}</p>
+</body>
+</html>
+```
+
+## 3. [실습] `<%@ include file="" %>` 형식으로 포함하는 페이지와 포함되는 페이지 선언 및 변수 공유
+
+### 포함하는 페이지 (main.jsp)
+```jsp
+<%@ page contentType="text/html; charset=UTF-8" language="java" %>
+<%@ include file="included.jsp" %>
+<html>
+<head>
+    <title>Include Directive Example</title>
+</head>
+<body>
+    <p>물건명: ${itemName}</p>
+    <p>가격: ${itemPrice}</p>
+    <p>갯수: ${itemCount}</p>
+</body>
+</html>
+```
+
+### 포함된 페이지 (included.jsp)
+```jsp
+<%! String itemName = "Laptop"; %>
+<%! int itemPrice = 1000; %>
+<%! int itemCount = 2; %>
+```
+
+## 4. [토론] EL 코드와 JSP 스크립트의 장점 비교
+
+### EL (Expression Language)
+**
+
+**장점**:
+- **간결함**: JSP 스크립트보다 코드가 간결하고 읽기 쉽습니다.
+- **표현식 평가**: 객체의 속성에 쉽게 접근하고 표현식을 평가할 수 있습니다.
+- **태그 라이브러리 통합**: JSTL 및 기타 태그 라이브러리와 잘 통합됩니다.
+- **안전성**: 스크립트 코드는 자바 코드 주입 문제를 야기할 수 있지만, EL은 그렇지 않습니다.
+
+### JSP 스크립트
+**장점**:
+- **유연성**: 복잡한 로직을 구현할 수 있는 유연성이 있습니다.
+- **강력한 기능**: 모든 자바 기능을 사용할 수 있습니다.
+- **디버깅 용이**: 자바 디버깅 도구를 사용할 수 있습니다.
+
+## 5. [실습] 세션 범위 EL 코드 - VO 객체 생성 및 할당, 호출
+
+### VO 클래스 (Calculator.java)
+```java
+public class Calculator {
+    private int num01;
+    private int num02;
+
+    // getters and setters
+    public int getNum01() {
+        return num01;
+    }
+
+    public void setNum01(int num01) {
+        this.num01 = num01;
+    }
+
+    public int getNum02() {
+        return num02;
+    }
+
+    public void setNum02(int num02) {
+        this.num02 = num02;
+    }
+
+    public int add() {
+        return num01 + num02;
+    }
+
+    public int subtract() {
+        return num01 - num02;
+    }
+
+    public int multiply() {
+        return num01 * num02;
+    }
+
+    public int divide() {
+        return num01 / num02;
+    }
+}
+```
+
+### 세션 범위 EL 코드 (session.jsp)
+```jsp
+<%@ page contentType="text/html; charset=UTF-8" language="java" %>
+<%
+    Calculator calculator = new Calculator();
+    calculator.setNum01(10);
+    calculator.setNum02(5);
+    session.setAttribute("calculator", calculator);
+%>
+<html>
+<head>
+    <title>Session Scope EL Example</title>
+</head>
+<body>
+    <p>Addition: ${sessionScope.calculator.add()}</p>
+    <p>Subtraction: ${sessionScope.calculator.subtract()}</p>
+    <p>Multiplication: ${sessionScope.calculator.multiply()}</p>
+    <p>Division: ${sessionScope.calculator.divide()}</p>
+</body>
+</html>
+```
+
+## 6. [실습] Request 범위로 Member 객체 선언 및 EL로 로그인한 ID, 포인트 출력
+
+### Member 클래스 (Member.java)
+```java
+public class Member {
+    private String id;
+    private int points;
+
+    // getters and setters
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public int getPoints() {
+        return points;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
+    }
+}
+```
+
+### 로그인 처리 JSP (login.jsp)
+```jsp
+<%@ page contentType="text/html; charset=UTF-8" language="java" %>
+
+<html>
+<head>
+    <title>Login Result</title>
+</head>
+<body>
+	<h2>로그인</h2>
+	<form>
+		id:<input type="text" name="id"/><br>
+		pwd:<input type="text" name="pwd"/><br>
+		<input type="submit" value="로그인"/><br>
+	</form>
+	
+    <p>ID: ${param.id}</p>
+    <p>Points: ${param.pwd}</p>
+    <p>${param.id == 'himan' && param.pwd=='7777' ? '로그인 성공' : '로그인 실패'}</p>
+</body>
+</html>
+```
+
+## 7. [개념] EL을 이용한 단일 데이터 및 다중 데이터 처리 예제
+
+### 단일 데이터
+```jsp
+<%-- 단일 데이터 설정 --%>
+<%
+    String singleData = "Hello World!";
+    request.setAttribute("singleData", singleData);
+%>
+<p>${requestScope.singleData}</p>
+```
+
+### 다중 데이터 (List)
+```jsp
+<%-- 다중 데이터 설정 --%>
+<%
+    List<String> dataList = Arrays.asList("Data1", "Data2", "Data3");
+    request.setAttribute("dataList", dataList);
+%>
+<ul>
+     <li>${dataList[0]}</li>
+     <li>${dataList[1]}</li>
+     <li>${dataList[2]}</li>
+</ul>
+```
+
+## 8. [토론] EL 태그의 요청값 처리 방식 (null, "", 숫자)
+
+### null
+- **처리 방식**: EL은 null 값을 빈 문자열로 처리합니다.
+- **예제**: `${nullVar}`는 빈 문자열로 출력됩니다.
+
+### ""
+- **처리 방식**: 빈 문자열은 그대로 빈 문자열로 처리됩니다.
+- **예제**: `${emptyString}`는 빈 문자열로 출력됩니다.
+
+### 숫자
+- **처리 방식**: 숫자는 그대로 출력됩니다.
+- **예제**: `${numVar}`는 숫자 값으로 출력됩니다.
+
+## 9. [실습] 삼각형 면적 계산 및 EL로 출력
+
+### Form 페이지 (triangleForm.jsp)
+```jsp
+<%@ page contentType="text/html; charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>Triangle Area</title>
+</head>
+<body>
+    <form action="triangleResult.jsp" method="post">
+        밑면: <input type="text" name="base" /><br />
+        높이: <input type="text" name="height" /><br />
+        <input type="submit" value="계산" />
+    </form>
+</body>
+</html>
+```
+
+### 결과 페이지 (triangleResult.jsp)
+```jsp
+<%@ page contentType="text/html; charset=UTF-8" language="java" %>
+<%
+    double base = Double.parseDouble(request.getParameter("base"));
+    double height = Double.parseDouble(request.getParameter("height"));
+    double area = (base * height) / 2;
+    request.setAttribute("area", area);
+%>
+<html>
+<head>
+    <title>Triangle Area Result</title>
+</head>
+<body>
+    <p>Area: ${requestScope.area}</p>
+    <p>${requestScope.area > 100 ? 'big triangle' : 'small triangle'}</p>
+</body>
+</html>
+```
+
+## 10. [실습] JSTL 환경설정 방법
+
+### 웹 애플리케이션 설정 (web.xml)
+backweb\src\main\webapp\WEB-INF\lib\jstl-1.2.jar
+
+### JSP 페이지 설정
+```jsp
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+```
+
+## 11. [개념] JSTL로 변수 선언 및 EL 호출 기본 형식
+
+### 변수 선언
+```jsp
+<c:set var="myVar" value="Hello, JSTL!" />
+<p>${myVar}</p>
+```
+
+### 객체 선언 및 호출
+```jsp
+<%-- 객체 선언 --%>
+<%
+    Person person = new Person();
+    person.setName("John Doe");
+    request.setAttribute("person", person);
+%>
+
+<%-- EL로 객체 호출 --%>
+<p>Name: ${requestScope.person.name}</p>
+```
+
+## 12. [플립러닝] Java의 상속 개념 (기본, Overriding, Polymorphism)
+
+### 기본
+- **개념**: 클래스 간에 속성과 메서드를 상속하여 코드 재사용성을 높임.
+- **예제**: `class Child extends Parent { ... }`
+
+### Overriding (재정의)
+- **개념**: 상위 클래스의 메서드를 하위 클래스에서 재정의하여 특정 동작을 변경.
+- **예제**:
+    ```java
+    @Override
+    public void methodName() { ... }
+    ```
+
+### Polymorphism (다형성)
+- **개념**: 여러 데이터 타입을 하나의 통일된 인터페이스로 다룰 수 있는 특성.
+- **예제**:
+    ```java
+    Parent obj = new Child();
+    obj.methodName();  // Child 클래스의 메서드 호출
+    ```
+
+## 13. [플립러닝] Generic과 상속 관계 및 실무 사용 예
+
+### 관계
+- **개념**: 제네릭은 클래스나 메서드가 다루는 데이터 타입을 일반화하여 코드의 재사용성을 높임.
+- **예제**:
+    ```java
+    class Box<T> {
+        private T value;
+        public T getValue() { return value; }
+        public void setValue(T value) { this.value = value; }
+    }
+    ```
+
+### 실무 예
+- **사용 예**: 데이터 구조 (예: 리스트, 맵
+
+) 및 데이터 접근 객체(DAO)에서 많이 사용됨.
+
+## 14. [플립러닝] `List<Member> list = new ArrayList<Member>()` 선언의 상속 개념
+
+- **개념**: 다형성을 활용하여 인터페이스(List)로 객체를 선언하고, 구체적인 구현체(ArrayList)를 할당.
+- **장점**: 코드의 유연성과 확장성을 높임.
+
+## 15. [플립러닝] SQL Injection 개념 및 PreparedStatement의 보안 이점
+
+### SQL Injection
+- **개념**: 사용자가 입력한 데이터를 통해 SQL 쿼리를 조작하여 데이터베이스에 악의적인 명령을 실행.
+
+### PreparedStatement의 보안 이점
+- **보안**: 입력 데이터와 SQL 쿼리를 분리하여 SQL Injection을 방지.
+- **성능**: 쿼리를 미리 컴파일하여 실행 속도를 향상.
+
+### 예제
+```java
+String sql = "SELECT * FROM users WHERE username = ? AND password = ?";
+PreparedStatement pstmt = connection.prepareStatement(sql);
+pstmt.setString(1, username);
+pstmt.setString(2, password);
+ResultSet rs = pstmt.executeQuery();
+```
+
+
+
 # 다음의 각 내용에 대하여 개인별로 점검하시고, 내일 발전할 내용도 적어주세요.(조장님이 취합해서 전달)
 1. 오늘 출결사항(전날결석, 9:00 지각/조퇴사유), 
    수업시간/프로젝트시간 수업시간 준수 및 교실밖 이동 자제 
