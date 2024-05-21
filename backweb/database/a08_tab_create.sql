@@ -34,6 +34,17 @@ SELECT * FROM emp;
 CREATE TABLE emp01
 AS SELECT * FROM emp; -- 복사테이블 생성(구조 + 데이터)
 SELECT * FROM emp01;
+
+CREATE TABLE emp06
+AS 
+SELECT empno NO, ename name, sal salary
+FROM emp;
+SELECT * FROM emp06;
+ALTER table emp06
+MODIFY name varchar2(50);
+
+
+
 SELECT * 
 FROM emp 
 WHERE 1=0;  -- WHERE 조건이 항상 FALSE 즉 데이터는 보이지 않지만 구조는 보인다.
