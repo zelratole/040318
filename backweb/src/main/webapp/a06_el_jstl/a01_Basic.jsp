@@ -88,7 +88,7 @@ application.setAttribute("pname", "오렌지");
 	<%--
 	<jsp:forward page="a02_el_scope.jsp"/> 
 	: request범위 확인하고 싶은 분들.. 확인한 후, 다시 주석 처리하세요..
-	 --%>
+	 --%> 
 	<a href="a02_el_scope.jsp">el로 선언된 scope 내용 확인하고 싶죠? 그럼 클릭^^!!</a>
 	<%--
 	# a02_el_scope.jsp
@@ -97,6 +97,11 @@ application.setAttribute("pname", "오렌지");
 	<h3>나이:${age}</h3>
 	<h3>사는곳:${loc}</h3>
 	<h3>물건:${pname}</h3>	
+	
+ex) a03_el_music.jsp
+		좋아하는 음악 정보(타이틀, 가수명, 발매연도) 페이지, 세션, 어플리케이션 설정 및 출력.
+	a04_el_scope.jsp
+		위 내용 el로 출력..			
 	
 	 --%>
 	
