@@ -85,6 +85,12 @@ application.setAttribute("pname", "오렌지");
 	<h3>나이:${age}</h3>
 	<h3>사는곳:${loc}</h3>
 	<h3>물건:${pname}</h3>
+	<h2>scope 범위 명시</h2>
+	<h3>이름:${pageScope.name}</h3>
+	<h3>나이:${requestScope.age}</h3>
+	<h3>사는곳:${sessionScope.loc}</h3>
+	<h3>물건:${applicationScope.pname}</h3>
+	
 	<%--
 	<jsp:forward page="a02_el_scope.jsp"/> 
 	: request범위 확인하고 싶은 분들.. 확인한 후, 다시 주석 처리하세요..

@@ -39,7 +39,7 @@
 	   request : 요청 처리한 페이지 범위 
 	   	(<jsp:forward> request.getRequestDispatcher("페이지").forward()
 	   session : 세션 범위내까지..페이지가 이동되더라도 확인
-	   application : 같은 서버가 재기동하기전까지...
+	   application : 같은 서버가 재기동하기 전까지...
 	3) 세션스코프.setAttribute("key", value) 
 	   세션스코프.getAttribute("key") : 둘다 서버에서 실행
 	      
