@@ -80,6 +80,28 @@
 	<%--
 	ex) form에 나이를 입력받아  성년/미성년을 출력하세요..	
 	 --%>
+	<h2>나이에 따른 성년/미성년 구분</h2>
+	<form>
+		나이를 입력:<input type="number" name="age" size="2"/>세<br>
+		<input type="submit"/>
+	</form>
+	<h3>입력한 나이:${param.age}</h3>
+	<%--
+	1. 기본 변수인 미성년자를 변수로 선언..
+	2. 나이가 18이상일 때 성년자로 처리..
+	 --%>
+	<c:set var="ckAgeMsg" value="미성년자"/>
+	<c:if test="${param.age>=18}">
+		<c:set var="ckAgeMsg" value="성년자"/>
+	</c:if>
+	<%--
+	1. 요청값이 있을 때만, 위 미성년자/성년자 표현..
+		not empty param.age  : form에 데이터를 입력해서 확인하는 것과 입력하지 않거나/초기화면을 구분하기 위하여
+		조건으로 처리한다..
+	 --%>
+	<c:if test="${not empty param.age}"> 
+		<h3>${ckAgeMsg}</h3>
+	</c:if>	
 	
 </body>
 </html>
