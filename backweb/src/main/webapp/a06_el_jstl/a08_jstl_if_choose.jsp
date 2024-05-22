@@ -60,9 +60,26 @@
 	<%--
 	ex) 구매할 물건의 가격과 갯수를 form으로 입력 받아서..
 	구매금액과 함께..
-	100000 미만일 때, 일반 고객입니다.  100000이사일 때는 MVP 고객입니다. 표시하세요..
+	100000 미만일 때, 일반 고객입니다.  100000이상일 때는 MVP 고객입니다. 표시하세요..
 	 --%>
-	
+	<h2>고객 등급 확인</h2>
+	<form>
+		구매할 물품 가격:<input type="number" name="price"/>원<br>
+		구매할 물품 갯수:<input type="number" name="cnt"/>개<br>
+		<input type="submit"/><br>
+	</form>
+	<c:set var="evalMsg" value="일반 고객입니다."/>
+	<c:set var="tot" value="${param.price*param.cnt}" scope="page"/> 
+	<%-- jstl변수는 scope를 항상 가지고 있다. default로 page--%>
+	<c:if test="${tot>=100000}">
+		<c:set var="evalMsg" value="MVP 고객입니다."/>
+	</c:if>	 
+	<c:if test="${not empty param.price}"><%-- 요청값이 입력 되었을 때.. --%>
+		<h3>입력한 물건 총비용 ${tot}원, 고객등급:${evalMsg}</h3>
+	</c:if>
+	<%--
+	ex) form에 나이를 입력받아  성년/미성년을 출력하세요..	
+	 --%>
 	
 </body>
 </html>
