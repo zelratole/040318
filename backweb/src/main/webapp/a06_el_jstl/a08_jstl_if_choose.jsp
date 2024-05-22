@@ -97,7 +97,7 @@
 	<%--
 	1. 요청값이 있을 때만, 위 미성년자/성년자 표현..
 		not empty param.age  : form에 데이터를 입력해서 확인하는 것과 입력하지 않거나/초기화면을 구분하기 위하여
-		조건으로 처리한다..
+		조건으로 처리한다.. null, "" 
 	 --%>
 	<c:if test="${not empty param.age}"> 
 		<h3>${ckAgeMsg}</h3>
