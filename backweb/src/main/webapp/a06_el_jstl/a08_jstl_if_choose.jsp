@@ -1,0 +1,63 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"
+    import="java.util.*"
+    import="backweb.vo.*"   
+    %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="path" value="${pageContext.request.contextPath}"/>
+<fmt:requestEncoding value="utf-8"/>       
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="${path}/a00_com/a01_common.css" >
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.7.1.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		//$("h2").text("시작");
+		
+	})
+</script>
+</head>
+<body>
+<%--
+# jstl의 조건문 처리
+1. 서버단 안에서 데이터에 따라서 다른 화면을 보이게 하거나,
+	프로세스를 처리할 때, 활용한다.
+2. 기본형식
+	1) 단일 조건 처리..
+		<c:if test="${조건식}">
+			해당 조건식이 true일 때 처리할 화면/process
+		</c:if>
+	2) 다중 조건 처리
+		jstl에서 if else문이 없고, choose when otherwise구문을 활용한다.
+		<c:choose>
+			<c:when test="${조건1}">
+				조건1일 때, 처리할 내용..
+			</c:when>
+			<c:when test="${조건2}">
+				조건2일 때, 처리할 내용..
+			</c:when>
+			<c:otherwise>
+				위 나열된 조건이 아닐 때, 처리할 내용.
+			</c:otherwise>		
+		</c:choose>	
+--%>
+	<h2>가입된 회원여부 확인</h2>
+	<form>
+		확인할 회원아이디:<input type="text" name="id"/><br>
+		<input type="submit" value="확인"/>
+	</form>
+	<c:set  var="msg" value="등록 가능합니다."/>
+	<c:if test="${param.id=='himan'}"> 
+		<c:set  var="msg" value="등록된 회원입니다."/><%-- jstl은 모두 다 전역변수이다.(전역/지역변수 개념없음) --%>
+	</c:if>
+	<c:if test="${not empty param.id}">
+		<h3>아이디 ${param.id} ${msg}</h3>
+	</c:if>
+	
+	
+</body>
+</html>
