@@ -29,6 +29,13 @@
 		위에서 아래로 흐름 순서로 변수를 인식할 수 있다.
 	2) 실용예시 : 저작권 표시, 자바단의 공통변수 설정 등 모든 페이지에 중복되는 코드를
 		사용할 때 활용한다.	
+4. jsp를 통해서 공통 변수, 페이지를 설정할 때 주로 사용된다.		
+	comm.jsp : memu01.jsp,memu02.jsp,memu02.jsp
+				공통화면(top화면,bottom화면,왼쪽메뉴), java변수, js,css
+	menu01.jsp
+	menu02.jsp
+	menu03.jsp
+
 --%>
 	<%@ include file="a05_pageSub.jsp" %>
 	<h2>include directive 연습(포함할 페이지)</h2>

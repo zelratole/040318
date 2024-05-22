@@ -27,11 +27,17 @@
 2. 페이지 모듈화의 종류
 	1) 클라이언트단 프로그램
 		iframe : javascript/html로 화면으로 link로 호출 하여 처리할 수 있다.
+		<a href="이동페이지1" target="frame01"/>
+		<a href="이동페이지2" target="frame01"/>
+		<a href="이동페이지3" target="frame01"/>
+		<iframe name="frame01" />
 	2) 서버단 프로그램(컴파일시 각자 클래스 처리 여부에 따라)
-		- <jsp:include page="페이지명"/>
+		- 공통 : front단은 공통적으로 처리된다.(화면-html, js, css)
+	
+		- <jsp:include page="페이지명"/> 액션태그 ps) <jsp:forward page="페이지명"/>
 			이렇게 처리하는 것은 포함된 페이지가 jsp에서 class로 따로 만들어져서 호출하는
 			형식이다. 그래서 데이터를 넘겨줄 때는 jsp vs jsp로 넘겨주는 형식인 
-			rquest.getParameter()나 session을 활용하여야 한다.
+			request.getParameter()나 session을 활용하여야 한다. java의 변수는 공유가 되지 않는다.(주의)
 			ex) main.jsp(포함하는페이지), sub.jsp(포함되는 페이지)
 			==> jsp_main.class   jsp_sub.class
 			결국 각각의 클래스를 만들어 처리됨.
