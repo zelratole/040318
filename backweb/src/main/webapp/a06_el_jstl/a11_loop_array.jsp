@@ -65,11 +65,11 @@ request.setAttribute("foods", new String[]{"짜장면","짬뽕","탕수육","라
 		</c:if>
 	</c:forEach>
 	</table>
-	
 	<h2>판매하는 음식2</h2>
 	<table>
 		<col width="5%"><col width="5%">
-		<tr><th><input type="checkbox" name="ckAll" value="akk"></th><th>no</th><th>음식명</th><th>구매갯수</th></tr>
+		<tr><th><input type="checkbox" name="ckAll" value="akk"></th>
+			<th>no</th><th>음식명</th><th>구매갯수</th></tr>
 		<c:forEach var="food" items="${foods}" varStatus="sts">
 		<tr><td><input type="checkbox" name="ckNo" value="${sts.index}"></td>
 			<td>${sts.count}</td>
