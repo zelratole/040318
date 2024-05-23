@@ -38,7 +38,7 @@
 				조건1일 때, 처리할 내용..
 			</c:when>
 			<c:when test="${조건2}">
-				조건2일 때, 처리할 내용..
+				조건2일 때, 처리할 내용..주의) if else if 문과 같이 위에 상단에 있는 조건 제외				
 			</c:when>
 			<c:otherwise>
 				위 나열된 조건이 아닐 때, 처리할 내용.
@@ -55,6 +55,8 @@
 		<c:set  var="msg" value="등록된 회원입니다."/><%-- jstl은 모두 다 전역변수이다.(전역/지역변수 개념없음) --%>
 	</c:if>
 	<c:if test="${not empty param.id}">
+		<%-- empty : null or ""을 둘중에 하나 해당할 때 처리해준다. --%>
+		<%-- not empty : null 아니고 and ""이 아닐 때 --%>
 		<h3>아이디 ${param.id} ${msg}</h3>
 	</c:if>
 	<%--
