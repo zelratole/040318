@@ -38,7 +38,19 @@ SELECT * FROM emp02;
 DROP TABLE emp02;
 --  ex) dept02 ==> dept20 테이블로 변경, dept20 테이블 삭제 처리.
 
+SELECT * FROM dept;
+-- 첫번째 row를 기준으로 class 정의
+/*
+class Dept{
+	private int deptno;
+	private String dname;
+	private String loc;
+}
+==>
+List<Dept> dlist = new ArrayList<Dept>();
+List<Dept> dlist = Arrays.asList(new Dept(10,"회계","뉴욕"), new ...);
 
-
+ * 
+ * */
 
 

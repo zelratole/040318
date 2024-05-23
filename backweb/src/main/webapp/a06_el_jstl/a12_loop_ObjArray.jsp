@@ -33,8 +33,39 @@
 	3) forEach구문으로 처리..
 	
 --%>
-	<h2></h2>
-
+<%
+List<Dept> dlist = new ArrayList<Dept>();
+dlist.add(new Dept(10,"인사","서울"));
+dlist.add(new Dept(20,"기획","수원"));
+dlist.add(new Dept(30,"회계","부산"));
+dlist.add(new Dept(40,"총무","광주"));
+request.setAttribute("dlist", dlist);
+%>
+	<h2>객체형 배열</h2>
+	<table>
+		<tr><th>번호</th><th>부서명</th><th>부서위치</th></tr>
 	
+		<c:forEach var="dept" items="${dlist}">
+		<tr><td>${dept.deptno}</td><td>${dept.dname }</td><td>${dept.loc}</td></tr>
+		</c:forEach>
+	</table>
+<%--
+ex) Product로 객체형배열을 선언하고, 테이블로 출력하세요..
+ --%>	
+<%
+List<Product> plist = new ArrayList<Product>();
+plist.add(new Product("사과",3000,2));
+plist.add(new Product("바나나",4000,3));
+plist.add(new Product("딸기",15000,4));
+request.setAttribute("plist", plist);
+%> 
+	<h2>구매물건 리스트</h2>
+	<table>
+		<tr><th>물품</th><th>가격</th><th>갯수</th></tr>
+	
+		<c:forEach var="prod" items="${plist}">
+		<tr><td>${prod.name}</td><td>${prod.price }</td><td>${prod.cnt}</td></tr>
+		</c:forEach>
+	</table> 
 </body>
 </html>
