@@ -9,6 +9,7 @@ public class DBCon {
 	// 연결 처리 메서드
 	public static Connection con() throws SQLException {
 		Connection conn = null;
+		
 			// 1. 드라이버 메모리에 설정
 			try {
 				Class.forName("oracle.jdbc.driver.OracleDriver");
