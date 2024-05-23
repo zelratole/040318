@@ -75,12 +75,12 @@
 	<%-- ex1) 4X4 1~16 --%>
 	<h2>1~16</h2>
 	<table>
-		<c:forEach var="cnt" begin="1" end ="9" >
-			<c:if test="${cnt%3==1}">
+		<c:forEach var="cnt" begin="1" end ="16" >
+			<c:if test="${cnt%4==1}">
 			<tr>
 			</c:if>
 				<td>${cnt}</td>	
-			<c:if test="${cnt%3==0}">	
+			<c:if test="${cnt%4==0}">	
 			</tr>
 			</c:if>
 		</c:forEach>
@@ -88,12 +88,12 @@
 	<%-- ex2) 2X5 1~10 --%>
 	<h2>1~10</h2>
 	<table>
-		<c:forEach var="cnt" begin="1" end ="9" >
-			<c:if test="${cnt%3==1}">
+		<c:forEach var="cnt" begin="1" end ="10" >
+			<c:if test="${cnt%5==1}">
 			<tr>
 			</c:if>
 				<td>${cnt}</td>	
-			<c:if test="${cnt%3==0}">	
+			<c:if test="${cnt%5==0}">	
 			</tr>
 			</c:if>
 		</c:forEach>
