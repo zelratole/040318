@@ -133,10 +133,19 @@ public class A02_Dao {
 		}
 		return empList;
 	}
+	
 	// 등록/수정/삭제하는 template
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		A02_Dao dao = new A02_Dao();
+		for(Emp01 emp:dao.getEmpList("", "")) {
+			System.out.print(emp.getEmpno()+"\t");
+			System.out.print(emp.getEname()+"\t");
+			System.out.print(emp.getJob()+"\t");
+			System.out.print(emp.getSal()+"\t");
+			System.out.print(emp.getDeptno()+"\n");
+		}
+		/*
 		Emp01 emp = dao.getEmp(7499);
 		if(emp!=null) {
 			System.out.print(emp.getEmpno()+"\t");
@@ -144,6 +153,7 @@ public class A02_Dao {
 			System.out.print(emp.getSal()+"\t");
 			System.out.print(emp.getDeptno()+"\n");
 		}
+		*/
 		/*
 		dao.tempSelect("A");
 		Dept d = dao.getDept(40);
