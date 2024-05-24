@@ -28,9 +28,18 @@
 2. 기본 형식
 	1) <c:forEach var="변수" begin="시작번호" end="마지막번호 step="증감단위>
 			${변수명}
+	   for(int cnt = 시작번호;cnt<=마지막번호;cnt++증감단위){
+	   		cnt(변수)
+	   }		
+			
 	2) <c:forEach var="단위변수" items="${배열형데이터}" varStatus="상태변수">
 			${단위변수}
 			${단위객체.property}
+	   for(단위변수 : 배열형데이터){
+	   		단위변수
+	   		단위객체.getXXXX()
+	   }	
+	   
 	3) varStatus 속성
 		- 여러가지 배열형태의 데이터에 지원되는 속성 처리
 		- 기본형식 

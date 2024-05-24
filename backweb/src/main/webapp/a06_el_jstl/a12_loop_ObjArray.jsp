@@ -57,6 +57,9 @@ List<Product> plist = new ArrayList<Product>();
 plist.add(new Product("사과",3000,2));
 plist.add(new Product("바나나",4000,3));
 plist.add(new Product("딸기",15000,4));
+plist.add(new Product("딸기",15000,4));
+plist.add(new Product("딸기",15000,4));
+plist.add(new Product("딸기",15000,4));
 request.setAttribute("plist", plist);
 %> 
 	<h2>구매물건 리스트</h2>
