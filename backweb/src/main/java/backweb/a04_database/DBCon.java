@@ -25,6 +25,39 @@ public class DBCon {
 	}
 	
 	// 자원해제 처리 메서드
+    public static void rollback(Connection con) {
+        if (con != null) {
+            try {
+                con.rollback();
+            } catch (SQLException e) {
+                System.out.println("롤백 예외: " + e.getMessage());
+            }
+        }
+    }
+    
+    public static void close(ResultSet rs, Statement stmt, Connection conn) {
+        if (rs != null) {
+            try {
+                rs.close();
+            } catch (SQLException e) {
+                System.out.println("ResultSet 닫기 실패: " + e.getMessage());
+            }
+        }
+        if (stmt != null) {
+            try {
+                stmt.close();
+            } catch (SQLException e) {
+                System.out.println("Statement 닫기 실패: " + e.getMessage());
+            }
+        }
+        if (conn != null) {
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                System.out.println("Connection 닫기 실패: " + e.getMessage());
+            }
+        }
+    }	
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
