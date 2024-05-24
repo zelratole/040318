@@ -2,7 +2,9 @@ package backweb.a04_database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class DBCon {
 	// DB연동 공통 모듈(모두 다 이해X, 한번만 들어 주시고 pass)
