@@ -1,8 +1,23 @@
 SELECT * FROM emp;
 SELECT * 
 FROM emp
-WHERE ename LIKE '%A%';
+WHERE ename LIKE '%%';
+		select *
+		from dept
+		where deptno = 30;	
 /*
+select *
+from dept
+where deptno = ?
+
+class Dept{
+	private int deptno;
+	private String dname;
+	private String loc;
+}
+
+
+
 # 데이터베이스 주석문(여러줄)
  * */
 -- 데이터베이스 주석문(단일줄)

@@ -80,7 +80,71 @@ ex) select empno, ename, job from emp;
 		rs.getString("job");   또는 select 순서로 rs.getString(3)
 	}
 	로 처리하면 전체 데이터를 다 가져와서 처리하게 된다.	
-	
+# 위 내용 연습
+				// 3번째행의 ename 컬럼 호출..
+				//rs.next();rs.next();rs.next();
+				//System.out.println("세번째 행의 ename 열데이터:"+rs.getString("ename"));
+				// ex) 2번째 행의 job컬럼 데이터 호출
+				//rs.next();rs.next();
+				//System.out.println("job컬럼:"+rs.getString("job"));
+				// ex) 5번째 행의 deptno컬럼 데이터 호출..
+				//rs.next();rs.next();rs.next();rs.next();rs.next();
+				//System.out.println("deptno컬럼:"+rs.getInt("deptno"));
+# 데이터베이스에서 처리한 내용을 객체로 리턴하기
+1. dao를 통해서 결과내용을 실무에서는 객체로 전달하여 화면에서 처리한다.
+	1) jsp form으로 요청값 전달
+			부서번호:[   ] [검색] (요청값처리)
+			
+			부서번호:@@@ dao의 리턴결과로 VO를 받아서 출력..
+			부서명:@@
+			부서위치:@@@
+	2) dao 객체 생성 및 메서드의 요청값을 받아서 DB 결과 처리 후, 객체로 전달.
+	3) jsp에서는 최종 결과 객체를 받아서, 화면에 구현 및 처리..
+2. sql 처리 순서
+	1) sql 구문 만들기 및 확인/매개변수를 ? 처리
+		select *
+		from dept
+		where deptno = 10;	
+		==>
+		select *
+		from dept
+		where deptno = ?
+select *
+from dept
+where deptno = ?
+		
+	2) 결과 sql에 따른 VO객체 생성하기
+		sql에서 실행한 결과를 가지고 이 형태에 맞는 VO객체 선언
+		위 경우, deptno, dname, loc를 컬럼으로 검색된 결과를 확인할 수 있다.
+		class Dept{
+			private int deptno;
+			private String dname;
+			private int loc;
+			// 생성자
+			// get/set 메서드 선언..
+		}	
+	3) Dao의 templet 복사 하여 리턴할 객체 선언
+		public Dept getDept(int deptno){
+			return dept;
+		}
+	4) 해당 메서드의 sql 구문 복사 및 pstmt 선언
+		String sql = "select * from dept where deptno = ?;
+	5) pstmt의 객체 mapping
+		pstmt.setInt(1, deptno); 
+	6) 다중 데이터 처리냐 단일 데이터 처리냐에 따라서 while(rs.next()), if(rs.next())
+		구분하여 처리 위 경우 단일 데이터 검색(deptno가 key이기 때문)
+	7) 객체의 생성자로 결과값을 통해 객체를 할다.
+		dept = new Dept(rs.getInt("deptno"), rs.getSting("dname"), rs.getString("loc"));
+	8) main() 메서드에서 호출 확인
+		dao = new Dao();
+		Dept res = dao.getDept(10);
+		System.out.println("최종 객체확인:"+res);	
+		System.out.println("최종 데이터 확인:"+res.getDeptno()+","+rs.getDname());			
+~12:10		
+			
+		
+		
+			 					
 	
 	
 	
