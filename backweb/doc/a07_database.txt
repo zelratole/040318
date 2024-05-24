@@ -45,7 +45,15 @@
 		하여야 한다.
 		==> 위 내용을 반드기 처리하여야 한다.
 		
-		
+# 데이터 처리 부분
+1. 만들어진 연동객체를 호출하여 연결처리
+Connection con = DBConn.con();
+2. sql문을 작성한 내용을 기준으로 대화를 할 수 있는 객체 생성..
+PreparedStatement pstmt = con.prepareStatement(sql); ){
+ResultSet rs = pstmt.executeQuery();){
+System.out.println("데이터 있음:"+rs.next());
+System.out.println("첫번째 행의 첫번째 열데이터:"+rs.getString(1));
+					
 		
 			
 		
