@@ -90,7 +90,8 @@ public class A02_Dao {
 			 pstmt.setInt(1, deptno);
 			try(ResultSet rs = pstmt.executeQuery();){
 				if(rs.next()) {
-					dept = new Dept(rs.getInt("deptno"), rs.getString("dname"), rs.getString("loc"));
+					dept = new Dept(rs.getInt("deptno"),
+							rs.getString("dname"), rs.getString("loc"));
 				}
 			}		
 		}catch(SQLException e) {
