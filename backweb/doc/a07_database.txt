@@ -30,4 +30,23 @@
 			} catch(Exception e){
 				System.out.println("기타 예외:"+e.getMessage());
 				==> 기타 그외의 모든 문제..
-			}								
+			}	
+	5. 전화를 끊었을 때 처리
+		Connection 있는 메모리를 해제하는 처리..
+		계층적으로 종속된 객체들이 있다.
+		1) 기본 select문을 사용할 때 활용하는 객체(의사전달 후, 결과를 받을 때)
+			연결(Connection) ==> 대화(Statement/PreparedStatement)
+			==> 결과(ResultSet) 
+		2) 등록/수정/삭제를 통해서 전달만 하는 객체(의사전달만하여 서버에 영향을 주는 경우)
+			연결(Connection) ==> 대화(Statement/PreparedStatement)
+			안정성을 위하여 commit/rollback 처리
+		이렇게 종속적을 만들어진 객체는 한번에 자원해제를 하는 것이 아니라,
+		반대로 ResultSet 자원해제 ==> Statement 자원해제 ==> Connection 자원해제를
+		하여야 한다.
+		==> 위 내용을 반드기 처리하여야 한다.
+		
+		
+		
+			
+		
+											
