@@ -5,10 +5,12 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBConn {
+	// 연결
 	public static Connection con() throws ClassNotFoundException, SQLException {
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		return DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","scott","tiger");
 	}
+	// 자원해제
 	public static void close(AutoCloseable... resources) { 
 		for(AutoCloseable resource:resources) {
 			if(resource!=null) {
