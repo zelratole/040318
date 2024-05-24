@@ -89,7 +89,7 @@ public class A02_Dao {
 				+ "where empno = ?";
 		try( Connection con = DBConn.con();
 			 PreparedStatement pstmt = con.prepareStatement(sql); ){
-			 pstmt.setInt(1, empno);
+			pstmt.setInt(1, empno);
 			try(ResultSet rs = pstmt.executeQuery();){
 				if(rs.next()) {
 					emp = new Emp01(rs.getInt("empno"),rs.getString("ename"),
@@ -109,6 +109,14 @@ public class A02_Dao {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		A02_Dao dao = new A02_Dao();
+		Emp01 emp = dao.getEmp(7499);
+		if(emp!=null) {
+			System.out.print(emp.getEmpno()+"\t");
+			System.out.print(emp.getEname()+"\t");
+			System.out.print(emp.getSal()+"\t");
+			System.out.print(emp.getDeptno()+"\n");
+		}
+		/*
 		dao.tempSelect("A");
 		Dept d = dao.getDept(40);
 		System.out.println("# 결과 객체 #"+d);
@@ -117,6 +125,9 @@ public class A02_Dao {
 			System.out.print(d.getDname()+"\t");
 			System.out.println(d.getLoc()+"\t");
 		}
+		*/
+		
+		
 		
 		
 		
