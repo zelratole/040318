@@ -170,8 +170,8 @@ where empno = 	?
 			// get/set 메서드 선언..
 		}	
 	3) Dao의 templet 복사 하여 리턴할 객체 선언
-		public Dept getDept(int deptno){
-			return dept;
+		public Emp getEmp(int empno){
+			return emp;
 		}
 	4) 해당 메서드의 sql 구문 복사 및 pstmt 선언
 		String sql = "select * from dept where deptno = ?;
