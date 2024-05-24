@@ -16,7 +16,7 @@ public class A02_Dao {
 		// 1. 조회하여 결과를 리턴할 객체를 선언한다.(select문에 의한 결과값을 리턴할 내용)
 		Object ob = new Object();
 		// 2. 사용되는 sql 구문을 처리한다.
-		String sql = "SELECT * FROM emp WHERE ename like ? ";
+		String sql = "SELECT * FROM emp01 WHERE ename like ? ";
 		// 3. 본격적으로 연결/대화/결과/자원해제예외처리..
 		//    매개변수로 처리할 때 자원해제 처리된다.
 		try( Connection con = DBConn.con();
@@ -44,7 +44,7 @@ public class A02_Dao {
 	public Dept getDept(int deptno) {
 		Dept dept = null;
 		String sql = "select *\r\n"
-				+ "from dept\r\n"
+				+ "from dept01\r\n"
 				+ "where deptno = ? ";
 		try( Connection con = DBConn.con();
 			 PreparedStatement pstmt = con.prepareStatement(sql); ){
@@ -64,7 +64,7 @@ public class A02_Dao {
 	public Dept getDeptJ(int deptno) {
 		Dept dept = null;
 		String sql = "select *\r\n"
-				+ "from dept\r\n"
+				+ "from dept01\r\n"
 				+ "where deptno = ? ";
 		try( Connection con = DBconJ.getConnection();
 			 PreparedStatement pstmt = con.prepareStatement(sql); ){
@@ -87,7 +87,7 @@ public class A02_Dao {
 	public Emp01 getEmp(int empno) {
 		Emp01 emp = null;
 		String sql = "select empno, ename, sal, deptno\r\n"
-				+ "from emp\r\n"
+				+ "from emp01\r\n"
 				+ "where empno = ?";
 		try( Connection con = DBConn.con();
 			 PreparedStatement pstmt = con.prepareStatement(sql); ){
@@ -111,7 +111,7 @@ public class A02_Dao {
 	public List<Emp01> getEmpList(String ename, String job) {
 		List<Emp01> empList = new ArrayList<Emp01>();
 		String sql = "select empno, ename, job, sal, deptno\r\n"
-				+ "from emp\r\n"
+				+ "from emp01\r\n"
 				+ "where ename like ?\r\n"
 				+ "AND job LIKE ? ";
 		try( Connection con = DBConn.con();
