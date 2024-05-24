@@ -217,8 +217,10 @@ public class A02_Dao {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		A02_Dao dao = new A02_Dao();
-		System.out.println("등록?"+dao.tempCRUD("하길동","대리"));
 		
+		System.out.println("등록?"+dao.deptInsert(new Dept(99,"인사","수원")));
+		//System.out.println("등록?"+dao.tempCRUD("하길동","대리"));
+		/*
 		
 		for(Emp01 emp:dao.getEmpList("", "")) {
 			System.out.print(emp.getEmpno()+"\t");
@@ -227,6 +229,7 @@ public class A02_Dao {
 			System.out.print(emp.getSal()+"\t");
 			System.out.print(emp.getDeptno()+"\n");
 		}
+		*/
 		/*
 		Emp01 emp = dao.getEmp(7499);
 		if(emp!=null) {
