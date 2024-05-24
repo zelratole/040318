@@ -1,7 +1,11 @@
 SELECT * FROM emp;
-SELECT * 
-FROM emp
-WHERE ename LIKE '%%';
+
+select empno, ename, job, sal, deptno
+from emp
+where ename like '%%'
+AND job LIKE '%%';
+
+
 		select *
 		from dept
 		where deptno = 30;	

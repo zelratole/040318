@@ -152,11 +152,12 @@ where empno = 	7369;
 	1) sql 구문 만들기 및 확인/매개변수를 ? 처리
 select empno, ename, sal, deptno
 from emp
-where empno = 	7369;	
+where ename like '%%';	
 		==>
-select empno, ename, sal, deptno
+select empno, ename, job, sal, deptno
 from emp
-where empno = 	?
+where ename like ?
+AND job LIKE ?
 		
 	2) 결과 sql에 따른 VO객체 생성하기
 		sql에서 실행한 결과를 가지고 이 형태에 맞는 VO객체 선언
@@ -164,8 +165,10 @@ where empno = 	?
 		class Emp01{
 			private int empno;
 			private String ename;
+			private String job;
 			private double sal;
 			private int deptno;
+			
 			// 생성자
 			// get/set 메서드 선언..
 		}	

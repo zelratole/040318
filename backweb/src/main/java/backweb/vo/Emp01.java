@@ -3,6 +3,7 @@ package backweb.vo;
 public class Emp01 {
 	private int empno;
 	private String ename;
+	private String job;
 	private double sal;
 	private int deptno;
 	public Emp01() {
@@ -13,6 +14,16 @@ public class Emp01 {
 		super();
 		this.empno = empno;
 		this.ename = ename;
+		this.sal = sal;
+		this.deptno = deptno;
+	}
+	
+	
+	public Emp01(int empno, String ename, String job, double sal, int deptno) {
+		super();
+		this.empno = empno;
+		this.ename = ename;
+		this.job = job;
 		this.sal = sal;
 		this.deptno = deptno;
 	}
@@ -39,6 +50,12 @@ public class Emp01 {
 	}
 	public void setDeptno(int deptno) {
 		this.deptno = deptno;
+	}
+	public String getJob() {
+		return job;
+	}
+	public void setJob(String job) {
+		this.job = job;
 	}
 	
 }
