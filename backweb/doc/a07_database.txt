@@ -48,13 +48,15 @@
 # 데이터 처리 부분
 1. 만들어진 연동객체를 호출하여 연결처리
 Connection con = DBConn.con();
-2. sql문을 작성한 내용을 기준으로 대화를 할 수 있는 객체 생성..
+	
+2. try( 객체 ){} : 자동자원해제 기능...
+   sql문을 작성한 내용을 기준으로 대화를 할 수 있는 객체 생성..
 	- 실제 사용할 sql 구문을 처리
 	String sql = "SELECT * FROM emp WHERE ename like ? ";
 	PreparedStatement pstmt = con.prepareStatement(sql);
 3. sql구문에 ?로 선언하여 mapping할 문자열을 매개변수로 받아서 처리
 	메서드의 매개변수로 넘겨온 구분을 ?구문에 할당 처리..
-	pstmt.setString(1, sch);
+	pstmt.setString(1, "%"+sch+"%"); == sql에 있는 ?의 갯수에 따라서 1,2,3 시작하여 순서별로 데이터를 mapping
 4. sql을 통해 실행된 결과를  DB서버로 부터 받아서 2차원(테이블excel형식)으로된 ResultSet 객체에 할당.
 	ps) ResultSet은 dbeaver에서 sql을 결과를 받은 데이터를 리스트하는 형식의 모든 정보를 담고 있다.
 	즉, 컬럼정보, 행단위 데이터 정보
