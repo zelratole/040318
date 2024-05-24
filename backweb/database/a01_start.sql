@@ -5,6 +5,9 @@ WHERE ename LIKE '%%';
 		select *
 		from dept
 		where deptno = 30;	
+select empno, ename, sal, deptno
+from emp
+where empno = 	7369;
 /*
 select *
 from dept
