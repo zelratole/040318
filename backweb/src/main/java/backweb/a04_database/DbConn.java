@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class DbConn {
 	public static Connection con() throws ClassNotFoundException, SQLException {
 		Class.forName("oracle.jdbc.driver.OracleDriver");
-		return DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe");
+		return DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","scott","tiger");
 	}
 	public static void close(AutoCloseable... resources) { 
 		for(AutoCloseable resource:resources) {
@@ -16,7 +16,7 @@ public class DbConn {
 					resource.close();
 				} catch (Exception e) {
 					System.out.print(resource.getClass().getSimpleName());
-					System.out.println("닫기 실패");
+					System.out.println("자원해제 실패");
 				}
 			}
 		}
