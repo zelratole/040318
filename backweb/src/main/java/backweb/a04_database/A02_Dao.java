@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import backweb.vo.Dept;
+import backweb.vo.Emp01;
 //backweb.a04_database.A02_Dao
 public class A02_Dao {
 	// 조회하는 template : 복사해서 핵심부분만 변경경해서 사용
@@ -80,6 +81,30 @@ public class A02_Dao {
 	}	
 	// DBconJ
 	
+	// 조회하는 template : 복사해서 핵심부분만 변경경해서 사용
+	public Emp01 getEmp(int empno) {
+		Emp01 emp = null;
+		String sql = "select empno, ename, sal, deptno\r\n"
+				+ "from emp\r\n"
+				+ "where empno = ?";
+		try( Connection con = DBConn.con();
+			 PreparedStatement pstmt = con.prepareStatement(sql); ){
+			 pstmt.setInt(1, empno);
+			try(ResultSet rs = pstmt.executeQuery();){
+				if(rs.next()) {
+					emp = new Emp01(rs.getInt("empno"),rs.getString("ename"),
+							rs.getDouble("sal"),rs.getInt("deptno") );
+				}
+			}
+			
+		}catch(SQLException e) {
+			System.out.println("DB 처리 에러:"+e.getMessage());
+		}catch(Exception e) {
+			System.out.println("일반 에러:"+e.getMessage());
+		}
+		
+		return emp;
+	}
 	// 등록/수정/삭제하는 template
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
