@@ -1,4 +1,7 @@
 SELECT * FROM emp;
+SELECT * 
+FROM emp
+WHERE ename LIKE '%A%';
 /*
 # 데이터베이스 주석문(여러줄)
  * */

@@ -16,7 +16,7 @@ public class A02_Dao {
 		//    매개변수로 처리할 때 자원해제 처리된다.
 		try( Connection con = DBConn.con();
 			 PreparedStatement pstmt = con.prepareStatement(sql); ){
-			 pstmt.setString(1, sch);
+			 pstmt.setString(1, "%"+sch+"%");
 			try(ResultSet rs = pstmt.executeQuery();){
 				System.out.println("데이터 있음:"+rs.next());
 				System.out.println("첫번째 행의 첫번째 열데이터:"+rs.getString(1));
@@ -39,6 +39,8 @@ public class A02_Dao {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		A02_Dao dao = new A02_Dao();
+		dao.tempSelect("");
 
 	}
 
