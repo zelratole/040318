@@ -18,29 +18,38 @@ public class A02_Dao {
 			 PreparedStatement pstmt = con.prepareStatement(sql); ){
 			 pstmt.setString(1, "%"+sch+"%");
 			try(ResultSet rs = pstmt.executeQuery();){
-				System.out.println("데이터 있음:"+rs.next());
-				System.out.println("첫번째 행의 첫번째 열데이터:"+rs.getString(1));
+				//System.out.println("데이터 있음:"+rs.next());
+				//System.out.println("첫번째 행의 첫번째 열데이터:"+rs.getString(1));
+				// 3번째행의 ename 컬럼 호출..
+				//rs.next();rs.next();rs.next();
+				//System.out.println("세번째 행의 ename 열데이터:"+rs.getString("ename"));
+				// ex) 2번째 행의 job컬럼 데이터 호출
+				//rs.next();rs.next();
+				//System.out.println("job컬럼:"+rs.getString("job"));
+				// ex) 5번째 행의 deptno컬럼 데이터 호출..
+				//rs.next();rs.next();rs.next();rs.next();rs.next();
+				//System.out.println("deptno컬럼:"+rs.getInt("deptno"));
+				while(rs.next()) {
+					System.out.print(rs.getInt("empno")+"\t");
+					System.out.print(rs.getString("ename")+"\t");
+					System.out.print(rs.getDouble("sal")+"\t");
+					System.out.print(rs.getInt("deptno")+"\n");
+				}
 			}
 			
 		}catch(SQLException e) {
 			System.out.println("DB 처리 에러:"+e.getMessage());
 		}catch(Exception e) {
-			System.out.println("일발 에러:"+e.getMessage());
+			System.out.println("일반 에러:"+e.getMessage());
 		}
 		
 		return ob;
 	}
-	
-	
-	
 	// 등록/수정/삭제하는 template
-	
-	
-
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		A02_Dao dao = new A02_Dao();
-		dao.tempSelect("");
+		dao.tempSelect("A");
 
 	}
 
