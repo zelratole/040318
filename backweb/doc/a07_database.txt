@@ -49,10 +49,41 @@
 1. 만들어진 연동객체를 호출하여 연결처리
 Connection con = DBConn.con();
 2. sql문을 작성한 내용을 기준으로 대화를 할 수 있는 객체 생성..
-PreparedStatement pstmt = con.prepareStatement(sql); ){
-ResultSet rs = pstmt.executeQuery();){
-System.out.println("데이터 있음:"+rs.next());
-System.out.println("첫번째 행의 첫번째 열데이터:"+rs.getString(1));
+	- 실제 사용할 sql 구문을 처리
+	String sql = "SELECT * FROM emp WHERE ename like ? ";
+	PreparedStatement pstmt = con.prepareStatement(sql);
+3. sql구문에 ?로 선언하여 mapping할 문자열을 매개변수로 받아서 처리
+	메서드의 매개변수로 넘겨온 구분을 ?구문에 할당 처리..
+	pstmt.setString(1, sch);
+4. sql을 통해 실행된 결과를  DB서버로 부터 받아서 2차원(테이블excel형식)으로된 ResultSet 객체에 할당.
+	ps) ResultSet은 dbeaver에서 sql을 결과를 받은 데이터를 리스트하는 형식의 모든 정보를 담고 있다.
+	즉, 컬럼정보, 행단위 데이터 정보
+	ResultSet rs = pstmt.executeQuery();
+5. 	ResultSet은 행단위로 변경할 때는 rs.next()라는 메서드를 호출하여 해당 행의 데이터가 있으면 true 없으면
+	false를 리턴한다. 즉, 행이 12개가 있면 rs.next()를 12번까지 호출할 때, true가 나오고 그 이후로는 false가 나온다
+	그래서 while(rs.next())로 할당하는 경우가 많다.
+	System.out.println("데이터 있음:"+rs.next());
+6. rs.next()를 통해서 행단위로 접근한다면, rs.getString("컬럼명"), rs.getString(1):select 1, 2, 3  순서로
+	접근하여 해당 행에있는 컬럼의 데이터를 getXXXX() 타입에 맞게 호출하여 가져온다.
+	System.out.println("첫번째 행의 첫번째 열데이터:"+rs.getString(1));
+ex) select empno, ename, job from emp;
+	sql을 수행 했고, 데이터가 12행이 있다면
+	3행에 job컬럼에 있는 데이터를 가져올려면
+	rs.next() 3번호출 한뒤
+	rs.getString("job") 식으로 호출하여야 하고.
+	실제로 전체 내용을 호출할 때는
+	while(rs.next()){
+		rs.getInt("empno");  또는 select 순서로 rs.getInt(1)
+		rs.getString("ename");   또는 select 순서로 rs.getString(2)
+		rs.getString("job");   또는 select 순서로 rs.getString(3)
+	}
+	로 처리하면 전체 데이터를 다 가져와서 처리하게 된다.	
+	
+	
+	
+	
+	
+	
 					
 		
 			
