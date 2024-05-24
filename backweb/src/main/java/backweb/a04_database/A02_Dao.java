@@ -49,8 +49,10 @@ public class A02_Dao {
 		String sql = "INSERT INTO emp01(ename, job) VALUES(?,?) ";
 		// 3. 본격적으로 연결/대화/결과/자원해제예외처리..
 		//    매개변수로 처리할 때 자원해제 처리된다.
+		Connection con2=null;
 		try( Connection con = DBConn.con();
 			 PreparedStatement pstmt = con.prepareStatement(sql); ){
+			 con2 = con;
 			 con.setAutoCommit(false); // auto commit 방지
 			 pstmt.setString(1, ename);
 			 pstmt.setString(2, job);
@@ -65,9 +67,13 @@ public class A02_Dao {
 			
 		}catch(SQLException e) {
 			System.out.println("DB 처리 에러:"+e.getMessage());
-//			if(con!=null) {
-//				
-//			}
+			if(con2!=null) {
+				try {
+					con2.rollback();
+				} catch (SQLException e1) {
+					System.out.println("롤백 예외");
+				}
+			}
 		}catch(Exception e) {
 			System.out.println("일반 에러:"+e.getMessage());
 		}
@@ -167,11 +173,51 @@ public class A02_Dao {
 		return empList;
 	}
 	
+	// 조회하는 template : 복사해서 핵심부분만 변경경해서 사용
+	public int deptInsert(Dept ins) {
+		// 1. 조회하여 결과를 리턴할 객체를 선언한다.(select문에 의한 결과값을 리턴할 내용)
+		int cudCnt  = 0;
+		// 2. 사용되는 sql 구문을 처리한다.
+		String sql = "INSERT INTO dept01 VALUES(?,?,?) ";
+		// 3. 본격적으로 연결/대화/결과/자원해제예외처리..
+		//    매개변수로 처리할 때 자원해제 처리된다.
+		Connection con2=null;
+		try( Connection con = DBConn.con();
+			 PreparedStatement pstmt = con.prepareStatement(sql); ){
+			 con2 = con;
+			 con.setAutoCommit(false); // auto commit 방지
+			 pstmt.setInt(1, ins.getDeptno());
+			 pstmt.setString(2, ins.getDname());
+			 pstmt.setString(3, ins.getLoc());
+			 cudCnt = pstmt.executeUpdate();
+			 if(cudCnt>0) {
+				 System.out.println(cudCnt+"건 등록 성공!");
+				 con.commit();
+			 }else {
+				 System.out.println("등록 안 됨");
+				 con.rollback();
+			 }
+			
+		}catch(SQLException e) {
+			System.out.println("DB 처리 에러:"+e.getMessage());
+			if(con2!=null) {
+				try {
+					con2.rollback();
+				} catch (SQLException e1) {
+					System.out.println("롤백 예외");
+				}
+			}
+		}catch(Exception e) {
+			System.out.println("일반 에러:"+e.getMessage());
+		}
+		
+		return cudCnt;
+	}
 	// 등록/수정/삭제하는 template
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		A02_Dao dao = new A02_Dao();
-		System.out.println("등록?"+dao.tempCRUD("마길동","사원"));
+		System.out.println("등록?"+dao.tempCRUD("하길동","대리"));
 		
 		
 		for(Emp01 emp:dao.getEmpList("", "")) {
