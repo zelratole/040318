@@ -140,7 +140,12 @@ where deptno = ?
 		Dept res = dao.getDept(10);
 		System.out.println("최종 객체확인:"+res);	
 		System.out.println("최종 데이터 확인:"+res.getDeptno()+","+rs.getDname());			
-~12:10		
+ex) 
+select empno, ename, sal, deptno
+from emp
+where empno = 	7369;
+기반으로 위 기능 메서드를 만들어 주세요(위 순서 참고)
+
 			
 		
 		

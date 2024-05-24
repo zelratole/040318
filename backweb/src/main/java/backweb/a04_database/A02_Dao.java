@@ -63,7 +63,7 @@ public class A02_Dao {
 		// TODO Auto-generated method stub
 		A02_Dao dao = new A02_Dao();
 		dao.tempSelect("A");
-		Dept d = dao.getDept(20);
+		Dept d = dao.getDept(40);
 		System.out.println("# 결과 객체 #"+d);
 		if(d!=null) { // 조회 결과 값이 있을 때
 			System.out.print(d.getDeptno()+"\t");
