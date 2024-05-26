@@ -1,0 +1,84 @@
+### 자바 상속과 예외처리
+
+#### 1. 흥미로운 도입
+자바는 객체 지향 프로그래밍 언어로, 재사용성과 유지 보수성을 높이는 다양한 기능을 제공합니다. 그 중에서도 상속과 예외처리는 자바를 더욱 강력하게 만드는 중요한 개념입니다. 상속을 통해 기존 코드를 재사용하고 확장할 수 있으며, 예외처리를 통해 프로그램의 안정성을 높일 수 있습니다. 이제 자바 상속과 예외처리가 어떻게 우리의 코딩 생활을 변화시킬 수 있는지 알아보겠습니다.
+
+#### 2. 학습목표
+- **상속의 개념** 이해하기
+- **상속을 이용한 코드 재사용** 방법 배우기
+- **예외처리의 필요성**과 **방법** 이해하기
+- **커스텀 예외**를 만들어보고 사용해보기
+- 실무에서 상속과 예외처리를 활용하는 방법 배우기
+
+#### 3. 주요 핵심 키워드와 핵심개념
+- **상속 (Inheritance)**: 한 클래스가 다른 클래스의 속성과 메소드를 물려받는 것.
+  - *예시*: `class Parent { ... }`와 `class Child extends Parent { ... }`
+- **오버라이딩 (Overriding)**: 상속받은 메소드를 자식 클래스에서 재정의하는 것.
+  - *예시*: `@Override` 어노테이션 사용
+- **다형성 (Polymorphism)**: 하나의 객체가 여러 형태를 가질 수 있는 것.
+  - *예시*: 부모 클래스 타입으로 자식 클래스 객체를 참조
+- **예외 (Exception)**: 프로그램 실행 중에 발생할 수 있는 오류 상황을 객체로 표현한 것.
+  - *예시*: `try`, `catch`, `finally` 블록 사용
+- **예외 클래스 계층구조**: `Throwable` -> `Exception` -> `RuntimeException`
+- **커스텀 예외**: 사용자가 정의한 예외 클래스
+  - *예시*: `class CustomException extends Exception { ... }`
+
+#### 4. 퀴즈문제/토론과제
+- **퀴즈 문제**
+  1. 상속을 통해 코드의 재사용성을 높이는 예를 간단히 설명하세요.
+  2. 오버라이딩과 오버로딩의 차이점을 설명하세요.
+  3. 예외 처리를 할 때 `try`, `catch`, `finally` 블록의 역할을 설명하세요.
+  4. 다음 코드에서 발생할 수 있는 예외는 무엇인가요?
+     ```java
+     int[] numbers = {1, 2, 3};
+     System.out.println(numbers[3]);
+     ```
+- **토론 과제**
+  - 상속을 남용하는 것이 오히려 코드의 복잡성을 높일 수 있다는 주장에 대해 토론해보세요.
+  - 예외 처리를 통해 프로그램의 안정성을 높일 수 있지만, 예외 처리 로직이 과도하게 많아지면 가독성이 떨어질 수 있습니다. 이에 대한 해결책은 무엇일까요?
+
+#### 5. 실무적용사례
+- **상속의 실무적용사례**
+  - **UI 컴포넌트 상속**: 많은 UI 프레임워크에서 버튼, 텍스트 필드 등의 기본 컴포넌트를 상속받아 커스터마이징하는 경우가 많습니다. 예를 들어, `JButton` 클래스를 상속받아 특수한 버튼을 만드는 경우입니다.
+    ```java
+    public class CustomButton extends JButton {
+        public CustomButton(String text) {
+            super(text);
+            // 커스터마이징 로직
+        }
+    }
+    ```
+- **예외처리의 실무적용사례**
+  - **파일 입출력 예외 처리**: 파일을 읽고 쓰는 과정에서 발생할 수 있는 예외를 처리하여 안정적인 프로그램을 구현할 수 있습니다.
+    ```java
+    public void readFile(String filePath) {
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(filePath));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (FileNotFoundException e) {
+            System.err.println("파일을 찾을 수 없습니다: " + e.getMessage());
+        } catch (IOException e) {
+            System.err.println("파일을 읽는 도중 오류가 발생했습니다: " + e.getMessage());
+        } finally {
+            System.out.println("파일 읽기 작업이 종료되었습니다.");
+        }
+    }
+    ```
+- **커스텀 예외의 실무적용사례**
+  - **비즈니스 로직 검증**: 특정 비즈니스 로직에서 발생할 수 있는 예외를 커스텀 예외로 정의하여 명확하게 처리할 수 있습니다.
+    ```java
+    public class InvalidUserException extends Exception {
+        public InvalidUserException(String message) {
+            super(message);
+        }
+    }
+    
+    public void validateUser(User user) throws InvalidUserException {
+        if (user.getAge() < 18) {
+            throw new InvalidUserException("사용자는 18세 이상이어야 합니다.");
+        }
+    }
+    ```
