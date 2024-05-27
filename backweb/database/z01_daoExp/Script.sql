@@ -204,4 +204,12 @@ SELECT *
 FROM emp
 WHERE ename LIKE '%A%'
 AND job LIKE '%A%';
+/*
+SELECT * FROM emp;
+SELECT *
+FROM emp
+WHERE ename LIKE ?
+AND job LIKE ?
+ * */
+
 
