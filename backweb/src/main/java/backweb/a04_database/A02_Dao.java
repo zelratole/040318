@@ -280,8 +280,13 @@ public class A02_Dao {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		A02_Dao dao = new A02_Dao();
+		Emp11 emp11 = dao.getEmp01(7499);
+		System.out.println("# 검색된 데이터 #");
+		System.out.println("ename:"+emp11.getEname());
+		System.out.println("job:"+emp11.getJob());
+		System.out.println("sal:"+emp11.getSal());
 
-		System.out.println("등록?" + dao.deptInsert(new Dept(99, "인사", "수원")));
+		//ystem.out.println("등록?" + dao.deptInsert(new Dept(99, "인사", "수원")));
 		// System.out.println("등록?"+dao.tempCRUD("하길동","대리"));
 		/*
 		 * 
