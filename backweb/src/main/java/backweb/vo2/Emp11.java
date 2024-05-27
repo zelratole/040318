@@ -2,17 +2,18 @@ package backweb.vo2;
 
 import java.util.Date;
 
-public class Emp01 {
+public class Emp11 {
 	private int empno;
 	private String ename;
 	private String job;
 	private double sal;
 	private Date hiredate; // 날짜형은 java.util.Date로 import
-	public Emp01() {
+	public Emp11() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Emp01(int empno, String ename, String job, double sal, Date hiredate) {
+	public Emp11(int empno, String ename, String job, double sal, 
+				Date hiredate) {
 		super();
 		this.empno = empno;
 		this.ename = ename;

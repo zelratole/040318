@@ -56,7 +56,10 @@
 		     where deptno = ? ";
 		?에 매핑될 내용 pstmt.setXXXX(1, 매개변수)
 		?에 매핑될 내용 pstmt.setInt(1, deptno);
-		while
+		while(rs.next()){ // 행단위로 이동 데이터 있을 때까지..
+			// rs.get타입("컬럼명") : 해당 열단위 데이터를 가져와서 할당.0000000000000-9
+			list.add(new Dept(rs.getInt("deptno"),....));
+		}
 		if(rs.next()){  // 행단위로 이동 처리..
 			d = new Dept(rs.getInt("deptno"), rs.getString("dname"),
 				rs.getString("loc"));
