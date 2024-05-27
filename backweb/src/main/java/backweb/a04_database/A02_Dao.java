@@ -252,6 +252,15 @@ public class A02_Dao {
 				+ "WHERE grade = ? ";
 		return salOb;
 	}	
+	public List<Dept01> getDeptList01(String dname){
+		List<Dept01> dlist = new ArrayList<Dept01>();
+		String sql = "SELECT *\r\n"
+				+ "FROM dept\r\n"
+				+ "WHERE dname LIKE ?";
+		
+		return dlist;
+	}	
+	
 	// 등록/수정/삭제하는 template
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
