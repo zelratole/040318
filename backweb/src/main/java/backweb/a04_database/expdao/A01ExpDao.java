@@ -35,6 +35,8 @@ public class A01ExpDao {
 		}
 		return ob;
 	}	
+	// sql ==> vo ==> 기능메서드 ==> 메서드안에 처리 부분 ==> main()호츨
+	
 	
 
 	public static void main(String[] args) {
