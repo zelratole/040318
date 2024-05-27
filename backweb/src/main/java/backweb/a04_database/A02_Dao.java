@@ -9,6 +9,7 @@ import java.util.List;
 
 import backweb.vo.Dept;
 import backweb.vo.Emp01;
+import backweb.vo2.Emp02;
 //backweb.a04_database.A02_Dao
 public class A02_Dao {
 	// 조회하는 template : 복사해서 핵심부분만 변경경해서 사용
@@ -215,12 +216,25 @@ public class A02_Dao {
 		return cudCnt;
 	}
 	// 메서드 선언하기..
+	// sql ==> 데이터확인 ==> 프로그램(java)
+	// 결과값은 메서드의 return유형(Emp01),  where조건문 매개변수(int empno)로 처리..
 	public Emp01 getEmp01(int empno){
 		Emp01 emp = null;
+		String sql = "SELECT empno, ename, job, sal, hiredate\r\n"
+				+ "FROM emp\r\n"
+				+ "WHERE empno = ? ";
 		
 		return emp;
 	}
-	
+	//행이 여러개일 때 선언방법.. 
+	public List<Emp02> getEmpList(int deptno){
+		List<Emp02> empList = new ArrayList<Emp02>();
+		String sql = "SELECT ename, job, mgr, hiredate\r\n"
+				+ "	  FROM emp\r\n"
+				+ "	  WHERE deptno = ?  ";
+		
+		return empList;
+	}	
 	// 등록/수정/삭제하는 template
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
