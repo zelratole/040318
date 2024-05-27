@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import backweb.a04_database.DBConn;
+import backweb.a04_database.expdao.vo.Dept;
 
 public class A01ExpDao {
 	public Object tempSelect(String sch) {
@@ -39,9 +40,40 @@ public class A01ExpDao {
 	
 	
 
+	public Dept getDept(String dname) {
+		Dept ob = null;
+		String sql = "SELECT *\r\n"
+				+ "FROM dept\r\n"
+				+ "WHERE dname LIKE ? ";
+		try (Connection con = DBConn.con(); PreparedStatement pstmt = con.prepareStatement(sql);) {
+			pstmt.setString(1, "%" + dname + "%");
+			try (ResultSet rs = pstmt.executeQuery();) {
+				if (rs.next()) {
+					System.out.print(rs.getInt("deptno") + "\t");
+					System.out.print(rs.getString("dname") + "\t");
+					System.out.print(rs.getString("loc") + "\n");
+					ob = new Dept(rs.getInt("deptno"),rs.getString("dname"),rs.getString("loc")  );
+					
+				}
+			}
+	
+		} catch (SQLException e) {
+			System.out.println("DB 처리 에러:" + e.getMessage());
+		} catch (Exception e) {
+			System.out.println("일반 에러:" + e.getMessage());
+		}
+		return ob;
+	}
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		A01ExpDao dao = new A01ExpDao();
+		Dept d = dao.getDept("SALES");
+		System.out.println("# 검색 정보 #");
+		System.out.println("부서번호:"+d.getDeptno());
+		System.out.println("부서명:"+d.getDname());
+		System.out.println("부서위치:"+d.getLoc());
+		
 	}
 
 }

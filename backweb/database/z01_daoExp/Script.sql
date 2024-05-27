@@ -179,11 +179,22 @@ WHERE job = ?
 public List<Emp03> getEmpList02(String job){
 	List<Emp03> empList = new ArrayList<Emp03>();
 	String sql = "";
+	
 	return empList;
 }
 
  * */
 
+-- sql ==> vo ==> 기능메서드 ==> 메서드안에 처리 부분 ==> main()호츨
+SELECT *
+FROM dept
+WHERE dname LIKE '%C%';
+--ex) A01ExpDao.java 출력/입력 ==> VO ==> 기능메서드 선언 ==> 단일 조회 데이터 처리 ==> main()
+/*
+SELECT *
+FROM dept
+WHERE dname LIKE ?
 
+ * */
 
 
