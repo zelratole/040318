@@ -27,7 +27,20 @@ class Emp01{
 	// 생성자
 	// set/get메서드..
 }
- * 
+ 
+ex)    
  * */
+SELECT * FROM emp;
+-- emp ctrl누른 후, 컬럼별 데이터 유형을 확인해서
+-- number(크기,0) : 정수형 int
+-- number(크기,2) : 실수형, 0이상  double
+-- char(), varchar() : 문자열형 String
+-- date : 날짜 유형 Date
+
+-- ex) 사원명(ename), 직책명(job), 관리자번호(mgr), 입사일(hiredate)을  
+--     부서번호(deptno)로 검색하세요..
+--     Emp02.java 만들기.
+
+
 
 
