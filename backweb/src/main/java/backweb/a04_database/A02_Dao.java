@@ -9,7 +9,9 @@ import java.util.List;
 
 import backweb.vo.Dept;
 import backweb.vo.Emp01;
+import backweb.vo2.Dept01;
 import backweb.vo2.Emp02;
+import backweb.vo2.Salgrade01;
 //backweb.a04_database.A02_Dao
 public class A02_Dao {
 	// 조회하는 template : 복사해서 핵심부분만 변경경해서 사용
@@ -226,7 +228,7 @@ public class A02_Dao {
 		
 		return emp;
 	}
-	//행이 여러개일 때 선언방법.. 
+	//행이 여러 개일 때 선언방법.. 
 	public List<Emp02> getEmpList(int deptno){
 		List<Emp02> empList = new ArrayList<Emp02>();
 		String sql = "SELECT ename, job, mgr, hiredate\r\n"
@@ -234,6 +236,21 @@ public class A02_Dao {
 				+ "	  WHERE deptno = ?  ";
 		
 		return empList;
+	}	
+	public Dept01 getDept01(int deptno){
+		Dept01 d=null;
+		String sql = "SELECT *\r\n"
+				+ "FROM dept\r\n"
+				+ "WHERE deptno = ? ";
+		
+		return d;
+	}
+	public Salgrade01 getSalgrade(int grade){
+		Salgrade01 salOb = null;
+		String sql = "SELECT *\r\n"
+				+ "FROM salgrade\r\n"
+				+ "WHERE grade = ? ";
+		return salOb;
 	}	
 	// 등록/수정/삭제하는 template
 	public static void main(String[] args) {
