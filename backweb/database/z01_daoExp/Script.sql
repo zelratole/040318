@@ -73,14 +73,116 @@ public List<Emp02> getEmpList(int deptno){
 SELECT *
 FROM dept
 WHERE deptno = 10;
--- ex2) salgrade 등급의 grade를 조건으로 등급을 처리하는 dao 메서드를 추가하세요
+
+
+--결과: deptno(int), dname(String), loc(String)
+--입력 : deptno(int)
+/*
+SELECT *
+FROM dept
+WHERE deptno = ?
+
+class Dept01{
+	private int deptno;
+	private String dname;
+	private String loc;
+	// 생성자, set/get메서드처리..
+}
+public Dept01 getDept(int deptno){
+	Dept01 d=null;
+	String sql = " ";
+	
+	return d;
+}
+ * */
+--------------------------
+-- ex2) salgrade 등급, 최소급여, 최대급여(출력)  
+--    등급의 grade를 조건으로 등급을 처리하는 dao 메서드를 추가하세요
+SELECT *
+FROM salgrade
+WHERE grade = 1
+;
+/*
+결과 : grade(int), losal(int), hisal(int)
+입력 : grade(int)
+
+class Salgrade01{
+	private int grade;
+	private int losal;
+	private int hisal;
+	생성자
+	set/getXXXX
+}
+SELECT *
+FROM salgrade
+WHERE grade = ?
+public Salgrade01 getSalgrade(int grade){
+	Salgrade01 salOb = null;
+	String sql = " ";
+	return salOb;
+}
+ * */
+-- ex) 부서정보(dept)에서 부서번호, 부서명, 부서위치를
+--     부서명을 keyword : dname like '%A%'
+--     로 sql, VO를 만들고, 기능메서드를 처리해보세요..
+SELECT *
+FROM dept
+WHERE dname LIKE '%A%';
+/*
+출력 : deptno(int), dname(String), loc(String)
+입력 : dname(String)
+
+class Dept01{
+	private int deptno;
+	private String dname;
+	private String loc;
+	..
+	..
+}
+SELECT *
+FROM dept
+WHERE dname LIKE ?
+
+public List<Dept01> getDeptList01(String dname){
+	List<Dept01> dlist = new ArrayList<Dept01>();
+	String sql = "";
+	
+	return dlist;
+}
 
 
 
 
 
+ * */
+SELECT *
+FROM emp;
+-- ex) 직책(job)으로 사원번호, 사원명, 직책, 입사일, 급여를 출력하게 하세요(다중행 처리)
+--     job = ?
+SELECT empno, ename, job, hiredate, sal
+FROM emp
+WHERE job = 'SALESMAN';
+/*
+출력 : empno(int), ename(String), job(String), hiredate(Date), sal(double)
+class Emp03{
+	private int empno;
+	pirvate String ename;
+	private String job;
+	private Date hiredate;
+	private double sal;
+	
+}
+SELECT empno, ename, job, hiredate, sal
+FROM emp
+WHERE job = ?
 
+public List<Emp03> getEmpList02(String job){
+	List<Emp03> empList = new ArrayList<Emp03>();
+	String sql = "";
+	return empList;
+}
 
+ * */
 
 
 

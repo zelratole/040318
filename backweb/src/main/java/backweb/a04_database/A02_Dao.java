@@ -11,6 +11,7 @@ import backweb.vo.Dept;
 import backweb.vo.Emp01;
 import backweb.vo2.Dept01;
 import backweb.vo2.Emp02;
+import backweb.vo2.Emp03;
 import backweb.vo2.Salgrade01;
 //backweb.a04_database.A02_Dao
 public class A02_Dao {
@@ -260,7 +261,14 @@ public class A02_Dao {
 		
 		return dlist;
 	}	
-	
+	public List<Emp03> getEmpList02(String job){
+		List<Emp03> empList = new ArrayList<Emp03>();
+		String sql = "SELECT empno, ename, job, hiredate, sal\r\n"
+				+ "FROM emp\r\n"
+				+ "WHERE job = ?";
+		
+		return empList;
+	}	
 	// 등록/수정/삭제하는 template
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
