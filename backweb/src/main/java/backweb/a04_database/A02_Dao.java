@@ -271,7 +271,34 @@ public class A02_Dao {
 
 	public List<Emp03> getEmpList02(String job) {
 		List<Emp03> empList = new ArrayList<Emp03>();
-		String sql = "SELECT empno, ename, job, hiredate, sal\r\n" + "FROM emp\r\n" + "WHERE job = ?";
+		String sql = "SELECT empno, ename, job, hiredate, sal\r\n" 
+					+ "FROM emp\r\n" + "WHERE job = ?";
+		try( Connection con = DBConn.con();
+				 PreparedStatement pstmt = con.prepareStatement(sql); ){
+				 pstmt.setString(1, job);
+				try(ResultSet rs = pstmt.executeQuery();){
+					//System.out.println("데이터 있음:"+rs.next());
+					//System.out.println("첫번째 행의 첫번째 열데이터:"+rs.getString(1));
+					while(rs.next()) {
+						System.out.print(rs.getInt("empno")+"\t");
+						System.out.print(rs.getString("ename")+"\t");
+						System.out.print(rs.getString("job")+"\t");
+						System.out.print(rs.getDate("hiredate")+"\t");
+						System.out.print(rs.getDouble("sal")+"\n");
+						empList.add( new Emp03(
+										rs.getInt("empno"),rs.getString("ename"),rs.getString("job"),
+										rs.getDate("hiredate"),rs.getDouble("sal") 
+									 )
+								   );
+					}
+				}
+				
+			}catch(SQLException e) {
+				System.out.println("DB 처리 에러:"+e.getMessage());
+			}catch(Exception e) {
+				System.out.println("일반 에러:"+e.getMessage());
+			}
+		
 
 		return empList;
 	}
