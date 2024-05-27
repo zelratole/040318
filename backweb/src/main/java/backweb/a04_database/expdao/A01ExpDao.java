@@ -10,7 +10,7 @@ import java.util.List;
 import backweb.a04_database.DBConn;
 import backweb.a04_database.expdao.vo.Dept;
 import backweb.a04_database.expdao.vo.Emp;
-
+// backweb.a04_database.expdao.A01ExpDao
 public class A01ExpDao {
 	public Object tempSelect(String sch) {
 		// 1. 조회하여 결과를 리턴할 객체를 선언한다.(select문에 의한 결과값을 리턴할 내용)

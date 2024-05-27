@@ -1,5 +1,6 @@
 package backweb.a04_database.expdao.vo;
-
+// backweb.a04_database.expdao.A01ExpDao
+// backweb.a04_database.expdao.vo.Emp
 import java.util.Date;
 
 public class Emp {
