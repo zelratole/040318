@@ -214,6 +214,13 @@ public class A02_Dao {
 		
 		return cudCnt;
 	}
+	// 메서드 선언하기..
+	public Emp01 getEmp01(int empno){
+		Emp01 emp = null;
+		
+		return emp;
+	}
+	
 	// 등록/수정/삭제하는 template
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
