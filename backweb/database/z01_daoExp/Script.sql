@@ -195,6 +195,13 @@ SELECT *
 FROM dept
 WHERE dname LIKE ?
 
- * */
+--ex) 
 
+아래 sql을 통해 출력/입력 기준으로 VO를 만들어서 다중 데이터를 처리하는 기능메서드를 처리하세요..
+ * */
+SELECT * FROM emp;
+SELECT *
+FROM emp
+WHERE ename LIKE '%A%'
+AND job LIKE '%A%';
 
