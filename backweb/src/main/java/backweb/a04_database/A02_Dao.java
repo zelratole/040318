@@ -272,7 +272,8 @@ public class A02_Dao {
 	public List<Emp03> getEmpList02(String job) {
 		List<Emp03> empList = new ArrayList<Emp03>();
 		String sql = "SELECT empno, ename, job, hiredate, sal\r\n" 
-					+ "FROM emp\r\n" + "WHERE job = ?";
+					+ "FROM emp\r\n" 
+				    + "WHERE job = ?";
 		try( Connection con = DBConn.con();
 				 PreparedStatement pstmt = con.prepareStatement(sql); ){
 				 pstmt.setString(1, job);
@@ -307,12 +308,22 @@ public class A02_Dao {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		A02_Dao dao = new A02_Dao();
+		List<Emp03> elist = dao.getEmpList02("SALESMAN");
+		System.out.println("# main 호출된 내용 #");
+		for(Emp03 emp:elist) {
+			System.out.print(emp.getEmpno()+"\t");
+			System.out.print(emp.getEname()+"\t");
+			System.out.print(emp.getJob()+"\t");
+			System.out.print(emp.getSal()+"\t");
+			System.out.print(emp.getHiredate()+"\n");
+		}
+		/*
 		Emp11 emp11 = dao.getEmp01(7499);
 		System.out.println("# 검색된 데이터 #");
 		System.out.println("ename:"+emp11.getEname());
 		System.out.println("job:"+emp11.getJob());
 		System.out.println("sal:"+emp11.getSal());
-
+		*/
 		//ystem.out.println("등록?" + dao.deptInsert(new Dept(99, "인사", "수원")));
 		// System.out.println("등록?"+dao.tempCRUD("하길동","대리"));
 		/*
