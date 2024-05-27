@@ -1,0 +1,81 @@
+# dao 및 jsp 화면처리를 위한 단계별 연습..
+## dao
+1. sql 작성
+	1) dbeaver 툴을 통해서 결과 확인
+		ex1) select deptno, dname, loc
+		     from dept
+		     where deptno = 10;	
+		ex2) select empno, ename, job
+		     from emp
+		     where ename like '%A%';
+		    
+	2) 조회된 내용
+	       - 단일 row : ex1)
+	       		
+	       - 다중 row : ex2)
+	   위에 sql을 통해 결과의 컬럼/컬럼의 데이터유형확인 ==> VO객체 타입과 이름 지정    
+	       deptno(int), dname(String), loc(String)
+	       
+	       empno(int), ename(String), job(String)
+	       
+	   입력(where 조건문 데이터)
+	   	   ex1) deptno(int)
+	   	   ex2) enameSCh(String)
+	-------------------------------------------   	   
+	3) class VO객체 만들기 (단일/다중)
+		class Dept03{
+			private int deptno;
+			private String dname;
+			private String loc;
+			// 생성자만들기..(default/전체매개변수가 있는 생성자)
+			// set/getXXXX
+		}   	
+		class Emp03{
+			private int empno;
+			private String ename;
+			private String job;
+			// 생성자만들기..(default/전체매개변수가 있는 생성자)
+			// set/getXXXX		
+		}   
+	=======================================================	
+	3) Dao 기능메서드 틀만들기(연습)
+		sql의 결과를 컬럼명 ==> VO ==> 리턴타입(다중 List<객체>, 객체)
+			객체로 선언과 리턴타입결정..
+		where에 들어갈 데이터 ==> String, int ==> 매개변수로 설정.
+		public Dept03 getDept(int deptno){
+			Dept03 d = null;
+			
+			
+			return d;
+		}
+	4) Dao 기능메서드 내용만들기(연습)
+		String sql = "select deptno, dname, loc
+		     from dept
+		     where deptno = ? ";
+		?에 매핑될 내용 pstmt.setXXXX(1, 매개변수)
+		?에 매핑될 내용 pstmt.setInt(1, deptno);
+		while
+		if(rs.next()){  // 행단위로 이동 처리..
+			d = new Dept(rs.getInt("deptno"), rs.getString("dname"),
+				rs.getString("loc"));
+		}
+	============================================ dao 끝
+	5) main() : 위에 dao가 잘 작동하는 jsp에 문제없는지 test 용..
+	
+
+
+## dao와 jsp 연동 처리..
+1. 요청값 연습..
+	form ==> 전송 받는 것.
+2. 요청값을 객체로 처리
+-------------
+3. useBean 이용해서 요청값/객체
+
+4. dao 연동 해서 요청값 받아서 dao에 처리 
+
+5. dao를 통해서 화면 출력 처리
+	
+
+
+
+
