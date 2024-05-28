@@ -43,13 +43,13 @@
 2. 기능 처리
 	1) jsp:useBean을 객체를 session scope 범위로 설정할 수 있다.
 		- 기존  request.setAttribute("p01", new Person());
-		- useBean이요 <jsp:useBean id="p01" class="@@@.@@@.Person" scope="request"/>
+		- useBean이요 jsp:useBean id="p01" class="@@@.@@@.Person" scope="request"
 	2) 요청값 처리..
 		- 기본 ${p01.setName(param.name)} 
 		      ${p01.setAge(param.age)} 
 		      ${p01.setLoc(param.loc)} 
 		- useBean이용	
-			  <jsp:setProperty name="p01" property="*"/> 
+			  jsp:setProperty name="p01" property="*" 
 			  자동으로 set프로퍼티와 동일한 요청값이 바로 할당된다.
 			  위 코드 하나로 모든 요청값을 한번에 처리됨(규칙 param.name ==> setName(String name) 메서드가 있어야함)
 						
@@ -67,8 +67,9 @@ ${p02.setName("마길동")}
 <div class="container">
 	<form id="frm01" class="form"  method="post">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input placeholder="제목" name=""  class="form-control mr-sm-2" />
-	    <input placeholder="내용" name=""  class="form-control mr-sm-2"/>
+	    <input placeholder="이름" name="name"  class="form-control mr-sm-2" />
+	    <input placeholder="나이" name="age"  class="form-control mr-sm-2"/>
+	    <input placeholder="사는곳" name="loc"  class="form-control mr-sm-2"/>
 	    <button class="btn btn-info" type="submit">Search</button>
 	    <button class="btn btn-success" 
 	    	data-toggle="modal" data-target="#exampleModalCenter"
@@ -76,27 +77,32 @@ ${p02.setName("마길동")}
  	</nav>
 	</form>
    <table class="table table-hover table-striped">
-   	<col width="10%">
-   	<col width="50%">
-   	<col width="15%">
-   	<col width="15%">
-   	<col width="10%">
+   	<col width="25%">
+   	<col width="25%">
+   	<col width="25%">
+   	<col width="25%">
     <thead>
     
       <tr class="table-success text-center">
-        <th>번호</th>
-        <th>제목</th>
-        <th>작성자</th>
-        <th>작성일</th>
-        <th>조회</th>
+        <th>종류</th>
+        <th>이름</th>
+        <th>나이</th>
+        <th>사는곳</th>
       </tr>
     </thead>	
     <tbody>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	${p01.setName(param.name)}
+    	${p01.setAge(param.age)}
+    	${p01.setLoc(param.loc)}
+    	<tr><td>scriptlet객체</td><td>${p01.name}</td><td>${p01.age}</td>
+    					<td>${p01.loc}</td></tr>
+    	<jsp:setProperty property="*" name="p02"/>				
+      	<tr><td>useBean객체</td><td>${p02.name}</td><td>${p02.age}</td>
+    					<td>${p02.loc}</td></tr>
+    					  					
     </tbody>
 	</table>    
+	 
     
 </div>
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
