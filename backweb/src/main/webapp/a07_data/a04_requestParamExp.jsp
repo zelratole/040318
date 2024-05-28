@@ -40,39 +40,41 @@
 
 </div>
 <%-- 
-		
+ex) 물건명 가격 갯수를 form에 설정해서..
+	1. 요청값을 출력
+	2. 객체에 할당해서 출력..
+			
 --%>
 <div class="container">
 	<form id="frm01" class="form"  method="post">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input placeholder="제목" name=""  class="form-control mr-sm-2" />
-	    <input placeholder="내용" name=""  class="form-control mr-sm-2"/>
+	    <input placeholder="물건명" name="pname"  class="form-control mr-sm-2" />
+	    <input placeholder="가격" name="price"  class="form-control mr-sm-2" />
+	    <input placeholder="갯수" name="cnt"  class="form-control mr-sm-2" />
 	    <button class="btn btn-info" type="submit">Search</button>
 	    <button class="btn btn-success" 
 	    	data-toggle="modal" data-target="#exampleModalCenter"
 	        type="button">등록</button>
  	</nav>
 	</form>
+	
    <table class="table table-hover table-striped">
-   	<col width="10%">
-   	<col width="50%">
-   	<col width="15%">
-   	<col width="15%">
-   	<col width="10%">
+   	<col width="25%">
+   	<col width="25%">
+   	<col width="25%">
+   	<col width="25%">
     <thead>
     
       <tr class="table-success text-center">
-        <th>번호</th>
-        <th>제목</th>
-        <th>작성자</th>
-        <th>작성일</th>
-        <th>조회</th>
+        <th>종류</th>
+        <th>물건명</th>
+        <th>가격</th>
+        <th>갯수</th>
       </tr>
     </thead>	
     <tbody>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td>요청값</td><td>${param.pname}</td><td></td><td></td></tr>
+    	<tr><td>객체</td><td></td><td></td><td></td></tr>
     </tbody>
 	</table>    
     
