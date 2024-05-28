@@ -100,7 +100,7 @@ public class A03_DaoPool {
 	public List<Dept> getDeptList() {
 		List<Dept> deptList = new ArrayList<Dept>();
 		String sql = "select *\r\n" 
-					+ "from dept01\r\n";
+					+ "from dept01\r\n"
 					+ "order by deptno";
 		try (Connection con = DBConn.con(); PreparedStatement pstmt = con.prepareStatement(sql);) {
 			try (ResultSet rs = pstmt.executeQuery();) {
