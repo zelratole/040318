@@ -96,9 +96,31 @@ ${p02.setName("마길동")}
     	${p01.setLoc(param.loc)}
     	<tr><td>scriptlet객체</td><td>${p01.name}</td><td>${p01.age}</td>
     					<td>${p01.loc}</td></tr>
+    					
     	<jsp:setProperty property="*" name="p02"/>				
       	<tr><td>useBean객체</td><td>${p02.name}</td><td>${p02.age}</td>
     					<td>${p02.loc}</td></tr>
+    	<%--
+    	1. setProperty property="*" name="p02"
+    		요청키 name="set property"로 연동하여 같은 이름과 할당할 type이 맞으면 할당 처리.
+    		1) 연습
+    		name="name" value="홍길동"
+    		==> ${param.name}
+    		useBean 객체 에서  setName(String name){} 선언되어 있으면 자동을 할당이 된다.
+    		name="age" value="삼십"
+    		==> ${param.age}
+    		## 주의 ##
+    		useBean 객체에서  setAge(String age){} 선언되어 있으면 자동을 할당이 된다.(O)
+    		useBean 객체에서  setAge(int age){} 선언되어 있으면 자동을 할당이 된다."삼십"이기에..(X)
+    		두가지 조건 set프로퍼티명과 name="@@@" 동일하여야 하고, 할당할 데이터가 문자열이라도
+    		형변환이 가능한 문자열이여 한다.  
+    			name="age" value="25"
+    			객체에  setAge(String age){} setAge(int age){} 둘다 가능..
+    		 
+    		 
+    		p02.set
+    	
+    	 --%>				
     					  					
     </tbody>
 	</table>    
