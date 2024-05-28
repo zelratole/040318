@@ -9,14 +9,15 @@ import java.util.List;
 
 import backweb.vo.Dept;
 import backweb.vo.Emp01;
-// backweb.a04_database.A03_DaoPool
+
+
 public class A03_DaoPool {
 	// request.setAttribute("dao", new A03_DaoPool());
 	public Dept getDeptJ(int deptno) {
 		Dept dept = null;
 		String sql = "select *\r\n" + 
 					"from dept01\r\n" + 
-					"where deptno = ? ";
+					"where deptno = ?  ";
 		try (
 			Connection con = DBconJ.getConnection();  // 웹서버에 로딩 후, 화면 실행시
 			//Connection con = DBCon.con(); // main()에서 테스트용 
@@ -56,6 +57,7 @@ public class A03_DaoPool {
 		}
 		return empList;
 	}
+	// deptInsert getDeptList
 	// A03_DaoPool.java에  deptInsert(Dept ins) 메서드 호출해서 등록 처리
 	public int deptInsert(Dept ins) {
 		// 1. 조회하여 결과를 리턴할 객체를 선언한다.(select문에 의한 결과값을 리턴할 내용)
@@ -99,6 +101,7 @@ public class A03_DaoPool {
 		List<Dept> deptList = new ArrayList<Dept>();
 		String sql = "select *\r\n" 
 					+ "from dept01\r\n";
+					+ "order by deptno";
 		try (Connection con = DBConn.con(); PreparedStatement pstmt = con.prepareStatement(sql);) {
 			try (ResultSet rs = pstmt.executeQuery();) {
 				while (rs.next()) {

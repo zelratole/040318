@@ -1,5 +1,5 @@
 package backweb.vo;
-
+// backweb.vo.Dept
 public class Dept {
 	private int deptno;
 	private String dname;
