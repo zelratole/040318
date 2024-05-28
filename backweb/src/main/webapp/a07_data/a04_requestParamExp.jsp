@@ -86,6 +86,8 @@ ex) 물건명 가격 갯수를 form에 설정해서..
     	<%--
     	Product prod = new Product();
     	prod.setName(request.getParameter("pname"));
+    	ex) 물건 가격, 갯수 설정, 호출 처리..
+    	  
     	 --%>				
     	<tr><td>객체</td><td>${prod.name}</td><td></td><td></td></tr>
     	<%--
