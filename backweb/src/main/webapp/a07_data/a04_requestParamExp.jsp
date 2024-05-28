@@ -73,8 +73,24 @@ ex) 물건명 가격 갯수를 form에 설정해서..
       </tr>
     </thead>	
     <tbody>
-    	<tr><td>요청값</td><td>${param.pname}</td><td></td><td></td></tr>
-    	<tr><td>객체</td><td></td><td></td><td></td></tr>
+    	<tr><td>요청값</td><td>${param.pname}</td><td>${param.price}</td>
+    					<td>${param.cnt}</td></tr><%-- 가격, 갯수 요청값 처리. --%>
+    	<%--
+    	1. 객체를 처리할려면 pname, price, cnt를 할당할 수 있는 VO객체 확인..
+    	2. 객체를 선언
+    	 --%>
+    	<%
+    	request.setAttribute("prod", new Product());
+    	%> 				
+    	${prod.setName(param.pname)}
+    	<%--
+    	Product prod = new Product();
+    	prod.setName(request.getParameter("pname"));
+    	 --%>				
+    	<tr><td>객체</td><td>${prod.name}</td><td></td><td></td></tr>
+    	<%--
+    	prod.getName()
+    	 --%>
     </tbody>
 	</table>    
     
