@@ -95,12 +95,11 @@ public class A03_DaoPool {
 
 		return cudCnt;
 	}	
-	public List<Dept> getDept(int deptno) {
+	public List<Dept> getDeptList() {
 		List<Dept> deptList = new ArrayList<Dept>();
 		String sql = "select *\r\n" 
 					+ "from dept01\r\n";
 		try (Connection con = DBConn.con(); PreparedStatement pstmt = con.prepareStatement(sql);) {
-			pstmt.setInt(1, deptno);
 			try (ResultSet rs = pstmt.executeQuery();) {
 				while (rs.next()) {
 					deptList.add(new Dept(rs.getInt("deptno"), rs.getString("dname"), rs.getString("loc")));
