@@ -64,10 +64,23 @@
     	%>
     	${dept.setDeptno(param.deptno)} <%-- el 태그를 통한 요청값 할당 처리 --%>
     	<c:set target="${dept}" property="dname" value="${param.dname}"/> <%-- jstl 통한 객체 속성 할당처리 --%>
-    	${dept.setDname(param.dname)}
+    	${dept.setLoc(param.loc)}
+    	<%--
+    	# 위 내용은 자바로 풀이 하면
+    	Dept dept = new Dept();
+    	dept.setDeptno(request.getParameter("deptno"));
+    	dept.setDname(request.getParameter("dname"));
+    	dept.setLoc(request.getParameter("loc"));
+    	핳당 처리한 것과 동일한 효과, 단 el/jstl은 요청값이 없고 타입이 맞지 않더라도 에러가 없게 처리해준다.
+    	 --%>
+    	
     	<tr><th>객체형 할당 처리</th>
     		<td>${dept.deptno}, ${dept.dname}, ${dept.loc}</td></tr>
     		<%-- el 태그로 dept.getDeptno()와 동일한 효과인 get 프로퍼터로 객체의 데이터 확인 --%>
+    	<%--
+    	위 내용을 순수 자바로 표현하면
+    	dept.getDeptno(), dept.getDname(), dept.getLoc()와 동일한 효과.. 
+    	 --%>	
     </tbody>
 	</table>    
     
