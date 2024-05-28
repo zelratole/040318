@@ -147,8 +147,10 @@ public class A02_Dao {
 	// 조회하는 template : 복사해서 핵심부분만 변경경해서 사용
 	public List<Emp01> getEmpList(String ename, String job) {
 		List<Emp01> empList = new ArrayList<Emp01>();
-		String sql = "select empno, ename, job, sal, deptno\r\n" + "from emp01\r\n" + "where ename like ?\r\n"
-				+ "AND job LIKE ? ";
+		String sql = "select empno, ename, job, sal, deptno\r\n" 
+		           + "from emp01\r\n" 
+				   + "where ename like ?\r\n"
+				   + "AND job LIKE ? ";
 		try (Connection con = DBConn.con(); PreparedStatement pstmt = con.prepareStatement(sql);) {
 			pstmt.setString(1, "%" + ename + "%");
 			pstmt.setString(2, "%" + job + "%");
