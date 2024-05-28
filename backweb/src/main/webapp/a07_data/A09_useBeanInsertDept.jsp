@@ -37,52 +37,44 @@
 
 <body>
 <div class="jumbotron text-center">
-  <h2>사원정보(Bean을 통한 검색)</h2>
+  <h2>타이틀</h2>
 
 </div>
 <%-- 
+A03_DaoPool.java에  deptInsert(Dept ins) 메서드 호출해서 등록 처리
 		
 --%>
-	<jsp:useBean id="dao" class="backweb.a04_database.A03_DaoPool" />
-	<jsp:useBean id="sch" class="backweb.vo.Emp01" />
-	<jsp:setProperty property="*" name="sch"/>
-	<%-- 초기에 입력값이 없을 때, null에 대한 처리.. --%>
-	<c:if test="${sch.ename == null}">${sch.setEname("")}</c:if>
-	<c:if test="${sch.job == null}">${sch.setJob("")}</c:if>
-	<div class="container">
+<div class="container">
 	<form id="frm01" class="form"  method="post">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input placeholder="사원명" name="ename" value="${sch.ename}" class="form-control mr-sm-2" />
-	    <input placeholder="직책" name="job"  value="${sch.job}" class="form-control mr-sm-2"/>
+	    <input placeholder="제목" name=""  class="form-control mr-sm-2" />
+	    <input placeholder="내용" name=""  class="form-control mr-sm-2"/>
 	    <button class="btn btn-info" type="submit">Search</button>
 	    <button class="btn btn-success" 
 	    	data-toggle="modal" data-target="#exampleModalCenter"
 	        type="button">등록</button>
  	</nav>
 	</form>
-
-	<c:set var="empList" value="${dao.getEmpList(sch)}"/>
    <table class="table table-hover table-striped">
-   	<col width="20%">
-   	<col width="20%">
-   	<col width="20%">
-   	<col width="20%">
-   	<col width="20%">
+   	<col width="10%">
+   	<col width="50%">
+   	<col width="15%">
+   	<col width="15%">
+   	<col width="10%">
     <thead>
+    
       <tr class="table-success text-center">
         <th>번호</th>
-        <th>이름</th>
-        <th>직책</th>
-        <th>급여</th>
-        <th>부서번호</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>작성일</th>
+        <th>조회</th>
       </tr>
     </thead>	
     <tbody>
-    	<c:forEach var="emp" items="${empList}">
-    	<tr><td>${emp.empno}</td><td>${emp.ename}</td>
-    		<td>${emp.job}</td><td>${emp.sal}</td>
-    		<td>${emp.deptno}</td></tr>
-    	</c:forEach>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
     </tbody>
 	</table>    
     
