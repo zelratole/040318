@@ -95,13 +95,7 @@
 	${dept.deptno} : 할당되었기에 get property로 호출가능하다.
 	${dept.dname}
 	${dept.loc}
-	
-	
-	
-	
 
-
--------------
 3. useBean 이용해서 요청값/객체
 
 4. dao 연동 해서 요청값 받아서 dao에 처리 
