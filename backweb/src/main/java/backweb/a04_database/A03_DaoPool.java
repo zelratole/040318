@@ -95,7 +95,25 @@ public class A03_DaoPool {
 
 		return cudCnt;
 	}	
-	
+	public List<Dept> getDept(int deptno) {
+		List<Dept> deptList = new ArrayList<Dept>();
+		String sql = "select *\r\n" 
+					+ "from dept01\r\n";
+		try (Connection con = DBConn.con(); PreparedStatement pstmt = con.prepareStatement(sql);) {
+			pstmt.setInt(1, deptno);
+			try (ResultSet rs = pstmt.executeQuery();) {
+				while (rs.next()) {
+					deptList.add(new Dept(rs.getInt("deptno"), rs.getString("dname"), rs.getString("loc")));
+					
+				}
+			}
+		} catch (SQLException e) {
+			System.out.println("DB 처리 에러:" + e.getMessage());
+		} catch (Exception e) {
+			System.out.println("일반 에러:" + e.getMessage());
+		}
+		return deptList;
+	}	
 	public static void main(String[] args) {
 		A03_DaoPool dao = new A03_DaoPool();
 		Dept d= dao.getDeptJ(10);

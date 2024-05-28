@@ -106,7 +106,9 @@ public class A02_Dao {
 
 	public Dept getDeptJ(int deptno) {
 		Dept dept = null;
-		String sql = "select *\r\n" + "from dept01\r\n" + "where deptno = ? ";
+		String sql = "select *\r\n" 
+		           + "from dept01\r\n" 
+				   + "where deptno = ? ";
 		try (Connection con = DBconJ.getConnection(); PreparedStatement pstmt = con.prepareStatement(sql);) {
 			pstmt.setInt(1, deptno);
 			try (ResultSet rs = pstmt.executeQuery();) {
