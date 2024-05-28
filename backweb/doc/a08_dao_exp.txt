@@ -87,6 +87,20 @@
 	기존) Dao 호출시 객체를 생성해서 연결
 	pool) Dao를 웹서버에 pool메모리에 할당해서 호출 : 메모리 효율 및 속도 빠르게
 2. 환경설정..
+	1) context.xml
+     <Resource name="jdbc/mydb"
+              auth="Container"
+              type="javax.sql.DataSource"
+              maxTotal="20"
+              maxIdle="10"
+              maxWaitMillis="-1"
+              username="scott"
+              password="tiger"
+              driverClassName="oracle.jdbc.driver.OracleDriver"
+              url="jdbc:oracle:thin:@localhost:1521:xe"/>
+     2) connection pool 형태의 DB Connection객체 생성..
+     	         
+	
 	
 
 
