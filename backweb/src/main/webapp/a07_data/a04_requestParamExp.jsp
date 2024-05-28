@@ -36,7 +36,7 @@
 
 <body>
 <div class="jumbotron text-center">
-  <h2>요청값 처리 연습</h2>
+  <h2>타이틀</h2>
 
 </div>
 <%-- 
@@ -45,9 +45,8 @@
 <div class="container">
 	<form id="frm01" class="form"  method="post">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input placeholder="부서번호" name="deptno"  class="form-control mr-sm-2" />
-	    <input placeholder="부서명" name="dname"  class="form-control mr-sm-2" />
-	    <input placeholder="부서위치" name="loc"  class="form-control mr-sm-2" />
+	    <input placeholder="제목" name=""  class="form-control mr-sm-2" />
+	    <input placeholder="내용" name=""  class="form-control mr-sm-2"/>
 	    <button class="btn btn-info" type="submit">Search</button>
 	    <button class="btn btn-success" 
 	    	data-toggle="modal" data-target="#exampleModalCenter"
@@ -55,33 +54,25 @@
  	</nav>
 	</form>
    <table class="table table-hover table-striped">
-   	<col width="30%">
-   	<col width="70%">
+   	<col width="10%">
+   	<col width="50%">
+   	<col width="15%">
+   	<col width="15%">
+   	<col width="10%">
+    <thead>
+    
+      <tr class="table-success text-center">
+        <th>번호</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>작성일</th>
+        <th>조회</th>
+      </tr>
+    </thead>	
     <tbody>
-    	<tr><th>기본 요청값 처리</th><td>${param.deptno}, ${param.dname}, ${param.loc}</td></tr>
-    	<%
-    	pageContext.setAttribute("dept", new Dept());
-    	%>
-    	${dept.setDeptno(param.deptno)} <%-- el 태그를 통한 요청값 할당 처리 --%>
-    	<c:set target="${dept}" property="dname" value="${param.dname}"/> 
-    	<%-- jstl 통한 객체 속성 할당처리 --%>
-    	${dept.setLoc(param.loc)}
-    	<%--
-    	# 위 내용은 자바로 풀이 하면
-    	Dept dept = new Dept();
-    	dept.setDeptno(request.getParameter("deptno"));
-    	dept.setDname(request.getParameter("dname"));
-    	dept.setLoc(request.getParameter("loc"));
-    	핳당 처리한 것과 동일한 효과, 단 el/jstl은 요청값이 없고 타입이 맞지 않더라도 에러가 없게 처리해준다.
-    	 --%>
-    	
-    	<tr><th>객체형 할당 처리</th>
-    		<td>${dept.deptno}, ${dept.dname}, ${dept.loc}</td></tr>
-    		<%-- el 태그로 dept.getDeptno()와 동일한 효과인 get 프로퍼터로 객체의 데이터 확인 --%>
-    	<%--
-    	위 내용을 순수 자바로 표현하면
-    	dept.getDeptno(), dept.getDname(), dept.getLoc()와 동일한 효과.. 
-    	 --%>	
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
     </tbody>
 	</table>    
     
