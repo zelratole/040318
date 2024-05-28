@@ -9,7 +9,7 @@ import java.util.List;
 
 import backweb.vo.Dept;
 import backweb.vo.Emp01;
-
+// backweb.a04_database.A03_DaoPool
 public class A03_DaoPool {
 	// request.setAttribute("dao", new A03_DaoPool());
 	public Dept getDeptJ(int deptno) {

@@ -1,5 +1,5 @@
 package backweb.vo;
-
+// backweb.vo.Emp01
 public class Emp01 {
 	private int empno;
 	private String ename;
