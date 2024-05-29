@@ -69,7 +69,7 @@
     </thead>	
     <tbody>
 	<c:forEach var="emp" items="${dao.getEmpList(sch)}">
-		<tr>
+		<tr onclick="goPage(${emp.empno})">
 			<td>${emp.empno}</td>	
 			<td>${emp.ename}</td>	
 			<td>${emp.job}</td>	
@@ -79,7 +79,11 @@
 	</c:forEach>		
     </tbody>
 	</table>    
-    
+    <script>
+    	function goPage(empno){
+    		location.href="a03_empDetail.jsp?empno="+empno;
+    	}
+    </script>
 </div>
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
