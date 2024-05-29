@@ -25,7 +25,10 @@ public class A02_Dao {
 		String sql = "SELECT * FROM emp01 WHERE ename like ? ";
 		// 3. 본격적으로 연결/대화/결과/자원해제예외처리..
 		// 매개변수로 처리할 때 자원해제 처리된다.
-		try (Connection con = DBConn.con(); PreparedStatement pstmt = con.prepareStatement(sql);) {
+		try (
+			Connection con = DBConn.con(); // main() 에서 테스트용
+			//Connection con = DBconJ.getConnection();  // 웹서버에 로딩 후, 화면 실행시	
+			PreparedStatement pstmt = con.prepareStatement(sql);) {
 			pstmt.setString(1, "%" + sch + "%");
 			try (ResultSet rs = pstmt.executeQuery();) {
 				// System.out.println("데이터 있음:"+rs.next());
@@ -56,7 +59,10 @@ public class A02_Dao {
 		// 3. 본격적으로 연결/대화/결과/자원해제예외처리..
 		// 매개변수로 처리할 때 자원해제 처리된다.
 		Connection con2 = null;
-		try (Connection con = DBConn.con(); PreparedStatement pstmt = con.prepareStatement(sql);) {
+		try (
+			Connection con = DBConn.con(); // main() 에서 테스트용
+			//Connection con = DBconJ.getConnection();  // 웹서버에 로딩 후, 화면 실행시	
+			PreparedStatement pstmt = con.prepareStatement(sql);) {
 			con2 = con;
 			con.setAutoCommit(false); // auto commit 방지
 			pstmt.setString(1, ename);

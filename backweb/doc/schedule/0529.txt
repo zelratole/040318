@@ -1,84 +1,100 @@
-### 자바 상속과 예외처리
+# DAO와 JSP 연동 처리 및 Oracle SQL 연습
 
-#### 1. 흥미로운 도입
-자바는 객체 지향 프로그래밍 언어로, 재사용성과 유지 보수성을 높이는 다양한 기능을 제공합니다. 그 중에서도 상속과 예외처리는 자바를 더욱 강력하게 만드는 중요한 개념입니다. 상속을 통해 기존 코드를 재사용하고 확장할 수 있으며, 예외처리를 통해 프로그램의 안정성을 높일 수 있습니다. 이제 자바 상속과 예외처리가 어떻게 우리의 코딩 생활을 변화시킬 수 있는지 알아보겠습니다.
+## 1. 흥미로운 도입
 
-#### 2. 학습목표
-- **상속의 개념** 이해하기
-- **상속을 이용한 코드 재사용** 방법 배우기
-- **예외처리의 필요성**과 **방법** 이해하기
-- **커스텀 예외**를 만들어보고 사용해보기
-- 실무에서 상속과 예외처리를 활용하는 방법 배우기
+웹 애플리케이션을 개발하는 과정에서 데이터베이스와의 연동은 필수적인 요소입니다. 데이터의 조회, 등록, 
+수정, 삭제는 웹 애플리케이션이 사용자와 상호작용하는 중요한 방식입니다. 이번 학습에서는 
+DAO (Data Access Object) 패턴을 활용하여 JSP (JavaServer Pages)와 Oracle 데이터베이스를 
+연동하는 방법을 알아보고, 이를 통해 CRUD (Create, Read, Update, Delete) 작업을 어떻게 
+구현할 수 있는지 배워보겠습니다.
 
-#### 3. 주요 핵심 키워드와 핵심개념
-- **상속 (Inheritance)**: 한 클래스가 다른 클래스의 속성과 메소드를 물려받는 것.
-  - *예시*: `class Parent { ... }`와 `class Child extends Parent { ... }`
-- **오버라이딩 (Overriding)**: 상속받은 메소드를 자식 클래스에서 재정의하는 것.
-  - *예시*: `@Override` 어노테이션 사용
-- **다형성 (Polymorphism)**: 하나의 객체가 여러 형태를 가질 수 있는 것.
-  - *예시*: 부모 클래스 타입으로 자식 클래스 객체를 참조
-- **예외 (Exception)**: 프로그램 실행 중에 발생할 수 있는 오류 상황을 객체로 표현한 것.
-  - *예시*: `try`, `catch`, `finally` 블록 사용
-- **예외 클래스 계층구조**: `Throwable` -> `Exception` -> `RuntimeException`
-- **커스텀 예외**: 사용자가 정의한 예외 클래스
-  - *예시*: `class CustomException extends Exception { ... }`
+## 2. 학습목표
 
-#### 4. 퀴즈문제/토론과제
-- **퀴즈 문제**
-  1. 상속을 통해 코드의 재사용성을 높이는 예를 간단히 설명하세요.
-  2. 오버라이딩과 오버로딩의 차이점을 설명하세요.
-  3. 예외 처리를 할 때 `try`, `catch`, `finally` 블록의 역할을 설명하세요.
-  4. 다음 코드에서 발생할 수 있는 예외는 무엇인가요?
-     ```java
-     int[] numbers = {1, 2, 3};
-     System.out.println(numbers[3]);
-     ```
-- **토론 과제**
-  - 상속을 남용하는 것이 오히려 코드의 복잡성을 높일 수 있다는 주장에 대해 토론해보세요.
-  - 예외 처리를 통해 프로그램의 안정성을 높일 수 있지만, 예외 처리 로직이 과도하게 많아지면 가독성이 떨어질 수 있습니다. 이에 대한 해결책은 무엇일까요?
+1. DAO 패턴의 이해 및 JSP와의 연동 방법 습득
+2. Oracle 데이터베이스에서 CRUD 작업 구현
+3. 실무에서 사용되는 Oracle SQL 함수 활용 방법 학습
+4. 데이터베이스 연동 웹 애플리케이션 개발 능력 배양
 
-#### 5. 실무적용사례
-- **상속의 실무적용사례**
-  - **UI 컴포넌트 상속**: 많은 UI 프레임워크에서 버튼, 텍스트 필드 등의 기본 컴포넌트를 상속받아 커스터마이징하는 경우가 많습니다. 예를 들어, `JButton` 클래스를 상속받아 특수한 버튼을 만드는 경우입니다.
-    ```java
-    public class CustomButton extends JButton {
-        public CustomButton(String text) {
-            super(text);
-            // 커스터마이징 로직
+## 3. 주요 핵심 키워드와 핵심개념
+
+- **DAO (Data Access Object):** 데이터베이스와 상호작용하는 객체로, SQL 쿼리를 사용하여 데이터를
+     처리합니다.
+- **JSP (JavaServer Pages):** 자바를 기반으로 동적인 웹 페이지를 생성하는 기술입니다.
+- **Oracle SQL:** Oracle 데이터베이스에서 사용되는 SQL 언어로, 데이터를 관리하고 조작하는 데 사용됩니다.
+- **CRUD:** 데이터베이스에서의 기본적인 작업인 Create, Read, Update, Delete를 의미합니다.
+- **PreparedStatement:** SQL 쿼리 실행 시 SQL 인젝션 공격을 방지하기 위해 사용되는 Java 객체입니다.
+
+## 4. 퀴즈문제/토론과제
+
+### 퀴즈문제
+
+1. DAO 패턴을 사용하는 주요 이유는 무엇인가요?
+2. PreparedStatement를 사용하면 어떤 이점이 있나요?
+3. CRUD 작업 중 'Update'와 'Delete'의 차이점을 설명하세요.
+4. Oracle SQL에서 `NVL` 함수는 어떤 역할을 하나요?
+
+### 토론과제
+
+1. DAO 패턴을 적용함으로써 얻을 수 있는 장점과 단점을 논의해보세요.
+2. JSP와 Oracle 데이터베이스 연동 시 발생할 수 있는 보안 문제와 그 해결책에 대해 토론해보세요.
+
+## 5. 실무적용사례
+
+### 예시 시나리오: 도서 관리 시스템
+
+**도서 조회 예시:**
+
+```java
+// BookDAO.java
+public List<Book> getAllBooks() throws SQLException {
+    List<Book> books = new ArrayList<>();
+    String sql = "SELECT * FROM books";
+    try (Connection conn = getConnection();
+         PreparedStatement pstmt = conn.prepareStatement(sql);
+         ResultSet rs = pstmt.executeQuery()) {
+        while (rs.next()) {
+            Book book = new Book();
+            book.setId(rs.getInt("id"));
+            book.setTitle(rs.getString("title"));
+            book.setAuthor(rs.getString("author"));
+            books.add(book);
         }
     }
-    ```
-- **예외처리의 실무적용사례**
-  - **파일 입출력 예외 처리**: 파일을 읽고 쓰는 과정에서 발생할 수 있는 예외를 처리하여 안정적인 프로그램을 구현할 수 있습니다.
-    ```java
-    public void readFile(String filePath) {
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader(filePath));
-            String line;
-            while ((line = reader.readLine()) != null) {
-                System.out.println(line);
-            }
-        } catch (FileNotFoundException e) {
-            System.err.println("파일을 찾을 수 없습니다: " + e.getMessage());
-        } catch (IOException e) {
-            System.err.println("파일을 읽는 도중 오류가 발생했습니다: " + e.getMessage());
-        } finally {
-            System.out.println("파일 읽기 작업이 종료되었습니다.");
+    return books;
+}
+```
+
+**JSP 페이지에서 도서 목록 출력:**
+
+```jsp
+<%@ page import="java.util.*, java.sql.*, your.package.BookDAO, your.package.Book" %>
+<%
+    BookDAO bookDAO = new BookDAO();
+    List<Book> books = bookDAO.getAllBooks();
+%>
+<html>
+<head><title>Book List</title></head>
+<body>
+<h2>Book List</h2>
+<table border="1">
+    <tr><th>ID</th><th>Title</th><th>Author</th></tr>
+    <%
+        for (Book book : books) {
+            out.println("<tr><td>" + book.getId() + "</td><td>" + book.getTitle() + "</td><td>" + book.getAuthor() + "</td></tr>");
         }
-    }
-    ```
-- **커스텀 예외의 실무적용사례**
-  - **비즈니스 로직 검증**: 특정 비즈니스 로직에서 발생할 수 있는 예외를 커스텀 예외로 정의하여 명확하게 처리할 수 있습니다.
-    ```java
-    public class InvalidUserException extends Exception {
-        public InvalidUserException(String message) {
-            super(message);
-        }
-    }
-    
-    public void validateUser(User user) throws InvalidUserException {
-        if (user.getAge() < 18) {
-            throw new InvalidUserException("사용자는 18세 이상이어야 합니다.");
-        }
-    }
-    ```
+    %>
+</table>
+</body>
+</html>
+```
+
+**Oracle 함수 SQL 연습 예시:**
+
+```sql
+-- 도서 테이블에서 null인 출판일을 현재 날짜로 대체하는 예시
+SELECT id, title, NVL(published_date, SYSDATE) AS published_date
+FROM books;
+```
+
+이와 같이 DAO와 JSP를 사용한 데이터베이스 연동 처리를 통해 효율적인 웹 애플리케이션을 개발할 수 있습니다. Oracle SQL의 다양한 함수를 활용하여 데이터 조작을 최적화할 수 있으며, 실무에서도 이와 같은 기법들을 적용하여 안정적이고 유지보수 가능한 시스템을 구축할 수 있습니다.
+

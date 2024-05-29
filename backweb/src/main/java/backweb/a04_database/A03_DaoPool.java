@@ -42,6 +42,9 @@ public class A03_DaoPool {
 				   + "where ename like ?\r\n"
 				   + "AND job LIKE ? ";
 		try (Connection con = DBconJ.getConnection(); PreparedStatement pstmt = con.prepareStatement(sql);) {
+			// null 값일 때는 공백으로 처리(초기 전체 검색)
+			if(sch.getEname()==null) sch.setEname("");
+			if(sch.getJob()==null) sch.setJob("");
 			pstmt.setString(1, "%" + sch.getEname() + "%");
 			pstmt.setString(2, "%" + sch.getJob() + "%");
 			try (ResultSet rs = pstmt.executeQuery();) {

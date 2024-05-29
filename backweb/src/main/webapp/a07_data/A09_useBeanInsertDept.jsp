@@ -55,6 +55,7 @@ A03_DaoPool.java에  deptInsert(Dept ins) 메서드 호출해서 등록 처리
 <c:if test="${not empty param.deptno}"> <%-- 요청값이 있을 때만 등록 처리 --%>
 	<c:set var="insCnt" value="${dao.deptInsert(dept)}"/>
 	<script type="text/javascript">
+		// java프로그램 js로 처리 될 때 처리..
 		var insCnt = ${insCnt}
 		if(insCnt>0){
 			alert("등록성공")
