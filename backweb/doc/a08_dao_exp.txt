@@ -105,6 +105,73 @@
 5. dao를 통해서 화면 출력 처리
 	1) 위에 내용 결과를 화면에 출력 처리..
 	
+# 사원정보 관리(조회/등록/수정/삭제) 처리
+1. 기능 내용 정리(요구사항)
+	1) 초기화면에 사원정보를 사원명과 직책명으로 조회하는 리스트를 확인한다.
+	2) 등록버튼을 클릭시, 등록하면으로 페이지가 이동되면, 사원정보를 상세 내용을 등록할 
+		수 있게 한다.
+	3) 다시, 리스트화면에서 해당 항목 중에 특정한 사원번호 행을 클릭시, 상세화면으로
+		이동한다.
+	4) 상세화면에서 데이터가 입력된 상세 내용을 볼 수 있고, 입력된 데이터를 수정/삭제
+		처리할 수 있다.
+2. 처리할 페이지
+	1) dao : backweb.a04_database.A04_EmpDao.java
+			public List<Emp> getEmpList(Emp sch)
+			public int insertEmp(Emp ins)
+			public int updateEmp(Emp upt)
+			public int deleteEmp(int empno)
+	2) vo :	backweb.vo.Emp.java	
+	3) jsp : webapp/a08_empList
+		전체조회:	a01_empList.jsp
+		등록화면: a02_empInsert.jsp
+		상세화면 : a03_empDetail.jsp
+3. 처리순서 scott/tiger
+	1) 대상 테이블 만들기(복사테이블)
+		emp05
+		DROP TABLE emp05;
+		CREATE TABLE emp05
+		AS SELECT * FROM emp;
+		ALTER TABLE emp05
+		MODIFY (ename varchar2(50),
+		        job varchar2(50));
+		SELECT * FROM emp05;
+		
+	2) sql 확인
+		조회 :
+		SELECT * 
+		FROM emp05
+		WHERE ename LIKE '%%'
+		AND job LIKE '%%';
+		
+		SELECT * 
+		FROM emp05
+		WHERE ename LIKE ?
+		AND job LIKE ?		
+		
+		
+		
+		등록 :
+		상세 :
+		수정 :
+		삭제 :
+	3) VO 작성
+private	int empno;
+private String ename;
+private String job;
+private int mgr;
+private Date hiredate;
+private double sal;
+private double comm;
+private int deptno;	
+	4) Dao 생성.
+		main()를 통해서 조회/등록/수정/삭제 확인
+	5) 화면단처리
+		전체조회화면 :
+		등록화면 :
+		상세화면 :
+				
+		 	
+	
 
      	         
 	
