@@ -8,19 +8,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 import backweb.vo.Emp;
-// backweb.a04_database.A04_EmpDao, backweb.vo.Emp
+// backweb.a04_database.A04_EmpDao, backweb.vo.Emp  insertEmp(Emp ins)
 public class A04_EmpDao {
 	public List<Emp> getEmpList(Emp sch) {
 		List<Emp> empList = new ArrayList<Emp>();
 		String sql = "SELECT * \r\n" 
 				+ "	  FROM emp05\r\n" 
 				+ "   WHERE ename LIKE ?\r\n" 
-				+ "	  AND job LIKE ?	 ";
+				+ "	  AND job LIKE ? \r\n"
+				+ "	  order by empno ";
 		if(sch.getEname()==null) sch.setEname(""); // like 키워드 검색으로 초기 전체 처리
 		if(sch.getJob()==null) sch.setJob(""); // 
-		try (Connection con = DBConn.con(); // main() 에서 테스트용
-				// Connection con = DBconJ.getConnection(); // 웹서버에 로딩 후, 화면 실행시
-				PreparedStatement pstmt = con.prepareStatement(sql);) {
+		try (   //Connection con = DBConn.con(); // main() 에서 테스트용
+				Connection con = DBconJ.getConnection(); // 웹서버에 로딩 후, 화면 실행시
+				PreparedStatement pstmt = con.prepareStatement(sql);
+				) {
 			pstmt.setString(1, "%" + sch.getEname() + "%");
 			pstmt.setString(2, "%" + sch.getJob() + "%");
 			try (ResultSet rs = pstmt.executeQuery();) {

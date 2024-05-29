@@ -41,6 +41,25 @@
 <div class="jumbotron text-center">
   <h2>사원정보등록</h2>
 </div>
+<%--
+backweb.a04_database.A04_EmpDao, backweb.vo.Emp  insertEmp(Emp ins)
+ --%>
+<jsp:useBean id="dao" class="backweb.a04_database.A04_EmpDao" /> 
+<jsp:useBean id="ins" class="backweb.vo.Emp" />
+<jsp:setProperty property="*" name="ins"/> 
+<c:if test="${not empty param.empno}">
+	<c:set var="insCnt" value="${dao.insertEmp(ins)}"/>
+	<script type="text/javascript">
+	    var insCnt = ${insCnt}
+	    if( insCnt>0){
+	    	if( confirm("등록성공\n메인화면 이동시 확인") ){
+	    		location.href="a01_empList.jsp";
+	    	}
+	    }else{
+	    	alert("등록되지 않음!");
+	    }			
+	</script>
+</c:if>
 <div class="container">
 	<form method="post">
 	<%-- 사원번호 사원명 직책명 관리자번호 입사일(YYYY-MM-DD), 급여, 보너스, 부서번호  12:10~ --%>

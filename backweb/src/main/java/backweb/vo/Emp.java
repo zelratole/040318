@@ -1,7 +1,7 @@
 package backweb.vo;
 
 import java.util.Date;
-
+// backweb.vo.Emp
 public class Emp {
 	private	int empno;
 	private String ename;
