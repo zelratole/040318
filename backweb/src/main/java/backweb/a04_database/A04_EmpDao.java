@@ -47,6 +47,50 @@ public class A04_EmpDao {
 
 		return empList;
 	}
+	public int insertEmp(Emp ins){
+		int insCnt = 0;
+		String sql = "INSERT INTO emp05\r\n"
+					+ "	values(?,?,?,?,to_date(?,'YYYY-MM-DD'),?,?,?)";
+		Connection con2 = null;
+		try (
+			Connection con = DBConn.con(); // main() 에서 테스트용
+			//Connection con = DBconJ.getConnection();  // 웹서버에 로딩 후, 화면 실행시	
+			PreparedStatement pstmt = con.prepareStatement(sql);) {
+			con2 = con;
+			con.setAutoCommit(false); // auto commit 방지
+			pstmt.setInt(1, ins.getEmpno());
+			pstmt.setString(2, ins.getEname());
+			pstmt.setString(3, ins.getJob());
+			pstmt.setInt(4, ins.getMgr());
+			pstmt.setString(5, ins.getHiredateStr());
+			pstmt.setDouble(6, ins.getSal());
+			pstmt.setDouble(7, ins.getComm());
+			pstmt.setInt(8, ins.getDeptno());
+			insCnt = pstmt.executeUpdate();
+			if (insCnt > 0) {
+				System.out.println(insCnt + "건 등록 성공!");
+				con.commit();
+			} else {
+				System.out.println("등록 안 됨");
+				con.rollback();
+			}
+
+		} catch (SQLException e) {
+			System.out.println("DB 처리 에러:" + e.getMessage());
+			if (con2 != null) {
+				try {
+					con2.rollback();
+				} catch (SQLException e1) {
+					System.out.println("롤백 예외");
+				}
+			}
+		} catch (Exception e) {
+			System.out.println("일반 에러:" + e.getMessage());
+		}
+		
+		
+		return insCnt;
+	}		
 	public static void main(String args[]) {
 		A04_EmpDao dao = new A04_EmpDao();
 		for(Emp e:dao.getEmpList(new Emp("",""))) {
