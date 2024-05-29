@@ -37,17 +37,16 @@
 
 <body>
 <div class="jumbotron text-center">
-  <h2>타이틀</h2>
-
+  <h2>사원정보 리스트</h2>
 </div>
-<%-- 
-		
---%>
+<jsp:useBean id="dao" class="backweb.a04_database.A04_EmpDao"/>
+<jsp:useBean id="sch" class="backweb.vo.Emp"/>
+<jsp:setProperty property="*" name="sch"/>
 <div class="container">
 	<form id="frm01" class="form"  method="post">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input placeholder="제목" name=""  class="form-control mr-sm-2" />
-	    <input placeholder="내용" name=""  class="form-control mr-sm-2"/>
+	    <input placeholder="사원명" name="ename" value="${sch.ename}"  class="form-control mr-sm-2" />
+	    <input placeholder="직책명" name="job"  value="${sch.job}"   class="form-control mr-sm-2"/>
 	    <button class="btn btn-info" type="submit">Search</button>
 	    <button class="btn btn-success" 
 	    	data-toggle="modal" data-target="#exampleModalCenter"
@@ -55,25 +54,31 @@
  	</nav>
 	</form>
    <table class="table table-hover table-striped">
-   	<col width="10%">
-   	<col width="50%">
-   	<col width="15%">
-   	<col width="15%">
-   	<col width="10%">
+   	<col width="20%">
+   	<col width="20%">
+   	<col width="20%">
+   	<col width="20%">
+   	<col width="20%">
     <thead>
     
       <tr class="table-success text-center">
-        <th>번호</th>
-        <th>제목</th>
-        <th>작성자</th>
-        <th>작성일</th>
-        <th>조회</th>
+        <th>사원번호</th>
+        <th>사원명</th>
+        <th>직책명</th>
+        <th>급여</th>
+        <th>부서번호</th>
       </tr>
     </thead>	
     <tbody>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+	<c:forEach var="emp" items="${dao.getEmpList(sch)}">
+		<tr>
+			<td>${emp.empno}</td>	
+			<td>${emp.ename}</td>	
+			<td>${emp.job}</td>	
+			<td>${emp.sal}</td>	
+			<td>${emp.deptno}</td>		
+		</tr>
+	</c:forEach>		
     </tbody>
 	</table>    
     

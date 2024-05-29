@@ -170,7 +170,25 @@
 		등록화면 :
 		상세화면 :
 				
-		 	
+# 전체조회화면 처리 순서(a01_empList.jsp)
+1. 화면 구성
+	1) form 처리 : 요청값 name 속성 
+	2) list 화면 기본 출력 내용 결정
+		사원번호 사원명 직책명 급여 부서번호
+2. useBean 선언
+	1) dao
+	2) 요청값 처리하는 Emp
+
+3. 테이블 리스트 처리 
+	<c:forEach var="emp" items="${dao.empList(sch)}">
+		<tr>
+			<td>${emp.empno}</td>	
+			<td>${emp.ename}</td>	
+			<td>${emp.job}</td>	
+			<td>${emp.sal}</td>	
+			<td>${emp.deptno}</td>
+				
+			 	
 	
 
      	         

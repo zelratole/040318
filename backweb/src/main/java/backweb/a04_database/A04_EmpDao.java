@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import backweb.vo.Emp;
-
+// backweb.a04_database.A04_EmpDao, backweb.vo.Emp
 public class A04_EmpDao {
 	public List<Emp> getEmpList(Emp sch) {
 		List<Emp> empList = new ArrayList<Emp>();
@@ -46,5 +46,14 @@ public class A04_EmpDao {
 		}
 
 		return empList;
+	}
+	public static void main(String args[]) {
+		A04_EmpDao dao = new A04_EmpDao();
+		for(Emp e:dao.getEmpList(new Emp("",""))) {
+			System.out.print(e.getEname()+"\t");
+			System.out.print(e.getJob()+"\t");
+			System.out.print(e.getSal()+"\n");
+			
+		}
 	}
 }

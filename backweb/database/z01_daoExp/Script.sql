@@ -218,5 +218,10 @@ AS SELECT * FROM emp;
 ALTER TABLE emp05
 MODIFY (ename varchar2(50),
         job varchar2(50));
-SELECT * FROM emp05;
+SELECT * 
+FROM emp05
+WHERE ename LIKE '%%'
+AND job LIKE '%%';
+
+
 
