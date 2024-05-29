@@ -87,8 +87,9 @@
 	</div>			
 
 	<div style="text-align:right;">
-		<input type="submit" class="btn btn-success" value="등록" id="insBtn"/>
-		<input type="button" class="btn btn-info" onclick="location.href='a01_empList.jsp'" value="조회리스트" id="mainBtn"/>
+		<input type="button" class="btn btn-info" value="수정" id="uptBtn"/>
+		<input type="button" class="btn btn-danger" value="삭제" id="delBtn"/>
+		<input type="button" class="btn btn-success" onclick="location.href='a01_empList.jsp'" value="조회리스트" id="mainBtn"/>
 	</div>	
 	</form>		
 </div>
