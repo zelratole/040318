@@ -42,6 +42,7 @@
   <h2>사원정보상세(${param.empno})</h2>
 </div>
 <%-- 
+
 backweb.a04_database.A04_EmpDao, backweb.vo.Emp  getEmp(int empno)
  --%>
 <jsp:useBean id="dao" class="backweb.a04_database.A04_EmpDao"/>
