@@ -48,45 +48,46 @@
 		<div class="input-group-prepend ">
 			<span class="input-group-text  justify-content-center">사원번호</span>
 		</div>
-		<input name="empno" class="form-control" value="" />	
+		<input type="number" name="empno" class="form-control" value="0" />	
+		
 		<div class="input-group-prepend ">
 			<span class="input-group-text  justify-content-center">사원명</span>
 		</div>
-		<input name="empno" class="form-control" value="" />			
+		<input type="text" name="ename" class="form-control" value="" />			
 	</div>	
 	<div class="input-group mb-3">	
 		<div class="input-group-prepend ">
 			<span class="input-group-text  justify-content-center">직책명</span>
 		</div>
-		<input name="empno" class="form-control" value="" />	
+		<input name="job" class="form-control" value="" />	
 		<div class="input-group-prepend ">
 			<span class="input-group-text  justify-content-center">관리자번호</span>
 		</div>
-		<input name="empno" class="form-control" value="" />			
+		<input type="number" name="mgr" class="form-control" value="0" />			
 	</div>		
 	<div class="input-group mb-3">	
 		<div class="input-group-prepend ">
 			<span class="input-group-text  justify-content-center">입사일</span>
 		</div>
-		<input name="empno" class="form-control" value="" />	
+		<input type="date"  name="hiredateStr" class="form-control" value="" />	
 		<div class="input-group-prepend ">
 			<span class="input-group-text  justify-content-center">급여</span>
 		</div>
-		<input name="empno" class="form-control" value="" />			
+		<input type="number" name="sal" class="form-control" value="0" />			
 	</div>	
 	<div class="input-group mb-3">	
 		<div class="input-group-prepend ">
 			<span class="input-group-text  justify-content-center">보너스</span>
 		</div>
-		<input name="empno" class="form-control" value="" />	
+		<input type="number" name="comm" class="form-control" value="0" />	
 		<div class="input-group-prepend ">
 			<span class="input-group-text  justify-content-center">부서번호</span>
 		</div>
-		<input name="empno" class="form-control" value="" />			
+		<input type="number" name="deptno"  class="form-control" value="0" />			
 	</div>			
 
 	<div style="text-align:right;">
-		<input type="button" class="btn btn-info" value="등록" id="insBtn"/>
+		<input type="submit" class="btn btn-info" value="등록" id="insBtn"/>
 		<input type="button" class="btn btn-success" value="조회리스트" id="mainBtn"/>
 	</div>	
 	</form>		
