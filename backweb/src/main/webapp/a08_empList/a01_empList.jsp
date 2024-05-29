@@ -60,7 +60,6 @@
    	<col width="20%">
    	<col width="20%">
     <thead>
-    
       <tr class="table-success text-center">
         <th>사원번호</th>
         <th>사원명</th>
