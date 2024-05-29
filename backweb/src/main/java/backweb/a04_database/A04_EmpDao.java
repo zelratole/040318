@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import backweb.vo.Emp;
-// backweb.a04_database.A04_EmpDao, backweb.vo.Emp  insertEmp(Emp ins)
+// backweb.a04_database.A04_EmpDao, backweb.vo.Emp  getEmp(int empno)
 public class A04_EmpDao {
 	public List<Emp> getEmpList(Emp sch) {
 		
@@ -90,14 +90,13 @@ public class A04_EmpDao {
 		
 		return insCnt;
 	}		
-	public Emp getEmp(int empno) {
-		
+	public Emp getEmp(int empno) {	
 		Emp emp = null;
 		String sql = "SELECT * \r\n" 
 				+ "	  FROM emp05\r\n" 
 				+ "   WHERE empno = ?";
-		try (   Connection con = DBConn.con(); // main() 에서 테스트용
-				//Connection con = DBconJ.getConnection(); // 웹서버에 로딩 후, 화면 실행시
+		try (   //Connection con = DBConn.con(); // main() 에서 테스트용
+				Connection con = DBconJ.getConnection(); // 웹서버에 로딩 후, 화면 실행시
 				PreparedStatement pstmt = con.prepareStatement(sql);
 				) {
 			pstmt.setInt(1, empno);
@@ -112,8 +111,7 @@ public class A04_EmpDao {
 			System.out.println("DB 처리 에러:" + e.getMessage());
 		} catch (Exception e) {
 			System.out.println("일반 에러:" + e.getMessage());
-		}
-	
+		}	
 		return emp;
 	}
 	public static void main(String args[]) {
