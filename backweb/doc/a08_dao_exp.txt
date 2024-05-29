@@ -226,7 +226,128 @@
 	7) 메인화면 이동 버튼 이벤트 처리
 		<button onclick="location.href='a01_empList.jsp'"
 
+# 
+CREATE TABLE DEPARTMENTS01
+AS SELECT * from DEPARTMENTS;
+SELECT * FROM DEPARTMENTS01;
      	         
+부서명 [    ] [검색] [등록]
+
+
+# 부서정보 관리(조회/등록/수정/삭제) 처리
+1. 기능 내용 정리(요구사항)
+	1) 초기화면에 사원정보를 사원명과 직책명으로 조회하는 리스트를 확인한다.
+	2) 등록버튼을 클릭시, 등록하면으로 페이지가 이동되면, 사원정보를 상세 내용을 등록할 
+		수 있게 한다.
+	3) 다시, 리스트화면에서 해당 항목 중에 특정한 사원번호 행을 클릭시, 상세화면으로
+		이동한다.
+	4) 상세화면에서 데이터가 입력된 상세 내용을 볼 수 있고, 입력된 데이터를 수정/삭제
+		처리할 수 있다.
+2. 처리할 페이지
+	1) dao : backweb.a04_database.A05_DepartDao.java
+			public List<Department> getDepartmentList(Department sch)
+			public int insertDepartment(Department ins)
+			public int updateDepartment(Department upt)
+			public int deleteDepartment(int empno)
+	2) vo :	backweb.vo.Department.java	
+	3) jsp : webapp/a09_department
+		전체조회:	a01_departmentList.jsp
+		등록화면: a02_departmentInsert.jsp
+		상세화면 : a03_departmentDetail.jsp
+	
+		 
+3. 처리순서 scott/tiger
+	1) 대상 테이블 만들기(복사테이블)
+		CREATE TABLE DEPARTMENTS01
+		AS SELECT * from DEPARTMENTS;
+		SELECT * FROM DEPARTMENTS01;
+		
+	2) sql 확인
+		조회 :
+		SELECT *
+		FROM DEPARTMENTS01
+		WHERE department_name LIKE ?
+		order by department_id
+		등록 :
+		insert into DEPARTMENTS01 values(?,?,?,?)
+
+		
+		상세 :
+		수정 :
+		삭제 :
+	3) VO 작성
+	private int department_id;
+	private String department_name;
+	private int manager_id;
+	private int location_id;
+	부서아이디, 부서명, 관리자아이디, 위치아이디
+	
+	4) Dao 생성.
+		main()를 통해서 조회/등록/수정/삭제 확인
+	5) 화면단처리
+		전체조회화면 : 부서아이디, 부서명, 관리자아이디, 위치아이디
+		등록화면 :
+		상세화면 :
+				
+# 전체조회화면 처리 순서(a01_empList.jsp)
+1. 화면 구성
+	1) form 처리 : 요청값 name 속성 
+	2) list 화면 기본 출력 내용 결정
+		사원번호 사원명 직책명 급여 부서번호
+2. useBean 선언
+	1) dao
+	2) 요청값 처리하는 Emp
+
+3. 테이블 리스트 처리 
+	<c:forEach var="emp" items="${dao.empList(sch)}">
+		<tr>
+			<td>${emp.empno}</td>	
+			<td>${emp.ename}</td>	
+			<td>${emp.job}</td>	
+			<td>${emp.sal}</td>	
+			<td>${emp.deptno}</td>
+# 등록 처리
+1. 전체조회화면에서 이벤트로 등록 버튼 클릭시, 등록화면 이동 처리
+2. 등록화면
+	1) 등록 sql 작성 및 등록할 컬럼 확인	
+		-- sysdate :현재 날짜/시간
+		INSERT INTO emp05
+		values(1000,'홍길동','사원',7902,sysdate,3500,1000,10);
+		-- to_date('2024-05-01','YYYY-MM-DD') : 특정문자열을 통해 날짜데이터 입력
+		INSERT INTO emp05
+		values(1001,'마길동','사원',7902,to_date('2024-05-01','YYYY-MM-DD'),3400,2000,20);
+		/*
+		INSERT INTO emp05
+		values(?,?,?,?,to_date(?,'YYYY-MM-DD'),?,?,?)
+		 * */
+
+	2) 등록할 화면 UI 작성
+		form name 설정/등록버튼 설정/main화면 이동 버튼 처리..
+		사원번호 사원명 직책명 관리자번호 입사일(YYYY-MM-DD), 급여, 보너스, 부서번호
+		리스트페이지에 등록버트 클릭시 이동 처리..
+		
+	3) 등록 dao 메서드 선언..
+		public int insertEmp(Emp ins){}	
+	4) useBean 선언
+		<jsp:useBean id="dao" class="@@@@.dao클래스"/>		
+		<jsp:useBean id="ins" class="@@@@.vo클래스"/>		
+	5) 등록버튼 클릭시, 처리할 프로세서 처리
+		<c:if test = "${param.empno}">
+		  	<c:set var="isCnt" value="${doa.insertEmp(ins)}"
+	6) java script로 등록처리 확인창 로딩.. 이후 프로세스 처리
+		    var isCnt = ${isCnt}
+		    if( isCnt>0){
+		    	if( confirm("등록성공\n메인화면 이동시 확인") ){
+		    		location.href="a01_empList.jsp";
+		    	}
+		    }else{
+		    	alert("등록되지 않음!");
+		    }								 	
+	7) 메인화면 이동 버튼 이벤트 처리
+		<button onclick="location.href='a01_empList.jsp'"
+
+
+
 	
 	
 

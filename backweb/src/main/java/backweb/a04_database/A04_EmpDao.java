@@ -11,6 +11,7 @@ import backweb.vo.Emp;
 // backweb.a04_database.A04_EmpDao, backweb.vo.Emp  insertEmp(Emp ins)
 public class A04_EmpDao {
 	public List<Emp> getEmpList(Emp sch) {
+		
 		List<Emp> empList = new ArrayList<Emp>();
 		String sql = "SELECT * \r\n" 
 				+ "	  FROM emp05\r\n" 

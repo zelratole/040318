@@ -233,8 +233,33 @@ INSERT INTO emp05
 values(?,?,?,?,to_date(?,'YYYY-MM-DD'),?,?,?)
  * */
 
+SELECT * FROM JOBS;
+SELECT * FROM EMPLOYEES;
 
 
+CREATE TABLE DEPARTMENTS01
+AS SELECT * from DEPARTMENTS;
+SELECT * FROM DEPARTMENTS01;
+SELECT *
+FROM DEPARTMENTS01
+WHERE department_name LIKE '%%'
+;
+
+/*
+class Department{
+	private int department_id;
+	private String department_name;
+	private int manager_id;
+	private int location_id;
+	
+}
+SELECT *
+FROM DEPARTMENTS01
+WHERE department_name LIKE ?
+
+insert into DEPARTMENTS01 values(?,?,?,?)
 
 
+ * */
+insert into DEPARTMENTS01 values(11,'인사',100,1700);
 
