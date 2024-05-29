@@ -188,6 +188,17 @@
 1. 전체조회화면에서 이벤트로 등록 버튼 클릭시, 등록화면 이동 처리
 2. 등록화면
 	1) 등록 sql 작성 및 등록할 컬럼 확인	
+		-- sysdate :현재 날짜/시간
+		INSERT INTO emp05
+		values(1000,'홍길동','사원',7902,sysdate,3500,1000,10);
+		-- to_date('2024-05-01','YYYY-MM-DD') : 특정문자열을 통해 날짜데이터 입력
+		INSERT INTO emp05
+		values(1001,'마길동','사원',7902,to_date('2024-05-01','YYYY-MM-DD'),3400,2000,20);
+		/*
+		INSERT INTO emp05
+		values(?,?,?,?,to_date(?,'YYYY-MM-DD'),?,?,?)
+		 * */
+ 	
 	2) 등록할 화면 UI 작성
 		form name 설정/등록버튼 설정/main화면 이동 버튼 처리..
 	3) 등록 dao 메서드 선언..
