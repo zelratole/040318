@@ -43,24 +43,50 @@
 </div>
 <div class="container">
 	<form method="post">
+	<%-- 사원번호 사원명 직책명 관리자번호 입사일(YYYY-MM-DD), 급여, 보너스, 부서번호  12:10~ --%>
 	<div class="input-group mb-3">	
 		<div class="input-group-prepend ">
 			<span class="input-group-text  justify-content-center">사원번호</span>
 		</div>
 		<input name="empno" class="form-control" value="" />	
+		<div class="input-group-prepend ">
+			<span class="input-group-text  justify-content-center">사원명</span>
+		</div>
+		<input name="empno" class="form-control" value="" />			
 	</div>	
 	<div class="input-group mb-3">	
 		<div class="input-group-prepend ">
-			<span class="input-group-text  justify-content-center">사원번호</span>
+			<span class="input-group-text  justify-content-center">직책명</span>
 		</div>
 		<input name="empno" class="form-control" value="" />	
-		<div class="input-group-append">
-			<div id=""></div>
+		<div class="input-group-prepend ">
+			<span class="input-group-text  justify-content-center">관리자번호</span>
 		</div>
+		<input name="empno" class="form-control" value="" />			
+	</div>		
+	<div class="input-group mb-3">	
+		<div class="input-group-prepend ">
+			<span class="input-group-text  justify-content-center">입사일</span>
+		</div>
+		<input name="empno" class="form-control" value="" />	
+		<div class="input-group-prepend ">
+			<span class="input-group-text  justify-content-center">급여</span>
+		</div>
+		<input name="empno" class="form-control" value="" />			
 	</div>	
+	<div class="input-group mb-3">	
+		<div class="input-group-prepend ">
+			<span class="input-group-text  justify-content-center">보너스</span>
+		</div>
+		<input name="empno" class="form-control" value="" />	
+		<div class="input-group-prepend ">
+			<span class="input-group-text  justify-content-center">부서번호</span>
+		</div>
+		<input name="empno" class="form-control" value="" />			
+	</div>			
+
 	<div style="text-align:right;">
-		<input type="button" class="btn btn-info" value="수정" id="uptBtn"/>
-		<input type="button" class="btn btn-danger" value="삭제" id="delBtn"/>
+		<input type="button" class="btn btn-info" value="등록" id="insBtn"/>
 		<input type="button" class="btn btn-success" value="조회리스트" id="mainBtn"/>
 	</div>	
 	</form>		
