@@ -90,8 +90,37 @@ public class A04_EmpDao {
 		
 		return insCnt;
 	}		
+	public Emp getEmp(int empno) {
+		
+		Emp emp = null;
+		String sql = "SELECT * \r\n" 
+				+ "	  FROM emp05\r\n" 
+				+ "   WHERE empno = ?";
+		try (   Connection con = DBConn.con(); // main() 에서 테스트용
+				//Connection con = DBconJ.getConnection(); // 웹서버에 로딩 후, 화면 실행시
+				PreparedStatement pstmt = con.prepareStatement(sql);
+				) {
+			pstmt.setInt(1, empno);
+			try (ResultSet rs = pstmt.executeQuery();) {
+				if (rs.next()) {
+					emp = new Emp(rs.getInt("empno"), rs.getString("ename"),rs.getString("job"),
+										rs.getInt("mgr"),rs.getDate("hiredate"),rs.getDouble("sal"),
+										rs.getDouble("comm"),rs.getInt("deptno") ) ;
+				}
+			}
+		} catch (SQLException e) {
+			System.out.println("DB 처리 에러:" + e.getMessage());
+		} catch (Exception e) {
+			System.out.println("일반 에러:" + e.getMessage());
+		}
+	
+		return emp;
+	}
 	public static void main(String args[]) {
 		A04_EmpDao dao = new A04_EmpDao();
+		Emp emp = dao.getEmp(1000);
+		System.out.println("단일데이터:"+emp.getEname());
+		/*
 		dao.insertEmp(new Emp(1002,"오길동","대리",7601,"2024-05-29",4000,100,10));
 		
 		
@@ -101,5 +130,6 @@ public class A04_EmpDao {
 			System.out.print(e.getSal()+"\n");
 			
 		}
+		*/
 	}
 }
