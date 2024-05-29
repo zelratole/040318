@@ -37,74 +37,59 @@
 
 <body>
 <div class="jumbotron text-center">
-  <h2>타이틀</h2>
-
+  <h2>사원정보상세</h2>
 </div>
-<%-- 
-		
---%>
 <div class="container">
-	<form id="frm01" class="form"  method="post">
-  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input placeholder="제목" name=""  class="form-control mr-sm-2" />
-	    <input placeholder="내용" name=""  class="form-control mr-sm-2"/>
-	    <button class="btn btn-info" type="submit">Search</button>
-	    <button class="btn btn-success" 
-	    	data-toggle="modal" data-target="#exampleModalCenter"
-	        type="button">등록</button>
- 	</nav>
-	</form>
-   <table class="table table-hover table-striped">
-   	<col width="10%">
-   	<col width="50%">
-   	<col width="15%">
-   	<col width="15%">
-   	<col width="10%">
-    <thead>
-    
-      <tr class="table-success text-center">
-        <th>번호</th>
-        <th>제목</th>
-        <th>작성자</th>
-        <th>작성일</th>
-        <th>조회</th>
-      </tr>
-    </thead>	
-    <tbody>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
-    </tbody>
-	</table>    
-    
+	<form method="post">
+	<%-- 사원번호 사원명 직책명 관리자번호 입사일(YYYY-MM-DD), 급여, 보너스, 부서번호  12:10~ --%>
+	<div class="input-group mb-3">	
+		<div class="input-group-prepend ">
+			<span class="input-group-text  justify-content-center">사원번호</span>
+		</div>
+		<input type="number" name="empno" class="form-control" value="0" />	
+		
+		<div class="input-group-prepend ">
+			<span class="input-group-text  justify-content-center">사원명</span>
+		</div>
+		<input type="text" name="ename" class="form-control" value="" />			
+	</div>	
+	<div class="input-group mb-3">	
+		<div class="input-group-prepend ">
+			<span class="input-group-text  justify-content-center">직책명</span>
+		</div>
+		<input name="job" class="form-control" value="" />	
+		<div class="input-group-prepend ">
+			<span class="input-group-text  justify-content-center">관리자번호</span>
+		</div>
+		<input type="number" name="mgr" class="form-control" value="0" />			
+	</div>		
+	<div class="input-group mb-3">	
+		<div class="input-group-prepend ">
+			<span class="input-group-text  justify-content-center">입사일</span>
+		</div>
+		<input type="date"  name="hiredateStr" class="form-control" value="" />	
+		<div class="input-group-prepend ">
+			<span class="input-group-text  justify-content-center">급여</span>
+		</div>
+		<input type="number" name="sal" class="form-control" value="0" />			
+	</div>	
+	<div class="input-group mb-3">	
+		<div class="input-group-prepend ">
+			<span class="input-group-text  justify-content-center">보너스</span>
+		</div>
+		<input type="number" name="comm" class="form-control" value="0" />	
+		<div class="input-group-prepend ">
+			<span class="input-group-text  justify-content-center">부서번호</span>
+		</div>
+		<input type="number" name="deptno"  class="form-control" value="0" />			
+	</div>			
+
+	<div style="text-align:right;">
+		<input type="submit" class="btn btn-success" value="등록" id="insBtn"/>
+		<input type="button" class="btn btn-info" onclick="location.href='a01_empList.jsp'" value="조회리스트" id="mainBtn"/>
+	</div>	
+	</form>		
 </div>
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">타이틀</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-		<form id="frm02" class="form"  method="post">
-	     <div class="row">
-	      <div class="col">
-	        <input type="text" class="form-control" placeholder="사원명 입력" name="ename">
-	      </div>
-	      <div class="col">
-	        <input type="text" class="form-control" placeholder="직책명 입력" name="job">
-	      </div>
-	     </div>
-	    </form> 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
+
 </body>
 </html>

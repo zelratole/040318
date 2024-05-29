@@ -225,6 +225,40 @@
 		    }								 	
 	7) 메인화면 이동 버튼 이벤트 처리
 		<button onclick="location.href='a01_empList.jsp'"
+# 상세 화면/수정/삭제
+1. 상세화면 처리
+    0) 상세화면 form화면 구성..(input form 복사처리)
+    	a03_empDetail.jsp
+	1) 리스트된 내용에서 클릭시, 상세화면으로 데이터 한행 단위로 처리되어야 한다.	
+		<tr ondblclick="goPage(${emp.empno})"
+		function goPage(empno){
+			location.href="a03_empDetail.jsp?empno="+empno;
+		}
+	2) 기능메서드선언
+		public Emp getEmp(int empno){	
+		}
+	3) sql	
+		select *
+		from emp05
+		where empno = ?
+	4) dao 기능메서드 상세 내용 처리.	
+		<jsp:useBean id="dao" class="XXXXX.dao">
+		<c:set var="emp" value="${dao.getEmp(param.empno)}"/>
+		<input name="empno" value="${emp.empno}"/>
+		<input name="ename" value="${emp.ename}"/>
+		...
+		<input name="hiredateStr" value=" "/>
+			<fmt:fmtDate value="${emp.hiredate}" pattern="yyyy-MM-dd"/>
+		
+		 
+		
+
+2. 상세화면에서 수정/삭제
+
+
+
+
+
 
 # 
 CREATE TABLE DEPARTMENTS01
