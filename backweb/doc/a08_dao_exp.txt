@@ -198,9 +198,12 @@
 		INSERT INTO emp05
 		values(?,?,?,?,to_date(?,'YYYY-MM-DD'),?,?,?)
 		 * */
- 	
+
 	2) 등록할 화면 UI 작성
 		form name 설정/등록버튼 설정/main화면 이동 버튼 처리..
+		사원번호 사원명 직책명 관리자번호 입사일(YYYY-MM-DD), 급여, 보너스, 부서번호
+		
+		
 	3) 등록 dao 메서드 선언..
 		public int insertEmp(Emp ins){}	
 	4) useBean 선언

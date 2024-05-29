@@ -222,6 +222,19 @@ SELECT *
 FROM emp05
 WHERE ename LIKE '%%'
 AND job LIKE '%%';
+-- sysdate :현재 날짜/시간
+INSERT INTO emp05
+values(1000,'홍길동','사원',7902,sysdate,3500,1000,10);
+-- to_date('2024-05-01','YYYY-MM-DD') : 특정문자열을 통해 날짜데이터 입력
+INSERT INTO emp05
+values(1001,'마길동','사원',7902,to_date('2024-05-01','YYYY-MM-DD'),3400,2000,20);
+/*
+INSERT INTO emp05
+values(?,?,?,?,to_date(?,'YYYY-MM-DD'),?,?,?)
+ * */
+
+
+
 
 
 
