@@ -155,14 +155,14 @@
 		수정 :
 		삭제 :
 	3) VO 작성
-private	int empno;
-private String ename;
-private String job;
-private int mgr;
-private Date hiredate;
-private double sal;
-private double comm;
-private int deptno;	
+		private	int empno;
+		private String ename;
+		private String job;
+		private int mgr;
+		private Date hiredate;
+		private double sal;
+		private double comm;
+		private int deptno;	
 	4) Dao 생성.
 		main()를 통해서 조회/등록/수정/삭제 확인
 	5) 화면단처리
