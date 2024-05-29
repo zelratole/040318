@@ -89,6 +89,9 @@ public class A04_EmpDao {
 	}		
 	public static void main(String args[]) {
 		A04_EmpDao dao = new A04_EmpDao();
+		dao.insertEmp(new Emp(1002,"오길동","대리",7601,"2024-05-29",4000,100,10));
+		
+		
 		for(Emp e:dao.getEmpList(new Emp("",""))) {
 			System.out.print(e.getEname()+"\t");
 			System.out.print(e.getJob()+"\t");
