@@ -70,11 +70,7 @@ public class A04_EmpDao {
 			if (insCnt > 0) {
 				System.out.println(insCnt + "건 등록 성공!");
 				con.commit();
-			} else {
-				System.out.println("등록 안 됨");
-				con.rollback();
-			}
-
+			} 
 		} catch (SQLException e) {
 			System.out.println("DB 처리 에러:" + e.getMessage());
 			if (con2 != null) {
