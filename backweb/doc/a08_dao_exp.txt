@@ -125,6 +125,8 @@
 		전체조회:	a01_empList.jsp
 		등록화면: a02_empInsert.jsp
 		상세화면 : a03_empDetail.jsp
+		
+		 
 3. 처리순서 scott/tiger
 	1) 대상 테이블 만들기(복사테이블)
 		emp05
