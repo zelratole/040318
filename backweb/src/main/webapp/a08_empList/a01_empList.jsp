@@ -48,8 +48,7 @@
 	    <input placeholder="사원명" name="ename" value="${sch.ename}"  class="form-control mr-sm-2" />
 	    <input placeholder="직책명" name="job"  value="${sch.job}"   class="form-control mr-sm-2"/>
 	    <button class="btn btn-info" type="submit">Search</button>
-	    <button class="btn btn-success" 
-	    	data-toggle="modal" data-target="#exampleModalCenter"
+	    <button class="btn btn-success" onclick="location.href='a02_empInsert.jsp'"
 	        type="button">등록</button>
  	</nav>
 	</form>

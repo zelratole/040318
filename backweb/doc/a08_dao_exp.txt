@@ -203,6 +203,8 @@
 		form name 설정/등록버튼 설정/main화면 이동 버튼 처리..
 		사원번호 사원명 직책명 관리자번호 입사일(YYYY-MM-DD), 급여, 보너스, 부서번호
 		
+		리스트페이지에 등록버트 클릭시 이동 처리..
+		
 		
 	3) 등록 dao 메서드 선언..
 		public int insertEmp(Emp ins){}	
