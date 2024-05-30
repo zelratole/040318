@@ -45,6 +45,37 @@ public class A05_DepartDao {
 		
 		return dlist;
 	}
+	// getDepart
+	public Department getDepart(int department_id){
+		Department dept = new Department();
+		String sql = "SELECT *\r\n"
+					+ "	FROM DEPARTMENTS01\r\n"
+					+ "	WHERE department_id = ?\r\n";
+		try (   Connection con = DBConn.con(); // main() 에서 테스트용
+				//Connection con = DBconJ.getConnection(); // 웹서버에 로딩 후, 화면 실행시
+				PreparedStatement pstmt = con.prepareStatement(sql);
+				) {
+			pstmt.setInt(1, department_id);
+	
+			try (ResultSet rs = pstmt.executeQuery();) {
+				if (rs.next()) {
+					System.out.print(rs.getInt("department_id") + "\t");
+					System.out.print(rs.getString("department_name") + "\t");
+					System.out.print(rs.getInt("manager_id") + "\t");
+					System.out.print(rs.getInt("location_id") + "\n");
+					dept = new Department(rs.getInt("department_id"), rs.getString("department_name"),
+											rs.getInt("manager_id"),rs.getInt("location_id") ) ;
+				}
+			}
+	
+		} catch (SQLException e) {
+			System.out.println("DB 처리 에러:" + e.getMessage());
+		} catch (Exception e) {
+			System.out.println("일반 에러:" + e.getMessage());
+		}
+		
+		return dept;
+	}
 	public int insertDepartment(Department ins) {
 		int insCnt = 0;
 		String sql = "insert into DEPARTMENTS01 values(?,?,?,?) ";

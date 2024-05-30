@@ -62,3 +62,12 @@ a03_empDetail.jsp?empno=7369
 4. 객체의 속성을 출력..
 
 4. 개발 순서..
+
+ex) a01_departmentList.jsp
+    a03_departmentDetail.jsp
+    A05_DepartDao.java
+    	public Department getDepartment(int department_id)
+
+
+
+

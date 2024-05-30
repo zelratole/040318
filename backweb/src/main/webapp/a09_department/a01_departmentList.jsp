@@ -75,13 +75,18 @@ backweb.a04_database.A05_DepartDao  backweb.vo.Department  getDepartmentList(),i
     </thead>	
     <tbody>
     	<c:forEach var="d" items="${dao.getDepartmentList(param.department_name)}">
-    	<tr><td>${d.department_id }</td><td>${d.department_name }</td>
+    	<tr  ondblclick="goPage(${d.department_id})"><td>${d.department_id }</td><td>${d.department_name }</td>
     		<td>${d.manager_id }</td><td>${d.location_id }</td></tr>
     	</c:forEach>
     </tbody>
 	</table>    
 </div>
-
+    <script>
+    	 
+    	function goPage(department_id){
+    		location.href="a03_departmentDetail.jsp?department_id="+department_id;
+    	}
+    </script>
 
 
 </body>

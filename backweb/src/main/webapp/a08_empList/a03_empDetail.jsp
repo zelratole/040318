@@ -94,7 +94,7 @@ backweb.a04_database.A04_EmpDao, backweb.vo.Emp  getEmp(int empno)
 	</div>			
 
 	<div style="text-align:right;">
-		<input type="button" class="btn btn-info" value="수정" id="uptBtn"/>
+		<input type="button" class="btn btn-primary" value="수정" id="uptBtn"/>
 		<input type="button" class="btn btn-danger" value="삭제" id="delBtn"/>
 		<input type="button" class="btn btn-success" onclick="location.href='a01_empList.jsp'" value="조회리스트" id="mainBtn"/>
 	</div>	
