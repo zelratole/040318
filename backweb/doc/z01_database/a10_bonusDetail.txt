@@ -26,6 +26,19 @@ webapp/a10_bonus/a03_bonusDetail.jsp
 2. DB 생성
 3. sql 확인
 	1) 조회
+SELECT *
+FROM bonus10
+WHERE bonus_amount BETWEEN ? AND ?	
+----------------------------	
+	2) 등록
+	3) 상섹
 4. VO 생성 Bonus
+private int bounus_id;
+private int employee_id;
+private int bounus_amount;
+private Date bounus_date;
+
+
+---------------------------
 5. Dao 조회 기능 메서드 만들기..
 	

@@ -266,3 +266,26 @@ SELECT *
 FROM EMP05
 WHERE empno=7369;
 -- 요청값 ?empno=7360 ==> Dao getEmpno(int empno) ==> Emp(데이터가 담긴)
+
+SELECT *
+FROM BONUS2;
+CREATE TABLE bonus10
+AS SELECT * FROM BONUS2;
+SELECT *
+FROM bonus10;
+-- 전체 조회
+SELECT *
+FROM bonus10
+WHERE bonus_amount BETWEEN 0 AND 9999;
+-- 시작[    0] 마지막[ 9999] [검색]
+-- 등록
+INSERT INTO bonus10 values(16,200,3000,to_date('2024-05-30','YYYY-MM-DD'));
+-- 상세화면
+SELECT *
+FROM bonus10
+WHERE bonus_id = 1; 
+
+
+
+
+
