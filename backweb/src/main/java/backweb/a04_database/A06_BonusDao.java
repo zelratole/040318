@@ -14,7 +14,8 @@ public class A06_BonusDao {
 		 List<Bonus> blist = new ArrayList<Bonus>();
 		 String sql = "SELECT *\r\n"
 		 		+ "FROM bonus10\r\n"
-		 		+ "WHERE bonus_amount BETWEEN ? AND ?";
+		 		+ "WHERE bonus_amount BETWEEN ? AND ? \n"
+		 		+ "ORDER BY bonus_id";
 			try (
 					Connection con = DBConn.con(); // main() 에서 테스트용
 					//Connection con = DBconJ.getConnection();  // 웹서버에 로딩 후, 화면 실행시	
@@ -119,6 +120,8 @@ public class A06_BonusDao {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		A06_BonusDao dao = new A06_BonusDao();
+		// INSERT INTO bonus10 values(27,2000, 4000, to_date('2024-06-01','YYYY-MM-DD' ));
+		dao.bonusInsert(new Bonus(27,2000,4000,"2024-06-01") );
 		for(Bonus b:dao.getBonusList(0, 99999)) {
 			System.out.print(b.getBonus_id()+"\t");
 			System.out.print(b.getEmployee_id()+"\n");
