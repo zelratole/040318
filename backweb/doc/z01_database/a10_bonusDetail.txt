@@ -1,0 +1,23 @@
+SELECT *
+FROM BONUS2;
+CREATE TABLE bonus10
+AS SELECT * FROM BONUS2;
+SELECT *
+FROM bonus10;
+-- 전체 조회
+SELECT *
+FROM bonus10
+WHERE bonus_amount BETWEEN 0 AND 9999;
+-- 시작[    0] 마지막[ 9999] [검색]
+-- 등록
+INSERT INTO bonus10 values(16,200,3000,to_date('2024-05-30','YYYY-MM-DD'));
+-- 상세화면
+SELECT *
+FROM bonus10
+WHERE bonus_id = 1; 
+Bonus.java (VO)
+A06_BonusDao.java
+webapp/a10_bonus/a01_bonusList.jsp
+webapp/a10_bonus/a02_bonusInsert.jsp
+webapp/a10_bonus/a03_bonusDetail.jsp
+-- ~12:30  10분 마다 에러 나오는 내용 간략하게 풀이 진행.. 조장님께 에러나올 때, 실시간으로 전달해주세요...
