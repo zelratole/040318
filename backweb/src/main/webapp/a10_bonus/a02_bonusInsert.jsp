@@ -53,8 +53,7 @@
 	<script type="text/javascript">
 		
 		var insCnt = ${insCnt};
-		
-		alert(insCnt)
+
 		if(insCnt>0){
 			if(confirm("등록 성공!\n메인화면으로 이동하시겠습니까?")){
 				location.href='a01_bonusList.jsp'
