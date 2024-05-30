@@ -9,7 +9,7 @@ import java.util.Date;
 import java.util.List;
 
 import backweb.vo.Bonus;
-
+// backweb.a04_database.A06_BonusDao
 public class A06_BonusDao {
 	public List<Bonus> getBonusList(int start, int end){
 		 List<Bonus> blist = new ArrayList<Bonus>();

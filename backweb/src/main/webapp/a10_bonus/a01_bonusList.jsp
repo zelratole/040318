@@ -43,15 +43,31 @@
 <%-- 
 		
 --%>
+<jsp:useBean id="dao" class="backweb.a04_database.A06_BonusDao"/>
+<c:set var="start" value="${empty param.start?0:param.start}"/>
+<c:set var="end" value="${empty param.end?99999:param.end}"/>
 <div class="container">
 	<form id="frm01" class="form"  method="post">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input placeholder="시작" name="start" value=""  class="form-control mr-sm-2" />
-	    <input placeholder="마지막" name="end"  value="" class="form-control mr-sm-2"/>
+	    <input placeholder="시작" name="start" value="${start}"  class="form-control mr-sm-2" />
+	    <input placeholder="마지막" name="end"  value="${end}" class="form-control mr-sm-2"/>
 	    <button class="btn btn-info" type="submit">Search</button>
 	    <button class="btn btn-success" type="button">등록</button>
  	</nav>
 	</form>
+<%--
+	private int bonus_id;
+	private int employee_id;
+	private int bonus_amount;
+	private Date bonus_date;
+	<tbody>
+		<c:forEach var="b" items="${dao.getBonusList(start, end)}">
+    	<tr><td>${b.bonus_id}</td><td>${b.employee_id}</td><td>${b.bonus_amount}</td>
+    		<td>${b.bonus_date}</td></tr>
+    	</c:forEach>
+    </tbody>
+    ~13:50
+ --%>	
    <table class="table table-hover table-striped">
    	<col width="25%">
    	<col width="25%">
@@ -66,7 +82,10 @@
       </tr>
     </thead>	
     <tbody>
-    	<tr><td></td><td></td><td></td><td></td></tr>
+		<c:forEach var="b" items="${dao.getBonusList(start, end)}">
+    	<tr><td>${b.bonus_id}</td><td>${b.employee_id}</td><td>${b.bonus_amount}</td>
+    		<td><fmt:formatDate value="${b.bonus_date}"/></td></tr>
+    	</c:forEach>
     </tbody>
 	</table>    
     
