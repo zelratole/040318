@@ -37,7 +37,7 @@
 
 <body>
 <div class="jumbotron text-center">
-  <h2>타이틀</h2>
+  <h2>보너스 리스트</h2>
 
 </div>
 <%-- 
@@ -46,8 +46,8 @@
 <div class="container">
 	<form id="frm01" class="form"  method="post">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input placeholder="제목" name=""  class="form-control mr-sm-2" />
-	    <input placeholder="내용" name=""  class="form-control mr-sm-2"/>
+	    <input placeholder="시작" name="start" value=""  class="form-control mr-sm-2" />
+	    <input placeholder="마지막" name="end"  value="" class="form-control mr-sm-2"/>
 	    <button class="btn btn-info" type="submit">Search</button>
 	    <button class="btn btn-success" 
 	    	data-toggle="modal" data-target="#exampleModalCenter"
@@ -55,25 +55,21 @@
  	</nav>
 	</form>
    <table class="table table-hover table-striped">
-   	<col width="10%">
-   	<col width="50%">
-   	<col width="15%">
-   	<col width="15%">
-   	<col width="10%">
+   	<col width="25%">
+   	<col width="25%">
+   	<col width="25%">
+   	<col width="25%">
     <thead>
-    
+    보너스아이디, 사원아이디, 보너스량, 보너스날짜
       <tr class="table-success text-center">
-        <th>번호</th>
-        <th>제목</th>
-        <th>작성자</th>
-        <th>작성일</th>
-        <th>조회</th>
+        <th>보너스아이디</th>
+        <th>사원아이디</th>
+        <th>보너스량</th>
+        <th>보너스날짜</th>
       </tr>
     </thead>	
     <tbody>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td></tr>
     </tbody>
 	</table>    
     
