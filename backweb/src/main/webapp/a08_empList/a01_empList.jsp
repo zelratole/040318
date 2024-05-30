@@ -39,6 +39,15 @@
 <div class="jumbotron text-center">
   <h2>사원정보 리스트</h2>
 </div>
+<%--
+?ename=하이맨&job=사원
+
+Emp sch = new Emp();
+sch.setEname(request.getParameter("ename"));
+sch.setJob(request.getParameter("job"));
+
+Emp sch = new Emp();(A,B)
+ --%>
 <jsp:useBean id="dao" class="backweb.a04_database.A04_EmpDao"/>
 <jsp:useBean id="sch" class="backweb.vo.Emp"/>
 <jsp:setProperty property="*" name="sch"/>
@@ -69,7 +78,7 @@
     </thead>	
     <tbody>
 	<c:forEach var="emp" items="${dao.getEmpList(sch)}">
-		<tr onclick="goPage(${emp.empno})">
+		<tr ondblclick="goPage(${emp.empno})">
 			<td>${emp.empno}</td>	
 			<td>${emp.ename}</td>	
 			<td>${emp.job}</td>	

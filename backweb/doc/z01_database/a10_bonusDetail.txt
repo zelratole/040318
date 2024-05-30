@@ -53,13 +53,57 @@ WHERE bonus_amount BETWEEN ? AND ?
 		
 # 등록 처리 진행 해주세요..
 1. 등록 버튼으로 등록화면 이동
-------------------------
 2. 등록 화면 form UI 만들기
+
 3. 등록 DAO 메서드 추가
 4. 등록 처리 화면(jsp)
 	1) useBean dao
 	2) useBean ins(VO)
 	3) 등록 처리 후, javascript 처리 
+------------------------
+
+# 부서정보(dept) 
+1. 부서명과 부서위치를  검색을 리스트하세요..
+select *
+from dept
+where dname like ?
+and loc like ?
+2. vo
+
+3. dao
+class A01_DeptDao{
+	public List<Dept> detpList(String dname, String loc){
+		List<Dept>  list = new ArrayList<Dept>();
+		String sql = "";
+		
+		return list;
+	}
+
+	public List<Dept> detpList(Dept sch){
+		sch.getDname()
+		sch.getLoc()
+		List<Dept>  list = new ArrayList<Dept>();
+		String sql = "";
+		
+		return list;
+	}
+
+	dao.deptList("A","A");
+	dao.deptList(new Dept("A","A"));
+
+	<jsp:useBean id="dept" />
+	<jsp:setProperty ....
+	 
+    <c:forEach id="d" items="${dao.deptList(dept)}">
+    	<tr><td>${d.deptno}...
+    
+    
+	Dept sch = new Dept("A","A");  (     )
+	sch.getDname()
+	sch.getLoc()
+
+}
+
 	
 
 

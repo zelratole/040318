@@ -7,10 +7,20 @@ public class Bonus {
 	private int employee_id;
 	private int bonus_amount;
 	private Date bonus_date;
+	private String bonus_dateStr;
 	public Bonus() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	public Bonus(int bonus_id, int employee_id, int bonus_amount, String bonus_dateStr) {
+		super();
+		this.bonus_id = bonus_id;
+		this.employee_id = employee_id;
+		this.bonus_amount = bonus_amount;
+		this.bonus_dateStr = bonus_dateStr;
+	}
+
 	public Bonus(int bounus_id, int employee_id, int bonus_amount, Date bonus_date) {
 		super();
 		this.bonus_id = bounus_id;
@@ -41,6 +51,14 @@ public class Bonus {
 	}
 	public void setBonus_date(Date bonus_date) {
 		this.bonus_date = bonus_date;
+	}
+
+	public String getBonus_dateStr() {
+		return bonus_dateStr;
+	}
+
+	public void setBonus_dateStr(String bonus_dateStr) {
+		this.bonus_dateStr = bonus_dateStr;
 	}
 
 	

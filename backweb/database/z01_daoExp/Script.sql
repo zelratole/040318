@@ -295,6 +295,31 @@ WHERE bonus_id = 1;
 
  * */
 
-
-
+부서명:[   ]
+부서위치:[   ][검색]
+--1 sql
+SELECT *
+FROM dept
+WHERE dname LIKE '%A%'
+AND loc LIKE '%C%';
+-- 2. 요청값(입력) : dname, loc
+-- 3. 출력(list) : deptno(부서번호), dname(부서명), loc(부서위치)
+-- 4. class Dept
+/*
+ * 		private int deptno;
+ * 		private String  dname;
+ * 		private String  loc;
+ * 		// 생성
+ * 		// set/getXXX()
+ * 5. class DeptDao{
+ * 		public 리턴타입 메서드명(매개변수){
+ * 			//
+ * 			String sql = "";
+ * 			return ;
+ *      }
+ * 
+ * }
+ **/
+	
+--
 

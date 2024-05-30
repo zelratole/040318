@@ -40,9 +40,7 @@
 <body>
 <div class="jumbotron text-center">
   <h2>보너스 등록</h2>
-
 </div>
-
 <div class="container">
 	<form method="post">
 	<%-- --%>
@@ -56,7 +54,7 @@
 		<div class="input-group-prepend ">
 			<span class="input-group-text  justify-content-center">사원 아이디</span>
 		</div>
-		<input type="text" name="employee_id" class="form-control" value="" />			
+		<input type="text" name="employee_id" class="form-control" value="0" />			
 	</div>		
 	<div class="input-group mb-3">	
 		<div class="input-group-prepend ">
