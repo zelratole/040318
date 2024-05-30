@@ -20,7 +20,9 @@
 <link rel="stylesheet" href="${path}/a00_com/bootstrap.min.css" >
 <link rel="stylesheet" href="${path}/a00_com/jquery-ui.css" >
 <style>
-	td{text-align:center;}
+	.input-group-text{width:100%;background-color:linen;
+		color:black;font-weight:bolder;}
+	.input-group-prepend{width:20%;}
 </style>
 <script src="${path}/a00_com/jquery.min.js"></script>
 <script src="${path}/a00_com/popper.min.js"></script>
