@@ -48,12 +48,15 @@
 <jsp:useBean id="dao" class="backweb.a04_database.A06_BonusDao"/>
 <jsp:useBean id="ins" class="backweb.vo.Bonus"/>
 <jsp:setProperty property="*" name="ins"/>
-<c:if test="${not empty param.bounus_id}">
+<c:if test="${not empty param.bonus_id}">
 	<c:set var="insCnt" value="${dao.bonusInsert(ins)}"/>
 	<script type="text/javascript">
+		
 		var insCnt = ${insCnt};
+		
+		alert(insCnt)
 		if(insCnt>0){
-			if(confirm("등록 성공!\n메인화면으로 이동하시겠습니까?"))){
+			if(confirm("등록 성공!\n메인화면으로 이동하시겠습니까?")){
 				location.href='a01_bonusList.jsp'
 			}
 		}
@@ -61,7 +64,7 @@
 </c:if>
 <div class="container">
 	<form method="post">
-	<%-- --%>
+	<%-- bonus_id employee_id bonus_amount bonus_dateStr--%>
 	<div class="input-group mb-3">	
 		<div class="input-group-prepend ">
 			<span class="input-group-text  justify-content-center">보너스 아이디</span>

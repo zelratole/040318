@@ -4,6 +4,7 @@ import java.util.Date;
 // backweb.a04_database.A06_BonusDao  bonusInsert(Bonus ins)
 // backweb.vo.Bonus
 public class Bonus {
+	// bonus_id employee_id bonus_amount bonus_dateStr
 	private int bonus_id;
 	private int employee_id;
 	private int bonus_amount;

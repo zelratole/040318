@@ -44,6 +44,7 @@ public class A06_BonusDao {
 	public int bonusInsert(Bonus ins) {
 		// 1. 조회하여 결과를 리턴할 객체를 선언한다.(select문에 의한 결과값을 리턴할 내용)
 		int cudCnt = 0;
+		// bonus_id employee_id bonus_amount bonus_dateStr
 		// 2. 사용되는 sql 구문을 처리한다.
 		String sql = "INSERT INTO bonus10 values(?,?, ?, to_date(?,'YYYY-MM-DD' ))  ";
 		// 3. 본격적으로 연결/대화/결과/자원해제예외처리..

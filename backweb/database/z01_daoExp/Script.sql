@@ -337,7 +337,7 @@ AND loc LIKE '%%';
  **/
 	
 --
-SELECT * FROM bonus10;
+SELECT * FROM bonus10 ORDER BY bonus_id;
 INSERT INTO bonus10 values(26,1000, 3000, to_date('2024-05-30','YYYY-MM-DD' ));
 /*
 INSERT INTO bonus10 values(?,?, ?, to_date(?,'YYYY-MM-DD' )) 
