@@ -20,4 +20,12 @@ A06_BonusDao.java
 webapp/a10_bonus/a01_bonusList.jsp
 webapp/a10_bonus/a02_bonusInsert.jsp
 webapp/a10_bonus/a03_bonusDetail.jsp
--- ~12:30  10분 마다 에러 나오는 내용 간략하게 풀이 진행.. 조장님께 에러나올 때, 실시간으로 전달해주세요...
+
+1. 파일 생성
+------------------------------
+2. DB 생성
+3. sql 확인
+	1) 조회
+4. VO 생성 Bonus
+5. Dao 조회 기능 메서드 만들기..
+	

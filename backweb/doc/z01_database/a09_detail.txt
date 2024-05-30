@@ -9,7 +9,7 @@
 		SELECT *
 		FROM EMP05
 		WHERE empno=7369;
-		-- 요청값 ?empno=7360 ==> Dao getEmpno(int empno) ==> Emp(데이터가 담긴)
+		-- 요청값 ?empno=7360 ==> Dao Emp getEmpno(int empno) ==> Emp(데이터가 담긴)
 2. 상세 내용 처리를 위한 파일 정리
 	1) 사원 정보 기준
 		- dao
