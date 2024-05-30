@@ -49,9 +49,7 @@
 	    <input placeholder="시작" name="start" value=""  class="form-control mr-sm-2" />
 	    <input placeholder="마지막" name="end"  value="" class="form-control mr-sm-2"/>
 	    <button class="btn btn-info" type="submit">Search</button>
-	    <button class="btn btn-success" 
-	    	data-toggle="modal" data-target="#exampleModalCenter"
-	        type="button">등록</button>
+	    <button class="btn btn-success" type="button">등록</button>
  	</nav>
 	</form>
    <table class="table table-hover table-striped">
@@ -60,7 +58,6 @@
    	<col width="25%">
    	<col width="25%">
     <thead>
-    보너스아이디, 사원아이디, 보너스량, 보너스날짜
       <tr class="table-success text-center">
         <th>보너스아이디</th>
         <th>사원아이디</th>

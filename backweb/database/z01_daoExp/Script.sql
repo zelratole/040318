@@ -285,11 +285,13 @@ SELECT *
 FROM bonus10
 WHERE bonus_id = 1; 
 /*
-private int bounus_id;
-private int employee_id;
-private int bounus_amount;
-private Date bounus_date;
 
+	private int bonus_id;
+	private int employee_id;
+	private int bonus_amount;
+	private Date bonus_date;
+	
+	
 
  * */
 
