@@ -262,4 +262,7 @@ insert into DEPARTMENTS01 values(?,?,?,?)
 
  * */
 insert into DEPARTMENTS01 values(11,'인사',100,1700);
-
+SELECT *
+FROM EMP05
+WHERE empno=7369;
+-- 요청값 ?empno=7360 ==> Dao getEmpno(int empno) ==> Emp(데이터가 담긴)

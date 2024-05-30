@@ -80,6 +80,7 @@
     </tbody>
 	</table>    
     <script>
+    	// <tr onclick="goPage(${emp.empno})">
     	function goPage(empno){
     		location.href="a03_empDetail.jsp?empno="+empno;
     	}

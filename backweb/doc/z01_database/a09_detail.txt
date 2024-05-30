@@ -1,0 +1,64 @@
+# 데이터베이스 상세 처리..
+1. 상세 내용 처리를 위한 프로세스 정리
+	1) 전체 데이터 리스트 화면에서 특정한 행단위 클릭
+			
+	
+	2) 특정 행단위 클릭의 키값에 의해 상세화면 전환
+		요청페이지?empno=1000  형식으로 get방식으로 전달하여 전환
+	3) 데이터 측면에서 처리 부분..	 
+		SELECT *
+		FROM EMP05
+		WHERE empno=7369;
+		-- 요청값 ?empno=7360 ==> Dao getEmpno(int empno) ==> Emp(데이터가 담긴)
+2. 상세 내용 처리를 위한 파일 정리
+	1) 사원 정보 기준
+		- dao
+			데이터키를 받아서 Emp 객체 전달 메서드
+			backweb.a04_database.A04_EmpDao
+				public Emp getEmp(int empno) {}
+		- view(화면단)
+			a01_empList.jsp
+			a03_empDetail.jsp	
+3. 상세 내용 핵심 코드 내용 및 에러 점검 내용
+	1) 페이지 전환시 처리 코드.(row단위 데이터를 클릭시 상세화면 이동
+		// <tr ondblclick="goPage(${emp.empno})">
+    	function goPage(empno){
+    		// a03_empDetail.jsp?empno=7499
+    		location.href="a03_empDetail.jsp?empno="+empno;
+    		a03_empDetail.jsp로 이동하면서 요청값을 empno를 전달..
+    				a03_empDetail.jsp?empno=7934				
+    		ex)
+    		A.jsp 					==> 				B.jsp
+    		<form action="B.jsp"	B.jsp?age=25		${param.age}
+    			<input name="age"						request.getParameter("age")
+    			<input type="submit"
+    		show.jsp?name=홍길동&age=25&loc=서울           show.jsp
+    													request.getParameter("name")
+    													request.getParameter("age")
+    													request.getParameter("loc")
+    													${param.name}
+    													${param.age}
+    													${param.loc}
+    	}
+    2) 요청값을 받아서 데이터베이스 기능메서드 호출, 다시 상세 데이터 받기
+    	- useBean 활용(dao 접근)
+    	<jsp:useBean id="dao" class="backweb.a04_database.A04_EmpDao"/>
+    	==> A04_EmpDao dao = new A04_EmpDao();
+    	----------
+    	- 기능 메서드를 통해 emp객체 할당
+		<c:set var="emp" value="${dao.getEmp(param.empno)}"/>
+		==> Emp emp = dao.getEmp(request.getParameter("empno")); 
+			// 요청값받아서 DB에 데이터 메서드에 입력 다시 검색된 결과 Emp 객체에 할당. 
+		- 할당된 내용 상세 화면에 출력
+		<input type="number" name="empno" class="form-control" value="${emp.empno}" />
+		<input type="number" name="ename" class="form-control" value="${emp.ename}" />
+		==> emp.getEmpno(), emp.getEname() 등 호출하며 화면 구성	 
+    	
+
+a03_empDetail.jsp?empno=7369
+1. dao가 있고 
+2. 요청된 값.. empno
+3. dao.getEmp(param.empno) 기능메서드를 통해서 데이터가 입력된 Emp객체를 가져와야 된다.
+4. 객체의 속성을 출력..
+
+4. 개발 순서..
