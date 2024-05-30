@@ -51,6 +51,15 @@ WHERE bonus_amount BETWEEN ? AND ?
 	4) dao에 요청값 처리..
 	5) 조회리스트 for문처리..
 		
+# 등록 처리 진행 해주세요..
+1. 등록 버튼으로 등록화면 이동
+------------------------
+2. 등록 화면 form UI 만들기
+3. 등록 DAO 메서드 추가
+4. 등록 처리 화면(jsp)
+	1) useBean dao
+	2) useBean ins(VO)
+	3) 등록 처리 후, javascript 처리 
 	
 
 

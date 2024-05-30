@@ -52,7 +52,9 @@
 	    <input placeholder="시작" name="start" value="${start}"  class="form-control mr-sm-2" />
 	    <input placeholder="마지막" name="end"  value="${end}" class="form-control mr-sm-2"/>
 	    <button class="btn btn-info" type="submit">Search</button>
-	    <button class="btn btn-success" type="button">등록</button>
+	    <button class="btn btn-success" type="button"
+	    	 onclick="location.href='a02_bonusInsert.jsp'"
+	    >등록</button>
  	</nav>
 	</form>
 <%--
