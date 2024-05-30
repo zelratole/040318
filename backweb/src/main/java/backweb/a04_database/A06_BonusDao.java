@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import backweb.vo.Bonus;
@@ -22,14 +23,13 @@ public class A06_BonusDao {
 					pstmt.setInt(1, start);
 					pstmt.setInt(2, end);
 					try (ResultSet rs = pstmt.executeQuery();) {
-
 						while (rs.next()) {
-							System.out.print(rs.getInt("bounus_id") + "\t");
+							System.out.print(rs.getInt("bonus_id") + "\t");
 							System.out.print(rs.getInt("employee_id") + "\t");
-							System.out.print(rs.getInt("bounus_amount") + "\t");
-							System.out.print(rs.getDate("bounus_date") + "\n");
-							blist.add(new Bonus(rs.getInt("bounus_id") , rs.getInt("employee_id"),
-									rs.getInt("bounus_amount"), rs.getDate("bounus_date")));
+							System.out.print(rs.getInt("bonus_amount") + "\t");
+							System.out.print(rs.getDate("bonus_date") + "\n");
+							blist.add(new Bonus(rs.getInt("bonus_id") , rs.getInt("employee_id"),
+									rs.getInt("bonus_amount"), rs.getDate("bonus_date")));
 						}
 					}
 
@@ -78,7 +78,11 @@ public class A06_BonusDao {
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		A06_BonusDao dao = new A06_BonusDao();
+		for(Bonus b:dao.getBonusList(0, 99999)) {
+			System.out.print(b.getBonus_id()+"\t");
+			System.out.print(b.getEmployee_id()+"\n");
+		}
 	}
 
 }

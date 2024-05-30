@@ -284,7 +284,14 @@ INSERT INTO bonus10 values(16,200,3000,to_date('2024-05-30','YYYY-MM-DD'));
 SELECT *
 FROM bonus10
 WHERE bonus_id = 1; 
+/*
+private int bounus_id;
+private int employee_id;
+private int bounus_amount;
+private Date bounus_date;
 
+
+ * */
 
 
 

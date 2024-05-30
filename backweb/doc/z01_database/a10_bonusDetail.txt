@@ -33,10 +33,10 @@ WHERE bonus_amount BETWEEN ? AND ?
 	2) 등록
 	3) 상섹
 4. VO 생성 Bonus
-private int bounus_id;
-private int employee_id;
-private int bounus_amount;
-private Date bounus_date;
+	private int bounus_id;
+	private int employee_id;
+	private int bonus_amount;
+	private Date bonus_date;
 
 
 ---------------------------

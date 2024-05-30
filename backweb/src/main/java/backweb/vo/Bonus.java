@@ -3,26 +3,26 @@ package backweb.vo;
 import java.util.Date;
 
 public class Bonus {
-	private int bounus_id;
+	private int bonus_id;
 	private int employee_id;
-	private int bounus_amount;
-	private Date bounus_date;
+	private int bonus_amount;
+	private Date bonus_date;
 	public Bonus() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Bonus(int bounus_id, int employee_id, int bounus_amount, Date bounus_date) {
+	public Bonus(int bounus_id, int employee_id, int bonus_amount, Date bonus_date) {
 		super();
-		this.bounus_id = bounus_id;
+		this.bonus_id = bounus_id;
 		this.employee_id = employee_id;
-		this.bounus_amount = bounus_amount;
-		this.bounus_date = bounus_date;
+		this.bonus_amount = bonus_amount;
+		this.bonus_date = bonus_date;
 	}
-	public int getBounus_id() {
-		return bounus_id;
+	public int getBonus_id() {
+		return bonus_id;
 	}
-	public void setBounus_id(int bounus_id) {
-		this.bounus_id = bounus_id;
+	public void setBonus_id(int bonus_id) {
+		this.bonus_id = bonus_id;
 	}
 	public int getEmployee_id() {
 		return employee_id;
@@ -30,18 +30,18 @@ public class Bonus {
 	public void setEmployee_id(int employee_id) {
 		this.employee_id = employee_id;
 	}
-	public int getBounus_amount() {
-		return bounus_amount;
+	public int getBonus_amount() {
+		return bonus_amount;
 	}
-	public void setBounus_amount(int bounus_amount) {
-		this.bounus_amount = bounus_amount;
+	public void setBonus_amount(int bonus_amount) {
+		this.bonus_amount = bonus_amount;
 	}
-	public Date getBounus_date() {
-		return bounus_date;
+	public Date getBonus_date() {
+		return bonus_date;
 	}
-	public void setBounus_date(Date bounus_date) {
-		this.bounus_date = bounus_date;
+	public void setBonus_date(Date bonus_date) {
+		this.bonus_date = bonus_date;
 	}
-	
+
 	
 }
