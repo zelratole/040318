@@ -1,7 +1,8 @@
 package backweb.vo;
 
 import java.util.Date;
-
+// backweb.a04_database.A06_BonusDao  bonusInsert(Bonus ins)
+// backweb.vo.Bonus
 public class Bonus {
 	private int bonus_id;
 	private int employee_id;

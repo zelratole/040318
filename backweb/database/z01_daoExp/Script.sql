@@ -293,15 +293,15 @@ WHERE bonus_id = 1;
 	
 	
 
- * */
-
 부서명:[   ]
 부서위치:[   ][검색]
+ * */
+
 --1 sql
 SELECT *
 FROM dept
 WHERE dname LIKE '%A%'
-AND loc LIKE '%C%';
+AND loc LIKE '%%';
 -- 2. 요청값(입력) : dname, loc
 -- 3. 출력(list) : deptno(부서번호), dname(부서명), loc(부서위치)
 -- 4. class Dept
@@ -312,14 +312,36 @@ AND loc LIKE '%C%';
  * 		// 생성
  * 		// set/getXXX()
  * 5. class DeptDao{
- * 		public 리턴타입 메서드명(매개변수){
- * 			//
+ * 		public List<Dept> getDeptList(String dname, String loc){
+ * 			dname, loc
+ * 		public List<Dept> getDeptList(Dept sch){
+ * 			// sch.getDname(), sch.getLoc()
  * 			String sql = "";
  * 			return ;
  *      }
+ * 		dao.getDeptList("A","B");
+ * 	    dao.getDeptList(new Dept("A","B"));
  * 
  * }
+ * 6. jsp
+ * 	  요청값: [   ][   ]
+ *    요청값 vs dao메서드
+ * 
+ *    리스트 
+ * 	  	
+ * 
+ * 
+ * 
+ * 
+ * 
  **/
 	
 --
+SELECT * FROM bonus10;
+INSERT INTO bonus10 values(26,1000, 3000, to_date('2024-05-30','YYYY-MM-DD' ));
+/*
+INSERT INTO bonus10 values(?,?, ?, to_date(?,'YYYY-MM-DD' )) 
 
+private String bonus_dateStr;
+
+ **/

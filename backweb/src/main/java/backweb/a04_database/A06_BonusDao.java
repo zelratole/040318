@@ -17,8 +17,8 @@ public class A06_BonusDao {
 		 		+ "WHERE bonus_amount BETWEEN ? AND ? \n"
 		 		+ "ORDER BY bonus_id";
 			try (
-					Connection con = DBConn.con(); // main() 에서 테스트용
-					//Connection con = DBconJ.getConnection();  // 웹서버에 로딩 후, 화면 실행시	
+					//Connection con = DBConn.con(); // main() 에서 테스트용
+					Connection con = DBconJ.getConnection();  // 웹서버에 로딩 후, 화면 실행시	
 					PreparedStatement pstmt = con.prepareStatement(sql);) {
 					pstmt.setInt(1, start);
 					pstmt.setInt(2, end);
@@ -50,8 +50,8 @@ public class A06_BonusDao {
 		// 매개변수로 처리할 때 자원해제 처리된다.
 		Connection con2 = null;
 		try (
-			Connection con = DBConn.con(); // main() 에서 테스트용
-			//Connection con = DBconJ.getConnection();  // 웹서버에 로딩 후, 화면 실행시	
+			//Connection con = DBConn.con(); // main() 에서 테스트용
+			Connection con = DBconJ.getConnection();  // 웹서버에 로딩 후, 화면 실행시	
 			PreparedStatement pstmt = con.prepareStatement(sql);) {
 			con2 = con;
 			con.setAutoCommit(false); // auto commit 방지
@@ -63,9 +63,6 @@ public class A06_BonusDao {
 			if (cudCnt > 0) {
 				System.out.println(cudCnt + "건 등록 성공!");
 				con.commit();
-			} else {
-				System.out.println("등록 안 됨");
-				con.rollback();
 			}
 
 		} catch (SQLException e) {

@@ -41,6 +41,24 @@
 <div class="jumbotron text-center">
   <h2>보너스 등록</h2>
 </div>
+<%--
+// backweb.a04_database.A06_BonusDao  bonusInsert(Bonus ins)
+// backweb.vo.Bonus
+ --%>
+<jsp:useBean id="dao" class="backweb.a04_database.A06_BonusDao"/>
+<jsp:useBean id="ins" class="backweb.vo.Bonus"/>
+<jsp:setProperty property="*" name="ins"/>
+<c:if test="${not empty param.bounus_id}">
+	<c:set var="insCnt" value="${dao.bonusInsert(ins)}"/>
+	<script type="text/javascript">
+		var insCnt = ${insCnt};
+		if(insCnt>0){
+			if(confirm("등록 성공!\n메인화면으로 이동하시겠습니까?"))){
+				location.href='a01_bonusList.jsp'
+			}
+		}
+	</script>
+</c:if>
 <div class="container">
 	<form method="post">
 	<%-- --%>
@@ -48,7 +66,7 @@
 		<div class="input-group-prepend ">
 			<span class="input-group-text  justify-content-center">보너스 아이디</span>
 		</div>
-		<input type="number" name="bounus_id" class="form-control" value="0" />	
+		<input type="number" name="bonus_id" class="form-control" value="0" />	
 	</div>	
 	<div class="input-group mb-3">	
 		<div class="input-group-prepend ">
