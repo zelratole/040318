@@ -30,14 +30,45 @@
 <script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-	
+		$("h2").click(function(){
+			//alert("이벤트 호출!!")
+			$.ajax({
+				url:"z04_data.jsp",
+				success:function(data){
+					$("h3").text(data)
+				}
+			})
+		})
+		$("h4").click(function(){
+			$.ajax({
+				url:"z05_data.jsp",
+				success:function(data){
+					$("h5").text(data)
+				}
+			})
+		})
+		$("#btn01").click(function(){
+			$.ajax({
+				url:"z06_data.jsp",
+				success:function(data){
+					$("h6").text(data)
+				}
+			})
+		})
 	});
 </script>
 </head>
 
 <body>
 <div class="jumbotron text-center">
-  <h2>타이틀</h2>
+  <h2>클릭!</h2>
+  <h3></h3>
+  <h4>클릭</h4> <%-- h4 클릭시, 아래로 데이터 출력 --%>
+  <h5></h5> <%--  z05_data.jsp 데이터 출력 --%>
+  <button id="btn01" class="btn btn-info" type="button">페이지 호출</button>
+  <%--버튼을 클릭시, 아래 데이터 출력.. --%>
+  <h6></h6> <%--  z06_data.jsp 데이터 출력 --%>
+  
 
 </div>
 <%-- 
