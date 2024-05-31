@@ -55,20 +55,43 @@
 <div class="jumbotron text-center">
   <h2>사원정보상세(${param.empno})</h2>
 </div>
+<jsp:useBean id="dao" class="backweb.a04_database.A04_EmpDao"/>
 <%-- 
 
 backweb.a04_database.A04_EmpDao, backweb.vo.Emp  getEmp(int empno)
  --%>
-<%--
-수정할 내용 처리
-
- --%>
-
-
+<%--수정할 내용 처리--%>
+<jsp:useBean id="uptEmp" class="backweb.vo.Emp" />
+<jsp:setProperty property="*" name="uptEmp"/>
+<%-- 수정 요청값이 있을 때만 처리가능하게 한다.(주의) : 메인화면에서 empno를 전송 받기 때문에 그 내용과 구분.. --%>
+<c:if test="${param.proc=='upt'}">
+	<c:set var="uptCnt" value="${dao.updateEmp(uptEmp)}"/>
+	<script type="text/javascript">
+		var uptCnt = ${uptCnt}
+		if(uptCnt>0){
+			if( confirm("수정성공!\n메인화면으로 이동하시겠습니까?") ){
+				location.href='a01_empList.jsp'
+			}
+		}else{
+			alert("수정이 되지 않았습니다!")
+		}
+	</script>
+</c:if>
+<%--삭제할 내용 처리
+<c:if test="${param.proc=='del'}">
+	<c:set var="delCnt" value="${dao.deleteEmp(param.empno)}"/>
+	<script type="text/javascript">
+		var delCnt = ${delCnt}
+		if(delCnt>0){
+			alert("삭제 성공!\n메인화면으로 이동합니다")
+			location.href='a01_empList.jsp'
+			
+		}
+	</script>
+</c:if>
+--%>
 <!-- 조회는 마지막에 처리 -->
-<jsp:useBean id="dao" class="backweb.a04_database.A04_EmpDao"/>
 <c:set var="emp" value="${dao.getEmp(param.empno)}"/> 
-
 
 <div class="container">
 	<form method="post">
