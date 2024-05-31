@@ -344,4 +344,8 @@ INSERT INTO bonus10 values(?,?, ?, to_date(?,'YYYY-MM-DD' ))
 
 private String bonus_dateStr;
 
+
  **/
+DELETE 
+FROM bonus10
+WHERE bonus_id = 32;

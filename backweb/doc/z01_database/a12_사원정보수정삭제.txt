@@ -1,0 +1,50 @@
+# 상세화면에서 사원정보 수정 삭제
+1. 기본 진행 프로세스
+	1) 사원정보 상세화면에서 수정할 데이터를 입력 후, 수정 버튼을 클릭시, 수정완료
+		alert()이 뜨고, 수정된 내용을 확인할 수 있다.
+2. 관련 파일 및 처리할 내용
+	1) dao
+		backweb.a04_database.A04_EmpDao
+			수정메서드 public int updateEmp(Emp upt)
+	2) jsp
+		webapp\a08_empList\a03_empDetail.jsp
+3. 처리 순서
+	1) sql 작성
+		update emp05
+			set ename=?,
+			    job=?,
+			    mgr=?,
+			    hiredate=to_date(?,'YYYY-MM-DD'),
+			    sal=?,
+			    comm=?,
+			    deptno=?
+		  where empno=?
+	2) 기능메서드 선언 및 처리..
+		  public int updateEmp(Emp upt){
+		  	  int uptCnt = 0;
+		  	  return uptCnt;
+		  }		
+		  
+	3) jsp 화면단처리
+		- 수정/삭제 proc 구분 선언
+			<input type="hidden" name="proc" value="upt"/>
+			화면에 form요소객체가 보이지 않지만 proc를 판단할 때, 필요하는 요청값 처리..
+		- 수정 버튼 클릭시, 이벤트 처리
+			function updateFun(){
+				$("[name=proc]").val("upt");
+				$("form").submit();
+			}
+		- 요청값에 의해 dao 처리 메서드 호출
+			<c:if test="${param.proc=='upt'}">
+				<c:set var="uptCnt" value="${dao.updateEmp(emp)}"/>
+			</c:if>	
+		- javascript
+			var uptCnt = ${uptCnt}
+			if(uptCnt>0){
+				if(confirm("수정성공\n메인화면으로 이동하시겠습니까?")){
+					location.href="@@@@.jsp";
+				}
+			}	 
+	
+	
+	
