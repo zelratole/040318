@@ -29,20 +29,24 @@
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
 <script type="text/javascript">
-	$(document).ready(function(){
-		$("#btn01").click(function(){
-			var num01Val = $("[name=num01]").val()
-			var num02Val = $("[name=num02]").val()
-			$.ajax({
-				url:"z07_data.jsp",
-				data:"num01="+num01Val+"&num02="+num02Val, 
-				success:function(data){
-					$("#show").text(data)
-				}
-				
-			})
+$(document).ready(function(){
+	$("#btn01").click(function(){
+		var num01Val = $("[name=num01]").val()
+		var num02Val = $("[name=num02]").val()
+		$.ajax({
+			url:"z07_data.jsp",
+			data:"num01="+num01Val+"&num02="+num02Val, 
+			success:function(data){
+				$("#show").text(data)
+			}
+			
 		})
-	});
+	})
+});
+//ex) a06_ajaxForm.jsp   물건가격:[   ] 물건갯수:[  ] [합산] ==> 합산 클릭시     
+// 	z08_data.jsp에  물건가격 : @@@, 물건갯수:@@, 총비용:###을 받아서 
+//  테이블의 tr td안에 표현하세요..
+
 </script>
 </head>
 
