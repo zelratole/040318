@@ -32,7 +32,21 @@
 <script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-	
+		// uptBtn delBtn
+		$("#uptBtn").click( function(){
+			$("[name=proc]").val("upt")
+			if(confirm("수정하시겠습니까?")){
+				$("form").submit();
+			}
+			
+		})
+		$("#delBtn").click( function(){
+			$("[name=proc]").val("del")
+			if(confirm("삭제하시겠습니까?")){
+				$("form").submit();			
+			}			
+		})
+		
 	});
 </script>
 </head>
@@ -45,10 +59,20 @@
 
 backweb.a04_database.A04_EmpDao, backweb.vo.Emp  getEmp(int empno)
  --%>
+<%--
+수정할 내용 처리
+
+ --%>
+
+
+<!-- 조회는 마지막에 처리 -->
 <jsp:useBean id="dao" class="backweb.a04_database.A04_EmpDao"/>
 <c:set var="emp" value="${dao.getEmp(param.empno)}"/> 
+
+
 <div class="container">
 	<form method="post">
+		<input type="hidden" name="proc" value="upt"/>
 	<%-- 사원번호 사원명 직책명 관리자번호 입사일(YYYY-MM-DD), 급여, 보너스, 부서번호  12:10~ --%>
 	<div class="input-group mb-3">	
 		<div class="input-group-prepend ">
