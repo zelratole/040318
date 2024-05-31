@@ -91,8 +91,8 @@ public class A04_EmpDao {
 	public Emp getEmp(int empno) {
 		Emp emp = null;
 		String sql = "SELECT * \r\n" + "	  FROM emp05\r\n" + "   WHERE empno = ?";
-		try ( // Connection con = DBConn.con(); // main() 에서 테스트용
-				Connection con = DBconJ.getConnection(); // 웹서버에 로딩 후, 화면 실행시
+		try (  //Connection con = DBConn.con(); // main() 에서 테스트용
+			  Connection con = DBconJ.getConnection(); // 웹서버에 로딩 후, 화면 실행시
 				PreparedStatement pstmt = con.prepareStatement(sql);) {
 			pstmt.setInt(1, empno);
 			try (ResultSet rs = pstmt.executeQuery();) {
@@ -122,8 +122,8 @@ public class A04_EmpDao {
 				+ "		  where empno=?";
 		
 		Connection con2 = null;
-		try (Connection con = DBConn.con(); // main() 에서 테스트용
-				// Connection con = DBconJ.getConnection(); // 웹서버에 로딩 후, 화면 실행시
+		try (//Connection con = DBConn.con(); // main() 에서 테스트용
+				 Connection con = DBconJ.getConnection(); // 웹서버에 로딩 후, 화면 실행시
 			 PreparedStatement pstmt = con.prepareStatement(sql);) {
 			con2 = con;
 			con.setAutoCommit(false); // auto commit 방지
@@ -161,9 +161,14 @@ public class A04_EmpDao {
 	}
 
 	public static void main(String args[]) {
+		// main()에서 정상 수정 확인 했을 시, Pool 접속으로 변경
 		A04_EmpDao dao = new A04_EmpDao();
+		dao.updateEmp(new Emp(1000,"홍길동2수정","과장",1000,"2024-06-01",5000,100,20));
+		
+		
 		Emp emp = dao.getEmp(1000);
 		System.out.println("단일데이터:" + emp.getEname());
+		System.out.println("단일데이터:" + emp.getJob());
 		/*
 		 * dao.insertEmp(new Emp(1002,"오길동","대리",7601,"2024-05-29",4000,100,10));
 		 * 
