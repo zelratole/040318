@@ -36,9 +36,9 @@
 			$.ajax({
 				url:"z07_data.jsp",
 				data:"num01="+num01Val+"&num02="+num02Val, 
-				// num01=25&num02=30 				 # id=himan&pwd=7777    id[   ] pwd [  ] [로그인]
-				// ==>1) ${param.num01} ${param.num02} 2) <jsp:useBean id="" class="@@@.Calculator" >
-				
+				success:function(data){
+					$("#show").text(data)
+				}
 				
 			})
 		})
@@ -48,7 +48,7 @@
 
 <body>
 <div class="jumbotron text-center">
-  <h2>타이틀</h2>
+  <h2>ajax요청값 처리..</h2>
 
 </div>
 <%-- 
