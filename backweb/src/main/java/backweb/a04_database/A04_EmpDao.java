@@ -124,7 +124,7 @@ public class A04_EmpDao {
 		Connection con2 = null;
 		try (Connection con = DBConn.con(); // main() 에서 테스트용
 				// Connection con = DBconJ.getConnection(); // 웹서버에 로딩 후, 화면 실행시
-				PreparedStatement pstmt = con.prepareStatement(sql);) {
+			 PreparedStatement pstmt = con.prepareStatement(sql);) {
 			con2 = con;
 			con.setAutoCommit(false); // auto commit 방지
 			pstmt.setString(1, upt.getEname());
@@ -137,7 +137,7 @@ public class A04_EmpDao {
 			pstmt.setInt(8, upt.getEmpno());
 			uptCnt = pstmt.executeUpdate();
 			if (uptCnt > 0) {
-				System.out.println(cudCnt + "건 등록 성공!");
+				System.out.println(uptCnt + "건 등록 성공!");
 				con.commit();
 			} else {
 				System.out.println("등록 안 됨");
