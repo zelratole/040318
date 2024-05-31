@@ -160,6 +160,42 @@ public class A04_EmpDao {
 		return uptCnt;
 	}
 
+	public int deleteEmp(int empno) {
+		int uptCnt = 0;
+		String sql = "  delete from  emp05\r\n"
+				+ "		  where empno=?";	
+		Connection con2 = null;
+		try (//Connection con = DBConn.con(); // main() 에서 테스트용
+				 Connection con = DBconJ.getConnection(); // 웹서버에 로딩 후, 화면 실행시
+			 PreparedStatement pstmt = con.prepareStatement(sql);) {
+			con2 = con;
+			con.setAutoCommit(false); // auto commit 방지
+			pstmt.setInt(1, empno);
+			uptCnt = pstmt.executeUpdate();
+			if (uptCnt > 0) {
+				System.out.println(uptCnt + "건 삭제 성공!");
+				con.commit();
+			} else {
+				System.out.println("삭제 안 됨");
+				con.rollback();
+			}
+	
+		} catch (SQLException e) {
+			System.out.println("DB 처리 에러:" + e.getMessage());
+			if (con2 != null) {
+				try {
+					con2.rollback();
+				} catch (SQLException e1) {
+					System.out.println("롤백 예외");
+				}
+			}
+		} catch (Exception e) {
+			System.out.println("일반 에러:" + e.getMessage());
+		}
+	
+		return uptCnt;
+	}
+
 	public static void main(String args[]) {
 		// main()에서 정상 수정 확인 했을 시, Pool 접속으로 변경
 		A04_EmpDao dao = new A04_EmpDao();

@@ -86,6 +86,8 @@ backweb.a04_database.A04_EmpDao, backweb.vo.Emp  getEmp(int empno)
 			alert("삭제 성공!\n메인화면으로 이동합니다")
 			location.href='a01_empList.jsp'
 			
+		}else{
+			alert("삭제되지 않았습니다");
 		}
 	</script>
 </c:if>
