@@ -349,3 +349,31 @@ private String bonus_dateStr;
 DELETE 
 FROM bonus10
 WHERE bonus_id = 32;
+
+
+		update emp05
+			set ename=?,
+			    job=?,
+			    mgr=?,
+			    hiredate=to_date(?,'YYYY-MM-DD'),
+			    sal=?,
+			    comm=?,
+			    deptno=?
+		  where empno=?
+		 ;
+SELECT * FROM emp05;	
+
+		update emp05
+			set ename='홍길동(수정)',
+			    job='대리',
+			    mgr=1000,
+			    hiredate=to_date('2024-05-31','YYYY-MM-DD'),
+			    sal=4500,
+			    comm=1200,
+			    deptno=20
+		  where empno=1000;
+ALTER TABLE emp05
+MODIFY (ename varchar2(50),
+        job varchar2(50));		 
+
+		  
