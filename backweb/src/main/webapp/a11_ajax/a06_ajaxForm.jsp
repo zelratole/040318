@@ -58,7 +58,7 @@
 	<form id="frm01" class="form"  method="post">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 	    <input placeholder="물건가격" name="price"  class="form-control mr-sm-2" />
-	    <input placeholder="내용" name="cnt"  class="form-control mr-sm-2"/>
+	    <input placeholder="갯수" name="cnt"  class="form-control mr-sm-2"/>
 	    <button id="btn" class="btn btn-info" type="button">합산</button>
  	</nav>
 	</form>
