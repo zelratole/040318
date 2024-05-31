@@ -77,7 +77,7 @@ backweb.a04_database.A04_EmpDao, backweb.vo.Emp  getEmp(int empno)
 		}
 	</script>
 </c:if>
-<%--삭제할 내용 처리
+<%--삭제할 내용 처리--%>
 <c:if test="${param.proc=='del'}">
 	<c:set var="delCnt" value="${dao.deleteEmp(param.empno)}"/>
 	<script type="text/javascript">
@@ -91,7 +91,7 @@ backweb.a04_database.A04_EmpDao, backweb.vo.Emp  getEmp(int empno)
 		}
 	</script>
 </c:if>
---%>
+
 <!-- 조회는 마지막에 처리 -->
 <c:set var="emp" value="${dao.getEmp(param.empno)}"/> 
 
