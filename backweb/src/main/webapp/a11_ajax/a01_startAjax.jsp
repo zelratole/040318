@@ -33,7 +33,14 @@
 		$("h2").click(function(){
 			// 1. XMLHttpRequest 객체 생성
 			var xhr = new XMLHttpRequest();
-			alert(xhr)
+			//alert(xhr)
+			// 2. open(get/post방식, "서버자원", 비동기여부) : 비동기일 경우 true, 동기는 false
+			xhr.open("get","z01_data.jsp", false)
+			// 3. 요청값을 호출
+			xhr.send();
+			// 4. 서버에서 결과값을 받음..(결과가 올 때까지 다른 일하지 않음..)
+			alert("서버에서 받은 데이터:"+xhr.responseText)
+			$("h3").text( xhr.responseText )	
 		})
 	});
 </script>
@@ -41,8 +48,8 @@
 
 <body>
 <div class="jumbotron text-center">
-  <h2>클릭하세요!(ajax세계로!!)</h2>
-
+  	<h2>클릭하세요!(ajax세계로!!)</h2>
+	<h3></h3>
 </div>
 <%-- 
 		
