@@ -30,38 +30,36 @@
 <script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-		// jquery ajax cjfl..
-		$("h2").click(function(){
+		// ex)
+		$("#btn01").click(function(){
+			//alert("버튼 클릭!")  {key:val,key,val}
 			$.ajax({
-				url:"z02_data.jsp",
-				type:"get",
-				success:function(data){
-					alert(data)
-					$("h3").text("전송받은데이터:"+data)
-				},
-				error:function(err){
-					console.log(err)
+				url:"z03_data.jsp", // 호출할 자원명 f12으로 javascript 코드 에러도 확인하세요..
+				success:function(data){ // z03_data.jsp 안에 있는 문자열 데이터를 data로 가져온다.
+					$("h3").text(data)		
 				}
-				
-			})			
+			})
 		})
-	});// ex) a03_jqueryAjaxExp.jsp 클릭시 이름 나이 사는곳 정보 출력. f12으로 오류 라인 확인   z03_data.jsp 이름,나이,사는곳
+	});
 </script>
 </head>
 <body>
 <div class="jumbotron text-center">
-  	<h2>jquery로 ajax호출</h2>
-	<h3></h3>
+  <h2>ajax 처리</h2>
+  <h3></h3>
+  <button id="btn02" class="btn btn-info" type="button">두번 호출 버튼</button><%-- z04_data.jsp  --%>
+  <h4></h4>
+  <button id="btn03" class="btn btn-info" type="button">두번 호출 버튼</button><%-- z05_data.jsp  --%>
+  <h5></h5>
+  <button id="btn04" class="btn btn-info" type="button">두번 호출 버튼</button><%-- z06_data.jsp  --%>
+  <h6></h6>
 </div>
-<%-- 
-		
---%>
 <div class="container">
 	<form id="frm01" class="form"  method="post">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 	    <input placeholder="제목" name=""  class="form-control mr-sm-2" />
 	    <input placeholder="내용" name=""  class="form-control mr-sm-2"/>
-	    <button class="btn btn-info" type="submit">Search</button>
+	    <button id="btn01" class="btn btn-info" type="button">ajax 호출 버튼</button>
 	    <button class="btn btn-success" 
 	    	data-toggle="modal" data-target="#exampleModalCenter"
 	        type="button">등록</button>

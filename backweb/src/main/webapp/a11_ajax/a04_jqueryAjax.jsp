@@ -30,28 +30,15 @@
 <script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-		// jquery ajax cjfl..
-		$("h2").click(function(){
-			$.ajax({
-				url:"z02_data.jsp",
-				type:"get",
-				success:function(data){
-					alert(data)
-					$("h3").text("전송받은데이터:"+data)
-				},
-				error:function(err){
-					console.log(err)
-				}
-				
-			})			
-		})
-	});// ex) a03_jqueryAjaxExp.jsp 클릭시 이름 나이 사는곳 정보 출력. f12으로 오류 라인 확인   z03_data.jsp 이름,나이,사는곳
+	
+	});
 </script>
 </head>
+
 <body>
 <div class="jumbotron text-center">
-  	<h2>jquery로 ajax호출</h2>
-	<h3></h3>
+  <h2>타이틀</h2>
+
 </div>
 <%-- 
 		
