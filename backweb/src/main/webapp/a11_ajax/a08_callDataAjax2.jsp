@@ -30,11 +30,13 @@
 <script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-		$("h2").click(function(){
+		$("[name=ename], [name=job]").keyup(function(){
+			//$("h3").text( $("#frm01").serialize() )
+			// form하위에 모든 데이터를 key=value로 전환..
 			$.ajax({
-				url:"z11_data.jsp",
+				url:"z10_data.jsp",
+				data:$("#frm01").serialize(),
 				success:function(data){
-					console.log(data);
 					$("tbody").html(data)
 				}
 			})
@@ -45,41 +47,42 @@
 
 <body>
 <div class="jumbotron text-center">
-  <h2>부서정보 데이터! 나오세요!!</h2>
-
+  <h2>클릭하면 데이터를 선물!!</h2>
 </div>
 <%-- 
+ex) a09_callDepart.jsp// z11_data.jsp
+backweb.a04_database.A05_DepartDao  backweb.vo.Department  
+getDepartmentList()
+
 		
 --%>
 <div class="container">
 	<form id="frm01" class="form"  method="post">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input placeholder="제목" name=""  class="form-control mr-sm-2" />
-	    <input placeholder="내용" name=""  class="form-control mr-sm-2"/>
-	    <button class="btn btn-info" type="submit">Search</button>
-	    <button class="btn btn-success" 
-	    	data-toggle="modal" data-target="#exampleModalCenter"
-	        type="button">등록</button>
+	    <input placeholder="이름" name="ename"  class="form-control mr-sm-2" />
+	    <input placeholder="직책" name="job"  class="form-control mr-sm-2"/>
  	</nav>
 	</form>
    <table class="table table-hover table-striped">
-   	<col width="25%">
-   	<col width="25%">
-   	<col width="25%">
-   	<col width="25%">
+   	<col width="20%">
+   	<col width="20%">
+   	<col width="20%">
+   	<col width="20%">
+   	<col width="20%">
     <thead>
     
       <tr class="table-success text-center">
-        <th>부서아이디</th>
-        <th>부서명</th>
-        <th>관리자</th>
-        <th>위치아이디</th>
+        <th>사원번호</th>
+        <th>사원명</th>
+        <th>직책</th>
+        <th>급여</th>
+        <th>부서번호</th>
       </tr>
     </thead>	
     <tbody>
     </tbody>
 	</table>    
-    
+<%-- a09_call --%>    
 </div>
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">

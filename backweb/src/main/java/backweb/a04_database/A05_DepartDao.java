@@ -12,8 +12,8 @@ import backweb.vo.Emp;
 //  backweb.a04_database.A05_DepartDao  backweb.vo.Department  getDepartmentList(),insertDepartment
 
 public class A05_DepartDao {
-
-	public List<Department> getDepartmentList(String department_name){
+//											 (Department sch)	객체..
+	public List<Department> getDepartmentList(String department_name){ // 문자
 		List<Department> dlist = new ArrayList<Department>();
 		String sql = "SELECT *\r\n"
 					+ "	FROM DEPARTMENTS01\r\n"
