@@ -40,7 +40,18 @@
 			var num01 = $("[name=num01]").val() // 현재 keyup이 일어나는 이벤트 값
 			var num02 = $("[name=num02]").val() // num02의 입력값
 			var queryStr = "num01="+num01+"&num02="+num02;
-			$("h3").text(queryStr)			
+			//$("h3").text(queryStr)
+			$.ajax({
+				url:"z09_data.jsp",
+				data:queryStr, // 요청값을 z09_data.jsp에 전달
+				success:function(data){  // z09_data.jsp에서 다시 전달해 준 내용..
+					$("#show").text(data)
+				}
+				
+
+			})
+			
+			
 		}
 	});
 </script>
@@ -63,28 +74,12 @@
  	</nav>
 	</form>
    <table class="table table-hover table-striped">
-   	<col width="10%">
-   	<col width="50%">
-   	<col width="15%">
-   	<col width="15%">
-   	<col width="10%">
     <thead>
-    
       <tr class="table-success text-center">
-        <th>번호</th>
-        <th>제목</th>
-        <th>작성자</th>
-        <th>작성일</th>
-        <th>조회</th>
+        <th id="show"></th>
       </tr>
     </thead>	
-    <tbody>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
-    </tbody>
 	</table>    
-    
 </div>
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
