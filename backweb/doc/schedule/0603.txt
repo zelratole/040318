@@ -1,0 +1,375 @@
+## jQuery 이벤트처리, AJAX, JSP DAO 연동
+
+### 1. 흥미로운 도입
+jQuery는 웹 개발의 효율성을 극대화하는 도구입니다. 단순한 애니메이션부터 복잡한 서버 통신까지, jQuery는 다양한 
+기능을 제공합니다. 특히 AJAX를 활용한 동적인 웹 애플리케이션 구축은 사용자 경험을 크게 향상시킵니다. 
+이 강의에서는 jQuery의 이벤트 처리, AJAX 통신, 그리고 JSP와 DAO(Data Access Object) 패턴을 
+사용한 서버 연동을 다룹니다. 실무에서 어떻게 이 기술들을 활용할 수 있는지 구체적인 예시와 함께 배워봅시다.
+
+### 2. 학습목표
+- jQuery를 사용하여 다양한 이벤트를 처리할 수 있다.
+- AJAX를 활용하여 서버와 비동기 통신을 구현할 수 있다.
+- JSP와 DAO 패턴을 사용하여 데이터베이스와 상호작용하는 웹 애플리케이션을 개발할 수 있다.
+- 위 기술들을 종합적으로 적용하여 실무에서 사용 가능한 프로젝트를 구축할 수 있다.
+
+### 3. 주요 핵심 키워드와 핵심 개념
+- **jQuery 이벤트 처리**: jQuery의 다양한 이벤트 처리 메서드(`click`, `hover`, `change` 등)를 이해하고 
+	활용하는 방법.
+- **AJAX**: 비동기 자바스크립트와 XML의 약자로, 페이지를 새로 고침하지 않고도 서버와 데이터를 주고받는 기술.
+- **JSP**: Java Server Pages의 약자로, 자바를 사용하여 동적인 웹 페이지를 생성하는 서버 측 기술.
+- **DAO (Data Access Object)**: 데이터베이스와의 상호작용을 캡슐화하는 디자인 패턴으로, 데이터베이스 접근 로직을 
+	분리하여 코드의 재사용성과 유지보수성을 높임.
+
+### 4. 퀴즈문제/토론과제
+
+**퀴즈문제**
+1. jQuery에서 클릭 이벤트를 처리하는 메서드는 무엇인가요?
+   - a) `.hover()`
+   - b) `.click()`
+   - c) `.change()`
+   - d) `.submit()`
+
+2. AJAX의 주요 특징은 무엇인가요?
+   - a) 동기식 통신
+   - b) 서버와 비동기적으로 통신
+   - c) 페이지 새로고침 필요
+   - d) XML만 사용
+
+3. DAO 패턴의 주요 목적은 무엇인가요?
+   - a) 데이터베이스 접근 로직을 UI 코드에 통합
+   - b) 데이터베이스 접근 로직을 분리하여 유지보수성을 높임
+   - c) 데이터베이스 성능을 저하시킴
+   - d) 데이터베이스 없이도 동작
+
+**토론과제**
+- AJAX를 사용한 비동기 통신이 사용자 경험에 미치는 영향은 무엇인가요? 실제 사례를 통해 논의해 봅시다.
+- DAO 패턴을 사용하면 어떤 장점이 있을까요? 예시 프로젝트를 통해 그 필요성을 논의해 봅시다.
+
+### 5. 실무적용사례
+
+**사례 1: 동적인 쇼핑몰**
+- **배경**: A 회사는 동적인 쇼핑몰 웹사이트를 운영하고 있습니다. 고객은 상품 목록을 스크롤하면서 새로운 상품을 
+	로드할 수 있으며, 각 상품에 대해 리뷰를 작성할 수 있습니다.
+- **적용기술**:
+  - **jQuery 이벤트 처리**: 상품 클릭 시 상세 정보 팝업 표시, 리뷰 작성 폼 열기.
+  - **AJAX**: 스크롤 시 새로운 상품을 서버에서 비동기로 가져와 페이지에 추가, 리뷰 작성 시 페이지 새로고침 없이 
+  	서버에 데이터 전송.
+  - **JSP와 DAO 패턴**: 서버 측에서 상품 데이터와 리뷰 데이터를 처리하여 데이터베이스에 저장하고 불러오기.
+
+**사례 2: 실시간 채팅 애플리케이션**
+- **배경**: B 회사는 실시간 채팅 애플리케이션을 개발 중입니다. 사용자 간의 메시지가 실시간으로 반영되며, 
+	채팅 로그가 저장됩니다.
+- **적용기술**:
+  - **jQuery 이벤트 처리**: 메시지 전송 버튼 클릭 시 메시지 전송, 새로운 메시지 수신 시 알림 표시.
+  - **AJAX**: 새로운 메시지를 비동기적으로 서버에 전송하고, 서버에서 새로운 메시지를 실시간으로 받아오기.
+  - **JSP와 DAO 패턴**: 서버 측에서 메시지 데이터를 처리하여 데이터베이스에 저장하고 불러오기.
+
+
+# 조별프로젝트 발표
+1. 11:00 부터 시작 발표순서 1조, 2조, 3조
+2. 조별로 조장방에 발표 자료/소스 올려주시고,
+3. 개인톡으로 발표자료/지난주반영사항(메시지)로 부탁드립니다.
+   1) 피드백/개선사항
+      화면에 대한 전체적 통일성 유지
+      ==> @@, @@@ page
+4. 발표시 정리사항
+	1) 타조발표
+		도입사항정리(개인별정리 및 조장님 취합)
+		3조(1조발표내용)
+		# 홍길동
+		1. @@
+		2. @@
+		질문사항/의문사항
+	2) 본인소속조발표
+		개선사항정리(개인별정리 및 조장님 취합)
+		3조
+		# 홍길동
+		1. @@
+		2. @@
+
+
+# 1조
+1. 초기 화면/개요 조금 여백과 이미지를 활용하여 표현
+2. 설계항목으로 테이블 내용 포함시킴.
+3. 테스트 일정이 너무 많이 잡지 않았는지?
+	1) 개발일정/테스트 일정 적절성/효율적 점검
+		ex) 진행 내용 확인 ==> 단위 테스트는 짧게 
+		통합테스트 마지막 하루 정도
+4. 조회 기능에서 다양한 조회 컬럼, 정렬도 처리할 수 있꼐 UI 처리 필요
+5. 등록시 또는 form 입력시  유효성(공백 또는 형식에 체크에 대한 기술이 필요-화면설계서) 필요 표기(일부)
+
+# 2조
+1. 요구사항을 너무 간략하게 정리했는데 조금은 자세히 서술식(해당 내용으로 화면설계/db설계 기반)으로 처리.
+2. 요구사항/화면설계에 너무 전문적인 코드나 내용이 들어 가 있는 것이 많음. 비전문가인 고객에 이것을 보면서
+	이해할 수 있께 정리 필요
+3. 화면설계서 일부 이 너무 누락되어 있고, 필수부분과 유효성에 대한 설명이 빠진 부분이 많음. 파악해서 보완 필요
+4. 양식은 조금 더 전문적 형식 업그레이드 필요...	
+
+
+
+
+# 3조
+1. X표시 구체적이 이미지 예제 표현
+2. 화면설계서에 유효성/권한에 대한 표시 필요
+3. db설계 물리적설계(실제컬럼) 보다는 논리적설계(한글로 쉽게 이해가능)으로 PPT자료에는 설명 필요..
+	db 설계는 다음 프로젝트 부터 구체적 테이블을 보일 필요없이 erd로만 표현 완료..
+4. 요구사항정의에서 내정보 입력(구체적으로 어떤 자료가 입력되는지 기술 필요) 그 외 다른 수정 삭제 내용도 마챦가지
+5. 워크플로우 일방적을 플로우만 처리 예를 들어 로그인 유효성 CHECK되지 않을 때, 어떤 플로로 처리할 지 기술되지 않음.
+6. 기본 내용에서 무조건 캡쳐보다 피피티에 맞게 재구성 필요 // 전체적인 양식 조금 더 업그레이드 필요..
+
+
+
+1. 사원정보 수정 기능을 구현할 때, 사원 정보가 수정된 후 화면에 표시되는 메시지는 무엇인가요?
+   1) "수정 실패"
+   2) "수정 완료"
+   3) "삭제 완료"
+   4) "조회 완료"
+   
+1. 2) "수정 완료"
+
+2. 사원정보 수정 시, 수정된 내용을 저장하는 메서드는 어느 클래스에 포함되어 있나요?
+   1) webapp\a08_empList\a03_empDetail.jsp
+   2) backweb.a04_database.A04_EmpDao
+   3) webapp\a08_empList\a04_empUpdate.jsp
+   4) backweb.a05_database.A05_DeptDao
+
+2. 2) backweb.a04_database.A04_EmpDao
+
+
+3. 사원정보 수정 SQL문에서 사용되는 데이터 형식 변환 함수는 무엇인가요?
+   1) to_char()
+   2) to_date()
+   3) to_number()
+   4) to_time()
+
+3. 2) to_date() 
+	to_date("2024-12-12", "YYYY-MM-DD")
+	<input name="hiredateStr" value="2024-12-12"/>
+
+
+4. 사원정보 수정 시, 데이터베이스에 수정 사항을 반영하기 위해 호출되는 메서드는 무엇인가요?
+   1) selectEmp(Emp emp)
+   2) insertEmp(Emp emp)
+   3) deleteEmp(int empno)
+   4) updateEmp(Emp emp)
+
+4. 4) updateEmp(Emp emp)
+
+
+5. JSP에서 사원정보 수정 기능을 구현할 때, 수정 버튼 클릭 시 호출되는 JavaScript 함수는 무엇인가요?
+   1) deleteFun()
+   2) insertFun()
+   3) updateFun()
+   4) selectFun()
+
+5. 3) updateFun()
+
+
+6. 로그인 기능을 구현할 때, 로그인 요청에 대해 DB에서 데이터를 조회하는 SQL문의 조건은 무엇인가요?
+   1) id = ? and name = ?
+   2) id = ? and author = ?
+   3) id = ? and pwd = ?
+   4) id = ? and point = ?
+
+6. 3) id = ? and pwd = ?
+
+	select *
+	from member
+	where id=? and pwd=?
+	
+
+
+
+7. 로그인 기능에서 Member 객체에 포함되지 않는 필드는 무엇인가요?
+   1) id
+   2) name
+   3) salary
+   4) point
+
+	memember(id,pwd, name, auth, point)
+
+7. 3) salary
+
+
+8. 로그인 시, 로그인에 성공했을 경우 JSP에서 이동하는 페이지는 무엇인가요?
+   1) 로그인 페이지
+   2) 메인 페이지
+   3) 오류 페이지
+   4) 회원가입 페이지
+
+8. 2) 메인 페이지
+
+
+9. JSP에서 로그인 결과를 처리할 때, JavaScript를 통해 로그인 성공 시 표시되는 메시지는 무엇인가요?
+   1) "로그인 실패\n로그인 다시 하세요"
+   2) "로그인 성공\n메인페이지 이동"
+   3) "등록 성공\n메인페이지 이동"
+   4) "등록 실패\n다시 시도하세요"
+
+9. 2) if(confirm("로그인 성공\n메인페이지 이동"))
+
+
+10. JSP에서 데이터베이스 작업을 수행하기 위해 사용되는 태그는 무엇인가요?
+    1) <jsp:useBean>
+    2) <jsp:include>
+    3) <jsp:forward>
+    4) <jsp:setProperty>
+
+10. 1) <jsp:useBean var ="dao" class="@@@@@.Dao" >
+    
+    
+11. 사원정보 수정 시, 데이터베이스에 적용되는 SQL문에서 empno 필드는 어떤 역할을 하나요?
+    1) 수정할 사원의 유일한 식별자
+    2) 수정할 사원의 이름
+    3) 수정할 사원의 직책
+    4) 수정할 사원의 부서번호
+
+11. 1) 수정할 사원의 유일한 식별자
+	update emp
+		set ename = @@@,
+			job = @@@,
+			...
+	where empno = @@@;
+	delete
+	from emp
+	where empno = @@@;
+	select *
+	from emp
+	where empno = @@@; 
+	유일한 식별자(primary key) : empno : 다른 데이터과 구별이 되고, null 데이터를 입력처리 하지 않을 때..
+
+13. 로그인 기능을 위한 Member 클래스에 포함되지 않는 메서드는 무엇인가요?
+    1) getId()
+    2) getPwd()
+    3) getHireDate()
+    4) getName()
+    
+    **정답: 3) getHireDate()**
+
+14. JSP에서 로그인 요청을 처리할 때, form 요소의 action 속성 값으로 설정되는 페이지는 무엇인가요?
+    1) a03_empDetail.jsp
+    2) login.jsp
+    3) empList.jsp
+    4) index.jsp
+    
+    **정답: 2) login.jsp**
+
+16. JSP에서 DAO 객체를 선언하기 위해 사용되는 태그는 무엇인가요?
+    1) <jsp:setProperty>
+    2) <jsp:useBean>
+    3) <jsp:getProperty>
+    4) <jsp:include>
+    
+    **정답: 2) <jsp:useBean>**
+    
+    <jsp:useBean id="참조변수" class="@@@.클래스명"> : 객체를 생성 
+    Dao dao = new Dao();	
+	
+17. 로그인 기능 구현 시, 사용자의 입력값을 받아 Member 객체에 설정하는 태그는 무엇인가요?
+    1) <jsp:useBean>
+    2) <jsp:forward>
+    3) <jsp:setProperty>
+    4) <jsp:include>
+    
+    **정답: 3) <jsp:setProperty>**
+    요청값 : <input name="id" value="himan"
+    요청값 : <input name="pwd" value="7777"
+    <jsp:useBean> : 요청값을 처리하기 위한 객체 생성.	Member m = new Member();
+    <jsp:setProperty property="*" > :위 입력한 내용을 할당하기 위한 처리	
+    	m.setId(request.getParameter("himan"));
+    	m.setPwd(request.getParameter("himan"));
+    
+    
+    
+
+18. 로그인 결과를 처리할 때, 로그인 실패 시 보여주는 메시지는 무엇인가요?
+    1) "등록 성공\n메인페이지 이동"
+    2) "수정 성공\n메인페이지 이동"
+    3) "로그인 성공\n메인페이지 이동"
+    4) "로그인 실패\n로그인 다시 하세요"
+    
+    **정답: 4) "로그인 실패\n로그인 다시 하세요"**
+
+19. 사원정보 수정 기능에서, 수정된 내용을 반영하는 DAO 메서드가 반환하는 값은 무엇인가요?
+    1) 수정된 행의 개수
+    2) 삭제된 행의 개수
+    3) 삽입된 행의 개수
+    4) 조회된 행의 개수
+    
+    **정답: 1) 수정된 행의 개수**
+    public int updateEmp(Emp upt){
+    	int uptCnt = 0;
+    	uptCnt = stmt.executeUpdate(sql);
+    	// 수정된 갯수를 리턴헤준다.(insert, update, delete);
+    	
+    	return uptCnt;
+    }
+    
+    
+
+
+21. 로그인 기능에서, 사용자가 입력한 id와 pwd를 기반으로 회원 정보를 검색하는 DAO 메서드는 무엇인가요?
+    1) public int selectMember(String id, String pwd)
+    2) public Member login(String id, String pwd)
+    3) public List<Member> findMember(String id, String pwd)
+    4) public Member getMember(String id, String pwd)
+    
+    **정답: 2) public Member login(String id, String pwd)**
+    **정답: 2) public Member login(Member login)**
+
+22. 로그인 성공 시, 사용자의 이름을 session에 저장하는 JSP 태그는 무엇인가요?
+    1) <c:set var="loginName" value="${mem.name}" scope="session"/>
+    2) <jsp:setProperty name="loginName" property="${mem.name}" scope="session"/>
+    3) <jsp:useBean id="loginName" class="${mem.name}" scope="session"/>
+    4) <c:forEach var="loginName" value="${mem.name}" scope="session"/>
+    
+    **정답: 1) <c:set var="loginName" value="${mem.name}" scope="session"/>**
+
+23. JSP에서 데이터베이스에 접근하기 위한 객체를 선언할 때 사용하는 클래스는 무엇인가요?
+    1) Connection
+    2) Statement
+    3) ResultSet
+    4) Dao
+    
+    **정답: 1) Connection**
+
+24. 사원정보 수정 시, 화면에 수정된 내용을 반영하기 위한 JSP 태그는 무엇인가요?
+    1) <c:out value="${emp.name}"/>
+    2) <jsp:forward page="${emp.name}"/>
+    3) <c:if test="${emp.name}"/>
+    4) <jsp:include page="${emp.name}"/>
+    
+    **정답: 1) ${emp.name}으로 바로 출력도 가능. 
+    		<c:out value="${emp.name}"/>**
+
+25. JSP에서 사용자 입력을 처리하기 위해 form 태그 내에 설정해야 하는 속성은 무엇인가요?
+    1) method와 action
+    2) value와 name
+    3) type과 name
+    4) src와 alt
+    
+    **정답: 1) method와 action**
+    	<form method="get/post방식설정", action="해당사이트위치지정"
+    		<input name="전달할key" value="전달할value">
+
+26. DAO 클래스에서 데이터베이스 연결을 해제하기 위해 호출하는 메서드는 무엇인가요?
+    1) close()
+    2) disconnect()
+    3) shutdown()
+    4) terminate()
+    
+    **정답: 1) close()**
+
+27. 사원정보 수정 시, 수정된 데이터를 저장하는 DAO 메서드의 반환값 타입은 무엇인가요?
+    1) String
+    2) boolean
+    3) int
+    4) void
+    
+    **정답: 3) int**
+    
+
+
+
+
+   
