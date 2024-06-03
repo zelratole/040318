@@ -32,7 +32,7 @@
 	$(document).ready(function(){
 		$("h2").click(function(){
 			$.ajax({
-				url:"z10_data.jsp",
+				url:"z11_data.jsp",
 				success:function(data){
 					$("tbody").html(data)
 				}
@@ -44,14 +44,10 @@
 
 <body>
 <div class="jumbotron text-center">
-  <h2>클릭하면 데이터를 선물!!</h2>
+  <h2>부서정보 데이터! 나오세요!!</h2>
 
 </div>
 <%-- 
-ex) a09_callDepart.jsp// z11_data.jsp
-backweb.a04_database.A05_DepartDao  backweb.vo.Department  
-getDepartmentList()
-
 		
 --%>
 <div class="container">
@@ -66,25 +62,23 @@ getDepartmentList()
  	</nav>
 	</form>
    <table class="table table-hover table-striped">
-   	<col width="20%">
-   	<col width="20%">
-   	<col width="20%">
-   	<col width="20%">
-   	<col width="20%">
+   	<col width="25%">
+   	<col width="25%">
+   	<col width="25%">
+   	<col width="25%">
     <thead>
     
       <tr class="table-success text-center">
-        <th>사원번호</th>
-        <th>사원명</th>
-        <th>직책</th>
-        <th>급여</th>
-        <th>부서번호</th>
+        <th>부서아이디</th>
+        <th>부서명</th>
+        <th>관리자</th>
+        <th>위치아이디</th>
       </tr>
     </thead>	
     <tbody>
     </tbody>
 	</table>    
-<%-- a09_call --%>    
+    
 </div>
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">

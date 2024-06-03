@@ -27,7 +27,7 @@ public class A05_DepartDao {
 			pstmt.setString(1, "%" + department_name + "%");
 
 			try (ResultSet rs = pstmt.executeQuery();) {
-				while (rs.next()) {
+				while (rs.next()) { //department_id department_name manager_id location_id
 					System.out.print(rs.getInt("department_id") + "\t");
 					System.out.print(rs.getString("department_name") + "\t");
 					System.out.print(rs.getInt("manager_id") + "\t");
