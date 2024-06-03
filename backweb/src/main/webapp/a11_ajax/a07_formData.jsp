@@ -31,17 +31,17 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		$("[name=num01]").keyup(function(){ // 입력시 이벤트
-			var num01 = $("[name=num01]").val() // 현재 keyup이 일어나는 이벤트 값
-			var num02 = $("[name=num02]").val() // num02의 입력값
-			var queryStr = "num01="+num01+"&num02="+num02;
-			$("h3").text(queryStr)
+			mkQueryStr()
 		})
 		$("[name=num02]").keyup(function(){ // 입력시 이벤트
+			mkQueryStr()
+		})		
+		function mkQueryStr(){
 			var num01 = $("[name=num01]").val() // 현재 keyup이 일어나는 이벤트 값
 			var num02 = $("[name=num02]").val() // num02의 입력값
 			var queryStr = "num01="+num01+"&num02="+num02;
-			$("h3").text(queryStr)
-		})		
+			$("h3").text(queryStr)			
+		}
 	});
 </script>
 </head>
