@@ -51,6 +51,18 @@
 				dataType:"json",
 				success:function(empList){
 					console.log(empList)
+					var addHTML=""
+					$(empList).each(function(idx, emp){
+						addHTML+="<tr>"
+						addHTML+="<td>"+emp.empno+"</td>"
+						addHTML+="<td>"+emp.ename+"</td>"
+						addHTML+="<td>"+emp.job+"</td>"
+						addHTML+="<td>"+emp.sal+"</td>"
+						addHTML+="<td>"+emp.deptno+"</td>"
+						addHTML+="</tr>"
+						
+					})
+					$("tbody").html(addHTML)
 				},
 				error:function(err){
 					console.log(err)
