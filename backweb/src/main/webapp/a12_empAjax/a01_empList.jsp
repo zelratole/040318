@@ -41,9 +41,17 @@
 				return false;
 			}
 		})
+		// 검색 처리 event enter입력시
+		$("[name=ename],[name=job]").keyup(function(event){
+			if(event.key === "Enter"){
+				ajaxSch()
+			}
+		})
+		// 검색 버튼 클릭시..
+		$("#schBtn").click(function(){
+			ajaxSch()
+		})
 		ajaxSch()
-		
-		
 		function ajaxSch(){
 			$.ajax({
 				url:"z01_empList.jsp",
