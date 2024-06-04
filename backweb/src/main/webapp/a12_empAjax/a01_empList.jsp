@@ -41,7 +41,22 @@
 				return false;
 			}
 		})
+		ajaxSch()
 		
+		
+		function ajaxSch(){
+			$.ajax({
+				url:"z01_empList.jsp",
+				data:$("form").serialize(),
+				dataType:"json",
+				success:function(empList){
+					console.log(empList)
+				},
+				error:function(err){
+					console.log(err)
+				}
+			})
+		}
 			
 	});
 </script>
