@@ -32,7 +32,7 @@
 	$(document).ready(function(){
 		$("h2").click(function(){
 			$.ajax({
-				url:"z11_data.jsp",
+				url:"12_JSONdata.jsp",
 				success:function(data){
 					console.log(data);
 					$("tbody").html(data)
@@ -46,29 +46,17 @@
 <body>
 <div class="jumbotron text-center">
   <h2>부서정보 데이터! 나오세요!!</h2>
-
 </div>
-<%-- 
-		
---%>
 <div class="container">
-	<form id="frm01" class="form"  method="post">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input placeholder="제목" name=""  class="form-control mr-sm-2" />
-	    <input placeholder="내용" name=""  class="form-control mr-sm-2"/>
-	    <button class="btn btn-info" type="submit">Search</button>
-	    <button class="btn btn-success" 
-	    	data-toggle="modal" data-target="#exampleModalCenter"
-	        type="button">등록</button>
+	    <input placeholder="부서명입력" name="department_name"  class="form-control mr-sm-2" />
  	</nav>
-	</form>
    <table class="table table-hover table-striped">
    	<col width="25%">
    	<col width="25%">
    	<col width="25%">
    	<col width="25%">
     <thead>
-    
       <tr class="table-success text-center">
         <th>부서아이디</th>
         <th>부서명</th>
