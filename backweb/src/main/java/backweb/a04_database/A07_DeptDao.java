@@ -16,7 +16,7 @@ public class A07_DeptDao {
 		String sql = "SELECT *\r\n"
 				+ "FROM dept01\r\n"
 				+ "WHERE dname LIKE ?\r\n"
-				+ "AND loc LIKE ?";
+				+ "AND loc LIKE ? ORDER BY deptno";
 		if (sch.getDname() == null)
 			sch.setDname(""); // like 키워드 검색으로 초기 전체 처리
 		if (sch.getLoc() == null)
