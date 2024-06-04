@@ -259,6 +259,7 @@ public class A02_Dao {
 		return empList;
 	}
 
+	
 	public Dept01 getDept01(int deptno) {
 		Dept01 d = null;
 		String sql = "SELECT *\r\n" + "FROM dept\r\n" + "WHERE deptno = ? ";

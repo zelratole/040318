@@ -11,6 +11,7 @@ import backweb.vo.Dept;
 import backweb.vo.Emp01;
 
 
+
 public class A03_DaoPool {
 	// request.setAttribute("dao", new A03_DaoPool());
 	public Dept getDeptJ(int deptno) {
