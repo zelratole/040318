@@ -36,10 +36,21 @@
 				data:"department_name="+$(this).val(), 
 				// $(this).val() 해당 이벤트 일어나는 value 전송
 				success:function(data){
-					console.log(data);
+					//console.log(data);
 					var jObj = JSON.parse(data)
 					console.log(jObj)
-					$("tbody").html(data)
+					var addHTML = "";
+					$(jObj).each(function(idx, depart){
+						//console.log(idx)
+						console.log(depart)
+						addHTML+="<tr>"
+						addHTML+="<td>"+depart.department_id+"</td>"
+						addHTML+="<td>"+depart.department_name+"</td>"
+						addHTML+="<td>"+depart.manager_id+"</td>"
+						addHTML+="<td>"+depart.location_id+"</td>"
+						addHTML+="</tr>"
+					})
+					$("tbody").html(addHTML)
 				}
 			})
 		})
