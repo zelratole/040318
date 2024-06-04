@@ -11,6 +11,7 @@ import backweb.vo.Emp;
 
 // backweb.a04_database.A04_EmpDao, getEmpList backweb.vo.Emp  getEmp(int empno)
 public class A04_EmpDao {
+	
 	public List<Emp> getEmpList(Emp sch) {
 
 		List<Emp> empList = new ArrayList<Emp>();
