@@ -10,7 +10,7 @@ import java.util.List;
 import backweb.vo.Department;
 import backweb.vo.Emp;
 //  backweb.a04_database.A05_DepartDao  backweb.vo.Department  getDepartmentList(),insertDepartment
-
+/// A05_DepartDao  getDepartmentList()
 public class A05_DepartDao {
 //											 (Department sch)	객체..
 	public List<Department> getDepartmentList(String department_name){ // 문자

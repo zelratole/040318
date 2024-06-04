@@ -24,6 +24,9 @@ public class Z01_Gson {
 		 String jsonArrStr = gson.toJson(dao.getEmpList(new Emp()));
 		 System.out.println(jsonArrStr);
 		 
+		 
+		 
+		 
 	}
 
 }
