@@ -20,8 +20,8 @@ public class A04_EmpDao {
 			sch.setEname(""); // like 키워드 검색으로 초기 전체 처리
 		if (sch.getJob() == null)
 			sch.setJob(""); //
-		try ( // Connection con = DBConn.con(); // main() 에서 테스트용
-				Connection con = DBconJ.getConnection(); // 웹서버에 로딩 후, 화면 실행시
+		try (  Connection con = DBConn.con(); // main() 에서 테스트용
+				//Connection con = DBconJ.getConnection(); // 웹서버에 로딩 후, 화면 실행시
 				PreparedStatement pstmt = con.prepareStatement(sql);) {
 			pstmt.setString(1, "%" + sch.getEname() + "%");
 			pstmt.setString(2, "%" + sch.getJob() + "%");
