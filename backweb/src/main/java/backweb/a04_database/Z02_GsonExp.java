@@ -14,6 +14,7 @@ public class Z02_GsonExp {
 		String jsonObStr = gson.toJson(prod);
 		System.out.println(jsonObStr);
 		// ex2) A05_DepartDao  getDepartmentList()로 json데이터 만들기
+		//		Gson gson = new Gson();
 		A05_DepartDao dao = new A05_DepartDao();
 		String jsonArrStr = gson.toJson(dao.getDepartmentList(""));
 		System.out.println(jsonArrStr);
