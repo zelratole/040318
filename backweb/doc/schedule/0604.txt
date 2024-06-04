@@ -1,0 +1,359 @@
+### Oracle 함수와 제약사항
+
+#### 1. 흥미로운 도입
+
+Oracle 데이터베이스는 기업에서 데이터 관리에 필수적인 도구입니다. 오늘날의 복잡한 데이터 환경에서 
+Oracle 함수를 활용하여 데이터를 효율적으로 처리하고 관리하는 능력은 매우 중요합니다.
+ 예를 들어, 대규모 금융 기관은 실시간 거래 데이터 분석을 위해 Oracle 함수를 사용하여 빠르고 정확한 결과를 
+ 도출합니다. 이번 학습에서는 이러한 Oracle 함수의 중요성과 제약사항을 탐구해 보겠습니다.
+
+---
+
+#### 2. 학습목표
+
+이 학습을 통해 여러분은 다음을 할 수 있습니다:
+- Oracle 함수의 기본 개념과 다양한 유형을 이해한다.
+- Oracle 함수의 주요 제약사항을 식별하고 설명할 수 있다.
+- 실무에서 Oracle 함수를 효과적으로 활용할 수 있는 능력을 기른다.
+
+---
+
+#### 3. 주요 핵심 키워드와 핵심개념
+
+**핵심 키워드**
+- **Oracle 함수**: 데이터베이스에서 특정 작업을 수행하는 데 사용되는 절차 또는 루틴.
+- **제약사항**: 데이터 무결성과 일관성을 유지하기 위해 데이터베이스 시스템에서 설정하는 규칙이나 조건.
+
+**핵심 개념**
+
+1. **Oracle 함수의 종류**
+   - **단일 행 함수**: 각 행에 대해 하나의 결과를 반환 (예: `UPPER`, `LOWER`, `ROUND`)
+   - **다중 행 함수**: 여러 행을 처리하여 단일 결과를 반환 (예: `SUM`, `AVG`, `COUNT`)
+
+2. **함수 사용 예시**
+   - **문자열 함수**: `UPPER('oracle')` -> `'ORACLE'`
+   - **숫자 함수**: `ROUND(123.456, 2)` -> `123.46`
+   - **날짜 함수**: `SYSDATE` -> 현재 날짜와 시간 반환
+
+3. **제약사항의 종류**
+   - **NOT NULL**: 특정 열에 NULL 값을 허용하지 않음
+   - **UNIQUE**: 열의 모든 값이 유일함을 보장
+   - **PRIMARY KEY**: 테이블에서 각 행을 고유하게 식별
+   - **FOREIGN KEY**: 다른 테이블의 PRIMARY KEY를 참조하여 관계 설정
+
+---
+
+#### 4. 퀴즈문제/토론과제
+
+**퀴즈문제**
+
+1. 다음 중 단일 행 함수가 아닌 것은?
+   - a) `UPPER`
+   - b) `LOWER`
+   - c) `SUM`
+   - d) `ROUND`
+
+2. UNIQUE 제약사항이 설정된 열에 대해 허용되지 않는 값은?
+   - a) NULL 값
+   - b) 중복된 값
+   - c) 0 값
+   - d) 음수 값
+
+**토론과제**
+
+- Oracle 데이터베이스에서 PRIMARY KEY와 UNIQUE 제약사항의 차이점에 대해 토론해 보세요.
+- 실무에서 Oracle 함수와 제약사항을 통해 데이터 무결성을 어떻게 유지할 수 있는지 사례를 들어 설명해 보세요.
+
+---
+
+#### 5. 실무적용사례
+
+**사례 1: 금융 기관의 실시간 거래 분석**
+대형 금융 기관에서는 실시간 거래 데이터를 분석하기 위해 Oracle 함수를 활용합니다. 예를 들어, `SUM` 함수를 사용하여 특정 기간 동안의 총 거래 금액을 계산하고, `AVG` 함수를 사용하여 평균 거래 금액을 도출합니다. 이러한 분석은 금융 기관이 시장 동향을 파악하고 전략을 수립하는 데 중요한 역할을 합니다.
+
+**사례 2: 전자상거래 사이트의 데이터 관리**
+전자상거래 사이트는 다양한 상품 정보를 효율적으로 관리하기 위해 Oracle 제약사항을 설정합니다. `NOT NULL` 제약사항을 사용하여 필수 상품 정보(예: 상품명, 가격 등)가 누락되지 않도록 하고, `FOREIGN KEY` 제약사항을 사용하여 주문 정보가 정확하게 연결되도록 합니다. 이를 통해 데이터 무결성을 유지하고 신뢰할 수 있는 데이터를 제공할 수 있습니다.
+
+
+
+
+
+### 문제 1
+JavaScript의 기본 XMLHttpRequest 객체를 사용하여 서버와 비동기 통신을 하기 위해 가장 먼저 해야 할 일은 무엇인가요?
+a) 데이터 전송
+b) 서버 응답 처리
+c) 요청 객체 생성
+d) 이벤트 리스너 추가
+
+
+
+### 문제 2
+jQuery의 `$.ajax()` 함수에서 `url` 속성은 무엇을 지정하나요?
+a) 데이터의 형식
+b) 서버와 통신할 때 사용할 URL
+c) HTTP 메서드 유형
+d) 성공 콜백 함수
+
+
+### 문제 3
+다음 코드에서 데이터가 성공적으로 가져와졌을 때 실행되는 함수는 무엇인가요?
+```javascript
+$.ajax({
+    url: "data.txt",
+    success: function(data) {
+        console.log(data);
+    }
+});
+```
+a) console.log(data)
+b) success
+c) data.txt
+d) $.ajax
+
+
+
+### 문제 4
+jQuery `$.ajax()` 함수에서 데이터를 전송하기 위해 사용하는 속성은 무엇인가요?
+a) data
+b) method
+c) type
+d) async
+
+
+
+### 문제 5
+다음 코드에서 데이터가 전송되는 방식은 무엇인가요?
+```javascript
+$.ajax({
+    url: "submit.jsp",
+    data: "key1=val1&key2=val2",
+    method: "POST"
+});
+```
+a) GET
+b) POST
+c) PUT
+d) DELETE
+
+
+
+### 문제 6
+다음 jQuery 코드에서 데이터가 서버로 전송되기 전에 데이터를 직렬화하는 함수는 무엇인가요?
+```javascript
+$.ajax({
+    url: "z10_data.jsp",
+    data: $("#frm01").serialize(),
+    success: function(data) {
+        $("tbody").html(data);
+    }
+});
+```
+a) JSON.stringify
+b) .html()
+c) .serialize()
+d) .text()
+
+
+
+### 문제 7
+다음 코드에서 서버로부터 가져온 데이터가 표시되는 위치는 어디인가요?
+```javascript
+$.ajax({
+    url: "z10_data.jsp",
+    data: $("#frm01").serialize(),
+    success: function(data) {
+        $("tbody").html(data);
+    }
+});
+```
+a) `#frm01`
+b) `$("h3")`
+c) `$("tbody")`
+d) `$("#data")`
+
+
+
+### 문제 8
+다음 코드에서 AJAX 요청이 발생하는 이벤트는 무엇인가요?
+```javascript
+$("[name=ename], [name=job]").keyup(function(){
+    $.ajax({
+        url: "z10_data.jsp",
+        data: $("#frm01").serialize(),
+        success: function(data) {
+            $("tbody").html(data);
+        }
+    });
+});
+```
+a) click
+b) submit
+c) keyup
+d) change
+
+
+
+### 문제 9
+다음 중 jQuery `$.ajax()` 함수에서 데이터가 JSON 형식임을 명시하는 옵션은 무엇인가요?
+a) dataType: "xml"
+b) contentType: "application/json"
+c) dataType: "json"
+d) method: "GET"
+
+
+### 문제 10
+다음 코드에서 사용된 JSP 태그 라이브러리는 무엇인가요?
+```jsp
+<c:forEach var="emp" items="${dao.getEmpList(sch)}">
+<tr><td>${emp.empno}</td><td>${emp.ename}</td><td>${emp.job}</td>
+<td>${emp.sal}</td><td>${emp.deptno }</td></tr>
+</c:forEach>
+```
+a) JSTL 코어 라이브러리
+b) fmt 라이브러리
+c) SQL 라이브러리
+d) XML 라이브러리
+
+
+
+
+### 문제 1
+JavaScript의 기본 XMLHttpRequest 객체를 사용하여 서버와 비동기 통신을 하기 위해 가장 먼저 해야 할 일은 무엇인가요?
+a) 데이터 전송
+b) 서버 응답 처리
+c) 요청 객체 생성
+d) 이벤트 리스너 추가
+
+**정답:** c) 요청 객체 생성
+
+### 문제 2
+jQuery의 `$.ajax()` 함수에서 `url` 속성은 무엇을 지정하나요?
+a) 데이터의 형식
+b) 서버와 통신할 때 사용할 URL
+c) HTTP 메서드 유형
+d) 성공 콜백 함수
+
+**정답:** b) 서버와 통신할 때 사용할 URL
+
+### 문제 3
+다음 코드에서 데이터가 성공적으로 가져와졌을 때 실행되는 함수는 무엇인가요?
+```javascript
+$.ajax({
+    url: "data.txt",
+    success: function(data) {
+        console.log(data);
+    }
+});
+```
+a) console.log(data)
+b) success
+c) data.txt
+d) $.ajax
+
+**정답:** b) success
+
+### 문제 4
+jQuery `$.ajax()` 함수에서 데이터를 전송하기 위해 사용하는 속성은 무엇인가요?
+a) data
+b) method
+c) type
+d) async
+
+**정답:** a) data
+
+### 문제 5
+다음 코드에서 데이터가 전송되는 방식은 무엇인가요?
+```javascript
+$.ajax({
+    url: "submit.jsp",
+    data: "key1=val1&key2=val2",
+    method: "POST"
+});
+```
+a) GET
+b) POST
+c) PUT
+d) DELETE
+
+**정답:** b) POST
+
+### 문제 6
+다음 jQuery 코드에서 데이터가 서버로 전송되기 전에 데이터를 직렬화하는 함수는 무엇인가요?
+```javascript
+$.ajax({
+    url: "z10_data.jsp",
+    data: $("#frm01").serialize(),
+    success: function(data) {
+        $("tbody").html(data);
+    }
+});
+```
+a) JSON.stringify
+b) .html()
+c) .serialize()
+d) .text()
+
+**정답:** c) .serialize()
+
+### 문제 7
+다음 코드에서 서버로부터 가져온 데이터가 표시되는 위치는 어디인가요?
+```javascript
+$.ajax({
+    url: "z10_data.jsp",
+    data: $("#frm01").serialize(),
+    success: function(data) {
+        $("tbody").html(data);
+    }
+});
+```
+a) `#frm01`
+b) `$("h3")`
+c) `$("tbody")`
+d) `$("#data")`
+
+**정답:** c) `$("tbody")`
+
+### 문제 8
+다음 코드에서 AJAX 요청이 발생하는 이벤트는 무엇인가요?
+```javascript
+$("[name=ename], [name=job]").keyup(function(){
+    $.ajax({
+        url: "z10_data.jsp",
+        data: $("#frm01").serialize(),
+        success: function(data) {
+            $("tbody").html(data);
+        }
+    });
+});
+```
+a) click
+b) submit
+c) keyup
+d) change
+
+**정답:** c) keyup
+
+### 문제 9
+다음 중 jQuery `$.ajax()` 함수에서 데이터가 JSON 형식임을 명시하는 옵션은 무엇인가요?
+a) dataType: "xml"
+b) contentType: "application/json"
+c) dataType: "json"
+d) method: "GET"
+
+**정답:** c) dataType: "json"
+
+### 문제 10
+다음 코드에서 사용된 JSP 태그 라이브러리는 무엇인가요?
+```jsp
+<c:forEach var="emp" items="${dao.getEmpList(sch)}">
+<tr><td>${emp.empno}</td><td>${emp.ename}</td><td>${emp.job}</td>
+<td>${emp.sal}</td><td>${emp.deptno }</td></tr>
+</c:forEach>
+```
+a) JSTL 코어 라이브러리
+b) fmt 라이브러리
+c) SQL 라이브러리
+d) XML 라이브러리
+
+**정답:** a) JSTL 코어 라이브러리
+
