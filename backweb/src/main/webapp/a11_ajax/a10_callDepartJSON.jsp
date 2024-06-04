@@ -30,9 +30,11 @@
 <script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-		$("h2").click(function(){
+		$("[name=department_name]").keyup(function(){
 			$.ajax({
-				url:"12_JSONdata.jsp",
+				url:"z12_JSONdata.jsp",
+				data:"department_name="+$(this).val(), 
+				// $(this).val() 해당 이벤트 일어나는 value 전송
 				success:function(data){
 					console.log(data);
 					$("tbody").html(data)
