@@ -6,7 +6,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:useBean id="dao" class="backweb.a04_database.A05_DepartDao"/>
+[
 <c:forEach var="dpart" items="${dao.getDepartmentList(param.department_name)}">
-<tr><td>${dpart.department_id}</td><td>${dpart.department_name}</td>
-	<td>${dpart.manager_id}</td><td>${dpart.location_id}</td></tr>
+	{
+	  "department_id":${dpart.department_id}, 
+	  "department_name":"${dpart.department_name}", 
+	  "manager_id":${dpart.manager_id}, 
+	  "location_id":${dpart.location_id}
+	},
 </c:forEach>      
+]
