@@ -58,6 +58,7 @@ public class A04_EmpDao {
 				// Connection con = DBconJ.getConnection(); // 웹서버에 로딩 후, 화면 실행시
 				PreparedStatement pstmt = con.prepareStatement(sql);) {
 			con2 = con;
+			
 			con.setAutoCommit(false); // auto commit 방지
 			pstmt.setInt(1, ins.getEmpno());
 			pstmt.setString(2, ins.getEname());
