@@ -44,6 +44,10 @@ public class A07_DeptDao {
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		A07_DeptDao dao = new A07_DeptDao();
+		for(Dept d:dao.getDeptList(new Dept())) {
+			System.out.println(d.getDname());
+		}
 
 	}
 
