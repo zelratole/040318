@@ -37,10 +37,12 @@
 				// $(this).val() 해당 이벤트 일어나는 value 전송
 				success:function(data){
 					//console.log(data);
-					var jObj = JSON.parse(data)  // json문자열을 json객체로 변환하는 과정..
+					var jArry = JSON.parse(data)  // json문자열을 json객체로 변환하는 과정..
 					console.log(jObj)
-					var addHTML = ""; // 화면에 json데이터를 html태그를 입력하 출력하기 위해 변수 선언..
-					$(jObj).each(function(idx, depart){ // $(배열).each(function(index번호, 단위 객체){})
+					var addHTML = ""; // 화면에 json데이터를 html태그를 입력하 출력하기 위해 변수 선언.. 
+					// for(Emp emp:empList){ emp.getEname()  }
+					// for(Depart depart:jArry){ emp.getEname()  }
+					$(jArry).each(function(idx, depart){ // $(배열).each(function(index번호, 단위 객체){})
 						//console.log(idx)
 						console.log(depart)
 						addHTML+="<tr>"
