@@ -7,12 +7,16 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:useBean id="dao" class="backweb.a04_database.A05_DepartDao"/>
 [
-<c:forEach var="dpart" items="${dao.getDepartmentList(param.department_name)}">
+<c:forEach var="dpart" items="${dao.getDepartmentList(param.department_name)}" 
+	varStatus="sts">
 	{
 	  "department_id":${dpart.department_id}, 
 	  "department_name":"${dpart.department_name}", 
 	  "manager_id":${dpart.manager_id}, 
 	  "location_id":${dpart.location_id}
-	},
+	}
+	<c:if test="${!sts.last}">
+	,
+	</c:if>
 </c:forEach>      
 ]

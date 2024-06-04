@@ -37,6 +37,8 @@
 				// $(this).val() 해당 이벤트 일어나는 value 전송
 				success:function(data){
 					console.log(data);
+					var jObj = JSON.parse(data)
+					console.log(jObj)
 					$("tbody").html(data)
 				}
 			})
