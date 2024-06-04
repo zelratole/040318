@@ -45,7 +45,21 @@ javascript로 데이터를 해당 화면에 맞게 변환하여 처리하는 것
 		속성값 : 문자열인 경우 "사과" 형식으로 숫자형인 경우 25, boolean 인 경우 true/false
 			등으로 처리..		
 			
-			
+# ("#frm01").serialize()
+1. form데이터를 key/value형식으로 자동 변환 시켜주는 유용한 jquery 메서드.
+2. form의 데이터를 서버에 전송할 때, name="key" value="val"으로 되어 있어서,
+	key=val 형식으로 요청값을 전달한다.
+3. 그러나, ajax에서는 data:"key=val&key2=val2" 형식으로 데이터를 전송하여야 서버에 
+	요청값을 전달가능하다.
+4. 이런 형식으로 만들기에 위해 여러가지 선언과 변환 형식을 거져야 하는데, jquery에서는
+	form에 모든 요소들을 name="key" value="val"으로만 되어 있으면 
+	$("#frm01").serialize()로 자동으로 위 요청값 형식으로 변환해준다.
+5. 예시
+	<input name="id" value="himan"/>
+	<input name="pwd" value="7777"/>
+	로 form 안에 선언되어 있으면
+	$("form").serialize()를 통해서 id=himan&pwd=7777 로 가져올 수 있다.
+				
 			
 			
 
