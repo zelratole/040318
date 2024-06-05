@@ -9,7 +9,7 @@ import java.util.List;
 
 import backweb.vo.Dept;
 import backweb.vo.Emp;
-
+// A07_DeptDao  getDeptList backweb.vo.Dept
 public class A07_DeptDao {
 	public List<Dept> getDeptList(Dept sch){
 		List<Dept> dlist = new ArrayList<Dept>();

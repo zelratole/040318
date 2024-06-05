@@ -85,18 +85,31 @@ FROM emp
 WHERE length(job) >=6;
 /*
 # 문자열 추출하여 데이터 조작 처리 함수
-1. substring(데이터/컬럼명, 시작위치(0부터), 시작위치로부터 갯수)
+1. substr(데이터/컬럼명, 시작위치(1부터), 시작위치로부터 갯수)
 	문자열 데이터를 시작위치와 마지막 위치를 기준으로 절삭하여 사용하는 것을 말한다.
 	substr('sql*plus', 5, 4)  index로 5 즉 p부터 시작하여 글자수 4자 즉  plus 라는 문자열을 추출해준다.
  **/
 SELECT substr('sql*plus',5,4) "추출데이터"
 FROM dual;
-
-SELECT empno, ename, substr(ename, 0,3) 이름3,  job, substr(job,1,3) 직책3,
-	hiredate, substr(hiredate,0,8) 입사일
+SELECT *
 FROM emp;
 
+SELECT empno, ename, substr(ename, 1,3) 이름3,  job, substr(job,1,3) 직책3, 
+	hiredate, substr(hiredate,0,8) 입사일
+FROM ;
 
+
+-- ex) substr을 이용해서 job이 특정위치에 MAN인 경우 이거나 GER인 경우를 검색하여 출력하세요..
+SELECT substr(job,6,3) s1, substr(job,5,3) s2,  substr(job,-3,3) s3, job,  e.*
+FROM emp e;
+SELECT ename, job
+FROM emp e
+WHERE substr(job,6,3) = 'MAN'
+OR substr(job,5,3) = 'GER';
+
+SELECT ename, job, substr(job,-3,3) job2
+FROM emp e
+WHERE substr(job,-3,3) in('MAN','GER');
 
 
 

@@ -30,14 +30,54 @@
 <script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-	
+		// form enter키 이벤트 방지..
+		$("form").on("keydown",function(event){
+			if(event.key === "Enter"){
+				// 방지 처리하는 기능 수행..
+				event.preventDefault();
+				return false;
+			}
+		})	
+		$("[name=dname],[name=loc]").keyup(function(event){
+			if(event.key === "Enter"){
+				ajaxSch()
+			}
+		})
+		// 검색 버튼 클릭시..
+		$("#schBtn").click(function(){
+			ajaxSch()
+		})
+		ajaxSch()
+		function ajaxSch(){
+			$.ajax({
+				url:"y01_deptList.jsp",
+				data:$("form").serialize(),
+				dataType:"json",
+				success:function(deptList){
+					var addHTML=""
+					$(deptList).each(function(idx, dept){
+						addHTML+="<tr>"
+						addHTML+="<td>"+dept.deptno+"</td>"
+						addHTML+="<td>"+dept.dname+"</td>"
+						addHTML+="<td>"+dept.loc+"</td>"
+						addHTML+="</tr>"
+						
+					})
+					$("tbody").html(addHTML)
+				},
+				error:function(err){
+					console.log(err)
+				}
+			})
+		}		
+		
 	});
 </script>
 </head>
 
 <body>
 <div class="jumbotron text-center">
-  <h2>타이틀</h2>
+  <h2>부서정보리스트</h2>
 
 </div>
 <%-- 
@@ -46,34 +86,27 @@
 <div class="container">
 	<form id="frm01" class="form"  method="post">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input placeholder="제목" name=""  class="form-control mr-sm-2" />
-	    <input placeholder="내용" name=""  class="form-control mr-sm-2"/>
-	    <button class="btn btn-info" type="submit">Search</button>
+	    <input placeholder="부서명" name="dname"  class="form-control mr-sm-2" />
+	    <input placeholder="부서위치" name="loc"  class="form-control mr-sm-2"/>
+	    <button id="schBtn" class="btn btn-info" type="button">Search</button>
 	    <button class="btn btn-success" 
 	    	data-toggle="modal" data-target="#exampleModalCenter"
 	        type="button">등록</button>
  	</nav>
 	</form>
    <table class="table table-hover table-striped">
-   	<col width="10%">
-   	<col width="50%">
-   	<col width="15%">
-   	<col width="15%">
-   	<col width="10%">
+   	<col width="33%">
+   	<col width="34%">
+   	<col width="33%">
     <thead>
     
       <tr class="table-success text-center">
-        <th>번호</th>
-        <th>제목</th>
-        <th>작성자</th>
-        <th>작성일</th>
-        <th>조회</th>
+        <th>부서번호</th>
+        <th>부서명</th>
+        <th>부서위치</th>
       </tr>
     </thead>	
     <tbody>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
     </tbody>
 	</table>    
     
