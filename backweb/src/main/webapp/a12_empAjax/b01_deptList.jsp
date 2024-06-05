@@ -78,11 +78,7 @@
 <body>
 <div class="jumbotron text-center">
   <h2>부서정보리스트</h2>
-
 </div>
-<%-- 
-# A07_DeptDao.java Dept.java 활용 부서정보 ajax 검색 처리		
---%>
 <div class="container">
 	<form id="frm01" class="form"  method="post">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
