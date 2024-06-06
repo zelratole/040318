@@ -78,8 +78,22 @@ SELECT job, lpad(job,9,'#') 직책lpad
 FROM emp;
 /*
 # ltrim, rtrim, trim
-1. 
+1. trim은 절삭이라는 말로, 오른쪽 또는 왼쪽에 있는 특정한 문자열을 중복해서 삭제 할 때, 사용된다.
+2. 위 lpad, rpad가 가변형을 고정형에 할당할 때, 사용된다면, trim은 고정형을 가변형에 할당할 때, 주로 사용된다. 
+3. 주요 기능 메서드 
+	1) ltrim(데이터, '반복제거할문자') : 왼쪽에 제거할 문자를 없애주는데 반복적으로 처리된다.
+	2) rtrim(데이터, '반복제거할문자') : 오른쪽에 제거할 문자를 없애주는데 반복적으로 처리된다.
+	3) trim('양쪽에 제거할문자' from 데이터) : 왼쪽/오른쪽 끝에 제러할 문자가 있을 때, 한번에 제거 할 때 사용된다.
 **/
+SELECT ltrim('*****sql****', '*') str1,
+	   rtrim('*****sql****', '*') str2,
+	   trim('*' FROM '*****sql****') str3
+FROM dual;
+-- ex) 직책(job)을 기준으로 왼쪽에 'S', 오른쪽에 'N'을 삭제하고 출력하세요..
+SELECT job, ltrim(job, 'S') job1,
+       rtrim(job, 'N') job2,
+       rtrim(ltrim(job, 'S'), 'N') job3
+FROM emp;
 
 
 
