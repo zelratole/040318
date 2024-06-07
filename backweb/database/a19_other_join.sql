@@ -29,4 +29,15 @@ WHERE e.mgr = m.empno;
 SELECT * FROM EMPLOYEES;
 SELECT * FROM DEPARTMENTS ORDER BY DEPARTMENT_ID ;
 --  두개 테이블을 이용해서 부서별로 사원현황을 출력하세요.. (부서가 할당되지 않는 사원도 표현)
+SELECT d.*, e.*
+FROM EMPLOYEES e, DEPARTMENTS d
+WHERE e.DEPARTMENT_ID(+) = d.DEPARTMENT_ID
+ORDER BY d.DEPARTMENT_ID;
+-- 부서별 등록 현황 join 처리(group by 통계치 설정)
+SELECT d.DEPARTMENT_ID, count(e.EMPLOYEE_ID) 건수, 
+		min(e.SALARY) 최저급여, max(e.SALARY) 최고급여
+FROM EMPLOYEES e, DEPARTMENTS d
+WHERE e.DEPARTMENT_ID(+) = d.DEPARTMENT_ID
+GROUP BY d.DEPARTMENT_ID
+ORDER BY d.DEPARTMENT_ID;
 
