@@ -40,4 +40,47 @@ FROM EMPLOYEES e, DEPARTMENTS d
 WHERE e.DEPARTMENT_ID(+) = d.DEPARTMENT_ID
 GROUP BY d.DEPARTMENT_ID
 ORDER BY d.DEPARTMENT_ID;
+/*
+# sub query
+1. where 조건문이나 select 구문에도 쓰는 경우가 있는데, 해당 subquery가 가장 먼저 실행
+	되는 원칙으로 main query에 결과를 처리하는 경우를 말한다.
+2. 예를 들어 가장 급여가 높은 사원 정보를 출력할 때, 가장 높은 급여는 가져올 수 있지만
+	한번에 그 급여에 해당하는 사원 정보는 다시 query를 해야하는 경우를 말한다.
+3. 이때, 가장 높을 급여을 먼저 query 후, select max(sal) from emp
+	이것을 사원 정보에 대입 처리
+	select *
+	from emp
+	where sal = ( salect max(sal) from emp );
+4. 이렇게 query안에 query를 처리하여 원하는 데이터를 처리하는 것을 subquery라고 한다.
+5. 결과 값이 2개 이상 일 때는 in 구문을 사용한다.		 
+ * */
+--SELECT max(sal), e.*
+--FROM emp e;
+
+SELECT *
+FROM emp
+WHERE sal = (SELECT max(sal) FROM emp ); -- 가장 급여가 높은 사원정보
+-- 부서별 최고급여자 정보
+SELECT *
+FROM emp
+WHERE (deptno, sal) in( SELECT deptno, max(sal) 
+						FROM emp GROUP BY deptno )
+ORDER BY deptno;	
+-- ex1) 가장 최근에 입사한 사원정보를 employees 기준으로 출력하세요.
+-- ex2) job_id(직책)별 최저 급여자 사원정보 출력(employees)
+SELECT * FROM EMPLOYEEs;
+SELECT *
+FROM EMPLOYEES e 
+WHERE HIRE_DATE  = (SELECT max(HIRE_DATE) FROM EMPLOYEES  );
+SELECT *
+FROM EMPLOYEES e 
+WHERE (JOB_ID, SALARY) in(
+	SELECT JOB_ID, min(SALARY)
+	FROM EMPLOYEES e2 
+	GROUP BY job_id
+);
+
+
+
+
 
