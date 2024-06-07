@@ -50,6 +50,13 @@ FROM emp
 GROUP BY deptno
 ORDER BY deptno;
 
-
+-- 그룹함수에 의해 나타난 결과를 조건 처리할 때 사용하는 having
+-- 부서별 최고 급여에서 최고 급여를 3000이상인 경우만 검색시 having 그룹함수의 조건식
+SELECT job, max(sal)
+FROM emp
+GROUP BY job
+HAVING max(sal)>=3000
+ORDER BY job;
+-- ex) 
 
 
