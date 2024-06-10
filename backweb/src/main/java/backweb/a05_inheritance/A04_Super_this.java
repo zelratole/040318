@@ -75,7 +75,6 @@ public class A04_Super_this {
 //		Person p02 = new Person("홍길동");
 		Person p03 = new Person("홍길동",25,"서울");
 	}
-
 }
 class Person{
 	private String name;
