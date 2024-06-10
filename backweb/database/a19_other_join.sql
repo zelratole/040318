@@ -13,6 +13,10 @@
 		사원테이블 안에서 empno와 mgr은 내부적으로 계층관계에 의해 join관계가 있다. 즉, 관리자
 		컬럼(mgr)의 이름을 알고자 한다면  mgr의 empno를 확인하고 그 행의 ename을 확인하여야 한다.
 		이때, self join이라는 개념을 감안하여 sql을 작성하여야 한다.
+	4) non equi join : equi join은 두개의 테이블간의 공통되는 컬럼데이터를 기준으로 조인을 한다면
+		non equi join은 해당 컬럼에서 동일한 데이터를 기준으로 하는 것이 아니라 특정함 범위로 join
+		할 때, 사용된다. 사원정보(emp) 테이블의 sal와  salgrade테이블의 losal과 hisal은 동일한
+		내용이 아니라 범위로 join 관계를 설정하는 것을 볼 수 있다.	
 **/
 -- outer 조인
 SELECT d.*, e.deptno, e.empno, e.ename
@@ -80,7 +84,20 @@ WHERE (JOB_ID, SALARY) in(
 	GROUP BY job_id
 );
 
+--# non equi join
+--  급여를 등급별로 확인하기..
+SELECT * 
+FROM SALGRADE;
+SELECT ename, sal
+FROM emp;
+SELECT ename, sal, grade, losal, hisal
+FROM emp, salgrade
+WHERE sal BETWEEN losal AND hisal;
 
+SELECT first_name, SALARY 
+FROM EMPLOYEES;
+-- ex) employees 테이블에 salary를 확인하여 4분위로 적절하게 등급이 나뉜 테이블을 만들고,
+--  empsalgrade
 
 
 
