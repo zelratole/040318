@@ -43,11 +43,34 @@ public class A03_PolyMorphism {
 		e1.working();
 		e2.working();
 		/*ex1) Manager 클래스를 선언하고 인력을 관리하다 재정의 다형성으로 처리하고
-		 *ex2) Instrument play()연주를 하다를 통해 하위 Piano, Guitar에서 재정의하여 다형성 처리하는 형태로 구현해보세요  */
+		 *ex2) Instrument play()연주를 하다를 통해 하위 Piano, Guitar 에서 재정의하여 다형성 처리하는 형태로 구현해보세요  */
 		Employee e3 = new Manager();
 		e3.working();
+		Instrument[] arry = { new Piano(),new Guitar() };
+		System.out.println("# 다형성을 이용한 기계 #");
+		for(Instrument ins:arry) {
+			ins.play();
+		}
 	}
 }
+class Instrument{
+	void play() {
+		System.out.println("악기를 연주하다!");
+	}
+}
+class Piano extends Instrument{
+	void play() {
+		System.out.println("피아노를 연주하다!");
+	}
+}
+class Guitar extends Instrument{
+	void play() {
+		System.out.println("기타를 연주하다!");
+	}
+}
+
+
+
 class Employee{
 	void working() {
 		System.out.println("직원이 일을 하다.");
