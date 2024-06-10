@@ -26,6 +26,27 @@
  * 			emp계정의 조회권한을 new_user에게 부여한다.
  * 		grant resource to new_user;  자원의 사용 권한 부여(테이블 생성 수정 삭제, 조회등 일반
  * 			적인 모든 권한 부여)
+ * 
+# 조별 프로젝트 진행 공통 DB서버 설정 절차
+1. 조원 중에 하나의 PC 또는 남는 PC에 DB서버(oracle를 설치한다)
+2. 관리자 계정으로 아래와 같이 공통을 사용할 DB 서버의 게정을 만든다.
+GRANT CONNECT,RESOURCE,UNLIMITED TABLESPACE TO 계정명 IDENTIFIED BY 비밀번호;
+ALTER USER 계정명 DEFAULT TABLESPACE USERS;
+ALTER USER 계정명 TEMPORARY TABLESPACE TEMP;
+CONNECT 계정명/비번호
+사용할 테이블 생성 및 샘플데이터 입력.
+주의) 계정은 대소문자 구별을 하지 않으나 비밀번호는 대소문자를 구분한다.
+3. 서버의 ip 주소 확인
+   cmd ==> ipconfig ==> 192.168.0.17 주소 확인
+4. 방화벽 설정해제
+	https://m.blog.naver.com/devch/220790632382
+	
+5. 외부에서 DB접속 툴(자바프로그램으로 해당 서버 접속 확인	
+	
+ex) 조별 특정 서버를 만들고 계정을 만든 후, 정상적으로 처리되는 것 확인했으면 손들기.
+	
+
+ * 
  * */
 
 
