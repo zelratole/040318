@@ -22,5 +22,10 @@
  *  4) 기타 권한 부여
  * 		grant create table to new_user;
  * 		grant create view to new_user;
- * 
+ * 		grant select on emp to new_user;
+ * 			emp계정의 조회권한을 new_user에게 부여한다.
+ * 		grant resource to new_user;  자원의 사용 권한 부여(테이블 생성 수정 삭제, 조회등 일반
+ * 			적인 모든 권한 부여)
  * */
+
+
