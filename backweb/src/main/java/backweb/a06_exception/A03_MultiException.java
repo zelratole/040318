@@ -29,7 +29,9 @@ public class A03_MultiException {
 		String name = null;
 		System.out.println("시작");
 		try {
+			// 예외는 발생할 시, 바로 catch 블럭에 던져지기에 아래 코드는 수행되지 않는다.
 			System.out.println(name.toString());
+			
 			System.out.println(args[0]);
 			System.out.println(1/0);
 		}catch(NullPointerException e) {
