@@ -10,6 +10,16 @@ public class A07_Abstract {
 포함할 수 있으면, 이 추상 메서드는 서브 클래스에서 반드시 구현해야 합니다.
 2. 추상 클래스는 공통의 속성과 동작을 정의하고, 이를 상속받는 서브 클래스들이
 구체적인 동작을 구현하도록 강제하는 데 사용됩니다.
+## 상위 클래스에 공통 기능메서드가 있고, 하위 클래스 기능적으로 분리해야하는 메서드(재정의)
+가 있을 때, 굳이 상위에서 선언할 필요는 없지만, 반드시 하위에서 재정의 메서드가 필수적으로
+필요할 때, 사용된다. ==> 하위클래스는 필수적으로 재정의할 메서드가 있으므로 메서드 통일을 유지할 
+수 있다.
+ex) Compart 클래스와 이를 상속받은 Ram, Cpu, Ssd 등이 있을 때, Compart는 굳이 기능을
+메서드는 선언할 필요가 없지만 하위 클래스에서는 operation()이라는 메서드를 통해서 기능적인
+다양한 내용을 재정의할 필요가 있을 때, 추상클래스를 사용한다.
+
+
+
 3. 추상클래스의 특징
 	1) 추상클래스는 인스턴스화할 수 없다.
 		추상클래스 참조변수 =  new 추상클래스(); (X)
@@ -47,7 +57,9 @@ abstract class Worker02{
 	Worker02(String kind){
 		this.kind = kind;
 	}
+	// 재정의할 내용
 	abstract void working();
+	// 공통으로 사용할 기능..
 	void goWork() {
 		System.out.println(kind+" 출근을 합니다!");
 	}
@@ -58,12 +70,13 @@ abstract class Worker02{
 class PoliceMan02 extends Worker02{
 	PoliceMan02() {
 		super("경찰관");
-		// TODO Auto-generated constructor stub
 	}
+	// 추상클래스를 선언하면 정의된 추상메서드를 재정의하지 않으면 컴파일 에러
+	// 발생 ==> 강제화..
 	@Override
 	void working() {
 		System.out.println(getKind()+" 도둑을 잡다");
-	}
+	}	
 }
 class Programmer extends Worker02{
 	Programmer() {

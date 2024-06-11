@@ -30,6 +30,7 @@ public class A03_PolyMorphism {
 		
 		이 때문에, 동일한 메서드를 호출할지라도 재정의(다르게 정의된 내용)때문에
 		다양한 기능을 처리할 수 있다.
+		
 	3) 호출 형식2
 		상위클래스[] arry = {new 하위클래스1(),new 하위클래스2(), new 하위클래스3()};
 		List<상위클래스> list = new ArrayList<상위클래스>();
@@ -37,6 +38,35 @@ public class A03_PolyMorphism {
 		for(상위클래그 참조:arry){
 			arry.재정의메서드()
 		}
+	# 실무에서 구조적으로 처리할 때, 
+		class Computer{
+			List<ComPart> list = new ArrayList<Compart>();
+			void addPart(Compart com){
+				list.add(com);
+			}
+		}
+		main()
+		// 상위 = 하위 : 상속에 의해서 가능..
+		com.addPart(new Cpu());
+		com.addPart(new Ram());
+		com.addPart(new Ssd());
+		class Compart{
+			void operation(){} // 재정의할 내용
+		}
+		class Cpu extends Compart{
+			void operation(){ 중앙처리를 하다....} 
+		}
+		class Ram extends Compart{
+			void operation(){ 메인 ram메모리를 할당 하다....} 
+		}		
+		class Ssd extends Compart{
+			void operation(){ 하드 메모리를 할당 하다....} 
+		}			
+		
+		
+		
+		
+		
  * */	// 상위는 다양한 하위객체로 할당이 가능하다.
 		Employee e1 = new Developer();
 		Employee e2 = new Designer();

@@ -5,6 +5,7 @@ public class A06_Inherit_super_con {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Triangle02 t1 = new Triangle02();
+		// 하위생성자는 super() 매개변수가 없는 상위 생성자를 기본적으로 호출을 지원하고 있다.
 	}
 
 }
@@ -23,12 +24,13 @@ class Triangle02 extends Shape02{
 }
 class Vehicle02{
 	private String kind;
-	Vehicle02(String kind){
+	Vehicle02(String kind){ // default생성자가 존재하지 않음. 매개변수가 1개인 생성자 선언
 		this.kind = kind;
 	}
 }
 class Car02  extends Vehicle02{
 	Car02() {
+//		super() : 호출 불가능..;
 		super("자동차"); // 반드시 상위에 있는 생성자 첫번째 라인에서 호출하여야 한다.
 	}
 }

@@ -18,7 +18,7 @@ public class A01_DBConn {
 		- jdbc드라이버 설정..
 	 * */
 	// static final : 자바에서 상수로 객체 생성없이 바로 상수로 사용할 때 사용
-	private static final String URL="jdbc:oracle:thin:@localhost:1521:xe";
+	private static final String URL="jdbc:oracle:thin:@192.168.0.10:1521:xe";
 	private static final String USERNAME="scott";
 	private static final String PASSWORD="tiger";
 	// 객체를 생성없이 객체들의 공통 메셔드 선언 .static

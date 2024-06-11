@@ -1,6 +1,7 @@
 package backweb.a05_inheritance;
 
 public class A01_Basic {
+	
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

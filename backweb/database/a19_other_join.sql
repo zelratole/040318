@@ -97,7 +97,28 @@ WHERE sal BETWEEN losal AND hisal;
 SELECT first_name, SALARY 
 FROM EMPLOYEES;
 -- ex) employees 테이블에 salary를 확인하여 4분위로 적절하게 등급이 나뉜 테이블을 만들고,
---  empsalgrade
+--  empsalgrade(테이블) grade  losal  hisal
+--                     A등급  @@@           가장높은범위
+--                     ....   
+--  non equi join으로 사원명 급여 등급을 표현하세요..
+SELECT min(SALARY), avg(SALARY), max(SALARY)
+FROM EMPLOYEES;
+
+CREATE TABLE empsalgrade(
+	grade char(1),
+	LOSAL NUMBER,
+	hisal number
+);
+INSERT INTO empsalgrade values('A', 24000,99999);
+INSERT INTO empsalgrade values('B', 7400,23999);
+INSERT INTO empsalgrade values('C', 2201,7399);
+INSERT INTO empsalgrade values('D', 0,2200);
+SELECT * FROM empsalgrade;
+SELECT first_name, salary, grade
+FROM EMPLOYEES, empsalgrade
+WHERE SALARY BETWEEN losal AND hisal;
+
+
 
 
 

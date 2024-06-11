@@ -2,6 +2,7 @@ package backweb.a05_inheritance;
 
 public class A04_Super_this {
 
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 /*
@@ -13,20 +14,22 @@ public class A04_Super_this {
 	2) this.name : 현재 객체의 name 필드 호출..
 		하나의 클래스에서는 보통 매개변수의 이름과 필드의 이름을 구분하기 위하여
 		사용된다.
-		private Strng name;
+		private String name;
 		void setName(String name){
 			this.name = name;
 		}
-	3) 생성자	
+	3) 생성자 : 하나의 생성자를 호출할 때, 이전에 선언된 생성자를 호출해야 할 필요가 있을
+			때, 활용한다.
 		this("홍길동");
 		this()
 		this("홍길동",25,"서울");
 			선언된 생성자를 구분하여 매개변수에 따라서 호출할 때, 사용된다.
+		=============================	
 		Person(){
 			System.out.println("Person객체 생성");
 		}	
 		Person(String name){
-			this(); // 현재 선언된 생성자를 호출..
+			this(); // 현재 선언된 생성자를 호출.. Person()
 			this.name = name;
 		}
 		Person(String name, int age){
@@ -40,11 +43,12 @@ public class A04_Super_this {
  	정의된 구성요소와 상위 클래스에서 구성된 구성요소를 구분할 떄, 주로 
  	this:현재클래스, super:상위클래스로 호출할 때, 사용된다.
  	1) 메서드(재정의시)
+ 	하위클래스 정의
  	void play(){
  		super.play(); // 재정의시, 상위클래스에서도 play가 선언되어 있기에
  					  // super로 상위 클래스를 지정하여 호출할 수 있다.
  	}
- 	2) 생성자(엄청주의******)
+ 	2) 생성자(엄청 주의******)
  		class Worker{
  			private String kind;
  			Worker(String kind){

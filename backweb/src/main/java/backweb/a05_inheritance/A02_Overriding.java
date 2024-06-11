@@ -19,6 +19,7 @@ public class A02_Overriding {
 	3) 반환 타입이 같아야 한다.
 	4) 접근 제한자가 부모 클래스 메서드보다 같거나 더 넓어야 한다.
 		ex) 상위 default 하위 default이상,  상위 public ==> 하위 protected(X)
+		ps) 접근 제어자 범위 : private < default < protected < public
 4. 기본형식
 	상위 클래스{
 		void call(){
@@ -39,13 +40,14 @@ public class A02_Overriding {
 		t1.draw();
 	}
 }
+
 class Worker{
 	void working() {
 		System.out.println("노동자가 일하다.");
 	}
 }
 class PoliceMan extends Worker{
-	void working() {
+	void working() { // 상위 내용을 하위에 동일한 메서드 정의
 		System.out.println("경찰이 도둑을 잡다");
 	}
 }
