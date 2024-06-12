@@ -32,6 +32,7 @@
       ">
 	<bean class="springweb.a01_start.A01_Controller"/>
 	<bean class="springweb.a01_start.A02_Controller"/>
+	<bean class="springweb.a01_start.A03_Controller"/>
 
 </beans>  
 
