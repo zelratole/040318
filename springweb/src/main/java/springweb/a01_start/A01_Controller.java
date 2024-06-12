@@ -12,3 +12,6 @@ public class A01_Controller {
 		return "a01_start.jsp";
 	}
 }
+// A02_Controller.java
+// http://localhost:7080/springweb/second.do
+// webapp 하위에 a02_second.jsp 를 호출 하여 출력되게 하세요..

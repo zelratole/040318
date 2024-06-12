@@ -31,6 +31,7 @@
        http://www.springframework.org/schema/tx/spring-tx.xsd   
       ">
 	<bean class="springweb.a01_start.A01_Controller"/>
+	<bean class="springweb.a01_start.A02_Controller"/>
 
 </beans>  
 
