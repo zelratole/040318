@@ -39,6 +39,10 @@ public class A01_Begin {
 			System.out.println("예외발생코드:"+(2/0));
 		}catch(ArithmeticException e) {
 			System.out.println("예외발생시 에러 잡기:"+e.getMessage());
+		}catch(Exception e) {
+			System.out.println("그외 기타 예외:"+e.getMessage());
+		}finally {
+			System.out.println("정상 처리/예외 처리 모두 다 마지막에 수행할 내용..");
 		}
 		System.out.println("종료");
 		// 2. 예외내용을 복사 : ArithmeticException

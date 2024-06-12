@@ -6,7 +6,29 @@ public class A02_StringConstructor {
 		// TODO Auto-generated method stub
 		for(int cnt=1;cnt<=256;cnt++) {
 			System.out.println(cnt+":"+(char)cnt);
+		}// 48~57, 65~90, 97~122
+		byte [] bts01 = new byte[62];
+		int idx2=0;
+		for(byte cnt= 48;cnt<=122;cnt++) {
+			if(cnt>=48 && cnt<=57) {
+				bts01[idx2++]=cnt;
+			}
+			if(cnt>=65 && cnt<=90) {
+				bts01[idx2++]=cnt;
+			}
+			if(cnt>=97 && cnt<=122) {
+				bts01[idx2++]=cnt;
+			}
 		}
+		String str10 = new String(bts01);
+		System.out.println(str10);
+		byte []tmpPwd = new byte[8];
+		for(byte cnt=0;cnt<8;cnt++) {
+			tmpPwd[cnt] = bts01[(byte)(Math.random()*62)];
+		}
+		System.out.println(new String(tmpPwd));		
+		
+		
 		// (int)(Math.random()*경우의수 + 시작수)
 		// 1~6  : (int)(Math.random()*6 + 1)
 		// 1~3  : (int)(Math.random()*3 + 1)
@@ -32,6 +54,10 @@ public class A02_StringConstructor {
 			rBytes2[idx] = (byte)(Math.random()*26 + 97);
 		}
 		System.out.println("임시비번(소문자4자리):"+new String(rBytes2));
+		
+		
+		
+		
 	}
 
 }

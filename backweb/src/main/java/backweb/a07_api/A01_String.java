@@ -1,5 +1,8 @@
 package backweb.a07_api;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import backweb.vo.Person;
 
 public class A01_String {
@@ -35,8 +38,25 @@ public class A01_String {
 		// 다형성으로 모든 객체를 할당할 수 있다.
 		Object o1 = new Person("홍길동",25,"서울");
 		// 할당한 객체를 해당 객체의 고유 메서드를 사용할려면
+		//  상위 = 하위..
+		//  상위를 선언하면 아 상위를 상속받은 여러 객체 LinkedList, .... 
+		List list01 = new ArrayList();
+		// List<타입> ==> List<Object> : 모든 객체가 할당이 가능 한다..
+		list01.add("사과");
+		list01.add(25);
+		list01.add(new Person());
+		Person p01 = (Person)list01.get(2); 
+		// Object = Person 할당되었으므로 사용하기 위해서는 Casting이 필요하기 
+		// 일반적으로 같은 타입으로 지정해서 해당 객체를 사용한다.
+		List<Person> plist = new ArrayList<Person>();
+//		plist.add("사과");  등록할 때, 해당 타입만 설정이 가능하기에 가져올 때도 타입 캐스팅이
+//		필요없다.
+		plist.add(new Person());
+		Person p02 = plist.get(0);
+		
+		
 		// casting 하여야 한다.
-		Person p01 = (Person)o1;
+		Person p03 = (Person)o1;
 		System.out.println(p01.getName());
 		Object o2 = new String("안녕");
 		System.out.println(o2.hashCode()); // 고유의 hash코드값이 있다..(주소값)

@@ -23,3 +23,191 @@
 
 5. **문제 6: String API **
    - 숫자와 알파벳이 조합된 랜덤 수를 String을 통해서 8자로 만드세요.
+   
+   
+### 개념 문제
+
+1. **예외 처리의 기본 형식**
+
+   ```java
+   try {
+       // 예외가 발생할 가능성이 있는 코드
+   } catch (ExceptionType1 e1) {
+       // ExceptionType1 예외가 발생했을 때 처리할 내용
+   } catch (ExceptionType2 e2) {
+       // ExceptionType2 예외가 발생했을 때 처리할 내용
+   } finally {
+       // 예외 발생 여부와 상관없이 항상 실행될 내용
+   }
+   ```
+
+   - `try`: 예외가 발생할 가능성이 있는 코드를 작성하는 블록입니다.
+   - `catch`: `try` 블록에서 발생할 수 있는 특정 예외를 처리하는 블록입니다. 여러 개의 `catch` 블록을 사용할 수 있습니다.
+   - `finally`: 예외 발생 여부와 상관없이 항상 실행되는 블록입니다. 주로 리소스 해제 등에 사용됩니다.
+
+2. **런타임예외와 컴파일예외의 차이점**
+
+   - **런타임 예외 (Unchecked Exception)**:
+     - `RuntimeException` 클래스와 그 하위 클래스들.
+     - 컴파일러가 예외 처리 여부를 체크하지 않습니다.
+     - 예외 처리를 강제하지 않지만, 프로그램의 논리적 오류를 나타냅니다.
+     - 예: `NullPointerException`, `ArrayIndexOutOfBoundsException`.
+
+   - **컴파일 예외 (Checked Exception)**:
+     - `Exception` 클래스와 그 하위 클래스들, `RuntimeException` 하위 클래스는 제외.
+     - 컴파일러가 예외 처리 여부를 체크합니다.
+     - 반드시 예외 처리를 해야 하며, 그렇지 않으면 컴파일 오류가 발생합니다.
+     - 예: `IOException`, `SQLException`.
+
+3. **사용자 정의 예외 클래스의 기본 형식**
+
+   ```java
+   class CustomException extends Exception {
+       public CustomException(String message) {
+           super(message);
+       }
+
+       @Override
+       public String getMessage() {
+           return super.getMessage();
+       }
+   }
+   ```
+
+   - `CustomException` 클래스는 `Exception` 클래스를 상속받습니다.
+   - 생성자에서 메시지를 받아 부모 클래스 생성자에게 전달합니다.
+   - 필요에 따라 메서드를 재정의할 수 있습니다.
+
+4. **예외 위임**
+
+   예외 위임은 메서드 내에서 발생할 수 있는 예외를 해당 메서드를 호출하는 쪽으로 던지는 방식입니다. 이를 통해 예외 처리를 호출한 메서드 쪽에서 일괄적으로 처리할 수 있습니다.
+
+   ```java
+   public void method1() throws IOException {
+       // 코드
+   }
+
+   public void method2() throws IOException {
+       method1();
+   }
+   
+   public static void main(String[] args) {
+       try {
+           new MyClass().method2();
+       } catch (IOException e) {
+           // 예외 처리
+       }
+   }
+   ```
+
+### 기초 실습 문제
+
+1. **문제 1: 0으로 나누기 예외 처리**
+
+   ```java
+   import java.util.Scanner;
+
+   public class DivisionExample {
+       public static void main(String[] args) {
+           Scanner scanner = new Scanner(System.in);
+           System.out.print("첫 번째 숫자를 입력하세요: ");
+           int num1 = scanner.nextInt();
+           System.out.print("두 번째 숫자를 입력하세요: ");
+           int num2 = scanner.nextInt();
+           
+           try {
+               int result = num1 / num2;
+               System.out.println("결과: " + result);
+           } catch (ArithmeticException e) {
+               System.out.println("오류: 0으로 나눌 수 없습니다.");
+           }
+       }
+   }
+   ```
+
+2. **문제 2: 배열 인덱스 예외 처리**
+
+   ```java
+   import java.util.Scanner;
+
+   public class ArrayIndexExample {
+       public static void main(String[] args) {
+           int[] array = new int[5];
+           Scanner scanner = new Scanner(System.in);
+           System.out.print("인덱스를 입력하세요 (0-4): ");
+           int index = scanner.nextInt();
+
+           try {
+               System.out.println("배열 값: " + array[index]);
+           } catch (ArrayIndexOutOfBoundsException e) {
+               System.out.println("오류: 유효하지 않은 인덱스입니다.");
+           }
+       }
+   }
+   ```
+
+3. **문제 4: 숫자 형식 예외 처리**
+
+   ```java
+   import java.util.Scanner;
+
+   public class NumberFormatExample {
+       public static void main(String[] args) {
+           Scanner scanner = new Scanner(System.in);
+           System.out.print("숫자를 입력하세요: ");
+           String input = scanner.nextLine();
+           
+           try {
+               int number = Integer.parseInt(input);
+               System.out.println("입력한 숫자: " + number);
+           } catch (NumberFormatException e) {
+               System.out.println("오류: 유효한 숫자를 입력하세요.");
+           }
+       }
+   }
+   ```
+
+4. **문제 5: 문자열 길이 예외 처리**
+
+   ```java
+   import java.util.Scanner;
+
+   public class StringLengthExample {
+       public static void main(String[] args) {
+           Scanner scanner = new Scanner(System.in);
+           System.out.print("문자열을 입력하세요: ");
+           String input = scanner.nextLine();
+           
+           try {
+               if (input.length() < 5) {
+                   throw new IllegalArgumentException("문자열의 길이는 5 이상이어야 합니다.");
+               }
+               System.out.println("입력한 문자열: " + input);
+           } catch (IllegalArgumentException e) {
+               System.out.println("오류: " + e.getMessage());
+           }
+       }
+   }
+   ```
+
+5. **문제 6: String API**
+
+   ```java
+   import java.util.Random;
+
+   public class RandomStringExample {
+       public static void main(String[] args) {
+           String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+           StringBuilder randomString = new StringBuilder();
+           Random random = new Random();
+
+           for (int i = 0; i < 8; i++) {
+               int index = random.nextInt(chars.length());
+               randomString.append(chars.charAt(index));
+           }
+
+           System.out.println("랜덤 문자열: " + randomString.toString());
+       }
+   }
+   ```
+
