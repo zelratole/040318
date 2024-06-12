@@ -17,7 +17,7 @@ public class A01_Controller {
 	public String request() {
 		return "WEB-INF\\views\\a01_form\\a01_requestData.jsp";
 	}
-	// request2.do
+	// request2.do?name=홍길동&age=25&loc=서울
 	@RequestMapping("request2.do")
 	public String request2(@RequestParam("name") String name, 
 						   @RequestParam("age") int age,

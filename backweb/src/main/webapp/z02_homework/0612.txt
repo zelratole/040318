@@ -1,0 +1,131 @@
+## 자바 과제
+
+### 문제 1: 문자열 처리
+주어진 문자열 `"Hello, Java World!"`에서 다음을 수행하세요.
+1. 문자열의 길이를 출력하세요.
+2. 문자열에서 `'J'`의 위치를 출력하세요.
+3. 문자열을 `"Hello, Java Universe!"`로 변경하여 출력하세요.
+4. 문자열을 공백(`" "`)을 기준으로 나누어 배열로 출력하세요.
+
+### 문제 2: StringBuffer 사용
+다음의 코드를 작성하여 StringBuffer의 성능을 확인하세요.
+1. `StringBuffer sbf = new StringBuffer("Hello");` 를 사용하여 초기 문자열을 설정하세요.
+2. 루프를 사용하여 문자열 `"Hello"`에 1000번 `" World"`를 추가하세요.
+3. 최종 문자열을 출력하세요.
+
+### 문제 3: Wrapper 클래스 활용
+기본 데이터 유형과 Wrapper 클래스를 사용하여 다음을 수행하세요.
+1. 정수 `100`을 `Integer` 객체로 변환하세요.
+2. 변환된 `Integer` 객체를 다시 기본 정수형으로 변환하세요.
+3. `Integer` 객체를 사용하여 `byte`, `short`, `double` 값으로 변환하여 출력하세요.
+
+### 문제 4: 자바 컬렉션 사용
+`ArrayList`를 사용하여 다음을 수행하세요.
+1. 정수형 리스트를 생성하고, `10`, `20`, `30`, `40`, `50`을 추가하세요.
+2. 리스트의 모든 요소를 출력하세요.
+3. 리스트의 세 번째 요소를 `100`으로 변경하고, 변경된 리스트를 출력하세요.
+
+
+
+## 자바 과제 정답
+
+### 문제 1: 문자열 처리
+
+```java
+public class StringOperations {
+    public static void main(String[] args) {
+        String str = "Hello, Java World!";
+        
+        // 1. 문자열의 길이를 출력하세요.
+        System.out.println("문자열의 길이: " + str.length());
+        
+        // 2. 문자열에서 'J'의 위치를 출력하세요.
+        System.out.println("'J'의 위치: " + str.indexOf('J'));
+        
+        // 3. 문자열을 "Hello, Java Universe!"로 변경하여 출력하세요.
+        String newStr = str.replace("World", "Universe");
+        System.out.println("변경된 문자열: " + newStr);
+        
+        // 4. 문자열을 공백(" ")을 기준으로 나누어 배열로 출력하세요.
+        String[] strArray = str.split(" ");
+        System.out.print("문자열 배열: ");
+        for (String s : strArray) {
+            System.out.print(s + " ");
+        }
+    }
+}
+```
+
+### 문제 2: StringBuffer 사용
+
+```java
+public class StringBufferPerformance {
+    public static void main(String[] args) {
+        // 1. 초기 문자열 설정
+        StringBuffer sbf = new StringBuffer("Hello");
+        System.out.println("초기 StringBuffer: " + sbf.toString());
+        
+        // 2. 루프를 사용하여 1000번 " World" 추가
+        for (int i = 0; i < 1000; i++) {
+            sbf.append(" World");
+        }
+        
+        // 3. 최종 문자열 출력
+        System.out.println("최종 문자열 길이: " + sbf.length());
+    }
+}
+```
+
+### 문제 3: Wrapper 클래스 활용
+
+```java
+public class WrapperExample {
+    public static void main(String[] args) {
+        // 1. 정수 100을 Integer 객체로 변환하세요.
+        int num = 100;
+        Integer numWrapper = Integer.valueOf(num);
+        System.out.println("Integer 객체: " + numWrapper);
+        
+        // 2. 변환된 Integer 객체를 다시 기본 정수형으로 변환하세요.
+        int numPrimitive = numWrapper.intValue();
+        System.out.println("기본 정수형: " + numPrimitive);
+        
+        // 3. Integer 객체를 사용하여 byte, short, double 값으로 변환하여 출력하세요.
+        System.out.println("byte 값: " + numWrapper.byteValue());
+        System.out.println("short 값: " + numWrapper.shortValue());
+        System.out.println("double 값: " + numWrapper.doubleValue());
+    }
+}
+```
+
+### 문제 4: 자바 컬렉션 사용
+
+```java
+import java.util.ArrayList;
+
+public class ArrayListExample {
+    public static void main(String[] args) {
+        // 1. 정수형 리스트 생성 및 값 추가
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(10);
+        list.add(20);
+        list.add(30);
+        list.add(40);
+        list.add(50);
+        
+        // 2. 리스트의 모든 요소 출력
+        System.out.print("리스트 요소: ");
+        for (int num : list) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+        
+        // 3. 리스트의 세 번째 요소를 100으로 변경하고 출력
+        list.set(2, 100);
+        System.out.print("변경된 리스트 요소: ");
+        for (int num : list) {
+            System.out.print(num + " ");
+        }
+    }
+}
+```
