@@ -11,6 +11,13 @@ public class A01_Controller {
 	public String start() {
 		return "a01_start.jsp";
 	}
+	// http://localhost:7080/springweb/request.do
+	@RequestMapping("request.do")
+	public String request() {
+		return "WEB-INF\\views\\a01_form\\a01_requestData.jsp";
+	}
+	
+	
 }
 // A02_Controller.java
 // http://localhost:7080/springweb/second.do
