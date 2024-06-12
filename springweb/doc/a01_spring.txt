@@ -1,0 +1,52 @@
+# 스프링 학습의 내용 계열화
+1. 스프링 기본 개념들
+	1) 컨테이너
+	2) 스프링 MVC
+	3) DI
+	4) AOP
+	5) 스프링 처리구조
+2. 스프링 환경 설정
+	1) dynamic web => springweb 설정
+	2) spring boot 환경
+3. 스프링에서 발생하는 에러 유형에 대한 처리 방법
+	1) xml에서 controller 등록이 안 되어 있으면 404발생
+	2) RequestMapping controller url 패턴은 서버에 동일하게 있으면 안된다.(중복 불가)
+	3) 다른 패키지에 동일한 클래스를 만드는 경우도 에러 발생..
+	
+# 스프링 웹 개발 환경에 대한 이해
+1. 웹 처리 프로세스
+	1) url을 브라우저에 입력
+		http://localhost:7080/springweb/start.do
+		http://localhost : 현재 pc에 웹서버 구동했을 때, 호출
+		7080 : 웹서버 port 설정
+		springweb : dynamic 웹프로그젝트명
+	2) 입력된 url에 특정한 ip와 port와 프로젝트명으로 해당 웹서버호출..
+	3) web.xml 호출
+		각, 프로젝트에 생성되어 있는 web.xml파일을 통해서 현재 프로젝트에 대한 호출을 처리한다.
+		<servlet>
+			<servlet-name>dispatcher</servlet-name>
+			<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		</servlet>
+		<servlet-mapping>
+			<servlet-name>dispatcher</servlet-name>
+			<url-pattern>*.do</url-pattern>
+		</servlet-mapping>		
+		
+		<url-pattern>*.do : 마지막에 url이 .do로 끝나면..
+		<servlet-name>dispatcher : 해당 servlet이라는 Front Controller를 호출 한다.
+			또는 이 frontcontroller 컨테이너를 사용하는데, 이 컨테이너는 dispatcher-servlet.xml 이라는 이름으로
+		    WEB-INF에 저장되어 있따..
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet
+			: 이 front 컨트롤러는 스프링프레임웍안에 있는 만들어진 서블릿을 이용한다.
+	4) dispatcher-servlet.xml : 컨테이너
+		이 컨테이너 안에 등록된 클래스는 웹서버가 로딩되면서 메모리에 로딩되어 처리된다.
+		컨테이너에 등록 규칙 : <bean class="패키지명.클래스명">
+		@Controller : annotation 선언..
+		class 클래스명		 
+		-- 해당 패키지에 클래스가 선언되어 있고, 클래스안에는 @Controller가 선언되어 있어야 객체로 메모리에 로딩이 된다.
+	5) start.do
+		이제 객체가 로딩되면 클래스 안에는 @RequstMapping이라는 이름에 start.do라는 이름으로 특정 메서드가 호출된다.
+			@RequestMapping("start.do")
+			public String start() {
+	6) return "a01_start.jsp" 화면단 호출(view)
+		각 메서드에 마지막에 return형식을 webapp기준으로 특정한 파일을 호출하는데 이것이 jsp View 화면단이다.		
