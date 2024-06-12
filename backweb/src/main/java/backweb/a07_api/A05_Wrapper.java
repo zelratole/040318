@@ -1,5 +1,8 @@
 package backweb.a07_api;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class A05_Wrapper {
 
 	public static void main(String[] args) {
@@ -22,15 +25,28 @@ public class A05_Wrapper {
 		int num01 = 25; // 기본유형
 		Integer num01Wraper = Integer.valueOf(num01); // Wrapper클래스로 객체 변경.
 		// 기본유형이 wrapper 클래스로 객체가 되는 순간 여러가지 속성/메서드를 활용할 수 있다.
+		
 		System.out.println(num01Wraper.byteValue());
 		System.out.println(num01Wraper.hashCode());
 		System.out.println(num01Wraper.MAX_VALUE);
-/*
+		int num02 = num01Wraper.intValue(); // Unboxing
+		Integer num02Wrapper = 25; // autoBoxing
+		int num03 = num02Wrapper;  // autoUnboxing
+		List<Integer> prices = new ArrayList<Integer>();
+		prices.add(Integer.valueOf(3000)); //boxing 처리
+		prices.add(4000); //autoboxing 처리
+		int num04 = prices.get(1); //autoUnboxing 처리..
+		// session.setAttribute("price", 25);  ==> Integer price = 25; // 오토박싱 처리. 
+		//     ==> Object = Integer; 최상위 객체에 할당이 가능하기에 처리..(다형성에 의해 가능)
+		// Integer priceW = (Integer)session.getAttribute("price");
+		// int price01 = priceW;
+		
+/*  12:05~
 4. 기본적으로 활용도가 높기에 Boxing, UnBoxing으로 유연하게 객체과 기본데이터유형으로 변환이 자유롭게 되게 처리한다.
 	1) Boxing : 기본데이터유형에서 객체로 변환되는 것을 말한다.
 		ex) Integer num01Wraper = Integer.valueOf(num01)
 	2) UnBoxing : 객체에서 기본 데이터 유형으로 변환되는 것을 말한다.
-		ex) int num01 = num01Wraper.inValue();
+		ex) int num01 = num01Wraper.intValue();
 5. autoBoxing, autoUnboxing
 	위와 같이 boxing, unboxing은 기능메서드를 통해서 처리해야하는 불편함이 있어서, 바로 할당되게끔 자바에서는 자원한다.
 		ex) Integer num02Wrapper = 25;  // autoboxing
@@ -41,17 +57,8 @@ prices.add(Integer.valueOf(3000)); boxing 처리
 prices.add(4000); autoboxing 처리
 
 int num03 = prices.get(1); autoUnboxing 처리..
-
-
+ * */
 		
-		
-		
-		
-		
-		
-		
-		
- * */		
 	}
 
 }
