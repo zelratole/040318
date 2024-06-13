@@ -1,5 +1,5 @@
 package a01_diexp.z01_vo;
-
+// a01_diexp.z01_vo.Person
 public class Person {
 	private String name;
 	private int age;
