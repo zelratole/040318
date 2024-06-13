@@ -52,3 +52,9 @@ public class A05_Controller extends HttpServlet {
 	}
 
 }
+// ex) A06_DeptController.java  - A07_DeptDao.java   활용
+//     a13_views\\a02_deptList.jsp 
+//     부서정보 검색을 처리해 보세요..
+
+
+
