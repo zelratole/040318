@@ -33,7 +33,15 @@
 	<bean class="springweb.a01_start.A01_Controller"/>
 	<bean class="springweb.a01_start.A02_Controller"/>
 	<bean class="springweb.a01_start.A03_Controller"/>
+	<bean class="springweb.a02_mvc.A01_EmpController"/>
+	<bean class="springweb.a02_mvc.A04_EmpDao"/>
+	<bean class="springweb.a02_mvc.A02_EmpService"/>
+<!-- 
+//springweb.a02_mvc.A01_EmpController
+//springweb.a02_mvc.A04_EmpDao
+//springweb.a02_mvc.A02_EmpService
 
+ -->
 </beans>  
 
     

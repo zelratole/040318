@@ -7,13 +7,18 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+// springweb.a02_mvc.A04_EmpDao
+@Component
 public class A04_EmpDao implements A03_EmpDaoInf {
 
 	public List<Emp> getEmpList(Emp sch) {
 	
 		List<Emp> empList = new ArrayList<Emp>();
-		String sql = "SELECT * \r\n" + "	  FROM emp05\r\n" 
-				+ "   WHERE ename LIKE ?\r\n" + "	  AND job LIKE ? \r\n"
+		String sql = "SELECT * \r\n" 
+				+ "	  FROM emp05\r\n" 
+				+ "   WHERE ename LIKE ?\r\n" 
+				+ "	  AND job LIKE ? \r\n"
 				+ "	  order by empno ";
 		if (sch.getEname() == null)
 			sch.setEname(""); // like 키워드 검색으로 초기 전체 처리
