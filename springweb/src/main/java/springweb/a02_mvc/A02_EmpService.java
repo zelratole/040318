@@ -12,7 +12,7 @@ public class A02_EmpService {
 	
 	
 	@Autowired // 자동을 컨테이너에 있는 객체를 할당해주는 역할..
-	private A03_EmpDaoInf dao;
+	private A03_EmpDaoInf dao; // A03_EmpDaoInf dao = new A04_EmpDao();
 	
 	public List<Emp> getEmpList(Emp sch){
 		return dao.getEmpList(sch);
