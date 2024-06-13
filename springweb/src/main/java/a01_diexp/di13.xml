@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:websocket="http://www.springframework.org/schema/websocket"
+	xmlns:sec="http://www.springframework.org/schema/security"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/task
+       http://www.springframework.org/schema/task/spring-task.xsd       
+        http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+      http://www.springframework.org/schema/mvc/spring-mvc.xsd     
+        http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util.xsd
+         http://www.springframework.org/schema/websocket
+      http://www.springframework.org/schema/websocket/spring-websocket.xsd
+       http://www.springframework.org/schema/security
+       http://www.springframework.org/schema/security/spring-security.xsd   
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd   
+      ">
+	<bean id="obj" class="java.lang.Object"/>
+	<!-- 
+	# 객체 vs 객체 관계 설정
+	1. spring MVC 패턴
+		Controller => Service  => Dao
+		로  객체가 객체를 호출하여 사용하는 관계로 되어 있다.
+		컨테이너 안에서 각각의 객체를 생성되어 있고,
+		autowiring 옵션에서 객체과 객체 안에 사용되어 처리되는 것을 볼 수 있다.
+	2. 단계별 학습 내용
+		1) 객체 안에 객체로 된 class 선언 구조 
+			HandPhone 이름과 제조사..
+			
+			HPUser 사용자이름, HandPhone
+			
+		2) container에서 위 객체 안에 객체 선언 형식 확인..
+		3) ==> autowiring에 대한 연습 처리..
+			
+		
+		
+		
+	
+	
+	
+	
+	
+	
+	
+	 -->	
+	
+	
+</beans>  
+
+    
