@@ -41,7 +41,16 @@
 		<property name="name" value="홍길동"/>
 		<property name="age" value="25"/>
 		<property name="loc" value="수원"/>
-	</bean>	 
+	</bean>
+	<!-- 
+	ex) z01_vo 안에 Product 클래스 선언 물건명 가격 갯수 
+	객체 생성 외부에서 호출 처리 
+	 -->
+	<bean id="prod" class="a01_diexp.z01_vo.Product">
+		<property name="name" value="사과"/>
+		<property name="price" value="2500"/>
+		<property name="cnt" value="5"/>
+	</bean>	 	 
 </beans>  
 
     
