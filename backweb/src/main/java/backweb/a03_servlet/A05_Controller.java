@@ -14,6 +14,8 @@ import backweb.vo.Emp;
 
 /**
  * Servlet implementation class A05_Controller
+ * http://localhost:7080/backweb/controller.do
+ * 
  */
 @WebServlet(name = "controller.do", urlPatterns = { "/controller.do" })
 public class A05_Controller extends HttpServlet {
@@ -35,6 +37,7 @@ public class A05_Controller extends HttpServlet {
 		// MVC : Model/View/Controller 기능적인 역할 분담을 처리한 개발 패턴..
 		// # controller의 역할 : 요청값 받고, view단에 보낼 모델데이터 설정, view단(jsp)호출
 		// 1. 요청값 처리
+		request.setCharacterEncoding("utf-8");
 		String ename = request.getParameter("ename"); 
 		String job = request.getParameter("job"); 
 		
