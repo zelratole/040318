@@ -1,6 +1,7 @@
 package springweb.a02_mvc;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,12 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class A01_EmpController {
 	@Autowired
-	private A04_EmpDao service;
+	private A02_EmpService service;
 	
 	// http://localhost:7080/springweb/pre_empList.do
 	@RequestMapping("pre_empList.do")
 	public String empList(Emp sch, Model d) {
-		service = new A04_EmpDao();
+		//service = new A04_EmpDao();
 		// 요청값 처리
 		// Emp sch : useBean과 동일하게 요청값을 객체 할당..
 		

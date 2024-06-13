@@ -7,9 +7,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Component;
 // springweb.a02_mvc.A04_EmpDao
-@Controller
+@Component
 public class A04_EmpDao implements A03_EmpDaoInf {
 
 	public List<Emp> getEmpList(Emp sch) {
