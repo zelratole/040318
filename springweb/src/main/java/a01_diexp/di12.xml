@@ -39,7 +39,11 @@
 		<constructor-arg value="25"/>
 		<constructor-arg value="부산"/>
 	</bean>	 
-	 
+	<bean id="m01" class="a01_diexp.z01_vo.Music">
+		<constructor-arg value="LOVE DIVE"/>
+		<constructor-arg value="아이브"/>
+		<constructor-arg value="2023"/>
+	</bean>	 
 </beans>  
 
     
