@@ -22,7 +22,14 @@ public class Test01 {
 		hpu01.useMyPhone(); // hp02객체가 할당되었을 때, 호출 내용..
 		// ex) Cpu(성능명, 제조사)  Computer (제조사, Cpu)
 		//      				 void useCpu() : Cpu가 할당되었을 때와 없을 때 나누어서 출력..
-		
+		Cpu c1 = new Cpu("AMD Ryzen 9 7950","AMD");
+		Cpu c2 = new Cpu();
+		c2.setModel("Intel Core i9-14900F");
+		c2.setCompany("Intel");
+		Computer com = new Computer("삼성");
+		com.useCpu();
+		com.setCpu(c1);com.useCpu();
+		com.setCpu(c2);com.useCpu();
 		
 	}
 
