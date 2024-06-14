@@ -30,11 +30,22 @@
        http://www.springframework.org/schema/tx
        http://www.springframework.org/schema/tx/spring-tx.xsd   
       ">
-	<bean id="obj" class="java.lang.Object"/>
-	<!-- 
-	ex) Cpu Computer 객체 생성 1:1 연관 관계 설정 DIExp14.java에서 호출. 출력..
-	
-	 -->
+	<bean id="c1" class="a01_diexp.z01_vo.Cpu">
+		<constructor-arg value="AMD Ryzen 9 7950"/>
+		<constructor-arg value="AMD"/>
+	</bean>
+	<bean id="c2" class="a01_diexp.z01_vo.Cpu">
+		<property name="model" value="Intel Core i9-14900F"/>
+		<property name="company" value="Intel"/>
+	</bean>
+	<bean id="com1" class="a01_diexp.z01_vo.Computer">
+		<constructor-arg value="삼성"/>
+		<property name="cpu" ref="c2"/>
+	</bean>
+	<bean id="com2" class="a01_diexp.z01_vo.Computer">
+		<constructor-arg value="조립식"/>
+		<property name="cpu" ref="c1"/>
+	</bean>	
 </beans>  
 
     

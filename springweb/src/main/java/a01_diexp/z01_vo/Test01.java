@@ -27,6 +27,7 @@ public class Test01 {
 		c2.setModel("Intel Core i9-14900F");
 		c2.setCompany("Intel");
 		Computer com = new Computer("삼성");
+		com.setCpu(c1);
 		com.useCpu();
 		com.setCpu(c1);com.useCpu();
 		com.setCpu(c2);com.useCpu();
