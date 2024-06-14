@@ -1,5 +1,5 @@
 package a01_diexp.z01_vo;
-
+// a01_diexp.z01_vo.HPUser
 public class HPUser {
 	
 	private String name;
