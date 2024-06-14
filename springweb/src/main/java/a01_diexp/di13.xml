@@ -64,7 +64,22 @@
 		 
 	<!-- 
 	2. HPUser객체 만들기 - HandPhone객체 할당 처리..
-	 -->	 
+	HPUser hpu01 = new HPUser("홍길동");
+	hp01.setHandPhone(hp01);
+	 -->	
+	<bean id="hpu01" class="a01_diexp.z01_vo.HPUser">
+		<constructor-arg value="오길동"/>
+	</bean>		 
+	<bean id="hpu01" class="a01_diexp.z01_vo.HPUser">
+		<constructor-arg value="홍길동"/>
+		<property name="handPhone" ref="hp01"/>
+		<!-- void setHandPhone(HandPhone handPhone) -->
+	</bean>		 
+	<bean id="hpu02" class="a01_diexp.z01_vo.HPUser">
+		<constructor-arg value="마길동"/>
+		<property name="handPhone" ref="hp02"/>
+	</bean>		
+	  
 </beans>  
 
     
