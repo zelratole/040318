@@ -41,25 +41,30 @@
 	2. 단계별 학습 내용
 		1) 객체 안에 객체로 된 class 선언 구조 
 			HandPhone 이름과 제조사..
-			
 			HPUser 사용자이름, HandPhone
-			
 		2) container에서 위 객체 안에 객체 선언 형식 확인..
 		3) ==> autowiring에 대한 연습 처리..
-			
-		
-		
-		
-	
-	
-	
-	
-	
-	
-	
 	 -->	
-	
-	
+	<!-- 
+	1. HandPhone 객체 만들기
+	HandPhone hp01 = new HandPhone("010-8888-9999","아이폰");
+	HandPhone hp02 = new HandPhone();
+	hp02.setNumber("010-5555-7777");
+	hp02.setCompany("갤럭시");
+	위 내용형태로 컨네이너에서 생성 완료...
+	 -->	 
+	<bean id="hp01" class="a01_diexp.z01_vo.HandPhone">
+		<constructor-arg value="010-8888-9999"/>
+		<constructor-arg value="아이폰"/>
+	</bean>		
+	<bean id="hp02" class="a01_diexp.z01_vo.HandPhone">
+		<property name="number" value="010-5555-7777"/>
+		<property name="company" value="갤럭시"/>
+	</bean>
+		 
+	<!-- 
+	2. HPUser객체 만들기 - HandPhone객체 할당 처리..
+	 -->	 
 </beans>  
 
     

@@ -15,11 +15,11 @@ public class HPUser {
 	}
 	public void useMyPhone() { 
 		System.out.println(name+"의 핸드폰 사용?");
-		if(handPhone!=null) {
+		if(handPhone!=null) { // handPhone 객체가 할당되어 있을 때..
 			System.out.println("소유한 핸드폰 정보");
 			System.out.println("폰번호:"+handPhone.getNumber());
 			System.out.println("폰제조사:"+handPhone.getCompany());
-		}else {
+		}else { // handPhone==null
 			System.out.println("ㅠㅠ 핸드폰이 없네요..~");
 		}
 	}

@@ -1,5 +1,5 @@
 package a01_diexp.z01_vo;
-
+// a01_diexp.z01_vo.HandPhone
 public class HandPhone {
 	private String number;
 	private String company;
