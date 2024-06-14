@@ -1,0 +1,16 @@
+# 스프링 MVC를 처리를 위한 단계별 연습
+1. 요청값 처리
+	http://localhost:7080/springweb/reqexp01.do?name=홍길동&age=25
+	요청값(query string) 전달 - 페이지명?key=value : 클라이언트 단에서 호출하면
+	해당 서버단에서 페이지명과 요청값 처리 형식을 데이터를 받는다. 
+	ex) jsp: request.getParameter("name");
+		el: ${param.name}
+		String
+		@Param("name") String name
+		@Param("age") int age
+			
+
+2. 모델값 처리
+
+
+3. DB Framework(mybatis) 연습.
