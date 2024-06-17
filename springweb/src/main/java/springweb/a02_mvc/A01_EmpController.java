@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
@@ -57,6 +58,13 @@ public class A01_EmpController {
 	@RequestMapping("empInsert.do")
 	public String empInsert(Emp ins, Model d) {
 		d.addAttribute("result",service.insertEmp(ins));
+		return "jsonView";
+	}
+	// 요청값으로 json 하나데이터를 가져오는 처리..
+	// http://localhost:7080/springweb/getEmp.do?empno=1001
+	@GetMapping("getEmp.do")
+	public String getEmp(@RequestParam("empno") int empno, Model d) {
+		d.addAttribute("emp", service.getEmp(empno));
 		return "jsonView";
 	}
 	

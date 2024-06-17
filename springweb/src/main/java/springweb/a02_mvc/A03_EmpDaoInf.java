@@ -8,5 +8,6 @@ import org.springframework.stereotype.Repository;
 public interface A03_EmpDaoInf {
 	List<Emp> getEmpList(Emp sch);
 	int insertEmp(Emp ins);
+	Emp getEmp(int empno);
 	
 }

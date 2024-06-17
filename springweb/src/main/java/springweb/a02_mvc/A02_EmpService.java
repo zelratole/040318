@@ -20,5 +20,7 @@ public class A02_EmpService {
 	public String insertEmp(Emp ins) {
 		return dao.insertEmp(ins)>0?"등록성공":"등록실패";
 	}
-	
+	public Emp getEmp(int empno) {
+		return dao.getEmp(empno);
+	}
 }

@@ -14,7 +14,12 @@
 			주소와 연결된 메서드를 호출하고, 요청값의 내용을 ename/job 전달해서 dao까지 전달.. 
 						
 		서버에서 클라이언트에 전달되는 것..
-	
+			dao/interface 결과 Emlist를 리턴 ==> service ==> controller
+															모델명 d.addAttribute("empList", 사원검색된 내용리스트) 
+	       // view 화면호출..
+			return "jsonView";
+			전달 형식이 json데이터를 처리.. empList로 전달..
+			
 	
 		// http://localhost:7080/springweb/empListData2.do
 		@RequestMapping("empListData2.do")
@@ -24,6 +29,82 @@
 			// view 화면호출..
 			return "jsonView";
 		}			
-
-
 2. front end(브라우저 처리 - javascript/html)
+		function searchAjax() {
+			$.ajax({
+				url : "${path}/empListData2.do",  // controller에 메서드 호출..
+				method : "post",
+				data : $("#frm01").serialize(), // controller 메서드에서 요청값 전달. ename=&job=
+												//  empListData2(Emp sch) 로 controller에 전달됨..
+				dataType : "json",
+				success : function(data) {  // controller에서 넘겨준 데이터 d.addAttribute("empList", service.getEmpList(sch));
+					console.log(data)
+					var empList = data.empList;  //  data.모델명   ArrayList<Emp>형식이 json형식으로 전달. return "jsonView";
+					var add = "";
+					$(empList).each(function(idx, emp) {
+						add += "<tr>"
+						add += "<td>" + emp.empno + "</td>"
+						add += "<td>" + emp.ename + "</td>"
+						add += "<td>" + emp.job + "</td>"
+						add += "<td>" + emp.sal.toLocaleString() + "</td>"
+						add += "<td>" + emp.deptno + "</td>"
+						add += "</tr>"
+					})
+					$("tbody").html(add)
+				},
+				error : function(err) {
+					console.log("에러발생")
+					console.log(err)
+				}
+
+			})
+
+		}
+		
+
+
+	1) 
+
+# 상세 내용 처리
+1. 처리할 내용
+	행 단위로 클릭시, 사원번호를 키로 전송하여 ajax로 호출하여 서버단에 데이터를 json형식으로 가져와서,
+	모달창을 띄워 상세 내용이 출력되는 것을 확인 한다.
+2. 개발 순서
+	1) dao/interface 처리
+		상세 Emp 정보를 DB에서 가져오는 메서드 확인
+	2) service 처리
+		Dao에서 가져온 내용 service  가져오기
+	3) controller 처리
+		요청url과 요청키 empno를 받아서
+		service에서 가져온 데이터 emp 모델키로 해서 처리
+		return "jsonView"로 전달,
+		json 형식 데이터를 출력 처리	 
+		
+	4) jsp(화면단 처리)
+		행단위 더블 클릭시, 처리하는 기능 메서드 선언
+		<tr ondblclick='goDetail("+emp.empno+")'
+		function goDetail(empno){
+			ajax로 controller 요청값 empno 전달
+			결과값으로 emp 객체 받기
+			success:function(emp){
+				모달창 로딩 하기...
+				모달창 타이틀 사원정보 상세로 변경
+				모달창 기능버튼 : 수정/삭제 버튼을 활성화 처리 ==> 등록시에서 등록 버튼 활성화 처리
+				form 요소객체에 가져온 모델 데이터 입력 처리
+				$("#frm02 [name=empno]").val(emp.empno);		
+			
+			}
+		}	
+
+
+# 수정 처리
+
+
+# 삭제 처리
+
+
+
+
+
+
+
