@@ -44,7 +44,7 @@
 		$("#schBtn").click(function(){
 			searchAjax()	
 		})
-		$("[name=ename], [name=job]").keyup(function(){
+		$("#frm01 [name=ename], #frm01 [name=job]").keyup(function(){
 			if(event.keyCode==13){
 				searchAjax()	
 			}
@@ -54,7 +54,7 @@
 			$.ajax({
 				url:"${path}/empListData2.do",
 				method:"post",
-				data:$("form").serialize(),
+				data:$("#frm01").serialize(),
 				dataType:"json",
 				success:function(data){
 					console.log(data)
@@ -97,6 +97,9 @@
 	    <input placeholder="사원명" name="ename" value=""  class="form-control mr-sm-2" />
 	    <input placeholder="직책명" name="job" value="" class="form-control mr-sm-2"/>
 	    <button id = "schBtn" class="btn btn-info" type="button">Search</button>
+	    <button class="btn btn-success" 
+	    	data-toggle="modal" data-target="#exampleModalCenter"
+	        type="button">등록</button>	    
  	</nav>
 	</form>
    <table class="table table-hover table-striped">
@@ -119,5 +122,38 @@
     </tbody>
 	</table>    
 </div>
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">사원정보등록</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+		<form id="frm02" class="form"  method="post">
+	     <div class="row">
+	      <div class="col">
+	        <input type="text" class="form-control" placeholder="사원명 입력" name="ename">
+	      </div>
+	      <div class="col">
+	        <input type="text" class="form-control" placeholder="직책명 입력" name="job">
+	      </div>
+	     </div>
+	    </form> 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
 </body>
 </html>
