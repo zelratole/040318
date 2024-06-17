@@ -83,9 +83,9 @@ td {
 		
 	});
 	function detail(empno){
-		$("#mdBtn").click();
+		$("#mdBtn").click(); // 모달창 로딩
 		$("#mdTitle").text("사원정보상세")
-		$("#uptBtn, #delBtn").show()
+		$("#uptBtn, #delBtn").show() // 기능버튼 보이기 처리/보이지 않게 처리
 		$("#regBtn").hide()		
 		$.ajax({
 			url:"getEmp.do",
@@ -98,6 +98,7 @@ td {
 				$("#frm02 [name=ename]").val(emp.ename)
 				$("#frm02 [name=job]").val(emp.job)
 				$("#frm02 [name=mgr]").val(emp.mgr)
+				// emp.hiredate : 1971/1/1  1/1000초 데이터..
 				$("#frm02 [name=hiredateStr]").val(fmtDate( new Date(emp.hiredate) ))
 				$("#frm02 [name=sal]").val(emp.sal)
 				$("#frm02 [name=comm]").val(emp.comm)
