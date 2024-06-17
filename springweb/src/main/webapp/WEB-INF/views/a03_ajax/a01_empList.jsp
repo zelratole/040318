@@ -243,7 +243,7 @@ td {
 					<form id="frm02" class="form" method="post">
 						<div class="row">
 							<div class="col">
-								<input type="number" class="form-control" placeholder="사원번호 입력"
+								<input type="number" readOnly class="form-control" placeholder="사원번호 입력"
 									name="empno">
 							</div>						
 							<div class="col">
