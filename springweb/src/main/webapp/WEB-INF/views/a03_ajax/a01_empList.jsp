@@ -90,6 +90,7 @@ td {
 					success:function(data){
 						alert(data.result);
 						searchAjax()
+						$("#frm02")[0].reset()
 					},
 					error:function(err){
 						console.log(err)
@@ -160,6 +161,17 @@ td {
 					<form id="frm02" class="form" method="post">
 						<div class="row">
 							<div class="col">
+								<input type="number" class="form-control" placeholder="사원번호 입력"
+									name="empno">
+							</div>						
+							<div class="col">
+								<input type="date" class="form-control" placeholder="입사일 입력(yyyy-mm-dd)"
+									name="hiredateStr">
+							</div>
+						</div>	
+											
+						<div class="row">
+							<div class="col">
 								<input type="text" class="form-control" placeholder="사원명 입력"
 									name="ename">
 							</div>
@@ -188,12 +200,7 @@ td {
 									name="comm">
 							</div>
 						</div>
-						<div class="row">
-							<div class="col">
-								<input type="date" class="form-control" placeholder="입사일 입력(yyyy-mm-dd)"
-									name="hiredateStr">
-							</div>
-						</div>																		
+																	
 					</form>
 				</div>
 				<div class="modal-footer">

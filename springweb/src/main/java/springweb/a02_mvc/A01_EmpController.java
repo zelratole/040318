@@ -56,7 +56,7 @@ public class A01_EmpController {
 	// empInsert.do
 	@RequestMapping("empInsert.do")
 	public String empInsert(Emp ins, Model d) {
-		d.addAttribute("result","");
+		d.addAttribute("result",service.insertEmp(ins));
 		return "jsonView";
 	}
 	
