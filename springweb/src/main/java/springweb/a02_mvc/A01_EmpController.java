@@ -27,7 +27,6 @@ public class A01_EmpController {
 		// view 화면호출..
 		return "WEB-INF\\views\\a02_mvc\\a01_empList.jsp";
 	}
-
 	
-	// WEB-INF\views\a02_mvc\a01_empList.jsp
+
 }
