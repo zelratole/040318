@@ -64,7 +64,7 @@ td {
 			if(confirm("등록하시겠습니까?")){
 				$.ajax({
 					url:"${path}/empInsert.do",
-					methods:"get",
+					method:"get",
 					data:$("#frm02").serialize(),
 					dataType:"json",
 					success:function(data){
@@ -79,6 +79,42 @@ td {
 				})
 			}
 		})
+		$("#uptBtn").click(function(){
+			if(confirm("수정하시겠습니까?")){
+				$.ajax({
+					url:"${path}/updateEmp.do",
+					method:"get",
+					data:$("#frm02").serialize(),
+					dataType:"json",
+					success:function(data){
+						alert(data.result);
+						searchAjax()
+					},
+					error:function(err){
+						console.log(err)
+					}
+				})
+			}
+		})		
+		$("#delBtn").click(function(){
+			if(confirm("삭제하시겠습니까?")){
+				$.ajax({
+					url:"${path}/deleteEmp.do?",
+					method:"get",
+					data:"empno="+$("#frm02 [name=empno]").val(),
+					dataType:"json",
+					success:function(data){
+						alert(data.result);
+						searchAjax()
+						$("#clsBtn").click()
+					},
+					error:function(err){
+						console.log(err)
+					}
+					
+				})
+			}
+		})				
 		
 		
 	});
@@ -253,7 +289,7 @@ td {
 					<button type="button" id="uptBtn" class="btn btn-primary">수정</button>
 					<button type="button" id="delBtn" class="btn btn-danger">삭제</button>
 					<button type="button" id="regBtn" class="btn btn-success">저장</button>
-					<button type="button" class="btn btn-secondary"
+					<button type="button" id="clsBtn"  class="btn btn-secondary"
 						data-dismiss="modal">창닫기</button>
 					
 				</div>
