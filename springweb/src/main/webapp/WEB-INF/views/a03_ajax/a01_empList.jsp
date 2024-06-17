@@ -86,8 +86,9 @@ td {
 					url:"${path}/empInsert.do",
 					methods:"get",
 					data:$("#frm02").serialize(),
-					success:function(result){
-						alert(result);
+					dataType:"json",
+					success:function(data){
+						alert(data.result);
 						searchAjax()
 					},
 					error:function(err){
