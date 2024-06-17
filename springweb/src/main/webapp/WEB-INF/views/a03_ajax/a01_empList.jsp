@@ -80,6 +80,24 @@ td {
 			})
 
 		}
+		$("#regBtn").click(function(){
+			if(confirm("등록하시겠습니까?")){
+				$.ajax({
+					url:"${path}/empInsert.do",
+					data:$("#frm02").serialize(),
+					success:function(result){
+						alert(result);
+						searchAjax()
+					},
+					error:function(err){
+						console.log(err)
+					}
+					
+				})
+			}
+		})
+		
+		
 	});
 </script>
 </head>
