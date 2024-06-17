@@ -54,6 +54,7 @@ td {
 			$("#mdTitle").text("사원정보등록")
 			$("#uptBtn, #delBtn").hide()
 			$("#regBtn").show()
+			$("#frm02")[0].reset()
 
 		});
 		
@@ -82,7 +83,6 @@ td {
 		
 	});
 	function detail(empno){
-		//alert(empno)
 		$("#mdBtn").click();
 		$("#mdTitle").text("사원정보상세")
 		$("#uptBtn, #delBtn").show()
