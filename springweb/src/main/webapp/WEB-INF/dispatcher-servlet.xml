@@ -40,6 +40,19 @@
 	<bean class="springweb.a02_mvc.A01_EmpController"/>
 	<bean class="springweb.a02_mvc.A04_EmpDao"/>
 	<bean class="springweb.a02_mvc.A02_EmpService"/>   
+	<!-- 라이브러리 추가 -->
+    <bean id="btnViewResolver"
+       class ="org.springframework.web.servlet.view.BeanNameViewResolver">
+       <property name="order" value="0"></property>   
+    </bean>    
+    <!-- json 뷰 추가 -->
+    <bean id="jsonView"
+       class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">
+       <property name="contentType" value="text/html;charset=utf-8"/>       
+    </bean> 
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+       <property name="order" value="1"></property>
+    </bean>
 </beans>  
 
     
