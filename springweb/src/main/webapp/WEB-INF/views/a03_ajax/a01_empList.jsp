@@ -50,36 +50,15 @@ td {
 				searchAjax()
 			}
 		})
+		$("#mdBtn").click(function(){
+			$("#mdTitle").text("사원정보등록")
+			$("#uptBtn, #delBtn").hide()
+			$("#regBtn").show()
 
-		function searchAjax() {
-			$.ajax({
-				url : "${path}/empListData2.do",
-				method : "post",
-				data : $("#frm01").serialize(),
-				dataType : "json",
-				success : function(data) {
-					console.log(data)
-					var empList = data.empList;
-					var add = "";
-					$(empList).each(function(idx, emp) {
-						add += "<tr>"
-						add += "<td>" + emp.empno + "</td>"
-						add += "<td>" + emp.ename + "</td>"
-						add += "<td>" + emp.job + "</td>"
-						add += "<td>" + emp.sal.toLocaleString() + "</td>"
-						add += "<td>" + emp.deptno + "</td>"
-						add += "</tr>"
-					})
-					$("tbody").html(add)
-				},
-				error : function(err) {
-					console.log("에러발생")
-					console.log(err)
-				}
+		});
+		
 
-			})
 
-		}
 		$("#regBtn").click(function(){
 			if(confirm("등록하시겠습니까?")){
 				$.ajax({
@@ -102,6 +81,44 @@ td {
 		
 		
 	});
+	function detail(empno){
+		//alert(empno)
+		$("#mdBtn").click();
+		$("#mdTitle").text("사원정보상세")
+		$("#uptBtn, #delBtn").show()
+		$("#regBtn").hide()		
+		
+	}	
+	function searchAjax() {
+		$.ajax({
+			url : "${path}/empListData2.do",
+			method : "post",
+			data : $("#frm01").serialize(),
+			dataType : "json",
+			success : function(data) {
+				console.log(data)
+				var empList = data.empList;
+				var add = "";
+				$(empList).each(function(idx, emp) {
+					add += "<tr ondblclick='detail("+emp.empno+")'>"
+					add += "<td>" + emp.empno + "</td>"
+					add += "<td>" + emp.ename + "</td>"
+					add += "<td>" + emp.job + "</td>"
+					add += "<td>" + emp.sal.toLocaleString() + "</td>"
+					add += "<td>" + emp.deptno + "</td>"
+					add += "</tr>"
+				})
+				$("tbody").html(add)
+			},
+			error : function(err) {
+				console.log("에러발생")
+				console.log(err)
+			}
+
+		})
+
+	}	
+	
 </script>
 </head>
 
@@ -120,7 +137,7 @@ td {
 					class="form-control mr-sm-2" /> <input placeholder="직책명"
 					name="job" value="" class="form-control mr-sm-2" />
 				<button id="schBtn" class="btn btn-info" type="button">Search</button>
-				<button class="btn btn-success" data-toggle="modal"
+				<button id="mdBtn" class="btn btn-success" data-toggle="modal"
 					data-target="#exampleModalCenter" type="button">등록</button>
 			</nav>
 		</form>
@@ -150,8 +167,8 @@ td {
 		aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered" role="document">
 			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLongTitle">사원정보등록</h5>
+				<div class="modal-header"> 
+					<h5 class="modal-title" id="mdTitle">사원정보등록</h5>
 					<button type="button" class="close" data-dismiss="modal"
 						aria-label="Close">
 						<span aria-hidden="true">&times;</span>
@@ -202,9 +219,11 @@ td {
 						</div>
 																	
 					</form>
-				</div>
+				</div>  
 				<div class="modal-footer">
-					<button type="button" id="regBtn" class="btn btn-primary">저장</button>
+					<button type="button" id="uptBtn" class="btn btn-primary">수정</button>
+					<button type="button" id="delBtn" class="btn btn-danger">삭제</button>
+					<button type="button" id="regBtn" class="btn btn-success">저장</button>
 					<button type="button" class="btn btn-secondary"
 						data-dismiss="modal">창닫기</button>
 					
