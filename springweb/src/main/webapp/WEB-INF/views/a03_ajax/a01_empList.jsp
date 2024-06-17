@@ -87,8 +87,36 @@ td {
 		$("#mdTitle").text("사원정보상세")
 		$("#uptBtn, #delBtn").show()
 		$("#regBtn").hide()		
+		$.ajax({
+			url:"getEmp.do",
+			method:"get",
+			data:"empno="+empno,
+			dataType:"json",
+			success:function(data){
+				var emp = data.emp
+				$("#frm02 [name=empno]").val(emp.empno)
+				$("#frm02 [name=ename]").val(emp.ename)
+				$("#frm02 [name=job]").val(emp.job)
+				$("#frm02 [name=mgr]").val(emp.mgr)
+				$("#frm02 [name=hiredateStr]").val(fmtDate( new Date(emp.hiredate) ))
+				$("#frm02 [name=sal]").val(emp.sal)
+				$("#frm02 [name=comm]").val(emp.comm)
+				$("#frm02 [name=deptno]").val(emp.deptno)
+			},
+			error:function(err){
+				console.log(err)
+			}
+			
+		})
 		
 	}	
+	function fmtDate(date) {
+	    var year = date.getFullYear();
+	    var month = String(date.getMonth() + 1).padStart(2, '0'); // 월은 0부터 시작하므로 1을 더함
+	    var day = String(date.getDate()).padStart(2, '0');
+	    
+	    return year + '-' + month + '-' + day;
+	}
 	function searchAjax() {
 		$.ajax({
 			url : "${path}/empListData2.do",
