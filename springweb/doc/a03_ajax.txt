@@ -1,0 +1,29 @@
+# 스프링 ajax 처리 패턴
+1. back end (서버단 처리-java)
+
+	A01_EmpController.java <==> A02_EmpService.java <==> A03_EmpDaoInf <==> A04_EmpDao
+	1) 초기 화면 로딩
+		http://localhost:7080/springweb/empListAjaxFrm.do
+		@GetMapping("empListAjaxFrm.do")
+		public String empListAjaxFrm() {
+			return "WEB-INF\\views\\a03_ajax\\a01_empList.jsp";
+		}
+	2) 조회 데이터를 가져오는 처리
+		클라언트에서 서버에 호출 하는 것(해당 기능 메서드)
+			empListData2.do?ename=&job= ==> 컨트롤러 호출(controller) ==> 서비스 호출 ==> dao(인터페이스/객체)
+			주소와 연결된 메서드를 호출하고, 요청값의 내용을 ename/job 전달해서 dao까지 전달.. 
+						
+		서버에서 클라이언트에 전달되는 것..
+	
+	
+		// http://localhost:7080/springweb/empListData2.do
+		@RequestMapping("empListData2.do")
+		public String empListData2(Emp sch, Model d) {
+	
+			d.addAttribute("empList", service.getEmpList(sch));
+			// view 화면호출..
+			return "jsonView";
+		}			
+
+
+2. front end(브라우저 처리 - javascript/html)
