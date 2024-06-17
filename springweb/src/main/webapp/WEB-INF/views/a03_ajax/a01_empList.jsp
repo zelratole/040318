@@ -50,6 +50,7 @@ td {
 				searchAjax()
 			}
 		})
+		
 		$("#mdBtn").click(function(){
 			$("#frm02 [name=empno]").prop('readonly', false); 
 			$("#mdTitle").text("사원정보등록")
@@ -58,7 +59,30 @@ td {
 			$("#frm02")[0].reset()
 
 		});
-		
+		$("#frm02 [name=empno]").keyup(function(){
+			if(event.keyCode == 13){
+				$.ajax({
+					url:"getEmp.do",
+					method:"get",
+					data:"empno="+$(this).val(),
+					dataType:"json",
+					success:function(data){
+						var emp = data.emp
+						if(emp!=null){
+							alert("등록된 사원번호가 있습니다.\n다른 번호를 입력하세요.")
+							$("#frm02 [name=empno]").val("").focus()
+						}else{
+							alert("해당 사원 번호 등록가능합니다.")
+						}
+					},
+					error:function(err){
+						console.log(err)
+					}
+					
+				})	
+			}
+			
+		})
 
 
 		$("#regBtn").click(function(){
@@ -125,6 +149,10 @@ td {
 		$("#mdTitle").text("사원정보상세")
 		$("#uptBtn, #delBtn").show() // 기능버튼 보이기 처리/보이지 않게 처리
 		$("#regBtn").hide()		
+		getEmp(empno);
+		
+	}	
+	function getEmp(empno){
 		$.ajax({
 			url:"getEmp.do",
 			method:"get",
@@ -146,9 +174,8 @@ td {
 				console.log(err)
 			}
 			
-		})
-		
-	}	
+		})		
+	}
 	function fmtDate(date) {
 	    var year = date.getFullYear();
 	    var month = String(date.getMonth() + 1).padStart(2, '0'); // 월은 0부터 시작하므로 1을 더함

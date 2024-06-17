@@ -55,7 +55,8 @@ public class A04_EmpDao implements A03_EmpDaoInf {
 
 	public int insertEmp(Emp ins) {
 		int insCnt = 0;
-		String sql = "INSERT INTO emp05\r\n" + "	values(?,?,?,?,to_date(?,'YYYY-MM-DD'),?,?,?)";
+		String sql = "INSERT INTO emp05\r\n" 
+		           + "	values(?,?,?,?,to_date(?,'YYYY-MM-DD'),?,?,?)";
 		Connection con2 = null;
 		try (   Connection con = DBconJ.getConnection(); // 웹서버에 로딩 후, 화면 실행시
 				PreparedStatement pstmt = con.prepareStatement(sql);) {
