@@ -51,6 +51,7 @@ td {
 			}
 		})
 		$("#mdBtn").click(function(){
+			$("#frm02 [name=empno]").prop('readonly', false); 
 			$("#mdTitle").text("사원정보등록")
 			$("#uptBtn, #delBtn").hide()
 			$("#regBtn").show()
@@ -120,6 +121,7 @@ td {
 	});
 	function detail(empno){
 		$("#mdBtn").click(); // 모달창 로딩
+		$("#frm02 [name=empno]").prop('readonly', true); 
 		$("#mdTitle").text("사원정보상세")
 		$("#uptBtn, #delBtn").show() // 기능버튼 보이기 처리/보이지 않게 처리
 		$("#regBtn").hide()		
