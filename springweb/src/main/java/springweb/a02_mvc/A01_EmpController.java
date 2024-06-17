@@ -41,7 +41,7 @@ public class A01_EmpController {
 	@RequestMapping("empListData.do")
 	@ResponseBody
 	public String empListData(Emp sch, Model d) {
-		Gson g = new GsonBuilder().setPrettyPrinting().create();
+		Gson g = new Gson();
 		return g.toJson(service.getEmpList(sch));
 	}	
 	// http://localhost:7080/springweb/empListData2.do
@@ -49,7 +49,6 @@ public class A01_EmpController {
 	public String empListData2(Emp sch, Model d) {
 
 		d.addAttribute("empList", service.getEmpList(sch));
-		System.out.println(service.getEmpList(sch).size());
 		// view 화면호출..
 		return "jsonView";
 	}
