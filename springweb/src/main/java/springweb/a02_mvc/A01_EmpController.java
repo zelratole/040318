@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -33,7 +34,7 @@ public class A01_EmpController {
 	}
 	// get방식으로 초기 화면 호출..
 	// http://localhost:7080/springweb/empListAjaxFrm.do
-	@RequestMapping("empListAjaxFrm.do")
+	@GetMapping("empListAjaxFrm.do")
 	public String empListAjaxFrm() {
 		return "WEB-INF\\views\\a03_ajax\\a01_empList.jsp";
 	}
