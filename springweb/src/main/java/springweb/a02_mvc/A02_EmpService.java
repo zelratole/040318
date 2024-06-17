@@ -23,4 +23,11 @@ public class A02_EmpService {
 	public Emp getEmp(int empno) {
 		return dao.getEmp(empno);
 	}
+	public String updateEmp(Emp upt) {
+		return dao.updateEmp(upt)>0?"수정성공":"수정실패";	
+	}
+	public String  deleteEmp(int empno) {
+		return dao.deleteEmp(empno)>0?"삭제성공":"삭제실패";
+	}	
+	
 }
