@@ -1,16 +1,16 @@
 package springweb.a02_mvc;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 //springweb.a02_mvc.A01_EmpController
 //springweb.a02_mvc.A04_EmpDao
@@ -67,8 +67,18 @@ public class A01_EmpController {
 		d.addAttribute("emp", service.getEmp(empno));
 		return "jsonView";
 	}
-	
-	
-	
+	// http://localhost:7080/springweb/updateEmp.do
+	@GetMapping("updateEmp.do")
+	public String updateEmp(Emp upt, Model d) {
+		d.addAttribute("result",service.updateEmp(upt));
+		d.addAttribute("emp", service.getEmp(upt.getEmpno()));// 수정후, 다시 조회된 결과..
+		return "jsonView";
+	}
+	// http://localhost:7080/springweb/deleteEmp.do?empno=1001
+	@GetMapping("deleteEmp.do")
+	public String deleteEmp(@RequestParam("empno") int empno, Model d) {
+		d.addAttribute("result",service.deleteEmp(empno));
+		return "jsonView";
+	}
 	
 }
