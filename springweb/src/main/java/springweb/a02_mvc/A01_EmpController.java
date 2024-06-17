@@ -53,6 +53,14 @@ public class A01_EmpController {
 		// view 화면호출..
 		return "jsonView";
 	}
+	// empInsert.do
+	@RequestMapping("empInsert.do")
+	public String empInsert(Emp ins, Model d) {
+		d.addAttribute("result","");
+		return "jsonView";
+	}
+	
+	
 	
 	
 }
