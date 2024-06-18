@@ -34,6 +34,9 @@ public class Computer {
 	public Cpu getCpu() {
 		return cpu;
 	}
+	public void setCpu2(Cpu cpu) {
+		this.cpu = cpu;
+	}
 
 	
 }

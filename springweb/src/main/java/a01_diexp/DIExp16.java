@@ -20,6 +20,7 @@ public class DIExp16 {
 		Computer com = ctx.getBean("com", Computer.class);
 		com.useCpu();
 		
+		
 		ctx.close();
 		
 	}

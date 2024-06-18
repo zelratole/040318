@@ -69,9 +69,11 @@
 		<constructor-arg value="Intel Core i9-13900KS"/>
 		<constructor-arg value="Intel"/>
 	</bean>	
-	<bean id="com" class="a01_diexp.z01_vo.Computer" autowire="byType">
+	<bean id="com" class="a01_diexp.z01_vo.Computer" autowire="byName">
 		<constructor-arg value="조립식컴퓨터"/>
 	</bean>
+	<!--  byName을 설정하면 할당할 수 있는 여러개의 객체들 중에서 메서드 property를 확인하여
+	할당 처리하는 것을 알 수 있다. -->
 	
 	
  	
