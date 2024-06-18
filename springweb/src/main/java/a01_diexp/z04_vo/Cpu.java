@@ -1,4 +1,5 @@
 package a01_diexp.z04_vo;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 @Component
 public class Cpu {

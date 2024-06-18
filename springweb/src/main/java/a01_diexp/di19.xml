@@ -31,6 +31,7 @@
        http://www.springframework.org/schema/tx/spring-tx.xsd   
       ">
 	<context:component-scan base-package="a01_diexp.z04_vo"/>
+
 </beans>  
 
     
