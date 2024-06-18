@@ -38,6 +38,7 @@ public class DIExp20 {
 		handPhone.setCompany("아이폰 15");
 		System.out.println(hpuser);
 		hpuser.setName("마길동");
+		
 		hpuser.useMyPhone();
 		
 		
