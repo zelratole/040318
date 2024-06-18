@@ -1,0 +1,10 @@
+# mybatis 데이터베이스 framework 스프링 연동
+1. mybatis 컨테이너 등록
+	- DBcp 연동 처리
+	- mybatis dao 인터페이스 패키지 등록 : ==> 이를 기반으로 mybatis에서 실제 객체를 만들어 준다.
+2. 테스트
+	1) DAO 인터페이스 선언 - SQL 선언
+	2) SERVICE선언
+	3) CONTROLLER 선언
+	4) VIEW(JSP)호출..
+		

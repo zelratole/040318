@@ -34,7 +34,29 @@
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
-	</context:component-scan>      
+	</context:component-scan>    
+	<!-- 
+	1. db연결처리 : dbcp(database connection pool)이용해서 연결... destory-method="close" 종료시 처리 기능메서드 선언..
+	 -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+		<property name="username" value="scott"/>
+		<property name="password" value="tiger"/>
+	</bean>
+	<!-- 
+	2. mybatis연동 : 위 dbcp 연동 처리
+	 -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+	</bean>	 
+	<!-- 
+	3. mybatis가 만드는 실제 객체를 생성하는 기준 interface dao가 있는 패키지 위치 지정..
+	 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="springweb.a03_mvc.a03_dao" />
+	</bean> 
+	  
 	<!-- 라이브러리 추가 -->
     <bean id="btnViewResolver"
        class ="org.springframework.web.servlet.view.BeanNameViewResolver">
