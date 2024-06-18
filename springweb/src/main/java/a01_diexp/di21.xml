@@ -30,7 +30,15 @@
        http://www.springframework.org/schema/tx
        http://www.springframework.org/schema/tx/spring-tx.xsd   
       ">
-	<bean id="obj" class="java.lang.Object"/>
+	<context:component-scan base-package="a01_diexp.z06_mvc">
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
+	</context:component-scan>
+	<!-- 
+	기본 Component에서 추가적으로 Controller, Service, Repository annotation로 객체 추가
+	
+	 -->
 </beans>  
 
     

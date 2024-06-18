@@ -13,6 +13,9 @@ public class A02_Service {
 	// 참조.메서드() ==> 다형성에 의해서 실제객체가 가지고 있는 메서드 활용..
 	
 	public String getList(String sch) {
+		System.out.println("# service 호출 #");
+		
+		
 		return dao.getList(sch);
 	}
 }
