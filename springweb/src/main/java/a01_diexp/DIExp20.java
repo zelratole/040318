@@ -3,16 +3,16 @@ package a01_diexp;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
-import a01_diexp.z04_vo.Computer;
-import a01_diexp.z04_vo.Cpu;
-import a01_diexp.z04_vo.HPUser;
-import a01_diexp.z04_vo.HandPhone;
+import a01_diexp.z05_vo.Computer;
+import a01_diexp.z05_vo.Cpu;
+import a01_diexp.z05_vo.HPUser;
+import a01_diexp.z05_vo.HandPhone;
 
-public class DIExp19 {
+public class DIExp20 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		String path = "a01_diexp\\di19.xml"; 
+		String path = "a01_diexp\\di20.xml"; 
 		// <bean id="obj" class="java.lang.Object"/>
 		AbstractApplicationContext ctx = new GenericXmlApplicationContext(path);
 		Cpu cpu = ctx.getBean("cpu",Cpu.class);
