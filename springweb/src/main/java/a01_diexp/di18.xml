@@ -33,9 +33,10 @@
 	<bean id="obj" class="java.lang.Object"/>
 	<!-- 
 	ex) z03_vo 패키지 자동 할당 선언하고, Computer, Cpu 객체를 호출하여 DIExp18.java에서 처리하세요..
-	
-	
 	 -->
+	<context:component-scan base-package="a01_diexp.z03_vo"/>
+	<!-- 해당 패키지 안에 있는 클래스이고, @Component로 선언되어 있으면 class명의 시작소문자를 default로
+	id값이 선언되고 객체로 저장되어 호출이 가능하다. -->
 </beans>  
 
     
