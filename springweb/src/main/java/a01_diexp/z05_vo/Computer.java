@@ -6,7 +6,9 @@ import org.springframework.stereotype.Component;
 public class Computer {
 	private String company;
 	// 코드상 자동을 객체 할당 처리(컨테이너 안에 있으면)
+	// 컨테이너 안에 여러 객체가 선언되어 있고, 특정 객체를  autowiring 하고 싶을 때, 처리하는 방법이 Qualifier 처리
 	@Autowired
+	@Qualifier("cpu02") // 할당할 객체 지정..
 	private Cpu cpu;
 	public Computer() {
 		super();

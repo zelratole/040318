@@ -15,10 +15,10 @@ public class DIExp20 {
 		String path = "a01_diexp\\di20.xml"; 
 		// <bean id="obj" class="java.lang.Object"/>
 		AbstractApplicationContext ctx = new GenericXmlApplicationContext(path);
-		Cpu cpu = ctx.getBean("cpu",Cpu.class);
+		//Cpu cpu = ctx.getBean("cpu",Cpu.class);
 
-		cpu.setCompany("인텔");
-		cpu.setModel("I7 4.5GHz");;
+		//cpu.setCompany("인텔");
+		//cpu.setModel("I7 4.5GHz");;
 		
 		
 		Computer computer = ctx.getBean("computer",Computer.class);
