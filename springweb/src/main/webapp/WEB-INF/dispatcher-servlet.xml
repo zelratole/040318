@@ -30,17 +30,11 @@
        http://www.springframework.org/schema/tx
        http://www.springframework.org/schema/tx/spring-tx.xsd   
       ">
-    <context:annotation-config/>  
-  
- 	<bean class="springweb.a01_start.A01_Controller"/>
-	<bean class="springweb.a01_start.A02_Controller"/>
-	<bean class="springweb.a01_start.A03_Controller"/>
-	<bean class="springweb.a01_start.A04_Controller"/>
-	<bean class="springweb.a02_mvc.A05_Controller"/>
-	
-	<bean class="springweb.a02_mvc.A01_EmpController"/>
-	<bean class="springweb.a02_mvc.A04_EmpDao"/>
-	<bean class="springweb.a02_mvc.A02_EmpService"/>   
+	<context:component-scan base-package="springweb">
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
+	</context:component-scan>      
 	<!-- 라이브러리 추가 -->
     <bean id="btnViewResolver"
        class ="org.springframework.web.servlet.view.BeanNameViewResolver">
