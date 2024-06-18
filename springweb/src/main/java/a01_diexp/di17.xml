@@ -40,6 +40,9 @@
 
 
  -->	
+	<context:component-scan base-package="a01_diexp.z02_vo"/>
+	<!-- 특정 패키지에 있고, Component라고 선언이 되어 있으면 자동으로 객체가 할당..
+	호출 id는 클래스의 시작소문자 Person ==> person, Music ==> music --> 
 	
 	
 </beans>  
