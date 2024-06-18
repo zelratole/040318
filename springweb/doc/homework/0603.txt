@@ -1,0 +1,13 @@
+### 개념
+1. jsp의 MVC와 spring의 MVC의 차이점
+
+2. 스프링에서 컨테이너(dispacher-servlet.xml)를 이용하면 객체를 명시적으로 코드에서 new XXX()로 하지 않아도 되는 이유?
+
+3. 스프링 controller에서 요청값 처리, 모델데이터 처리, 화면단 호출하는 방법을 실제코드에 의해 나타내세요..
+
+## 스프링
+
+### 문제 1: JSP MVC 패턴으로 member테이블을 조회하세요
+
+### 문제 2: Z01DIExp11.java를 이용하여, 생성자와 property를 설정하여 객체를 생성하고 호출 하는 예제를 만드시요
+      Book.java, Computer.java

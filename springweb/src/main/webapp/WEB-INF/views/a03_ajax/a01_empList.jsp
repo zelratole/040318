@@ -89,7 +89,7 @@ td {
 			if(confirm("등록하시겠습니까?")){
 				$.ajax({
 					url:"${path}/empInsert.do",
-					method:"get",
+					method:"post",
 					data:$("#frm02").serialize(),
 					dataType:"json",
 					success:function(data){
@@ -107,11 +107,12 @@ td {
 		$("#uptBtn").click(function(){
 			if(confirm("수정하시겠습니까?")){
 				$.ajax({
-					url:"${path}/updateEmp.do",
-					method:"get",
-					data:$("#frm02").serialize(),
+					url:"updateEmp.do",
+					type:"get",
+		            data:$("#frm02").serialize(),
 					dataType:"json",
 					success:function(data){
+						console.log(data);
 						alert(data.result);
 						searchAjax()
 					},
@@ -125,7 +126,7 @@ td {
 			if(confirm("삭제하시겠습니까?")){
 				$.ajax({
 					url:"${path}/deleteEmp.do?",
-					method:"get",
+					method:"delete",
 					data:"empno="+$("#frm02 [name=empno]").val(),
 					dataType:"json",
 					success:function(data){

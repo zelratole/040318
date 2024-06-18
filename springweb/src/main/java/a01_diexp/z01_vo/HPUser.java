@@ -36,6 +36,9 @@ public class HPUser {
 	public void setHandPhone(HandPhone handPhone) {
 		this.handPhone = handPhone;
 	}
-	
+	// setHp1  : set property명이 hp1이라고 지정됨..
+	public void setHp1(HandPhone handPhone) {
+		this.handPhone = handPhone;
+	}
 	
 }

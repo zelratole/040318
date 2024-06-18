@@ -1,0 +1,96 @@
+## 1. 흥미로운 도입
+
+스프링 프레임워크는 자바 개발자들 사이에서 가장 인기 있는 프레임워크 중 하나입니다. 그 중에서도 
+`@Autowired`는 의존성 주입(Dependency Injection)을 쉽게 구현할 수 있도록 도와주는 강력한 기능입니다. 
+`@Autowired`를 활용하면 객체 간의 의존 관계를 자동으로 설정할 수 있어 코드의 가독성과 유지보수성을 크게 향상시킬 수 있습니다. 
+실제로, 대규모 엔터프라이즈 애플리케이션에서는 수백 개의 클래스와 수많은 의존 관계가 존재하는데, 
+이때 `@Autowired`는 개발자의 생산성을 극대화해줍니다.
+
+## 2. 학습목표
+
+- `@Autowired`의 기본 개념과 사용법을 이해한다.
+- `@Autowired`를 이용하여 스프링 애플리케이션에서 의존성 주입을 구현한다.
+- `@Autowired`의 다양한 사용 방법(필드 주입, 생성자 주입, setter 주입)을 비교한다.
+- 실제 프로젝트에서 `@Autowired`를 활용한 실무 사례를 분석하고 적용한다.
+
+## 3. 주요 핵심 키워드와 핵심개념
+
+### 주요 핵심 키워드
+
+- **의존성 주입(Dependency Injection)**: 객체 간의 의존 관계를 외부에서 설정하는 방식.
+- **스프링 컨테이너(Spring Container)**: 빈(Bean)을 관리하고 의존성을 주입하는 역할을 수행.
+- **빈(Bean)**: 스프링 IoC 컨테이너가 관리하는 자바 객체.
+- **@Autowired**: 스프링에서 의존성 주입을 자동으로 처리해주는 애노테이션.
+
+### 핵심개념
+
+#### 의존성 주입의 중요성
+의존성 주입은 객체 지향 설계에서 중요한 원칙 중 하나로, 객체 간의 결합도를 낮추고 코드의 재사용성을 높이는 데 기여합니다. 
+스프링 프레임워크는 이 원칙을 효율적으로 구현할 수 있는 다양한 방법을 제공합니다.
+
+#### @Autowired의 역할
+`@Autowired`는 스프링의 의존성 주입을 자동화하는 데 사용됩니다. 스프링 컨테이너가 관리하는 빈을 찾아서 주입해줍니다. 
+이를 통해 개발자는 복잡한 설정 파일 없이 간단하게 의존성을 주입할 수 있습니다.
+
+#### @Autowired 사용법
+- **필드 주입(Field Injection)**: 가장 간단한 방법으로, 클래스의 필드에 `@Autowired`를 붙여서 사용합니다.
+- **생성자 주입(Constructor Injection)**: 생성자에 `@Autowired`를 붙여서 의존성을 주입합니다. 
+    필드 주입보다 테스트와 유지보수에 유리합니다.
+- **setter 주입(Setter Injection)**: setter 메서드에 `@Autowired`를 붙여서 의존성을 주입합니다.
+
+## 4. 퀴즈문제/토론과제
+
+### 퀴즈 문제
+
+1. `@Autowired` 애노테이션을 사용하여 의존성 주입을 설정하는 방법 중 세 가지는 무엇인가요?
+2. `@Autowired` 애노테이션을 사용할 때 발생할 수 있는 문제점과 그 해결 방법은 무엇인가요?
+3. 의존성 주입을 통해 얻을 수 있는 이점은 무엇인가요?
+
+### 토론 과제
+
+1. 필드 주입, 생성자 주입, setter 주입 중 어떤 방식이 가장 효율적이라고 생각하는지 토론해보세요. 
+   각 방식의 장단점을 비교하고, 실제 프로젝트에서 어떻게 적용할지 논의해보세요.
+2. `@Autowired`를 사용하면서 겪었던 실무 경험이나 문제를 공유하고, 이를 어떻게 해결했는지에 대해 토론해보세요.
+3. 스프링의 의존성 주입이 대규모 애플리케이션 개발에 미치는 영향에 대해 논의해보세요.
+
+## 5. 실무적용사례
+
+### 사례 1: 전자상거래 애플리케이션
+
+전자상거래 애플리케이션에서 `@Autowired`를 이용하여 서비스 레이어와 데이터 액세스 레이어 간의 의존성을 주입한 사례입니다. 예를 들어, 주문 서비스(OrderService)가 주문 리포지토리(OrderRepository)에 의존하는 경우, `@Autowired`를 사용하여 주문 리포지토리를 자동으로 주입받아 서비스 로직을 구현할 수 있습니다.
+
+```java
+@Service
+public class OrderService {
+    
+    @Autowired
+    private OrderRepository orderRepository;
+    
+    public Order placeOrder(Order order) {
+        // 비즈니스 로직
+        return orderRepository.save(order);
+    }
+}
+```
+
+### 사례 2: RESTful API 개발
+
+RESTful API 개발 시, 컨트롤러 클래스에서 서비스 클래스를 `@Autowired`로 주입받아 사용합니다. 이를 통해 컨트롤러는 비즈니스 로직에 집중할 수 있고, 서비스 클래스를 독립적으로 테스트할 수 있습니다.
+
+```java
+@RestController
+@RequestMapping("/api/orders")
+public class OrderController {
+    
+    @Autowired
+    private OrderService orderService;
+    
+    @PostMapping
+    public ResponseEntity<Order> createOrder(@RequestBody Order order) {
+        Order createdOrder = orderService.placeOrder(order);
+        return ResponseEntity.status(HttpStatus.CREATED).body(createdOrder);
+    }
+}
+```
+
+이와 같이 `@Autowired`를 활용하면 코드의 복잡성을 줄이고, 테스트와 유지보수가 용이한 애플리케이션을 개발할 수 있습니다.

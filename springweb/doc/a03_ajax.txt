@@ -97,10 +97,47 @@
 		}	
 
 
-# 수정 처리
+# 수정/삭제 처리
+1. 처리할 내용
+	상세화면에서 데이터를 수정 후, 수정버튼을 클릭시, 수정 성공되었습니다 라는 메시지와 함께 수정된 내용을
+	확인한다.
+2. 개발 순서
+	1) dao/interface
+		int uptEmp(Emp upt);
+		int delEmp(int empno);
+	2) service
+		String
+			dao.uptEmp(upt)>0?"수정성공":"수정실패"
+			dao.delEmp(upt)>0?"삭제성공":"삭제실패"
+			
+	3) controller
+		@PutMapping("uptEmp.do")
+		public uptEmp(Emp upt, Model d){}
+		@DeleteMapping("delEmp.do")
+		public delEmp(@RequestParam("empno") int empno, Model d){}
+		
+	4) jsp(view)
+		$("#uptBtn").click(function(){
+			ajax 처리
+				method:"put",
+				success:function(data){
+					alert(data.result);
+					detail($("#frm02 [name=empno]").val());
+				}
+		})
+		$("#delBtn").click(function(){
+			ajax 처리
+				method:"delete",
+				success:function(){
+					alert(data.result);
+					// 전체 검색
+					// 창닫기 처리
+					
+				}
+		})
+14:45~		
+		
 
-
-# 삭제 처리
 
 
 

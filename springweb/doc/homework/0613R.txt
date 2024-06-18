@@ -1,0 +1,171 @@
+### 개념
+
+#### 1. JSP의 MVC와 Spring의 MVC의 차이점
+
+**JSP의 MVC**:
+- **Model**: JavaBeans or POJOs (Plain Old Java Objects) that contain the business logic.
+- **View**: JSP pages that present the data to the user.
+- **Controller**: Servlets that handle user requests and coordinate the flow between Model and View.
+
+**Spring의 MVC**:
+- **Model**: Managed by Spring Framework using beans and annotations to handle the business logic.
+- **View**: Various options including JSP, Thymeleaf, and others. Handled via `ViewResolver`.
+- **Controller**: Uses `@Controller` annotation. The `DispatcherServlet` handles requests, maps them to the appropriate controllers, and manages the flow between Model and View.
+
+Key differences:
+- Spring MVC provides a more structured and manageable approach with built-in support for Dependency Injection (DI) and Inversion of Control (IoC).
+- Spring MVC is more flexible and integrates easily with various view technologies.
+- Spring MVC uses annotations, reducing boilerplate code and improving readability.
+
+#### 2. 스프링에서 컨테이너(dispatcher-servlet.xml)를 이용하면 객체를 명시적으로 코드에서 `new XXX()`로 하지 않아도 되는 이유?
+
+스프링에서는 **의존성 주입(Dependency Injection)** 과 **제어의 역전(Inversion of Control)** 을 통해 객체를 생성하고 관리합니다. `dispatcher-servlet.xml` 같은 스프링 설정 파일에서 빈(bean)을 정의하면, 스프링 컨테이너는 애플리케이션 시작 시 필요한 객체를 생성하고, 설정된 의존성을 주입합니다. 따라서 개발자는 코드에서 직접 객체를 생성할 필요가 없고, 스프링 컨테이너가 객체의 생명주기를 관리하게 됩니다.
+
+#### 3. 스프링 컨트롤러에서 요청값 처리, 모델데이터 처리, 화면단 호출하는 방법을 실제 코드로 나타내기
+
+```java
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+@Controller
+public class MemberController {
+
+    @GetMapping("/member")
+    public String getMember(@RequestParam(name = "id", required = false, defaultValue = "1") String id, Model model) {
+        // 요청값 처리
+        int memberId = Integer.parseInt(id);
+
+        // 모델 데이터 처리 (Service를 통해 비즈니스 로직 처리)
+        Member member = memberService.findMemberById(memberId);
+        model.addAttribute("member", member);
+
+        // 화면단 호출 (뷰 이름 반환)
+        return "memberView";
+    }
+}
+```
+
+## 스프링
+
+### 문제 1: JSP MVC 패턴으로 member 테이블을 조회하세요
+
+**Controller (Servlet)**:
+```java
+@WebServlet("/member")
+public class MemberServlet extends HttpServlet {
+    private MemberService memberService = new MemberService();
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int memberId = Integer.parseInt(request.getParameter("id"));
+        Member member = memberService.findMemberById(memberId);
+
+        request.setAttribute("member", member);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("member.jsp");
+        dispatcher.forward(request, response);
+    }
+}
+```
+
+**Model (JavaBean)**:
+```java
+public class Member {
+    private int id;
+    private String name;
+
+    // getters and setters
+}
+```
+
+**View (JSP)**:
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Member Details</title>
+</head>
+<body>
+    <h1>Member Details</h1>
+    <p>ID: ${member.id}</p>
+    <p>Name: ${member.name}</p>
+</body>
+</html>
+```
+
+### 문제 2: `Z01DIExp11.java`를 이용하여, 생성자와 프로퍼티를 설정하여 객체를 생성하고 호출하는 예제 만들기
+
+**Book.java**:
+```java
+public class Book {
+    private String title;
+    private String author;
+
+    public Book(String title, String author) {
+        this.title = title;
+        this.author = author;
+    }
+
+    // getters and setters
+}
+```
+
+**Computer.java**:
+```java
+public class Computer {
+    private String brand;
+    private String processor;
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public void setProcessor(String processor) {
+        this.processor = processor;
+    }
+
+    // getters and setters
+}
+```
+
+**Z01DIExp11.java**:
+```java
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class Z01DIExp11 {
+    public static void main(String[] args) {
+        ApplicationContext context = new ClassPathXmlApplicationContext("dispatcher-servlet.xml");
+
+        Book book = (Book) context.getBean("bookBean");
+        System.out.println("Book Title: " + book.getTitle());
+        System.out.println("Book Author: " + book.getAuthor());
+
+        Computer computer = (Computer) context.getBean("computerBean");
+        System.out.println("Computer Brand: " + computer.getBrand());
+        System.out.println("Computer Processor: " + computer.getProcessor());
+    }
+}
+```
+
+**dispatcher-servlet.xml**:
+```xml
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="bookBean" class="com.example.Book">
+        <constructor-arg value="Spring in Action"/>
+        <constructor-arg value="Craig Walls"/>
+    </bean>
+
+    <bean id="computerBean" class="com.example.Computer">
+        <property name="brand" value="Dell"/>
+        <property name="processor" value="Intel i7"/>
+    </bean>
+</beans>
+```
+

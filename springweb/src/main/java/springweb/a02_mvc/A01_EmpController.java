@@ -3,6 +3,7 @@ package springweb.a02_mvc;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -80,5 +81,5 @@ public class A01_EmpController {
 		d.addAttribute("result",service.deleteEmp(empno));
 		return "jsonView";
 	}
-	
+
 }

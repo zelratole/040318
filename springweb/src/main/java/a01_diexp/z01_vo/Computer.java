@@ -1,5 +1,5 @@
 package a01_diexp.z01_vo;
-
+// a01_diexp.z01_vo.Computer
 public class Computer {
 	private String company;
 	private Cpu cpu;
