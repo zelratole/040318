@@ -40,6 +40,15 @@
 		<constructor-arg value="I9 4.2GHZ 15core"/>
 	</bean>
 	<!--  ex) HandPhone 추가 선언해서 Qualifier 선언으로 특정 객체 autowiring 처리.. -->
+	<bean id="hp01" class="a01_diexp.z05_vo.HandPhone">
+		<constructor-arg value="010-4444-8888"/>
+		<constructor-arg value="퀄컴"/>
+	</bean>
+	<bean id="hp02" class="a01_diexp.z05_vo.HandPhone">
+		<constructor-arg value="010-5555-9999"/>
+		<constructor-arg value="삼성"/>
+	</bean>	
+	
 </beans>  
 
     

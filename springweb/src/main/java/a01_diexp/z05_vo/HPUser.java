@@ -1,11 +1,13 @@
 package a01_diexp.z05_vo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 @Component("hpuser")
 public class HPUser {
 	private String name;
 	
 	@Autowired
+	@Qualifier("hp02")
 	private HandPhone handPhone; // 1:1관계 객체
 	public HPUser() {
 		super();
