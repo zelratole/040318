@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import springweb.a03_mvc.a02_service.A01_Service;
+import springweb.z01_vo.Dept;
 import springweb.z01_vo.Emp;
 
 @Controller("ctrl01")
@@ -20,5 +21,11 @@ public class A01_Controller {
 		d.addAttribute("empList", service.getEmpList(sch));
 		return "WEB-INF\\views\\a03_mvc\\a01_empList.jsp";
 	}
-	
+	// http://localhost:7080/springweb/deptList101.do
+	@RequestMapping("deptList101.do")
+	public String deptList101(Dept sch, Model d) {
+		
+		d.addAttribute("deptList", service.getDeptList(sch));
+		return "WEB-INF\\views\\a03_mvc\\a02_deptList.jsp";
+	}	
 }

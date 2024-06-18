@@ -37,7 +37,7 @@
 
 <body>
 <div class="jumbotron text-center">
-  <h2>사원정보조회</h2>
+  <h2>사원정보</h2>
 
 </div>
 <%-- 
@@ -46,8 +46,8 @@
 <div class="container">
 	<form id="frm01" class="form"  method="post">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input placeholder="사원명" name="ename" value="${param.ename}" class="form-control mr-sm-2" />
-	    <input placeholder="직책" name="job" value="${param.job}"  class="form-control mr-sm-2"/>
+	    <input placeholder="부서명" name="dname" value="${param.dname}" class="form-control mr-sm-2" />
+	    <input placeholder="부서위치" name="loc" value="${param.loc}"  class="form-control mr-sm-2"/>
 	    <button class="btn btn-info" type="submit">Search</button>
 	    <button class="btn btn-success" 
 	    	data-toggle="modal" data-target="#exampleModalCenter"
@@ -55,23 +55,20 @@
  	</nav>
 	</form>
    <table class="table table-hover table-striped">
-   	<col width="20%">
-   	<col width="20%">
-   	<col width="20%">
-   	<col width="20%">
-   	<col width="20%">
-    <thead> 
+   	<col width="34%">
+   	<col width="33%">
+   	<col width="33%">
+    <thead>
+    
       <tr class="table-success text-center">
-        <th>사원번호</th>
-        <th>사원명</th>
-        <th>직책명</th>
-        <th>급여</th>
         <th>부서번호</th>
+        <th>부서명</th>
+        <th>부서위치</th>
       </tr>
     </thead>	
     <tbody>
-    	<c:forEach var="emp" items="${empList }">
-    	<tr><td>${emp.empno}</td><td>${emp.ename}</td><td>${emp.job}</td><td>${emp.sal}</td><td>${emp.deptno}</td></tr>
+    	<c:forEach var="dept" items="${deptList}">
+    	<tr><td>${dept.deptno}</td><td>${dept.dname }</td><td>${dept.loc}</td></tr>
     	</c:forEach>
     </tbody>
 	</table>    
