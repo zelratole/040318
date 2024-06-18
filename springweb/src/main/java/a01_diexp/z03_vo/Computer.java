@@ -1,6 +1,6 @@
 package a01_diexp.z03_vo;
 import org.springframework.stereotype.Component;
-@Component
+@Component("com") // 아이디값 변경 처리..
 public class Computer {
 	private String company;
 	private Cpu cpu;

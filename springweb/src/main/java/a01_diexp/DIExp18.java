@@ -14,7 +14,7 @@ public class DIExp18 {
 		// <bean id="obj" class="java.lang.Object"/>
 		AbstractApplicationContext ctx = new GenericXmlApplicationContext(path);
 		Cpu cpu = ctx.getBean("cpu",Cpu.class);
-		Computer computer = ctx.getBean("computer",Computer.class);
+		Computer computer = ctx.getBean("com",Computer.class); // Component에 이름
 		System.out.println("컨테이너 안에 객체:"+cpu);
 		System.out.println("컨테이너 안에 객체:"+computer);
 		cpu.setCompany("인텔");

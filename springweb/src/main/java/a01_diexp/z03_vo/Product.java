@@ -1,10 +1,11 @@
 package a01_diexp.z03_vo;
 import org.springframework.stereotype.Component;
-@Component
+@Component("prod")
 public class Product {
 	private String name;
 	private int price;
 	private int cnt;
+	
 	public Product() {
 		super();
 		// TODO Auto-generated constructor stub

@@ -1,6 +1,7 @@
 package a01_diexp.z03_vo;
 import org.springframework.stereotype.Component;
-@Component
+
+@Component("music01")
 public class Music {
 	private String title;
 	private String singer;

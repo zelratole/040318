@@ -1,6 +1,6 @@
 package a01_diexp.z03_vo;
 import org.springframework.stereotype.Component;
-@Component
+@Component("p01")
 public class Person {
 	private String name;
 	private int age;

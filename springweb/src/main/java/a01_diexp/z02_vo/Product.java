@@ -1,5 +1,5 @@
 package a01_diexp.z02_vo;
-
+// a01_diexp.z02_vo.Product
 import org.springframework.stereotype.Component;
 
 @Component
