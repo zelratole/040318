@@ -78,7 +78,7 @@
 
 <body>
 <div class="jumbotron text-center">
-  <h2>사원정보등록</h2>
+  <h2>사원정보상세</h2>
 
 </div>
 <div class="container">
@@ -87,54 +87,57 @@
 		<div class="input-group-prepend ">
 			<span class="input-group-text  justify-content-center">사원번호</span>
 		</div>
-		<input type="number" name="empno" class="form-control" value="" />	
+		<input type="number" name="empno" class="form-control" value="${emp.empno}" />	
 	</div>	
 	<div class="input-group mb-3">	
 		<div class="input-group-prepend ">
 			<span class="input-group-text  justify-content-center">사원명</span>
 		</div>
-		<input name="ename" class="form-control" value="" />	
+		<input name="ename" class="form-control" value="${emp.ename}" />	
 	</div>	
 	<div class="input-group mb-3">	
 		<div class="input-group-prepend">
 			<span class="input-group-text  justify-content-center">직책명</span>
 		</div>
-		<input name="job" class="form-control" value="" />	
+		<input name="job" class="form-control" value="${emp.job}" />	
 	</div>	
 	<div class="input-group mb-3">	
 		<div class="input-group-prepend">
 			<span class="input-group-text  justify-content-center">관리자번호</span>
 		</div>
-		<input type="number" name="mgr" class="form-control" value="" />	
+		<input type="number" name="mgr" class="form-control" value="${emp.mgr}" />	
 	</div>	
 	<div class="input-group mb-3">	
 		<div class="input-group-prepend ">
 			<span class="input-group-text  justify-content-center">입사일</span>
 		</div>
-		<input type="date" name="hiredateStr" class="form-control" value="" />	
+		<input type="date" name="hiredateStr" class="form-control" 
+			value='<fmt:formatDate value="${emp.hiredate}" pattern="yyyy-MM-dd" />' />
+		
 	</div>	
 	<div class="input-group mb-3">	
 		<div class="input-group-prepend ">
 			<span class="input-group-text  justify-content-center">급여</span>
 		</div>
-		<input type="number"  name="sal" class="form-control" value="" />	
+		<input type="number"  name="sal" class="form-control" value="${emp.sal}" />	
 	</div>		
 	<div class="input-group mb-3">	
 		<div class="input-group-prepend ">
 			<span class="input-group-text  justify-content-center">보너스</span>
 		</div>
-		<input type="number"  name="comm" class="form-control" value="" />	
+		<input type="number"  name="comm" class="form-control" value="${emp.comm}" />	
 	</div>	
 	<div class="input-group mb-3">	
 		<div class="input-group-prepend ">
 			<span class="input-group-text  justify-content-center">부서번호</span>
 		</div>
-		<input type="number"  name="deptno" class="form-control" value="" />	
+		<input type="number"  name="deptno" class="form-control" value="${emp.deptno}" />	
 	</div>						
 	<div style="text-align:right;">
-			<input type="button" class="btn btn-success" value="등록" id="regBtn"/>
+			<input type="button" class="btn btn-info" value="수정" id="uptBtn"/>
+			<input type="button" class="btn btn-warning" value="삭제" id="delBtn"/>
 			<input type="button" class="btn btn-primary" value="메인화면으로" id="mainBtn"/>
-	</div>	
+	</div>	<!--  http://localhost:7080/springweb/emp.do?empno=1000 -->
 	</form>	
 	<script type="text/javascript">
 		$("#regBtn").click(function(){
