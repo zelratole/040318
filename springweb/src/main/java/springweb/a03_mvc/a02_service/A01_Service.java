@@ -41,4 +41,7 @@ public class A01_Service {
 		sch.setLoc("%"+sch.getLoc()+"%");
 		return dao.getDeptList(sch);
 	}
+	public String insertDept(Dept ins) {
+		return dao.insertDept(ins)>0?"등록성공":"등록실패"; 
+	}
 }

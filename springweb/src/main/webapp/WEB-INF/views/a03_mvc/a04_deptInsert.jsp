@@ -34,6 +34,10 @@
 	$(document).ready(function(){
 	
 	});
+	var result="${result}"
+	if(result!=""){
+		alert(result)
+	}
 </script>
 </head>
 

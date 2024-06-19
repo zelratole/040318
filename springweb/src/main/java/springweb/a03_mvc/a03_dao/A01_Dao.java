@@ -27,6 +27,11 @@ public interface A01_Dao {
 			+ "AND loc like #{loc} "
 			+ "order by deptno ")
 	List<Dept> getDeptList(Dept sch);
+	
+	@Insert("insert into dept01 values(#{deptno}, #{dname}, #{loc})")
+	int insertDept(Dept ins);
+	
+	
 	// @Insert @Update @Delete
 	
 	

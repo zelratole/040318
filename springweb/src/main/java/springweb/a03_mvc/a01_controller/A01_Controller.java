@@ -49,7 +49,8 @@ public class A01_Controller {
 		return "WEB-INF\\views\\a03_mvc\\a04_deptInsert.jsp";
 	}
 	@PostMapping("deptInsert102.do")
-	public String deptInsert() {
+	public String deptInsert(Dept ins, Model d) {
+		d.addAttribute("result", service.insertDept(ins));
 		return "WEB-INF\\views\\a03_mvc\\a04_deptInsert.jsp";
 	}	
 	
