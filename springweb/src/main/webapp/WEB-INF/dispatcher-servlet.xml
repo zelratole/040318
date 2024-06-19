@@ -52,6 +52,8 @@
 	</bean>	 
 	<!-- 
 	3. mybatis가 만드는 실제 객체를 생성하는 기준 interface dao가 있는 패키지 위치 지정..
+		추가적인 dao 패키지가 필요하면 value="패키지명1, 패키지명2, ..."
+	
 	 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="springweb.a03_mvc.a03_dao" />
