@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import springweb.a03_mvc.a02_service.A01_Service;
 import springweb.z01_vo.Dept;
@@ -34,6 +35,12 @@ public class A01_Controller {
 		d.addAttribute("result", service.insertEmp(ins));
 		return "WEB-INF\\views\\a03_mvc\\a03_empInsertForm.jsp";
 	}	
+	@RequestMapping("empnoDupck.do")
+	public String empnoDupck(@RequestParam("empno") int empno, Model d) {
+		d.addAttribute("ckDupEmp", service.empnoDupck(empno)); // empnoDupck.do  ckDupEmp
+		return "jsonView";
+	}
+	
 	
 	// http://localhost:7080/springweb/deptList101.do
 	@RequestMapping("deptList101.do")

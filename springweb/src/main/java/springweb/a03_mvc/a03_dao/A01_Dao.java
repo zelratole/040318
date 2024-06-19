@@ -3,6 +3,7 @@ package springweb.a03_mvc.a03_dao;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import springweb.z01_vo.Dept;
@@ -20,6 +21,10 @@ public interface A01_Dao {
 			+ "	to_date(#{hiredateStr},'YYYY-MM-DD'), #{sal},#{comm},#{deptno})")
 	int insertEmp(Emp ins);
 	
+	@Select("		select count(*) \r\n"
+			+ "		from emp05\r\n"
+			+ "		where empno = #{empno}")
+	int empnoDupck(@Param("empno") int empno);
 	
 	// 부서정보...
 	@Select("SELECT * FROM dept01 "

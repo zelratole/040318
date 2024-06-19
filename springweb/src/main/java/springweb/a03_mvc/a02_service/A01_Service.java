@@ -2,6 +2,7 @@ package springweb.a03_mvc.a02_service;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,6 +33,9 @@ public class A01_Service {
 		return dao.insertEmp(ins)>0?"등록성공":"등록실패";
 	}
 	
+	public int empnoDupck(int empno) {
+		return dao.empnoDupck(empno);
+	}
 	public List<Dept> getDeptList(Dept sch){
 		if(sch.getDname()==null) sch.setDname("");
 		if(sch.getLoc()==null) sch.setLoc("");

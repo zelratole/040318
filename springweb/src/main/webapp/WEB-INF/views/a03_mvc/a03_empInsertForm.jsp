@@ -32,12 +32,44 @@
 <script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-	
+		// enter키 입력시 form submit 처리 방지.
+		$("form").on("keydown", function(event) {
+			/// 해당 이벤트가 event.keyCode는 13과 같은 event.key는 Enter키를
+			// 입력시, 요청값을 서버에 전달하는 것을 
+			if (event.key === "Enter") {
+				// 방지 처리하는 기능 수행..
+				event.preventDefault();
+				return false;
+			}
+		})
+		
+		
+		// // empnoDupck.do  ckDupEmp
+		$("[name=empno]").keyup(function(){
+			if(event.keyCode==13){
+				$.ajax({
+					url:"empnoDupck.do",
+					data:"empno="+$(this).val(),
+					dataType:"json",
+					success:function(data){
+						if(data.ckDupEmp > 0){
+							alert("중복 등록된 사원번호가 있습니다.")
+							$("[name=empno]").val("").focus()
+						}else{
+							alert("해당번호로 등록가능합니다")
+						}				
+					}				
+				})
+			}
+			
+		})
 	});
 	var result = "${result}"
 	if(result!=""){
 		alert(result)  // 등록 성공 alert()로딩 : 모델 데이터를 받아서..
 	}
+	
+	
 </script>
 </head>
 
