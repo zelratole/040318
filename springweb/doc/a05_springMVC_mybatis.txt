@@ -120,5 +120,33 @@ ex) 2. 사원정보 입력 후, 등록 처리, 등록 완료, 조회화면이동
 
 # 부서정보 등록 처리..
 
+# 상세화면 처리
+1. sql 작성
+	select *
+	from emp05
+	where empno = #{empno}
+2. dao 작성
+	Emp getEmpno(@Param("empno") int empno);
 
+3. service		
+4. controller
+	emp.do
+	
+	d.addAttribute("emp",service.getEmp(empno));
+	return "a05_empDetail.jsp"
+	
+5. view(a05_empDetail.jsp)
+	name="empno" value="${emp.empno}"	
+	name="ename" value="${emp.ename}"	
+	name="job" value="${emp.job}"	
+	
+6. view(a11_empList.jsp)
+	<tr ondblclick="detail(${emp.empno})">
+	
+	function detail(empno){
+		location.href="emp.do?empno="+empno
+	}
+
+
+# 상세화면서 수정/삭제 처리..
 

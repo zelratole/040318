@@ -17,6 +17,11 @@ public interface A01_Dao {
 			+ "order by empno ")      //  sch.getJob()
 	List<Emp> getEmpList(Emp sch);
 	
+	@Select("select *\r\n"
+			+ "	from emp05\r\n"
+			+ "	where empno = #{empno}")
+	Emp getEmp(@Param("empno") int empno);
+	
 	@Insert("INSERT INTO emp05 values(#{empno}, #{ename},#{job},#{mgr}, \r\n"
 			+ "	to_date(#{hiredateStr},'YYYY-MM-DD'), #{sal},#{comm},#{deptno})")
 	int insertEmp(Emp ins);
