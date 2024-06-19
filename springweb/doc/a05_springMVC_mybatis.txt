@@ -43,3 +43,59 @@
     	</c:forEach>				
 
 2. 개발 순서
+	1) 요구사항 정의서 확인 : 사원명과 직책명을 입력하여 검색버튼 클릭시, 
+							사원정보리스트(사원번호, 사원명, 직책명, 급여, 부서번호)를 출력한다.
+	2) 화면설계서 내용 확인 : [   ] [   ] [검색]
+	                     ........
+	3) controller단을 통한 초기 화면 호출..
+		- Controller 생성
+		- 요청url mapping 선언 메서드 선언 @RequestMapping("empList.do")
+		- 호출할 jsp 선언.
+	4) JSP(view단)
+		- form 구현(사용자 인터페이스/타이틀)..
+			name="ename" name="job" 
+		- 테이블 리스트 구현..	
+	5) DB 처리
+		sql 작성 : 입력값(where조건, insert/update/delete) 요청값/리스트
+				  출력할 내용(select 컬럼명 데이터 유형 확인)
+	6) VO만들기 	
+		SQL 처리 결과에 맞는 vo 작성..
+	7) Dao인터페이스 생성
+		@Select("sql 구문")
+		List<Emp> getEmpList(Emp sch);
+	8) Service
+	9) Controller 요청값 VO 할당, Model 선언
+		모델데이터 설정 Model d
+		d.addAttribute("모델명", service.메서드명());
+	10) jsp단에서
+		form요청값 확인
+		테이블 형식으로 출력할 내용 처리..
+	11) 테스트 진행 - 에러 내용 정리(에러 노트)..	
+			
+			
+# 사원정보 등록 처리
+1. 등록 버튼 클릭시, 등록화면 로딩
+2. 사원정보 입력 후, 등록 처리, 등록 완료, 조회화면이동시 등록된 내용 처리.
+
+								
+ex) 1. 등록 버튼 클릭시, 등록화면 로딩		
+							
+	1) 요구사항 정의서 확인 : 사원정보조회화면에서 등록버튼을 클릭시, 사원정보 조회화면으로 이동하여
+			사원번호, 사원명, 직책명, 입사일, 급여, 보너스, 부서번호가 입력되는 화면이 나타난다.
+	2) 화면설계서 내용 확인 : [등록] 클릭시, 이동
+			사원번호 : [  ] 
+			사원명 :  [  ]
+	                     ........
+	3) controller단을 통한 초기 화면 호출..
+		- Controller 생성(A01_Controller.java)
+		- 요청url mapping 선언 메서드 선언 @RequestMapping("empInsertForm100.do")
+		- 호출할 jsp 선언.(jsp만들어 추가)..
+	4) JSP(view단)
+		- form 구현(사용자 인터페이스/타이틀)..
+			name="ename" name="job" 
+		- 테이블 리스트 구현..	
+	5) JSP(리스트 화면에서 이벤트로 등록화면 이동 처리)
+	
+
+
+

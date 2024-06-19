@@ -21,6 +21,13 @@ public class A01_Controller {
 		d.addAttribute("empList", service.getEmpList(sch));
 		return "WEB-INF\\views\\a03_mvc\\a01_empList.jsp";
 	}
+	// http://localhost:7080/springweb/empInsertForm100.do
+	@RequestMapping("empInsertForm100.do")
+	public String empInsertForm100() {
+		return "WEB-INF\\views\\a03_mvc\\a03_empInsertForm.jsp";
+	}
+	
+	
 	// http://localhost:7080/springweb/deptList101.do
 	@RequestMapping("deptList101.do")
 	public String deptList101(Dept sch, Model d) {
