@@ -1,0 +1,45 @@
+# spring MVC를 통한 Mybatis 연동 프로그램 처리..
+1. 기본 흐름 처리
+	1) url 입력/요청값 처리 (브라우저)
+		http://localhost:7080/springweb/empList.do?ename=&job=
+	2) web.xml 
+		.do를 확인하고, front컨트롤러인 dispatcher-servlet이라는 스프링 프레임워크를
+		처리여부 결정해서 처리하고 이와 연계되어 있는 컨테이너( dispatcher-servlet.xml) 호출하여
+		class에서 객체를 로딩
+	3) dispatcher-servlet.xml
+		객체 로딩 중에서 위 url에 있는 empList.do?ename=&job= 형태 url 패턴을 controller 중에서
+		특정한 기능 메서드를 찾음..
+	4) Controller : @Controller 선언된 것 중에, url 패턴과 요청값이 맞는 메서드를 찾아서 진행..
+		@RequestMapping("empList.do")
+		public String empList(Emp sch) { setEname(String ename), setJob(String job)(useBean개념)
+		public String empList(@RequestParam("ename") String ename, 
+							  @RequestParam("job") String job, .) {	
+	5) Controller ==> Service단에 요청값을 전송
+		service.getEmpList(sch)
+	6) Service ==> Dao단에 요청값 전송
+		중간에 조건문/반복문을 통해서 알고리즘을 처리 if(sch.getEname()==null) sch.setEname("");
+		dao.getEmpList(sch)
+	7) Dao단에서는 요청값을 받아서 sql을 통해 서버단에서 데이터를 가져온 후, mybatisframework에 의해
+		결과 객체를 만들어 준다.(interface를 상속받은 실제 객체를 만들어 준다)
+		@Select("SELECT * FROM EMP05 "
+				+ "WHERE ename like '%'||#{ename}||'%' " // sch.getEname()
+				+ "and job like '%'||#{job}||'%' ")      //  sch.getJob()
+		List<Emp> getEmpList(Emp sch);	
+		
+		최종적으로 List<Emp>안에 조회 결과 객체를 DB에서 받아서 할당 처리..
+	8) Service단에서
+		return dao.getEmpList(sch): (할당된 List<Emp> 리턴 처리)
+	9) Controller에서..
+		service 에 받은 리턴된 객체 데이터를 모델로 할당하여 view단 넘겨줄 준비를 한다.
+		d.addAttribute("empList", service.getEmpList(sch));
+		
+		호출할 뷰단(jsp/jsonView....)
+		return "WEB-INF\\views\\a03_mvc\\a01_empList.jsp";
+	10) View단(jsp)
+		모델로 넘겨온 데이터를 el태그로 jstl과 함께 반복문 수행하여 출력 처리
+    	<c:forEach var="emp" items="${empList }">
+    	<tr><td>${emp.empno}</td><td>${emp.ename}</td>
+    		<td>${emp.job}</td><td>${emp.sal}</td><td>${emp.deptno}</td></tr>
+    	</c:forEach>				
+
+2. 개발 순서
