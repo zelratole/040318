@@ -24,7 +24,8 @@ public interface A01_Dao {
 	// 부서정보...
 	@Select("SELECT * FROM dept01 "
 			+ "WHERE dname like #{dname} "
-			+ "AND loc like #{loc} ")
+			+ "AND loc like #{loc} "
+			+ "order by deptno ")
 	List<Dept> getDeptList(Dept sch);
 	// @Insert @Update @Delete
 	

@@ -30,14 +30,16 @@
 <script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-	
+		$("#regBtn").click(function(){
+			location.href="deptInsert102.do"
+		})
 	});
 </script>
 </head>
 
 <body>
 <div class="jumbotron text-center">
-  <h2>사원정보</h2>
+  <h2>부서정보</h2>
 
 </div>
 <%-- 
@@ -49,9 +51,7 @@
 	    <input placeholder="부서명" name="dname" value="${param.dname}" class="form-control mr-sm-2" />
 	    <input placeholder="부서위치" name="loc" value="${param.loc}"  class="form-control mr-sm-2"/>
 	    <button class="btn btn-info" type="submit">Search</button>
-	    <button class="btn btn-success" 
-	    	data-toggle="modal" data-target="#exampleModalCenter"
-	        type="button">등록</button>
+	    <button id="regBtn" class="btn btn-success" type="button">등록</button>
  	</nav>
 	</form>
    <table class="table table-hover table-striped">

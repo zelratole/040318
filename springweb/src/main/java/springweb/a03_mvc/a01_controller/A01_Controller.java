@@ -3,6 +3,8 @@ package springweb.a03_mvc.a01_controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import springweb.a03_mvc.a02_service.A01_Service;
@@ -40,4 +42,18 @@ public class A01_Controller {
 		d.addAttribute("deptList", service.getDeptList(sch));
 		return "WEB-INF\\views\\a03_mvc\\a02_deptList.jsp";
 	}	
+	// Get/Post방식이 다르면 같은 url이라도 호출이 가능 하다.
+	// http://localhost:7080/springweb/deptInsert102.do
+	@GetMapping("deptInsert102.do")
+	public String deptInsertFrm() {
+		return "WEB-INF\\views\\a03_mvc\\a04_deptInsert.jsp";
+	}
+	@PostMapping("deptInsert102.do")
+	public String deptInsert() {
+		return "WEB-INF\\views\\a03_mvc\\a04_deptInsert.jsp";
+	}	
+	
+	
+	
+	
 }
