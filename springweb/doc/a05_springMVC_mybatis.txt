@@ -103,7 +103,7 @@ ex) 2. 사원정보 입력 후, 등록 처리, 등록 완료, 조회화면이동
 		SQL 처리 결과에 맞는 vo 작성..
 	7) Dao인터페이스 생성
 		@Insert("sql 구문") ==> 기존 emp 등록 sql 참고..
-		void getInsertEmp(Emp insert);
+		void insertEmp(Emp insert);
 	8) Service
 	9) Controller 요청값 VO 할당, Model 선언
 		- 요청url mapping 선언 메서드 선언 @RequestMapping("empInsert.do")	

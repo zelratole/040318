@@ -26,7 +26,12 @@ public class A01_Controller {
 	public String empInsertForm100() {
 		return "WEB-INF\\views\\a03_mvc\\a03_empInsertForm.jsp";
 	}
-	
+	// http://localhost:7080/springweb/empInsert100.do
+	@RequestMapping("empInsert100.do")
+	public String empInsert100(Emp ins, Model d) {
+		d.addAttribute("result", service.insertEmp(ins));
+		return "WEB-INF\\views\\a03_mvc\\a03_empInsertForm.jsp";
+	}	
 	
 	// http://localhost:7080/springweb/deptList101.do
 	@RequestMapping("deptList101.do")

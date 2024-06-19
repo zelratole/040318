@@ -27,6 +27,11 @@ public class A01_Service {
 		
 		return dao.getEmpList(sch);
 	}
+	
+	public 	String insertEmp(Emp ins) {
+		return dao.insertEmp(ins)>0?"등록성공":"등록실패";
+	}
+	
 	public List<Dept> getDeptList(Dept sch){
 		if(sch.getDname()==null) sch.setDname("");
 		if(sch.getLoc()==null) sch.setLoc("");

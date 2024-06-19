@@ -12,10 +12,11 @@ public interface A01_Dao {
 	
 	@Select("SELECT * FROM EMP05 "
 			+ "WHERE ename like '%'||#{ename}||'%' " // sch.getEname()
-			+ "and job like '%'||#{job}||'%' ")      //  sch.getJob()
+			+ "and job like '%'||#{job}||'%' "
+			+ "order by empno ")      //  sch.getJob()
 	List<Emp> getEmpList(Emp sch);
 	
-	@Insert("INSERT INTO emp05 values(#{empno}, #{ename},#{jog},#{mgr}, \r\n"
+	@Insert("INSERT INTO emp05 values(#{empno}, #{ename},#{job},#{mgr}, \r\n"
 			+ "	to_date(#{hiredateStr},'YYYY-MM-DD'), #{sal},#{comm},#{deptno})")
 	int insertEmp(Emp ins);
 	

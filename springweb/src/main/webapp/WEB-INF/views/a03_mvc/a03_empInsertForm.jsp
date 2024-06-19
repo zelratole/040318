@@ -34,6 +34,10 @@
 	$(document).ready(function(){
 	
 	});
+	var result = "${result}"
+	if(result!=""){
+		alert(result)  // 등록 성공 alert()로딩 : 모델 데이터를 받아서..
+	}
 </script>
 </head>
 
@@ -43,7 +47,7 @@
 
 </div>
 <div class="container">
-	<form method="post">
+	<form method="post" action="empInsert100.do"> <!-- 등록시 controller호출.. -->
 	<div class="input-group mb-3">	
 		<div class="input-group-prepend ">
 			<span class="input-group-text  justify-content-center">사원번호</span>
