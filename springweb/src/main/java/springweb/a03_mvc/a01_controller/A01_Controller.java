@@ -24,6 +24,14 @@ public class A01_Controller {
 		d.addAttribute("empList", service.getEmpList(sch));
 		return "WEB-INF\\views\\a03_mvc\\a01_empList.jsp";
 	}
+	// http://localhost:7080/springweb/emp.do?empno=1000
+	@RequestMapping("emp.do")
+	public String emp(@RequestParam("empno") int empno, Model d) {
+		d.addAttribute("emp", service.getEmp(empno));
+		return "WEB-INF\\views\\a03_mvc\\a05_empDetail.jsp";  // a05_empDetail.jsp
+	}
+	
+	
 	// http://localhost:7080/springweb/empInsertForm100.do
 	@RequestMapping("empInsertForm100.do")
 	public String empInsertForm100() {
