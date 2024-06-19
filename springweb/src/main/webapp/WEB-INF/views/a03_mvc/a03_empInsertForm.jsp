@@ -61,13 +61,13 @@
 		<input name="ename" class="form-control" value="" />	
 	</div>	
 	<div class="input-group mb-3">	
-		<div class="input-group-prepend ">
+		<div class="input-group-prepend">
 			<span class="input-group-text  justify-content-center">직책명</span>
 		</div>
 		<input name="job" class="form-control" value="" />	
 	</div>	
 	<div class="input-group mb-3">	
-		<div class="input-group-prepend ">
+		<div class="input-group-prepend">
 			<span class="input-group-text  justify-content-center">관리자번호</span>
 		</div>
 		<input type="number" name="mgr" class="form-control" value="" />	

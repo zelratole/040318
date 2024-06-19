@@ -135,11 +135,57 @@
 					
 				}
 		})
-14:45~		
+
+
+# 사원번호 중복 처리 확인 ajax 처리..
+1. 기능 내용
+	사원번호를 입력 후, enter입력시, 사원번호가 등록이 되었있으면 중복 등록된 사원번호가 있습니다. 로딩
+	그외는 사원번호 등록 가능 합니다. 출력..
+2. 처리 순서
+	1) sql
+		select count(*) 
+		from emp05
+		where empno = #{empno}
+		등록 번호가 있을 때 1이상 그외는 0
+	2) dao
+		int empnoDupck(@Param("empno") int empno)
+	-----------------------------------------------------	
+	3) service
+		public int empnoDupck(int empno){
+			return dao.empnoDupck(empno)
+		}
+	4) controller
+		empnoDupck.do
 		
-
-
-
+		d.addAttribute("ck", sevice.empnoDupck(empno));
+		
+		return "jsonView";
+	5) jsp(view)
+		$("[name=empno]").keyup(function(){
+			if(event.keyCode==13){
+				$.ajax({
+					url:"empnoDupck.do",
+					data:"empno="+$(this).val(),
+					success:function(data){
+						if(data.ck > 0){
+							alert("중복 등록된 사원번호가 있습니다.)
+							$("[name=empno]").val("").focus()
+						}else{
+							alert("등록가능합니다")
+						}
+					}
+				})
+			}
+		})
+	
+	
+		
+		
+		
+		
+	
+	
+		  
 
 
 
