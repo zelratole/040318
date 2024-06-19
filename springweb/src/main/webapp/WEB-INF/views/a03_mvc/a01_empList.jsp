@@ -30,7 +30,9 @@
 <script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-	
+		$("#regBtn").click(function(){
+			location.href="empInsertForm100.do"
+		})
 	});
 </script>
 </head>
@@ -49,9 +51,7 @@
 	    <input placeholder="사원명" name="ename" value="${param.ename}" class="form-control mr-sm-2" />
 	    <input placeholder="직책" name="job" value="${param.job}"  class="form-control mr-sm-2"/>
 	    <button class="btn btn-info" type="submit">Search</button>
-	    <button class="btn btn-success" 
-	    	data-toggle="modal" data-target="#exampleModalCenter"
-	        type="button">등록</button>
+	    <button id="regBtn" class="btn btn-success" type="button">등록</button>
  	</nav>
 	</form>
    <table class="table table-hover table-striped">
