@@ -58,7 +58,10 @@
 						}else{
 							alert("해당번호로 등록가능합니다")
 						}				
-					}				
+					},
+					error:function(err){
+						consol.log(err)
+					}
 				})
 			}
 			
