@@ -87,7 +87,7 @@
 		<div class="input-group-prepend ">
 			<span class="input-group-text  justify-content-center">사원번호</span>
 		</div>
-		<input type="number" name="empno" class="form-control" value="${emp.empno}" />	
+		<input type="number" name="empno" class="form-control" value="${emp.empno}" readonly />	
 	</div>	
 	<div class="input-group mb-3">	
 		<div class="input-group-prepend ">

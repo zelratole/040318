@@ -1,5 +1,6 @@
 package springweb.a03_mvc.a01_controller;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -48,6 +49,25 @@ public class A01_Controller {
 		d.addAttribute("ckDupEmp", service.empnoDupck(empno)); // empnoDupck.do  ckDupEmp
 		return "jsonView";
 	}
+	// http://localhost:7080/springweb/empUpdate100.do
+	@RequestMapping("empUpdate100.do")
+	public String empUpdate(Emp upt, Model d) {
+		
+		d.addAttribute("msg", service.updateEmp(upt));
+		d.addAttribute("emp", service.getEmp(upt.getEmpno())); // 수정후, 수정된 내용 확인..
+		
+		return "WEB-INF\\views\\a03_mvc\\a05_empDetail.jsp"; 
+	}
+	// http://localhost:7080/springweb/empDelete100.do
+	@RequestMapping("empDelete100.do")
+	public String empDelete(@RequestParam("empno") int empno, Model d) {
+		d.addAttribute("msg", service.deleteEmp(empno));
+		d.addAttribute("proc", "삭제");
+		return "WEB-INF\\views\\a03_mvc\\a05_empDetail.jsp"; 
+	}
+	
+	
+	
 	
 	
 	// http://localhost:7080/springweb/deptList101.do

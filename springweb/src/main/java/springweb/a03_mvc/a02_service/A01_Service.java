@@ -39,6 +39,14 @@ public class A01_Service {
 	public int empnoDupck(int empno) {
 		return dao.empnoDupck(empno);
 	}
+	
+	public String updateEmp(Emp upt) {
+		return dao.updateEmp(upt)>0?"수정성공":"수정실패";
+	}	
+	public String deleteEmp(int empno) {
+		return dao.deleteEmp(empno)>0?"삭제성공":"삭제실패";
+	}
+	
 	public List<Dept> getDeptList(Dept sch){
 		if(sch.getDname()==null) sch.setDname("");
 		if(sch.getLoc()==null) sch.setLoc("");

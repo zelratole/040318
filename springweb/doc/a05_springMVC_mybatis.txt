@@ -208,6 +208,112 @@ ex) 2. 사원정보 입력 후, 등록 처리, 등록 완료, 조회화면이동
 
 # 상세화면서 수정/삭제 처리..
 
+1. 기본 흐름 처리
+	0) 상세화면 데이터 처리를 위한 요청값을 전달할 때 화면에서 처리할 내용(a05_empDatail.jsp)
+	    form에 있는 내용을 변경 후, 수정 삭제 버튼 클릭
+	    <input type="button" id="regBtn" value="수정"/>
+	    <input type="button" id="delBtn" value="삭제"/>
+	    
+	    $("#regBtn").click(function(){
+	    	if(confirm("수정하시겠습니까?")){
+				// 유효성 check 필요시 처리..
+				$("form").attr("action","updateEmp.do");
+				$("form")[0].submit();	  // $("form")[0].reset() 반드시 배열로 선언해야 처리가 된다.(초기화시)  		
+				// $("form")[0].submit() $("form").submit() 둘다 사용가능..		
+	    	}
+	    })
+	    $("#delBtn").click(function(){
+	    	if(confirm("삭제하시겠습니까?")){
+				// 유효성 check 필요시 처리..
+				/*
+				$("form").attr("action","deleteEmp.do");
+				$("form")[0].submit();   document.querySelector("form").submit();
+				*/	    	
+				location.href="deleteEmp.do?empno="+$("[name=empno]").val()	
+	    	}
+	    })	    
+	   ----------------------------------------------- 
+	    	
+	1) url 입력/요청값 처리 (브라우저)
+		http://localhost:7080/springweb/updateEmp.do  : post방식
+		http://localhost:7080/springweb/deleteEmp.do?empno=1000 : get방식
+	4) Controller : @Controller 선언된 것 중에, url 패턴과 요청값이 맞는 메서드를 찾아서 진행..
+		@RequestMapping("updateEmp.do?")
+		public String updateEmp(Emp upt) {	
+		
+		@RequestMapping("deleteEmp.do?")
+		public String deleteEmp(@RequestParam("empno") int empno) {	
+
+		
+		
+	5) Controller ==> Service단에 요청값을 전송
+		service.updateEmp(upt)
+		service.deleteEmp(empno)
+	6) Service ==> Dao단에 요청값 전송
+		dao.updateEmp(upt)
+		dao.deleteEmp(empno)
+		
+	7) Dao단에서는 요청값을 받아서 sql을 통해 서버단에서 데이터를 가져온 후, mybatisframework에 의해
+		결과 객체를 만들어 준다.(interface를 상속받은 실제 객체를 만들어 준다)
+		@Update
+		update emp05
+			set ename = #{ename},
+				job = #{job},
+				mgr = #{mgr},
+				hiredate = to_date(#{hiredateStr},'YYYY-MM-DD'),
+				sal = #{sal},
+				comm = #{comm},
+				deptno = #{deptno}
+		where empno = #{empno}	
+		
+		int updateEmp(Emp upt);
+		
+		@Delete
+		delete
+		from emp05
+		where empno=#{empno}	
+		
+		int deleteEmp(@Param("empno") int empno );
+		
+		
+		
+	8) Service단에서
+		return dao.updateEmp(emp)>0?"수정성공":"수정실패"; 
+		return dao.deleteEmp(empno)>0?"삭제성공":"삭제실패"; 
+	9) Controller에서..
+		service 에 받은 리턴된 객체 데이터를 모델로 할당하여 view단 넘겨줄 준비를 한다.
+		@RequestMapping("updateEmp.do?")
+		//d.addAttribute("proc", "수정");
+		d.addAttribute("msg", service.updateEmp(upt));
+		d.addAttribute("emp", service.getEmp(upt.getEmpno())); // 수정후, 수정된 데이터로 다시 확인하기 위하여..
+		
+		
+		@RequestMapping("deleteEmp.do?")
+		d.addAttribute("proc", "삭제");
+		d.addAttribute("msg", service.deleteEmp(empno));
+		
+		호출할 뷰단(jsp/jsonView....)
+		return "WEB-INF\\views\\a03_mvc\\05_empDetail.jsp";
+	10) view단(a05_empDetail.jsp)
+		var msg = "${msg}"     var msg = "수정성공"
+		var proc = "${proc}"
+		if(msg!=""){    // 공백이ㅠ아닐 때 처리..
+			alert(msg)
+			if(proc=="삭제"){
+				alert("조회화면이동");
+				location.href="empList100.do"
+			}
+			
+		}
+
+		<input value="${emp.ename}">
+
+
+
+
+
+
+
 
 # ex) 부서정보 상세 화면 로딩 처리...
 1) dao/service 처리 완료
