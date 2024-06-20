@@ -147,6 +147,64 @@ ex) 2. 사원정보 입력 후, 등록 처리, 등록 완료, 조회화면이동
 		location.href="emp.do?empno="+empno
 	}
 
+# 상세화면로딩
+1. 기본 흐름 처리
+	0) 상세화면 데이터 처리를 위한 list 화면에서 처리할 내용(a01_empList.jsp)
+	    <tbody>
+	    	<c:forEach var="emp" items="${empList }">
+	    	<tr ondblclick="detail(${emp.empno})">
+	    	</c:forEach>
+	    </tbody>
+		</table>    
+		<script type="text/javascript">
+			function detail(empno){
+				location.href="emp.do?empno="+empno
+			}
+		</script>		
+	1) url 입력/요청값 처리 (브라우저)
+		http://localhost:7080/springweb/emp.do?empno=1000
+	4) Controller : @Controller 선언된 것 중에, url 패턴과 요청값이 맞는 메서드를 찾아서 진행..
+		@RequestMapping("emp.do?")
+		public String getEmp(@RequestParam("empno") int empno) {	
+	5) Controller ==> Service단에 요청값을 전송
+		service.getEmp(empno)
+	6) Service ==> Dao단에 요청값 전송
+		dao.getEmp(empno)
+		
+	7) Dao단에서는 요청값을 받아서 sql을 통해 서버단에서 데이터를 가져온 후, mybatisframework에 의해
+		결과 객체를 만들어 준다.(interface를 상속받은 실제 객체를 만들어 준다)
+		@Select("select *\r\n"
+				+ "	from emp05\r\n"
+				+ "	where empno = #{empno}")
+		Emp getEmp(@Param("empno") int empno);
+		
+	8) Service단에서
+		return dao.getEmp(empno); (Emp 객체 전달.
+	9) Controller에서..
+		service 에 받은 리턴된 객체 데이터를 모델로 할당하여 view단 넘겨줄 준비를 한다.
+		d.addAttribute("emp", service.dao.getEmp(empno));
+		
+		호출할 뷰단(jsp/jsonView....)
+		return "WEB-INF\\views\\a03_mvc\\05_empDetail.jsp";
+--------------------------------------------------------------------		
+	10) view단(a05_empDetail.jsp)
+		<form method="post" action="empInsert100.do"> <!-- 등록시 controller호출.. -->
+		<div class="input-group mb-3">	
+			<div class="input-group-prepend ">
+				<span class="input-group-text  justify-content-center">사원번호</span>
+			</div>
+			<input type="number" name="empno" class="form-control" value="${emp.empno}" />
+				
+			controller에서 넘겨온 모델을 emp라는 이름과 getEmpno()으 property형 empno를 할당하여 출력한다.
+			
+				
+		<input type="date" name="hiredateStr" class="form-control" 
+			value='<fmt:formatDate value="${emp.hiredate}" pattern="yyyy-MM-dd" />' />	
+			
+			emp.hiredate : Date 타입이어서 문자열로 출력하기 위하여 jstl에서 <fmt:formatDate>를 활용하여
+			form요소에서 type="data"로 사용되는 기본 형식은 YYYY-MM-DD로 나타나기 위하여  pattern="yyyy-MM-dd" 
+			사용. pattern형식으로 yyyy-MM-dd 내장된 속성값이기에 대소문자 구분하여 처리하여야 한다.
+
 
 # 상세화면서 수정/삭제 처리..
 
