@@ -64,7 +64,8 @@
 							$("[name=empno]").val("").focus()
 						}else{
 							alert("해당번호로 등록가능합니다")
-							$("#empCk").val("Y").pop("readonly",true); // 사원번호 readonly로 처리..
+							$("#empCk").val("Y"); // 사원번호 readonly로 처리..
+							$("[name=empno]").prop("readonly",true); // 사원번호 readonly로 처리..
 						}				
 					},
 					error:function(err){
