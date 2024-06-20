@@ -55,19 +55,19 @@
 		<div class="input-group-prepend ">
 			<span class="input-group-text  justify-content-center">부서번호</span>
 		</div>
-		<input type="number" name="deptno" class="form-control" value="" />	
+		<input type="number" name="deptno" class="form-control" value="${dept.deptno}" />	
 	</div>	
 	<div class="input-group mb-3">	
 		<div class="input-group-prepend ">
 			<span class="input-group-text  justify-content-center">부서명</span>
 		</div>
-		<input name="dname" class="form-control" value="" />	
+		<input name="dname" class="form-control" value="${dept.dname}" />	
 	</div>	
 	<div class="input-group mb-3">	
 		<div class="input-group-prepend ">
 			<span class="input-group-text  justify-content-center">부서위치</span>
 		</div>
-		<input name="loc" class="form-control" value="" />	
+		<input name="loc" class="form-control" value="${dept.loc}" />	
 	</div>	
 	<div style="text-align:right;">
 			<input type="button" class="btn btn-success" value="수정" id="uptBtn"/>
