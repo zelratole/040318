@@ -208,3 +208,28 @@ ex) 2. 사원정보 입력 후, 등록 처리, 등록 완료, 조회화면이동
 
 # 상세화면서 수정/삭제 처리..
 
+
+# ex) 부서정보 상세 화면 로딩 처리...
+1) dao/service 처리 완료
+select *
+from dept01
+where deptno = 10;
+
+select *
+from dept01
+where deptno = #{deptno}
+
+
+
+-----------------------------------
+2) controller dept.do 메서드 처리 완료
+3) view(jsp) 로딩 완료..(상세화면)
+4) view(jsp) 리스트 화면에서 link 처리.(상세화면 이동을 위해)
+
+
+
+
+
+
+
+

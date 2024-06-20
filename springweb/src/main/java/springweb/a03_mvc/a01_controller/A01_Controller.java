@@ -57,6 +57,17 @@ public class A01_Controller {
 		d.addAttribute("deptList", service.getDeptList(sch));
 		return "WEB-INF\\views\\a03_mvc\\a02_deptList.jsp";
 	}	
+	
+	// http://localhost:7080/springweb/dept.do?deptno=10
+	// 요청값 처리/모델처리/view(jsp)호출 WEB-INF\views\a03_mvc\a06_deptDetail.jsp
+	@RequestMapping("dept.do")
+	public String getDept(@RequestParam("deptno") int deptno, Model d) {
+		d.addAttribute("dept", service.getDept(deptno));
+		return "WEB-INF\\views\\a03_mvc\\a06_deptDetail.jsp";
+	}
+	
+	
+	
 	// Get/Post방식이 다르면 같은 url이라도 호출이 가능 하다.
 	// http://localhost:7080/springweb/deptInsert102.do
 	@GetMapping("deptInsert102.do")

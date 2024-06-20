@@ -38,6 +38,12 @@ public interface A01_Dao {
 			+ "order by deptno ")
 	List<Dept> getDeptList(Dept sch);
 	
+	@Select("select *\r\n"
+			+ "from dept01\r\n"
+			+ "where deptno = #{deptno}")
+	Dept getDept(@Param("deptno") int deptno);
+	
+	
 	@Insert("insert into dept01 values(#{deptno}, #{dname}, #{loc})")
 	int insertDept(Dept ins);
 	
