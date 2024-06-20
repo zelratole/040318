@@ -43,7 +43,7 @@
 
 <body>
 <div class="jumbotron text-center">
-  <h2>부서정보 등록</h2>
+  <h2>부서정보 상세</h2>
 
 </div>
 <%-- 
@@ -70,13 +70,14 @@
 		<input name="loc" class="form-control" value="" />	
 	</div>	
 	<div style="text-align:right;">
-			<input type="button" class="btn btn-success" value="등록" id="regBtn"/>
+			<input type="button" class="btn btn-success" value="수정" id="uptBtn"/>
+			<input type="button" class="btn btn-danger" value="삭제" id="delBtn"/>
 			<input type="button" class="btn btn-primary" value="메인화면으로" id="mainBtn"/>
 	</div>	
 	</form>	
 	<script type="text/javascript">
-		$("#regBtn").click(function(){
-			if(confirm("등록하시겠습니까?")){
+		$("#uptBtn").click(function(){
+			if(confirm("수정하시겠습니까?")){
 				$("form").submit()
 			}
 		})
