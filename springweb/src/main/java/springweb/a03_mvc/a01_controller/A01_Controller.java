@@ -105,7 +105,19 @@ public class A01_Controller {
 		d.addAttribute("result", service.insertDept(ins));
 		return "WEB-INF\\views\\a03_mvc\\a04_deptInsert.jsp";
 	}	
-	
+	@RequestMapping("deptUpdate102.do")
+	public String deptUpdate102(Dept upt, Model d) {
+		d.addAttribute("msg", service.updateDept(upt)); // 수정 메시지 처리
+		d.addAttribute("dept", service.getDept(upt.getDeptno())); // 수정 이후, 수정된 데이터 출력
+		
+		return "WEB-INF\\views\\a03_mvc\\a06_deptDetail.jsp";
+	}
+	@RequestMapping("deptDelete102.do") // deptUpdate102.do deptDelete102.do
+	public String deptDelete102(@RequestParam("deptno") int deptno , Model d) {
+		d.addAttribute("msg", service.deleteDept(deptno)); // 수정 메시지 처리
+		d.addAttribute("proc", "삭제"); 
+		return "WEB-INF\\views\\a03_mvc\\a06_deptDetail.jsp";
+	}	
 	
 	
 	
