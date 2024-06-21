@@ -83,6 +83,31 @@ WHERE empno = #{empno}
 	int insertDept(Dept ins);
 	
 	
+	@Update("UPDATE dept01\r\n"
+			+ "   SET dname=#{dname},\r\n"
+			+ "       loc=#{loc}\r\n"
+			+ " WHERE deptno = #{deptno} ")
+	int updateDept(Dept upt);
+	
+	@Delete("DELETE\r\n"
+			+ "FROM dept01\r\n"
+			+ "WHERE deptno = #{deptno} ")
+	int deleteDept(@Param("deptno") int deptno );
+	
+/*
+	int updateDept(Dept upt);
+	int deleteDept(@Param("deptno") int deptno );
+UPDATE dept01
+   SET dname=#{dname},
+       loc=#{loc}
+ WHERE deptno = #{deptno}
+ 
+DELETE
+FROM dept01
+WHERE deptno = #{deptno} 
+
+*/	
+	
 	// @Insert @Update @Delete
 	
 	

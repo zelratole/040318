@@ -62,4 +62,10 @@ public class A01_Service {
 	public String insertDept(Dept ins) {
 		return dao.insertDept(ins)>0?"등록성공":"등록실패"; 
 	}
+	public String updateDept(Dept upt) {
+		return dao.updateDept(upt)>0?"수정성공":"수정실패";
+	}
+	public String deleteDept(int deptno ) {
+		return dao.deleteDept(deptno)>0?"삭제성공":"삭제실패";
+	}	
 }
