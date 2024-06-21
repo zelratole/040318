@@ -47,6 +47,7 @@
 			location.href="deptList101.do"
 		})	
 	});
+	// 
 	var msg="${msg}"
 	var proc="${proc}"
 	if(msg!=""){
