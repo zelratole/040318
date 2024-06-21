@@ -12,14 +12,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
-
+import springweb.z01_vo.Emp;
 //springweb.a02_mvc.A01_EmpController
 //springweb.a02_mvc.A04_EmpDao
 //springweb.a02_mvc.A02_EmpService
 @Controller
 public class A01_EmpController {
 	@Autowired
-	private A02_EmpService service;
+	private A02_EmpMaytisService service;
 	
 	// http://localhost:7080/springweb/pre_empList.do
 	@RequestMapping("pre_empList.do")

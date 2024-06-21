@@ -15,6 +15,9 @@ public class A02_EmpMaytisService {
 	private A01_Dao dao; // A03_EmpDaoInf dao = new A04_EmpDao();
 	
 	public List<Emp> getEmpList(Emp sch){
+		if(sch.getEname()==null) sch.setEname(""); 
+		if(sch.getJob()==null) sch.setJob(""); 
+		
 		return dao.getEmpList(sch);
 	}	
 	public String insertEmp(Emp ins) {
