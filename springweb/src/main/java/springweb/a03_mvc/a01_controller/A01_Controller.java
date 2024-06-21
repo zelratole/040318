@@ -26,7 +26,7 @@ public class A01_Controller {
 		return "WEB-INF\\views\\a03_mvc\\a01_empList.jsp";
 	}
 	// http://localhost:7080/springweb/emp.do?empno=1000
-	@RequestMapping("emp.do")
+	@RequestMapping("emp100.do")
 	public String emp(@RequestParam("empno") int empno, Model d) {
 		d.addAttribute("emp", service.getEmp(empno));
 		return "WEB-INF\\views\\a03_mvc\\a05_empDetail.jsp";  // a05_empDetail.jsp
@@ -80,9 +80,9 @@ public class A01_Controller {
 		return "WEB-INF\\views\\a03_mvc\\a02_deptList.jsp";
 	}	
 	
-	// http://localhost:7080/springweb/dept.do?deptno=10
+	// http://localhost:7080/springweb/dept101.do?deptno=11
 	// 요청값 처리/모델처리/view(jsp)호출 WEB-INF\views\a03_mvc\a06_deptDetail.jsp
-	@RequestMapping("dept.do")
+	@RequestMapping("dept101.do")
 	public String getDept(@RequestParam("deptno") int deptno, Model d) {
 		d.addAttribute("dept", service.getDept(deptno));
 		return "WEB-INF\\views\\a03_mvc\\a06_deptDetail.jsp";

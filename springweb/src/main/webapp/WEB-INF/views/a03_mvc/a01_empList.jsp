@@ -92,7 +92,7 @@
 	</table>    
 	<script type="text/javascript">
 		function detail(empno){
-			location.href="emp.do?empno="+empno
+			location.href="emp100.do?empno="+empno
 		}
 	</script>
     

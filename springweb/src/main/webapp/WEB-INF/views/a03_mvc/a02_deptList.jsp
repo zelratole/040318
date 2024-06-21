@@ -74,7 +74,7 @@
 	</table>    
 	<script type="text/javascript">
 		function detail(deptno){
-			location.href="dept.do?deptno="+deptno
+			location.href="dept101.do?deptno="+deptno
 		}
 	</script>
     
