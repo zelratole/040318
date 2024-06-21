@@ -67,11 +67,15 @@
 			
 		})
 	});
-	var result = "${result}"
-	if(result!=""){
-		alert(result)  // 등록 성공 alert()로딩 : 모델 데이터를 받아서..
+	var msg = "${msg}"     
+	var proc = "${proc}"
+	if(msg!=""){    // 공백이ㅠ아닐 때 처리..
+		alert(msg)
+		if(proc=="삭제"){
+			alert("조회화면이동");
+			location.href="empList100.do"
+		}
 	}
-	
 	
 </script>
 </head>
@@ -140,7 +144,7 @@
 	</div>	<!--  http://localhost:7080/springweb/emp.do?empno=1000 -->
 	</form>	
 	<script type="text/javascript">
-	    $("#regBtn").click(function(){
+	    $("#uptBtn").click(function(){
 	    	if(confirm("수정하시겠습니까?")){
 				// 유효성 check 필요시 처리..  empDelete100.do   empUpdate100.do
 				$("form").attr("action","empUpdate100.do");
