@@ -38,6 +38,8 @@ public class A01_Controller {
 	public String empInsertForm100() {
 		return "WEB-INF\\views\\a03_mvc\\a03_empInsertForm.jsp";
 	}
+	
+	// <form action="empInsert100.do"
 	// http://localhost:7080/springweb/empInsert100.do
 	@RequestMapping("empInsert100.do")
 	public String empInsert100(Emp ins, Model d) {
@@ -58,7 +60,7 @@ public class A01_Controller {
 		
 		return "WEB-INF\\views\\a03_mvc\\a05_empDetail.jsp"; 
 	}
-	// http://localhost:7080/springweb/empDelete100.do
+	// http://localhost:7080/springweb/empDelete100.do   empUpdate100.do
 	@RequestMapping("empDelete100.do")
 	public String empDelete(@RequestParam("empno") int empno, Model d) {
 		d.addAttribute("msg", service.deleteEmp(empno));
@@ -88,12 +90,16 @@ public class A01_Controller {
 	
 	
 	
+	
+	// url 호출 시, url이름, get/post 구분, 요청값.. 
 	// Get/Post방식이 다르면 같은 url이라도 호출이 가능 하다.
+	// url로 호출 방식 ==> get, <form method="post" ==> post
 	// http://localhost:7080/springweb/deptInsert102.do
 	@GetMapping("deptInsert102.do")
 	public String deptInsertFrm() {
 		return "WEB-INF\\views\\a03_mvc\\a04_deptInsert.jsp";
 	}
+	// <form method="post" > : form에 동일한 action으로 jsp 호출되었기 때문에 굳이 선언하지 않아도.. 
 	@PostMapping("deptInsert102.do")
 	public String deptInsert(Dept ins, Model d) {
 		d.addAttribute("result", service.insertDept(ins));

@@ -140,11 +140,29 @@
 	</div>	<!--  http://localhost:7080/springweb/emp.do?empno=1000 -->
 	</form>	
 	<script type="text/javascript">
-		$("#regBtn").click(function(){
-			if(confirm("등록하시겠습니까?")){
-				$("form").submit()
-			}
-		})
+	    $("#regBtn").click(function(){
+	    	if(confirm("수정하시겠습니까?")){
+				// 유효성 check 필요시 처리..  empDelete100.do   empUpdate100.do
+				$("form").attr("action","empUpdate100.do");
+				$("form").submit();	  
+				// $("form")[0].reset() 반드시 배열로 선언해야 처리가 된다.(초기화시)  		
+				// $("form")[0].submit() $("form").submit() 둘다 사용가능..		
+	    	}
+	    })
+	    $("#delBtn").click(function(){
+	    	if(confirm("삭제하시겠습니까?")){
+				// 유효성 check 필요시 처리..
+				/*
+				$("form").attr("action","deleteEmp.do");
+				$("form")[0].submit();   document.querySelector("form").submit();
+				*/	    	
+				location.href="empDelete100.do?empno="+$("[name=empno]").val()	
+	    	}
+	    })	 
+    
+    
+
+	
 		$("#mainBtn").click(function(){
 			location.href="empList100.do"
 		})
