@@ -32,11 +32,28 @@
 <script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-	
+		$("#uptBtn").click(function(){
+			if(confirm("수정하시겠습니까?")){
+				$("form").submit()
+			}
+		})
+		$("#delBtn").click(function(){
+			if(confirm("삭제하시겠습니까?")){
+				location.href="deptDelete102.do?deptno="+$("[name=deptno]").val()
+			}
+		})
+		$("#mainBtn").click(function(){
+			location.href="deptList101.do"
+		})	
 	});
-	var result="${result}"
-	if(result!=""){
-		alert(result)
+	var msg="${msg}"
+	var proc="${proc}"
+	if(msg!=""){
+		alert(msg)
+		if(proc=="삭제"){
+			location.href="deptList101.do"
+		}
+		
 	}
 </script>
 </head>
@@ -50,7 +67,7 @@
 		
 --%>
 <div class="container" >
-	<form method="post" > 
+	<form method="post" action="deptUpdate102.do"> 
 	<div class="input-group mb-3">	
 		<div class="input-group-prepend ">
 			<span class="input-group-text  justify-content-center">부서번호</span>
@@ -76,14 +93,10 @@
 	</div>	
 	</form>	
 	<script type="text/javascript">
-		$("#uptBtn").click(function(){
-			if(confirm("수정하시겠습니까?")){
-				$("form").submit()
-			}
-		})
-		$("#mainBtn").click(function(){
-			location.href="deptList101.do"
-		})
+	/*
+	deptUpdate102.do deptDelete102.do
+	*/
+
 	
 	</script>
 </div>	
