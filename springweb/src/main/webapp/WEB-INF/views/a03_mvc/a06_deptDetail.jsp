@@ -37,6 +37,7 @@
 				$("form").submit()
 			}
 		})
+		
 		$("#delBtn").click(function(){
 			if(confirm("삭제하시겠습니까?")){
 				location.href="deptDelete102.do?deptno="+$("[name=deptno]").val()
