@@ -68,10 +68,15 @@
     </thead>	
     <tbody>
     	<c:forEach var="dept" items="${deptList}">
-    	<tr><td>${dept.deptno}</td><td>${dept.dname }</td><td>${dept.loc}</td></tr>
+    	<tr ondblclick="detail(${dept.deptno})"><td>${dept.deptno}</td><td>${dept.dname }</td><td>${dept.loc}</td></tr>
     	</c:forEach>
     </tbody>
 	</table>    
+	<script type="text/javascript">
+		function detail(deptno){
+			location.href="dept.do?deptno="+deptno
+		}
+	</script>
     
 </div>
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
