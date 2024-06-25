@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-
+// board 폴드에 파일업로드를 위한 환경설정..
 @Controller
 public class A03_FileUploadCtrl {
 	// http://localhost:7080/springweb/uploadexp02.do
