@@ -18,6 +18,7 @@ public interface BoardDao {
 	@Insert("insert into board values(board_seq.nextval,#{refno},#{subject},\r\n"
 			+ "	#{content},#{writer},#{readcnt},sysdate,sysdate) ")
 	int boardInsert(Board ins);
+		
 	@Insert("INSERT INTO boardfile values(board_seq.currval,#{fname},\r\n"
 			+ "	#{etc},sysdate,sysdate)")
 	int boardFileInsert(Boardfile ins);	
