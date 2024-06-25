@@ -1,6 +1,6 @@
 package springweb.a03_mvc.a01_controller;
 
-import javax.mail.Multipart;
+
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,4 +21,11 @@ public class A02_FileUploadCtrl {
 		
 		return "WEB-INF\\views\\a04_fileUpload\\a01_upload.jsp";
 	}
+	// ex) A03_FileUploadCtrl.java
+	//     	a04_fileUpload\a02_upload.jsp]
+	//      업로드 파일 올리고 처리
+	
+	
+	
+	
 }
