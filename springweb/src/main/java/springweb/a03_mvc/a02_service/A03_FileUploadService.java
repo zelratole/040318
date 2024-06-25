@@ -16,8 +16,10 @@ public class A03_FileUploadService {
 	public String upload(MultipartFile [] mfs ) {
 		String msg = null;		
 		try {		
+			// MultipartFile(객체메모리) ==> File(객체메모리+경로물리적으로 저장)
 			for(MultipartFile mf:mfs) {
 				File upFile = new File(path, mf.getOriginalFilename());
+				// 변환 처리.
 				mf.transferTo(upFile);
 			}
 			msg = "업로드 성공";

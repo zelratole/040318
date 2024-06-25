@@ -59,14 +59,62 @@
 	- 초기화면 호출
 	- view단 처리
 	- controller/service 처리..
-	
-	
-	
-
-
 
 # 파일업로드 처리 기본 2단계(board에서 설정)		
- 
+1. 공통 정보 설정
+	공통업로드 파일 위치 지정 webapp/z01_upload
+	java>resource>config
+		user.upload=경로설정	
+2. 컨테이너설정
+	1) 공통 설정 파일 위치 호출
+	2) multipartFile 파일업로드 객체 컨테이너 설정
+=======================================================	
+3. VO
+	1) Board
+		MultipartFile[] report  : 등록시 업로드를 위해
+	2) BoardFile
+		파일 업로드 정보 등록을 위해..
+4. 등록 화면 처리
+	1) 리스트 등록 클릭시, 등록화면 로딩
+	2) controller
+		Get방식 화면 호출 insertBoard.do
+	3) view
+		a02_boardInsert.jsp
+			입력할 화면 로딩.
+		<form encType="multipart/form-data"
+			<input type="file" name="report" 선언
+	4)  dao등록 : 
+	
+	
+	
+		DB boardfile 테이블 구성(추후 파일 다운로드시 사용)
+		Vo 생성..
+		기본 board등록//boardFile 테이블 등록..
+		
+insert into board values(board_seq.nextval,#{refno},#{subject},
+	#{content},#{writer},#{readcnt},sysdate,sysdate) 
+INSERT INTO boardfile values(board_seq.currval,#{fname},
+	#{etc},sysdate,sysdate)
+			
+		int boardInsert(Board ins);
+		int boardFileInsert(BoardFile ins);
+	5) service
+		String boardInsert(Board ins){
+			// 파일 등록
+			// DB 등록
+			// 	board
+			//  boardFile 
+		}	
+	6) controller
+		등록 처리시, 수행할 내용 처리..	
+		
+				
+				
+			
+		
+				
+		
+		
 		
 		
 		

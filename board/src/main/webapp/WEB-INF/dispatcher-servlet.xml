@@ -34,7 +34,14 @@
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
-	</context:component-scan>    
+	</context:component-scan>  
+	
+	<!--  공통 설정 파일 등록 -->
+	<context:property-placeholder
+		location="classpath:resource/config" />
+	<!-- 파일업로드 뷰 등록 -->  
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
 	<!-- 
 	1. db연결처리 : dbcp(database connection pool)이용해서 연결... destory-method="close" 종료시 처리 기능메서드 선언..
 	
