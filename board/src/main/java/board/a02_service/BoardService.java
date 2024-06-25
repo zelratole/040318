@@ -39,7 +39,7 @@ public class BoardService {
 				int fcnt=0;
 				for(MultipartFile mp:ins.getReports() ) {
 					String fnm = mp.getOriginalFilename();
-					if(fnm!=null&&!fnm.equals("")) {
+					if( fnm!=null && !fnm.equals("") ) {
 						File fup = new File(path,fnm);
 						mp.transferTo(fup);
 						fcnt++;
