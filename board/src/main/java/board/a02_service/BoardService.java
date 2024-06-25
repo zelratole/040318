@@ -24,9 +24,10 @@ public class BoardService {
 		
 		return dao.getBoardList(sch);
 	}
-	@Value("#{user.upload}")
-	private String path;
-	
+
+	@Value("${user.upload}")
+	String path;
+
 	public String boardInsert(Board ins) {
 		String msg = null;
 		// 메인테이블 등록..
@@ -48,16 +49,17 @@ public class BoardService {
 								new Boardfile( fnm, ins.getSubject()+"파일 등록") );
 					}
 				}
-				msg+="\n 파일 "+fcnt+"건 등록 성공";
+				msg+="\\n 파일 "+fcnt+"건 등록 성공";
 			} catch (IllegalStateException e) {
-				msg+="\n 파일 등록 에러 발생:"+e.getMessage();
+				msg+="\\n 파일 등록 에러 발생:"+e.getMessage();
 				
 			} catch (IOException e) {
-				msg+="\n 파일 등록 에러 발생"+e.getMessage();
+				msg+="\\n 파일 등록 에러 발생"+e.getMessage();
 			} catch(Exception e) {
-				msg+="\n 파일 등록 기타 에러 발생"+e.getMessage();
+				msg+="\\n 파일 등록 기타 에러 발생"+e.getMessage();
 			}			
 		}
+		System.out.println("메시지:"+msg);
 		
 		
 		return msg;

@@ -8,6 +8,7 @@ public class Board {
 	private int no;
 	private int refno;
 	private String subject;
+	private String content;
 	private String writer;
 	private int readcnt;
 	private Date regdte;
@@ -50,6 +51,14 @@ public class Board {
 	}
 	public void setWriter(String writer) {
 		this.writer = writer;
+	}
+	
+	
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
 	}
 	public int getReadcnt() {
 		return readcnt;

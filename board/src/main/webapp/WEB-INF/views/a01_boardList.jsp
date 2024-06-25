@@ -28,7 +28,9 @@
 <script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-	
+		$("#regBtn").click(function(){
+			location.href="boardInsert.do"
+		})
 	});
 </script>
 </head>
@@ -47,8 +49,7 @@
 	    <input placeholder="제목" name="${param.subject }"  class="form-control mr-sm-2" />
 	    <input placeholder="작성자" name="${param.writer }"  class="form-control mr-sm-2"/>
 	    <button class="btn btn-info" type="submit">Search</button>
-	    <button class="btn btn-success" 
-	    	data-toggle="modal" data-target="#exampleModalCenter"
+	    <button class="btn btn-success" id="regBtn"
 	        type="button">등록</button>
  	</nav>
 	</form>
