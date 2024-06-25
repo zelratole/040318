@@ -10,7 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 public class A03_FileUploadCtrl {
-
+	// http://localhost:7080/springweb/uploadexp02.do
 	@GetMapping("uploadexp02.do")
 	public String uploadexp02() {
 		return "WEB-INF\\views\\a04_fileUpload\\a02_upload.jsp";

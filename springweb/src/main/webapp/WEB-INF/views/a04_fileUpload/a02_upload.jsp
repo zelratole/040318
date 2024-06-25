@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
     import="java.util.*"
-    import="backweb.vo.*" 
-    import="backweb.a04_database.*" 
     %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -37,21 +35,18 @@
 
 <body>
 <div class="jumbotron text-center">
-  <h2>타이틀</h2>
+  <h2>파일업로드 연습</h2>
 
 </div>
 <%-- 
 		
 --%>
 <div class="container">
-	<form id="frm01" class="form"  method="post">
+	<form id="frm01" enctype="multipart/form-data" class="form"  method="post">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input placeholder="제목" name=""  class="form-control mr-sm-2" />
-	    <input placeholder="내용" name=""  class="form-control mr-sm-2"/>
-	    <button class="btn btn-info" type="submit">Search</button>
-	    <button class="btn btn-success" 
-	    	data-toggle="modal" data-target="#exampleModalCenter"
-	        type="button">등록</button>
+	    <input type="file" placeholder="파일선택" name="report" 
+	    	multiple="multiple" class="form-control mr-sm-2" />
+	    <button class="btn btn-info" type="submit">업로드</button>
  	</nav>
 	</form>
    <table class="table table-hover table-striped">
