@@ -60,13 +60,13 @@
 		<div class="input-group-prepend">
 			<span class="input-group-text  justify-content-center">내용</span>
 		</div>
-		<textarea name="content"  class="form-control" ></textarea>
+		<textarea name="content" rows="10" class="form-control" ></textarea>
 	</div>	
 	<div class="input-group mb-3">	
 		<div class="input-group-prepend">
 			<span class="input-group-text  justify-content-center">첨부파일</span>
 		</div>
-		<input type="file" name="reports" multiple="multiple" class="form-control" value="" />	
+		<input type="file"  name="reports" multiple="multiple" class="form-control" value="" />	
 	</div>	
 	<div style="text-align:right;">
 			<input type="button" class="btn btn-success" value="등록" id="regBtn"/>
