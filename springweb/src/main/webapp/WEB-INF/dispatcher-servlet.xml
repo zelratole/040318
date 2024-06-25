@@ -64,6 +64,10 @@
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="springweb.a03_mvc.a03_dao" />
 	</bean> 
+	
+	<!-- 파일업로드 뷰 등록 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+	
 	  
 	<!-- 라이브러리 추가 -->
     <bean id="btnViewResolver"
