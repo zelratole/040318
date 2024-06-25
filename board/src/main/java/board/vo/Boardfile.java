@@ -12,6 +12,13 @@ public class Boardfile {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	public Boardfile(String fname, String etc) {
+		super();
+		this.fname = fname;
+		this.etc = etc;
+	}
+
 	public Boardfile(int no, String fname, String etc, Date regdte, Date uptdte) {
 		super();
 		this.no = no;

@@ -43,6 +43,9 @@ public class BoardService {
 						File fup = new File(path,fnm);
 						mp.transferTo(fup);
 						fcnt++;
+						// 파일정보 등록.
+						dao.boardFileInsert(
+								new Boardfile( fnm, ins.getSubject()+"파일 등록") );
 					}
 				}
 				msg+="\n 파일 "+fcnt+"건 등록 성공";
@@ -56,8 +59,6 @@ public class BoardService {
 			}			
 		}
 		
-		// 파일정보 등록.
-		dao.boardFileInsert(new Boardfile());
 		
 		return msg;
 	}
