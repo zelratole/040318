@@ -1,0 +1,9 @@
+# 공통설정정보
+# 1. DB 설정정보 ${jdbc.driver} ${jdbc.url} ${jdbc.user} ${jdbc.pwd}
+jdbc.driver=oracle.jdbc.driver.OracleDriver
+jdbc.url=jdbc:oracle:thin:@localhost:1521:xe
+jdbc.user=scott
+jdbc.pwd=tiger
+
+# 2. 파일업로드 위치 경로 ${user.upload}
+user.upload=C:/Users/human/git/04031866/springweb/src/main/webapp/z01_upload/

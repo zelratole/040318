@@ -1,0 +1,84 @@
+# 게시판에서 파일 관리를 위한 처리
+1. 주요 기능
+	1) 글등록시 파일을 첨부하여 등록하면, 글이 서버에 로딩이 되고
+		DB에서 파일 정보가 등록되어, 상세화면에서 확인하고
+		다시 필요에 따라 다운로드 처리할 수 있다.
+2. 처리할 내용
+	1) 파일 업로드
+		- jsp(view단) 처리할 내용
+			<form enctype="multipart/form-data"> : form형식이 서버에 파일을 전송할 수
+				있는 형식으로 선언되어야 한다.
+			<input type="file" name="report" multiple="multiple">
+				파일을 첨부할 있는 file객체로 선언하고, 다중 파일을 업로드 할 때는
+				multiple 옵션을 설정하면 업로드시 ctrl키로 여러파일을 선택하여 서버에 전송할
+				수 있다.
+		- 공통설정정보 파일 지정(resource/config)
+			DB서버정보
+			파일업로드위치 경로(절대위치)
+			key = val 형식으로 선언		
+		- 컨테이너선언(dispatcher-servlet.xml)
+			- 위 공통설정정보 처리 등록:<context:property-placeholder 
+										locaction="위 공통설정정보 위치" />
+			- 스프링에서 제공하는 파일업로드 모듈을 사용할 수 있게 선언하여야 한다.
+				CommonsMultipartResolver
+		- 		
+		- VO 객체
+			Board.java
+			client에서 넘겨온 파일을 받은 수 있는 개체의 필드를 선언
+				private MultipartFile[] report;
+			BoardFile.java	
+			DB에 등록할 정보를 설정
+				private int no;
+				private String fname;
+				private String etc;
+				private Date regdte;
+				private Date uptdte;
+		- Database
+			create table boardfile(
+				no number, -- board의 no를 foreign key로 처리..(생략)
+				fname varchar2(100),
+				etc varchar2(500),
+				regdte date,
+				uptdte date
+			);
+		- service단에서 처리할 내용
+			메모리로된 파일 전송 객체 MultipartFile를 실제 물리적 위치에 저장할 객체인
+			File객체로 변환하여 저장처리	
+		
+# 파일업로드 처리 기본 1단계(springweb에서 설정)		
+0. 공통설정파일 지정
+	파일업로드할 폴드 생성
+	지정 처리
+1. 컨테이너 설정
+	- 공통설정파일
+	- 파일업로드 view 선언
+2. controller
+	A02_FileUploadCtrl.java 
+	A02_FileUploadService.java 
+	a04_fileUpload/a01_upload.jsp
+	- 초기화면 호출
+	- view단 처리
+	- controller/service 처리..
+	
+	
+	
+
+
+
+# 파일업로드 처리 기본 2단계(board에서 설정)		
+ 
+		
+		
+		
+		
+		
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			

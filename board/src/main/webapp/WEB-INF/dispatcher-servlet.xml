@@ -37,6 +37,7 @@
 	</context:component-scan>    
 	<!-- 
 	1. db연결처리 : dbcp(database connection pool)이용해서 연결... destory-method="close" 종료시 처리 기능메서드 선언..
+	
 	 -->
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
