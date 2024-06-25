@@ -5,13 +5,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import board.a02_service.A01_BoardService;
+import board.a02_service.BoardService;
 import board.vo.Board;
 
 @Controller
 public class BoardCtrl {
 	@Autowired(required = false)
-	private A01_BoardService service;
+	private BoardService service;
 	
 	// http://localhost:7080/board/boardList.do
 	@RequestMapping("boardList.do")

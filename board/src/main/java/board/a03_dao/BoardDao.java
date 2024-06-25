@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Select;
 
 import board.vo.Board;
 
-public interface A01_BoardDao {
+public interface BoardDao {
 	@Select("select * \r\n"
 			+ "from board\r\n"
 			+ "where subject like '%'||#{subject}||'%'\r\n"
