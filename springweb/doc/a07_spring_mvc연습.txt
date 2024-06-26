@@ -1,1 +1,65 @@
-#
+# 단계별 MVC연습
+0. sql
+	select count(*)
+	from emp
+	where deptno=#{deptno}
+	
+	select ename
+	from emp
+	where sal beween #{start} and #{end}
+
+1. dao 연습
+
+
+	1) 결과값 단일데이터
+	2) 결과값 단일컬럼 여러행
+	3) 결과값 단일행 여러 컬럼
+	4) 결과값 여러행 여러 컬럼
+	5) 입력값 단일
+	6) 입력값 여러개
+2. service 연습(dao/service연습)
+	1) dao단에서 호출
+		dao service 1:1
+		dao service 다:1
+
+3. controller 연습
+	1) 요청값 연습
+		단일 요청값
+		여러 요청값
+		
+	2) 모델 데이터
+		단일 데이터
+		여러 데이터
+		객체형 여러데이터
+4. view 연습
+	1) 모델 데이터 가져오기
+	2) 요청값 처리..
+	
+####  화면  ####
+조회:[    ] @RequestParam
+등록1:[    ] Emp sch setXXX
+등록2:[    ] Emp ins setXXX
+수정1:[    ] 요청처리(서버에 데이터 전달) 컨트롤러?key=val&key=val
+[   ] ~ [    ]
+d.addAttribute("key", 모델객체")
+d.addAttribute("ename", 모델객체")
+데이터 단일데이터(메시지) 서버에 데이터를 가져오는 것(모델)   var msg = "${msg}"
+데이터 단일데이터(객체)  input value="${emp.ename}"
+데이터 다중리스트데이터  <c:for var="emp" items="${empList}">
+ <c:for var="ename" items="${enames}">
+	${ename}	
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+			

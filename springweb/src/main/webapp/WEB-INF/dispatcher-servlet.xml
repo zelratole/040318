@@ -62,7 +62,8 @@
 	
 	 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="springweb.a03_mvc.a03_dao" />
+		<property name="basePackage" 
+		value="springweb.a03_mvc.a03_dao, springweb.a04_mvc.a03_dao" />
 	</bean> 
 	
 	<!-- 파일업로드 뷰 등록 -->
