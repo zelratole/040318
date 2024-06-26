@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import board.a02_service.BoardService;
 import board.vo.Board;
@@ -30,6 +31,11 @@ public class BoardCtrl {
 	public String boardInsert(Board ins, Model d) {
 		d.addAttribute("msg", service.boardInsert(ins));
 		return "a02_boardInsert";
+	}
+	@GetMapping("boardDetail.do")
+	public String boardDetail(@RequestParam("no") int no, Model d) {
+		d.addAttribute("board", service.detail(no));
+		return "a03_boardDetail";
 	}
 	
 	

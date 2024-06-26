@@ -70,12 +70,17 @@
     </thead>	
     <tbody>
     	<c:forEach var="bd" items="${blist}">
-    	<tr><td>${bd.no}</td><td>${bd.subject}</td><td>${bd.writer}</td>
+    	<tr ondblclick="goDetail(${bd.no})"><td>${bd.no}</td><td>${bd.subject}</td><td>${bd.writer}</td>
     	<td><fmt:formatDate value="${bd.regdte}"/></td>
     	<td>${bd.readcnt}</td></tr>
     	</c:forEach>
     </tbody>
 	</table>    
+	<script type="text/javascript">
+		function goDetail(no){
+			location.href="boardDetail.do?no="+no
+		}
+	</script>
 </div>
 </body>
 </html>

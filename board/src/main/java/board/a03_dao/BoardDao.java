@@ -35,6 +35,6 @@ public interface BoardDao {
 	@Update("update board\r\n"
 			+ "   set readcnt = readcnt + 1\r\n"
 			+ "where no = #{no}")
-	int uptBoard(@Param("no") int no);
+	int uptReadCnt(@Param("no") int no);
 	
 }

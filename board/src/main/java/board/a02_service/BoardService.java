@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -64,8 +65,21 @@ public class BoardService {
 		
 		return msg;
 	}
+	public Board detail(int no) {
+		dao.uptReadCnt(no);
+		Board dt = dao.getBoard(no);
+		dt.setFnames(dao.getFiles(no));
+		return dt;
+	}
 	
-	
-	
+	public Board getBoard(int no) {
+		return dao.getBoard(no);
+	}
+	public List<String> getFiles(int no){
+		return dao.getFiles(no);
+	}
+	public int uptReadCnt(int no) {
+		return dao.uptReadCnt(no);
+	}
 	
 }

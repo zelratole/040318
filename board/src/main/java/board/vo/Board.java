@@ -1,6 +1,7 @@
 package board.vo;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -14,6 +15,7 @@ public class Board {
 	private Date regdte;
 	private Date uptdte;
 	private MultipartFile[] reports;
+	private List<String> fnames;
 	public Board() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -83,6 +85,12 @@ public class Board {
 	}
 	public void setReports(MultipartFile[] reports) {
 		this.reports = reports;
+	}
+	public List<String> getFnames() {
+		return fnames;
+	}
+	public void setFnames(List<String> fnames) {
+		this.fnames = fnames;
 	}
 	
 }

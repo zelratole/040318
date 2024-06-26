@@ -37,11 +37,13 @@
 	2) dao 작성
 		Board getBoard(@Param("no") int no);
 		List<String> getBoardFile(@Param("no") int no);
-		int updateBoard(@Param("no") int no);
----------------------------------------------------		
+		int uptReadCnt(@Param("no") int no);
+
 	3) service
 	4) controller
-		boardDetail.do
+		boardDetail.do  no요청값 처리..
+	------------------------------------
+		
 	5) jsp(view)
 		boardList.jsp
 			행단위 페이지 이동
