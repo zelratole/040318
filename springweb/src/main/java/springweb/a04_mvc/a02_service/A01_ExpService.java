@@ -15,8 +15,17 @@ public class A01_ExpService {
 		System.out.println("1. 단일 데이터 가져오기:"+
 					dao.getCount());
 		//  앞으로 추가할 메서드 여기서 호출 처리..
-		
+		System.out.println("2. 직책 이름 가져오기:"+dao.getJob());
+		System.out.println("3. 단일 열, 다중행 처리 ");
+		for(int empno:dao.getEmpnos()) {
+			System.out.println(empno);
+		}
 	}
-	
+	public int getCount() {
+		return dao.getCount();
+	}
+	public String getJob() {
+		return dao.getJob();
+	}
 	
 }

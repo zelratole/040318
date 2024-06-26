@@ -33,5 +33,11 @@ SELECT ename 사원명, sal 급여,
 		sal + sal*10/100 "급여+급여의 10%"
 FROM emp;
 
-
-
+--사원번호 7499의 job sql
+SELECT job 
+FROM emp
+WHERE empno = 7499
+;
+/*
+결과값 단일컬럼 여러행
+**/

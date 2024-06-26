@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:websocket="http://www.springframework.org/schema/websocket"
+	xmlns:sec="http://www.springframework.org/schema/security"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/task
+       http://www.springframework.org/schema/task/spring-task.xsd       
+        http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+      http://www.springframework.org/schema/mvc/spring-mvc.xsd     
+        http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util.xsd
+         http://www.springframework.org/schema/websocket
+      http://www.springframework.org/schema/websocket/spring-websocket.xsd
+       http://www.springframework.org/schema/security
+       http://www.springframework.org/schema/security/spring-security.xsd   
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd   
+      ">
+	<context:component-scan base-package="springweb">
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
+	</context:component-scan>   
+	<!-- 
+	# 공통설정파일 위치 지정...
+	 -->
+	<context:property-placeholder location="classpath:resource/config"/>
+	
+	 
+	<!-- 
+	1. db연결처리 : dbcp(database connection pool)이용해서 연결... destory-method="close" 종료시 처리 기능메서드 선언..
+	 -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="${jdbc.driver}"/>
+		<property name="url" value="${jdbc.url}"/>
+		<property name="username" value="${jdbc.user}"/>
+		<property name="password" value="${jdbc.pwd}"/>
+	</bean>
+	<!-- 
+	2. mybatis연동 : 위 dbcp 연동 처리
+	 -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+	</bean>	 
+	<!-- 
+	3. mybatis가 만드는 실제 객체를 생성하는 기준 interface dao가 있는 패키지 위치 지정..
+		추가적인 dao 패키지가 필요하면 value="패키지명1, 패키지명2, ..."
+	
+	 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" 
+		value="springweb.a03_mvc.a03_dao, springweb.a04_mvc.a03_dao" />
+	</bean> 
+	
+	<!-- 파일업로드 뷰 등록 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+	
+	  
+	<!-- 라이브러리 추가 -->
+    <bean id="btnViewResolver"
+       class ="org.springframework.web.servlet.view.BeanNameViewResolver">
+       <property name="order" value="0"></property>   
+    </bean>    
+    <!-- json 뷰 추가 -->
+    <bean id="jsonView"
+       class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">
+       <property name="contentType" value="text/html;charset=utf-8"/>       
+    </bean> 
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+       <property name="order" value="1"></property>
+    </bean>
+</beans>  
+
+    
