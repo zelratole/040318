@@ -12,7 +12,8 @@ public interface BoardDao {
 	@Select("select * \r\n"
 			+ "from board\r\n"
 			+ "where subject like '%'||#{subject}||'%'\r\n"
-			+ "and writer like '%'||#{writer}||'%'")
+			+ "and writer like '%'||#{writer}||'%'"
+			+ "order by no desc ")
 	List<Board> getBoardList(Board sch);
 	
 	@Insert("insert into board values(board_seq.nextval,#{refno},#{subject},\r\n"
