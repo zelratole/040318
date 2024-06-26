@@ -39,5 +39,14 @@ FROM emp
 WHERE empno = 7499
 ;
 /*
-결과값 단일컬럼 여러행
+# 결과값 단일컬럼 여러행(연습문제)
+1. 
 **/
+SELECT empno
+FROM emp
+WHERE deptno = 10;
+
+
+
+
+

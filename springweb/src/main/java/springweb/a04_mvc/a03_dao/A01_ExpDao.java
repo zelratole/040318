@@ -21,9 +21,6 @@ public interface A01_ExpDao {
 --3) 등급테이블(salgrade)의 등급 1의 hisal 
 --4) empno 7521의 sal 호출
 --5) deptno 10의 loc 호출
-
-
- 
  
  */	
 	// 다중행 단일컬럼
@@ -31,5 +28,15 @@ public interface A01_ExpDao {
 			+ "FROM emp\r\n"
 			+ "WHERE deptno = 10")
 	List<Integer> getEmpnos();
+/*
+# 결과값 단일컬럼 여러행(연습문제)
+1. 급여가 1000~3000 사이의 사원명
+2. 직책이 SALESMAN인 사원의 입사일
+3. 부서번호가 30인 사원의 급여
+4. 보너스가 NULL인 사원번호
+5. 관리자 번호가 7902인 사원의 사원명
+
+ * */	
+	
 	
 }
