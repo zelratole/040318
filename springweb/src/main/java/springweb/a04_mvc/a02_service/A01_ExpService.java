@@ -12,7 +12,10 @@ public class A01_ExpService {
 	// dao = new A01_ExpDaoImp();(mybatis가 만들어준 실제 객체) 처리해 주는 Autowired
 	
 	public void daoExp01() {
-		System.out.println("1. 단일 데이터 가져오기:"+dao.getCount());
+		System.out.println("1. 단일 데이터 가져오기:"+
+					dao.getCount());
+		//  앞으로 추가할 메서드 여기서 호출 처리..
+		
 	}
 	
 	
