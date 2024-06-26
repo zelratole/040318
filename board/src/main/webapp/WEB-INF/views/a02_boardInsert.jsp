@@ -70,14 +70,14 @@
 	</div>	
 	<div style="text-align:right;">
 			<input type="button" class="btn btn-success" value="등록" id="regBtn"/>
-			<input type="button" class="btn btn-secondary" value="입력초기화" id="initBtn" />
-			<input type="button" class="btn btn-primary" value="메인화면으로" id="mainBtn"/>
+			<input type="button" class="btn btn-secondary" value="초기화" id="initBtn" />
+			<input type="button" class="btn btn-primary" value="메인화면" id="mainBtn"/>
 	</div>	
 	</form>	
 	<script type="text/javascript">
 
 		$("#initBtn").click(function(){
-			 location.reload();
+			$("form")[0].reset()
 		})	
 		$("#regBtn").click(function(){
 			if(confirm("등록하시겠습니까?")){
