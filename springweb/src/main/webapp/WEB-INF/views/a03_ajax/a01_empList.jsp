@@ -166,7 +166,7 @@ td {
 				$("#frm02 [name=job]").val(emp.job)
 				$("#frm02 [name=mgr]").val(emp.mgr)
 				// emp.hiredate : 1971/1/1  1/1000초 데이터..
-				$("#frm02 [name=hiredateStr]").val(fmtDate( new Date(emp.hiredate) ))
+				$("#frm02 [name=hiredate]").val(fmtDate( new Date(emp.hiredate) ))
 				$("#frm02 [name=sal]").val(emp.sal)
 				$("#frm02 [name=comm]").val(emp.comm)
 				$("#frm02 [name=deptno]").val(emp.deptno)
@@ -278,7 +278,7 @@ td {
 							</div>						
 							<div class="col">
 								<input type="date" class="form-control" placeholder="입사일 입력(yyyy-mm-dd)"
-									name="hiredateStr">
+									name="hiredate">
 							</div>
 						</div>	
 											
