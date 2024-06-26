@@ -20,8 +20,7 @@
 			- 위 공통설정정보 처리 등록:<context:property-placeholder 
 										locaction="위 공통설정정보 위치" />
 			- 스프링에서 제공하는 파일업로드 모듈을 사용할 수 있게 선언하여야 한다.
-				CommonsMultipartResolver
-		- 		
+				CommonsMultipartResolver	
 		- VO 객체
 			Board.java
 			client에서 넘겨온 파일을 받은 수 있는 개체의 필드를 선언
