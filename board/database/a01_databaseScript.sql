@@ -18,4 +18,18 @@ select * from board
 where subject like '%%'
 and writer like '%%';
 
+create table boardfile(
+	no number, -- board의 no를 foreign key로 처리..(생략)
+	fname varchar2(100),
+	etc varchar2(500),
+	regdte date,
+	uptdte date
+);
+INSERT INTO boardfile values(1,'문서.txt','',sysdate,sysdate);
+
+SELECT * FROM board WHERE NO = 2;
+select fname from boardfile WHERE NO = 3; 
+update board
+		set readcnt = readcnt + 1
+where no = 2;
 
