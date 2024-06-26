@@ -3,7 +3,9 @@ package board.a03_dao;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import board.vo.Board;
 import board.vo.Boardfile;
@@ -23,5 +25,16 @@ public interface BoardDao {
 	@Insert("INSERT INTO boardfile values(board_seq.currval,#{fname},\r\n"
 			+ "	#{etc},sysdate,sysdate)")
 	int boardFileInsert(Boardfile ins);	
+	
+	@Select("select * from board where no = #{no}")
+	Board getBoard(@Param("no") int no );
+	
+	@Select("select fname from boardfile where no = #{no}")
+	List<String> getFiles(@Param("no") int no);
+	
+	@Update("update board\r\n"
+			+ "   set readcnt = readcnt + 1\r\n"
+			+ "where no = #{no}")
+	int uptBoard(@Param("no") int no);
 	
 }

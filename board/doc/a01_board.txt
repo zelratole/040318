@@ -14,6 +14,54 @@
 	3) 하단에 페이징 리스트를 하여, 많은 글이라도 부하를 감소시켜서
 		페이징 블럭마다 각각의 글리스트를 확인 할 수 있다.
 
+# 상세화면 처리..
+1. 리스트에서 특정 행단위를 클릭시, 상세화면으로 이동 처리
+	boardDetail.do?no=@@@
+2. 상세 내용이 조회된 화면 로딩
+	번호			상위번호
+	제목
+	작성자        조회수
+	등록일        수정일
+	내용
+	
+	첨부파일
+# 처리 순서
+1. DB 처리
+	1) sql작성
+		select * from board where no = #{no}
+		select fname from boardfile where no = #{no}
+		update board
+			set readcnt = readcnt + 1
+		where no = #{no}
+		
+	2) dao 작성
+		Board getBoard(@Param("no") int no);
+		List<String> getBoardFile(@Param("no") int no);
+		int updateBoard(@Param("no") int no);
+---------------------------------------------------		
+	3) service
+	4) controller
+		boardDetail.do
+	5) jsp(view)
+		boardList.jsp
+			행단위 페이지 이동
+			function goDetail(no){
+				location.href=""
+			}
+		boardDetail.jsp	
+			<input type="number" name="no" value="${board.no}" readonly/>
+			번호			상위번호
+			제목
+			작성자        조회수
+			등록일        수정일
+			내용
+			
+			첨부파일			
+
+	        
+		
+
+
 
 
 
