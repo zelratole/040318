@@ -23,10 +23,14 @@ public interface A01_ExpDao {
 			+ "FROM emp\r\n"
 			+ "WHERE empno = 7499\r\n")
 	String getJob();
+	
 	@Select("SELECT job \r\n"
 			+ "FROM emp\r\n"
 			+ "WHERE empno = #{empno}\r\n")
-	String getJob(@Param("empno") int empno);	
+	String getJob(@Param("empno") int empno);
+//	매개변수를 입력했을 때, 결과로 job를 가져오는 처리하는 기능 메서드 선언..
+	
+	
 	
 	@Select("SELECT hisal\r\n"
 			+ "FROM SALGRADE\r\n"
