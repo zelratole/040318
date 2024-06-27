@@ -128,22 +128,5 @@ public interface A01_ExpDao {
 			+ "FROM emp\r\n"
 			+ "WHERE deptno = 30")
 	List<EmpDept> get_05_enamesalcomm();
-	
-	@Select("SELECT ename, sal, comm\r\n"
-			+ "FROM emp\r\n"
-			+ "WHERE deptno = 30")
-	List<EmpDept> get_06_enamesalcomm();	
-	
-	@Select("SELECT ename, sal, comm\r\n"
-			+ "FROM emp\r\n"
-			+ "WHERE deptno = 30")
-	List<EmpDept> get_07_enamesalcomm();	
-	@Select("SELECT ename, sal, comm\r\n"
-			+ "FROM emp\r\n"
-			+ "WHERE deptno = 30")
-	List<EmpDept> get_08_enamesalcomm();	
-	@Select("SELECT ename, sal, comm\r\n"
-			+ "FROM emp\r\n"
-			+ "WHERE deptno = 30")
-	List<EmpDept> get_09_enamesalcomm();		
+			
 }
