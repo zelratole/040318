@@ -21,6 +21,12 @@ public class A01_ExpController {
 	}
 	// http://localhost:7080/springweb/mvc_exp02.do
 	@GetMapping("mvc_exp02.do")
+	public String mvc_exp02() {
+		service.daoExp02();
+		return "";
+	}	
+	// http://localhost:7080/springweb/mvc_exp03.do
+	@GetMapping("mvc_exp03.do")
 	public String mvc_exp01(Model d) {
 		// 모델데이터를 통해서 서버스에서 받아온 데이터 단일데이터 뷰단 전달.
 		d.addAttribute("job", service.getJob());

@@ -19,6 +19,10 @@ public class A01_ExpService {
 	@Autowired(required=false)
 	private A01_ExpDao dao; 
 	// dao = new A01_ExpDaoImp();(mybatis가 만들어준 실제 객체) 처리해 주는 Autowired
+	public void daoExp02() {
+		System.out.println("매개변수1개 전송(사원번호==>직책):"
+				+dao.getJob(7369));
+	}
 	
 	public void daoExp01() {
 		System.out.println("1. 단일 데이터 가져오기:"+

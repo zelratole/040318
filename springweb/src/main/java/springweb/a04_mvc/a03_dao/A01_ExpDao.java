@@ -4,6 +4,7 @@ package springweb.a04_mvc.a03_dao;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import springweb.a04_mvc.z01_vo.Dept01;
@@ -22,6 +23,10 @@ public interface A01_ExpDao {
 			+ "FROM emp\r\n"
 			+ "WHERE empno = 7499\r\n")
 	String getJob();
+	@Select("SELECT job \r\n"
+			+ "FROM emp\r\n"
+			+ "WHERE empno = #{empno}\r\n")
+	String getJob(@Param("empno") int empno);	
 	
 	@Select("SELECT hisal\r\n"
 			+ "FROM SALGRADE\r\n"
