@@ -9,6 +9,7 @@ import org.apache.ibatis.annotations.Select;
 import springweb.a04_mvc.z01_vo.Dept01;
 import springweb.a04_mvc.z01_vo.Emp01;
 import springweb.a04_mvc.z01_vo.Emp02;
+import springweb.a04_mvc.z01_vo.EmpDept;
 import springweb.a04_mvc.z01_vo.Emp_Dept01;
 import springweb.a04_mvc.z01_vo.Employee01;
 
@@ -93,6 +94,29 @@ public interface A01_ExpDao {
 			+ "WHERE SALARY  BETWEEN 10000 AND 20000")
 	List<Employee01> getEmployeeList();
 	
+	@Select("SELECT ename, job, sal\r\n"
+			+ "FROM emp\r\n"
+			+ "WHERE deptno = 10")
+	List<EmpDept> get_01_enamejobsal();
+	@Select("SELECT ename, hiredate, deptno\r\n"
+			+ "FROM emp\r\n"
+			+ "WHERE job = 'CLERK'")
+	List<EmpDept> get_02_enamehiredatedeptno();
+	@Select("SELECT dname, ename\r\n"
+			+ "FROM emp e, dept d\r\n"
+			+ "WHERE e.deptno = d.deptno\r\n"
+			+ "ORDER BY dname")
+	List<EmpDept> get_03_dnameename();
+	@Select("SELECT ename, job, dname\r\n"
+			+ "FROM emp e, dept d\r\n"
+			+ "WHERE e.deptno = d.deptno\r\n"
+			+ "AND sal >= 2000")
+	List<EmpDept> get_04_enamejobdname();
+
+	@Select("SELECT ename, sal, comm\r\n"
+			+ "FROM emp\r\n"
+			+ "WHERE deptno = 30")
+	List<EmpDept> get_05_enamesalcomm();
 	
 	
 	
