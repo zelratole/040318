@@ -11,6 +11,7 @@ import springweb.a04_mvc.z01_vo.Dept01;
 import springweb.a04_mvc.z01_vo.Emp01;
 import springweb.a04_mvc.z01_vo.Emp02;
 import springweb.a04_mvc.z01_vo.Emp_Dept01;
+import springweb.a04_mvc.z01_vo.Employee01;
 
 @Service
 public class A01_ExpService {
@@ -52,6 +53,17 @@ public class A01_ExpService {
 		System.out.println(ed01.getEname());
 		System.out.println(ed01.getDname());
 		System.out.println(ed01.getLoc());
+		System.out.println("# 다중행 다중열 리스트 #");
+		for(Employee01 emp : dao.getEmployeeList()) {
+			System.out.print(emp.getDepartment_id()+"\t");
+			System.out.print(emp.getEmployee_id()+"\t");
+			System.out.print(emp.getFirst_name()+"\t");
+			System.out.println(emp.getSalary());
+		}
+		
+	}
+	public List<Employee01>  getEmployeeList(){
+		return dao.getEmployeeList();
 	}
 	public Emp_Dept01 getEmpDept() {
 		return dao.getEmpDept();

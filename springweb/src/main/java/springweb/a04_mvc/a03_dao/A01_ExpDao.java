@@ -10,6 +10,7 @@ import springweb.a04_mvc.z01_vo.Dept01;
 import springweb.a04_mvc.z01_vo.Emp01;
 import springweb.a04_mvc.z01_vo.Emp02;
 import springweb.a04_mvc.z01_vo.Emp_Dept01;
+import springweb.a04_mvc.z01_vo.Employee01;
 
 public interface A01_ExpDao {
 	// 단일 데이터 가져오는 sql
@@ -86,6 +87,13 @@ public interface A01_ExpDao {
 			+ "WHERE e.deptno = d.deptno\r\n"
 			+ "AND ename = 'ALLEN'")
 	Emp_Dept01 getEmpDept();
+	
+	@Select("SELECT EMPLOYEE_ID, FIRST_NAME, SALARY, DEPARTMENT_ID \r\n"
+			+ "FROM EMPLOYEES\r\n"
+			+ "WHERE SALARY  BETWEEN 10000 AND 20000")
+	List<Employee01> getEmployeeList();
+	
+	
 	
 	
 	
