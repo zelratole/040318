@@ -23,20 +23,17 @@ public interface A01_ExpDao {
 			+ "FROM emp\r\n"
 			+ "WHERE empno = 7499\r\n")
 	String getJob();
-	
-	@Select("SELECT job \r\n"
-			+ "FROM emp\r\n"
-			+ "WHERE empno = #{empno}\r\n")
-	String getJob(@Param("empno") int empno);
+
 //	매개변수를 입력했을 때, 결과로 job를 가져오는 처리하는 기능 메서드 선언..
-	
-	
-	
 	@Select("SELECT hisal\r\n"
 			+ "FROM SALGRADE\r\n"
 			+ "WHERE grade = 1")
 	int getHiSal();
+	// ex1) grade 매개변수로 입력처리..(#)
 	
+	// ex2) 사원명을 입력시 급여을 처리하는 메서드를 선언 처리
+	
+	//
 	@Select("SELECT sal\r\n"
 			+ "FROM emp\r\n"
 			+ "WHERE empno = 7521")
@@ -48,14 +45,18 @@ public interface A01_ExpDao {
 	String getLoc();
 
 	// 다중행 단일컬럼
+	// ex1)
 	@Select("SELECT empno\r\n"
 			+ "FROM emp\r\n"
 			+ "WHERE deptno = 10")
-	List<Integer> getEmpnos();	
+	List<Integer> getEmpnos();
+	// ex2)
 	@Select("SELECT ename\r\n"
 			+ "FROM emp\r\n"
 			+ "WHERE sal BETWEEN 1000 AND 3000")
 	List<String> getEnames();
+	
+	
 	
 	@Select("SELECT hiredate\r\n"
 			+ "FROM emp\r\n"
@@ -107,6 +108,7 @@ public interface A01_ExpDao {
 			+ "FROM emp\r\n"
 			+ "WHERE deptno = 10")
 	List<EmpDept> get_01_enamejobsal();
+	
 	@Select("SELECT ename, hiredate, deptno\r\n"
 			+ "FROM emp\r\n"
 			+ "WHERE job = 'CLERK'")
@@ -121,15 +123,27 @@ public interface A01_ExpDao {
 			+ "WHERE e.deptno = d.deptno\r\n"
 			+ "AND sal >= 2000")
 	List<EmpDept> get_04_enamejobdname();
-
+	
 	@Select("SELECT ename, sal, comm\r\n"
 			+ "FROM emp\r\n"
 			+ "WHERE deptno = 30")
 	List<EmpDept> get_05_enamesalcomm();
 	
+	@Select("SELECT ename, sal, comm\r\n"
+			+ "FROM emp\r\n"
+			+ "WHERE deptno = 30")
+	List<EmpDept> get_06_enamesalcomm();	
 	
-	
-	
-	
-	
+	@Select("SELECT ename, sal, comm\r\n"
+			+ "FROM emp\r\n"
+			+ "WHERE deptno = 30")
+	List<EmpDept> get_07_enamesalcomm();	
+	@Select("SELECT ename, sal, comm\r\n"
+			+ "FROM emp\r\n"
+			+ "WHERE deptno = 30")
+	List<EmpDept> get_08_enamesalcomm();	
+	@Select("SELECT ename, sal, comm\r\n"
+			+ "FROM emp\r\n"
+			+ "WHERE deptno = 30")
+	List<EmpDept> get_09_enamesalcomm();		
 }
