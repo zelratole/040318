@@ -10,6 +10,7 @@ import springweb.a04_mvc.a03_dao.A01_ExpDao;
 import springweb.a04_mvc.z01_vo.Dept01;
 import springweb.a04_mvc.z01_vo.Emp01;
 import springweb.a04_mvc.z01_vo.Emp02;
+import springweb.a04_mvc.z01_vo.EmpDept;
 import springweb.a04_mvc.z01_vo.Emp_Dept01;
 import springweb.a04_mvc.z01_vo.Employee01;
 
@@ -60,11 +61,33 @@ public class A01_ExpService {
 			System.out.print(emp.getFirst_name()+"\t");
 			System.out.println(emp.getSalary());
 		}
-		
+		System.out.println("# 다중행 다중열 처리 ename job dname #");
+		for(EmpDept ed:dao.get_04_enamejobdname()) {
+			System.out.print(ed.getEname()+"\t");
+			System.out.print(ed.getJob()+"\t");
+			System.out.print(ed.getDname()+"\n");
+		}
 	}
 	public List<Employee01>  getEmployeeList(){
 		return dao.getEmployeeList();
 	}
+	public List<EmpDept> get_01_enamejobsal(){
+		return dao.get_01_enamejobsal();
+	}
+	public List<EmpDept> get_02_enamehiredatedeptno(){
+		return dao.get_02_enamehiredatedeptno();
+	}
+	public List<EmpDept> get_03_dnameename(){
+		return dao.get_03_dnameename();
+	}
+	public List<EmpDept> get_04_enamejobdname(){
+		return dao.get_04_enamejobdname();
+	}
+	public List<EmpDept> get_05_enamesalcomm(){
+		return dao.get_05_enamesalcomm();
+	}	
+	
+	
 	public Emp_Dept01 getEmpDept() {
 		return dao.getEmpDept();
 	}
