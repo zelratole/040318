@@ -6,6 +6,9 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Select;
 
+import springweb.a04_mvc.z01_vo.Emp01;
+import springweb.a04_mvc.z01_vo.Emp02;
+
 public interface A01_ExpDao {
 	// 단일 데이터 가져오는 sql
 	@Select("select count(*) from emp")
@@ -60,6 +63,17 @@ public interface A01_ExpDao {
 			+ "FROM emp\r\n"
 			+ "WHERE mgr = 7902 ")
 	List<String> getEnames2();
+	// 1행의 여러 데이터 처리 : 
+	// sql의 결과가 한 행이고, 여러 컬럼으로 가져올 때 처리
+	@Select("SELECT ename, sal, deptno\r\n"
+			+ "FROM emp\r\n"
+			+ "WHERE empno = 7369")
+	Emp02 getEmp02();
+	
+	@Select("SELECT ename, job, sal\r\n"
+			+ "FROM emp\r\n"
+			+ "WHERE empno = 7369")
+	Emp01 getEmp01();
 	
 	
 }
