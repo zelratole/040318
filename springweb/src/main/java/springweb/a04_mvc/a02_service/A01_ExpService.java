@@ -7,8 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import springweb.a04_mvc.a03_dao.A01_ExpDao;
+import springweb.a04_mvc.z01_vo.Dept01;
 import springweb.a04_mvc.z01_vo.Emp01;
 import springweb.a04_mvc.z01_vo.Emp02;
+import springweb.a04_mvc.z01_vo.Emp_Dept01;
 
 @Service
 public class A01_ExpService {
@@ -41,6 +43,21 @@ public class A01_ExpService {
 		System.out.println(e1.getEname());
 		System.out.println(e1.getJob());
 		System.out.println(e1.getSal());
+		System.out.println("# 단일 객체 호출 연습 2 #");
+		System.out.println(dao.getDept01().getDname());
+		System.out.println(dao.getDept01().getLoc());
+		System.out.println("# 단일 객체 호출 연습 3");
+		Emp_Dept01 ed01 = dao.getEmpDept();
+		System.out.println(ed01.getEmpno());
+		System.out.println(ed01.getEname());
+		System.out.println(ed01.getDname());
+		System.out.println(ed01.getLoc());
+	}
+	public Emp_Dept01 getEmpDept() {
+		return dao.getEmpDept();
+	}
+	public Dept01 getDept01() {
+		return dao.getDept01();
 	}
 	public Emp01 getEmp01() {
 		return dao.getEmp01();

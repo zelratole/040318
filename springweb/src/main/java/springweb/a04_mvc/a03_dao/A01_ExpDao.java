@@ -6,8 +6,10 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Select;
 
+import springweb.a04_mvc.z01_vo.Dept01;
 import springweb.a04_mvc.z01_vo.Emp01;
 import springweb.a04_mvc.z01_vo.Emp02;
+import springweb.a04_mvc.z01_vo.Emp_Dept01;
 
 public interface A01_ExpDao {
 	// 단일 데이터 가져오는 sql
@@ -74,6 +76,19 @@ public interface A01_ExpDao {
 			+ "FROM emp\r\n"
 			+ "WHERE empno = 7369")
 	Emp01 getEmp01();
+	
+	@Select("SELECT dname, loc\r\n"
+			+ "FROM dept\r\n"
+			+ "WHERE deptno = 20")
+	Dept01 getDept01();
+	@Select("SELECT empno, ename, dname, loc\r\n"
+			+ "FROM emp e, dept d\r\n"
+			+ "WHERE e.deptno = d.deptno\r\n"
+			+ "AND ename = 'ALLEN'")
+	Emp_Dept01 getEmpDept();
+	
+	
+	
 	
 	
 }
