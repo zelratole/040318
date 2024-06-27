@@ -28,15 +28,18 @@
 <script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-	
+		 alert("직책:${job}")
 	});
 </script>
 </head>
-
 <body>
 <div class="jumbotron text-center">
-  <h2>MVC연습</h2>
-
+  	<h2>MVC연습</h2>
+	<h3>직책:${job}</h3>
+	<c:forEach var="empno" items="${empnos}">
+		<h3>${empno}</h3>
+	</c:forEach>
+	
 </div>
 <%-- 
 		
