@@ -9,6 +9,11 @@ import org.apache.ibatis.annotations.Select;
 import springweb.a04_mvc.z01_vo.Dept;
 
 public interface A02_ExpDao {
+	/*
+	# dao 선언시, 중복정의(overloading)으로 메서드는 선언할 수 있으나,
+	mybatis 프레임웍내부적으로 식별하는 기준이 메서드명이므로 다르게 선언하여야 
+	한다. (주의-에러발생)	
+	 * */
 	// ex1) grade 매개변수로 입력처리..(#)
 	@Select("SELECT hisal\r\n"
 			+ "FROM SALGRADE\r\n"
