@@ -35,7 +35,20 @@
 
 <body>
 <div class="jumbotron text-center">
-  <h2>타이틀</h2>
+  <h2>요청값 연습</h2>
+  <h3>요청값(음식):${param.food}</h3>
+  <a href="call106.do?food=아이스크림">아이스크림(요청값 link로 전달)</a><br>
+  <h3 onclick="call01()">요청값을 전달할까요? 탕후루!! </h3>
+  <script type="text/javascript">
+  	function call01(){
+  		location.href="call106.do?food=탕후루!!"
+  	}
+  </script>
+  <%--
+  1. 단계 a href
+  2. 이벤트 location
+  3. form
+   --%>
 
 </div>
 <%-- 
