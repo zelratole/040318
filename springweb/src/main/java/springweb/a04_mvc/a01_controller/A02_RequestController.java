@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import springweb.a04_mvc.z01_vo.Student;
+
 @Controller
 public class A02_RequestController {
 	// http://localhost:7080/springweb/call100.do
@@ -114,7 +116,23 @@ public class A02_RequestController {
 		System.out.println("삼각형의 면적(controller):"+(base*height/2));
 		return "WEB-INF\\views\\a05_mvcexp\\a07_zero_multi_request.jsp";
 	}
+	// http://localhost:7080/springweb/call110.do
+	// http://localhost:7080/springweb/call110.do?sname=
+	// http://localhost:7080/springweb/call110.do?sname=&kor=
+	// http://localhost:7080/springweb/call110.do?sname=&kor=&eng=80&math=80
 	
+	// http://localhost:7080/springweb/call110.do?sname=홍길동&kor=70&eng=80&math=80
+	@RequestMapping("call110.do")
+	public String call110(Student stu) { 
+		// 객체를 넣는 순간 기본적 Student ==> student 자동으로 요청값 + 모델 처리..
+		System.out.println("# 객체를 요청값으로 ㅎㅎ #");
+		System.out.println(stu==null);
+		System.out.println(stu.getSname());
+		System.out.println(stu.getKor());
+		System.out.println(stu.getEng());
+		System.out.println(stu.getMath());
+		return "WEB-INF\\views\\a05_mvcexp\\a08_obj_request.jsp";
+	}	
 	
 	
 	
