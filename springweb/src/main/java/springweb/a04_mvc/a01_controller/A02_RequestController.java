@@ -31,5 +31,30 @@ public class A02_RequestController {
 		System.out.println("현재 요청된 방식:"+request.getMethod());
 		return "WEB-INF\\views\\a05_mvcexp\\a02_get_post_method.jsp";
 	}
+	// ex1) call102.do 로 get방식으로 받는 메서드 처리, post방식으로 받는 메서드 처리..
+	//      a03_get_post_methodExp.jsp
+	// // http://localhost:7080/springweb/call102.do
+	@GetMapping("call102.do")
+	public String call102Get() {
+		System.out.println("call102.do get 방식 ");
+		return "WEB-INF\\views\\a05_mvcexp\\a03_get_post_method.jsp";
+	}
+	@PostMapping("call102.do")
+	public String call102Post() {
+		System.out.println("call102.do post 방식 ");
+		return "WEB-INF\\views\\a05_mvcexp\\a03_get_post_method.jsp";
+	}
+	// ex2) call103.do로 get/post방식 둘다 받게 처리.. a03_get_post_methodExp.jsp
+	// // http://localhost:7080/springweb/call103.do
+	@RequestMapping("call103.do")
+	public String call103(HttpServletRequest request) {
+		System.out.println("call103.do get/post 방식 ");
+		System.out.println(request.getMethod());
+		return "WEB-INF\\views\\a05_mvcexp\\a03_get_post_method.jsp";
+	}
+	
+	
+	
+	
 	
 }
