@@ -80,6 +80,7 @@ d.addAttribute("ename", 모델객체")
    요청url?key=val
    	0) get방식/post방식, 둘다 받게 처리..
 	1) 단일 데이터
+	----------------------------
 	2) 다중 데이터
 	3) 객체 처리
 	
@@ -99,7 +100,15 @@ d.addAttribute("ename", 모델객체")
 
 
 
-
+# view단에서 요청값 전송
+1. 요청값을 get방식을 때, 처리하는 방식
+	1) js 이벤트 요청값 전송 처리 : location.href="컨트롤러?요청키=요청값"
+			location.href="emp.do?empno=1000"
+	
+	2) a href를 통해서 요청값 전송 처리
+		a href="컨트롤러?요청키=요청값
+	3) form에서 method방식을 get으로 변경 후.
+		name="요청키"  value="요청값" 입력후, submit로 처리..
 
 	 	
 	

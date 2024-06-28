@@ -28,63 +28,30 @@
 <script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-		var reqName = "${param.name}"
-		if(reqName!="") alert("이름:"+reqName)
-		
-		$("#reqBtn").click(function(){
-			//alert("# 이동 #")
-			//              컨트롤러?key=val
-			location.href="call104.do?name=김철수"
-			
-		})
-		
-		
+	
 	});
 </script>
 </head>
 
 <body>
 <div class="jumbotron text-center">
-  <h2>하나의 요청값을 처리하는 방법</h2>
-  <h2>이름 요청값:${param.name}</h2>
-  <h2>물건명 요청값:${param.prodName}</h2>
-  <a href="${path}/call104.do?name=신길동">신길동 이름 전송</a><br>
-  <a href="${path}/call105.do?prodName=수박">수박 물건명 전송</a>
+  <h2>타이틀</h2>
 
 </div>
 <%-- 
-1. 요청값을 get방식을 때, 처리하는 방식
-	1) js 이벤트 요청값 전송 처리 : location.href="컨트롤러?요청키=요청값"
-	2) a href를 통해서 요청값 전송 처리
-		a href="컨트롤러?요청키=요청값
-	3) form에서 method방식을 get으로 변경 후.
-		name="요청키"  value="요청값" 입력후, submit로 처리..
 		
-			
 --%>
 <div class="container">
-	<form id="frm01" class="form"  action="call104.do"   
-		method="get">
+	<form id="frm01" class="form"  method="post">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input placeholder="이름" name="name"  class="form-control mr-sm-2" />
-	    <button class="btn btn-info" type="submit">Search(요청값 form 전달)</button>
-	    <button type="button" class="btn btn-success" 
-	    	id="reqBtn" >요청값 전달 버튼</button>
+	    <input placeholder="제목" name=""  class="form-control mr-sm-2" />
+	    <input placeholder="내용" name=""  class="form-control mr-sm-2"/>
+	    <button class="btn btn-info" type="submit">Search</button>
+	    <button class="btn btn-success" 
+	    	data-toggle="modal" data-target="#exampleModalCenter"
+	        type="button">등록</button>
  	</nav>
 	</form>
-
-	<%--
-	ex) call105.do?prodName=사과
-	가 호출 될 수 있게 하단에 form으로 처리하세요...
-	 --%>
-	<h2>물건명 요청값:${param.prodName}</h2> 
-	<form id="frm01" class="form" action="call105.do"  method="get">
-  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input placeholder="물건명" name="prodName"  class="form-control mr-sm-2" />
-	    <button class="btn btn-info" type="submit">Search(요청값 form 전달)</button>
- 	</nav>
-	</form>	
-	
    <table class="table table-hover table-striped">
    	<col width="10%">
    	<col width="50%">

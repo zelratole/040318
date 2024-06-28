@@ -55,7 +55,7 @@ public class A02_RequestController {
 	}
 	
 	// 단일 요청값 처리  ?key=val
-	// http://localhost:7080/springweb/call104.do
+
 	// http://localhost:7080/springweb/call104.do?name=홍길동
 	@GetMapping("call104.do")
 	public String call04(@RequestParam("name") String name) {
@@ -71,8 +71,13 @@ public class A02_RequestController {
 		System.out.println("요청값(물건명):"+prodName);
 		return "WEB-INF\\views\\a05_mvcexp\\a04_one_request.jsp";
 	}
-	
-	
+	// http://localhost:7080/springweb/call106.do?food=짜장면
+	@GetMapping("call106.do")
+	public String call106(@RequestParam("food") String food) {
+		System.out.println("서버에 온 요청값:"+food);
+		
+		return "WEB-INF\\views\\a05_mvcexp\\a05_one_request.jsp";
+	}
 	
 	
 	
