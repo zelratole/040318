@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class A02_RequestController {
@@ -52,6 +53,25 @@ public class A02_RequestController {
 		System.out.println(request.getMethod());
 		return "WEB-INF\\views\\a05_mvcexp\\a03_get_post_method.jsp";
 	}
+	
+	// 단일 요청값 처리  ?key=val
+	// http://localhost:7080/springweb/call104.do
+	// http://localhost:7080/springweb/call104.do?name=홍길동
+	@GetMapping("call104.do")
+	public String call04(@RequestParam("name") String name) {
+		
+		System.out.println("요청값(이름):"+name);
+		
+		return "WEB-INF\\views\\a05_mvcexp\\a04_one_request.jsp";
+	}
+	// ex) http://localhost:7080/springweb/call105.do?prodName=사과
+	//      	호출 view a04_one_request.jsp
+	@GetMapping("call105.do")
+	public String call105(@RequestParam("prodName") String prodName) {
+		System.out.println("요청값(물건명):"+prodName);
+		return "WEB-INF\\views\\a05_mvcexp\\a04_one_request.jsp";
+	}
+	
 	
 	
 	
