@@ -111,9 +111,18 @@ d.addAttribute("ename", 모델객체")
 		name="요청키"  value="요청값" 입력후, submit로 처리..
 
 	 	
+# 여러가지 요청값 처리 방식
+1. 요청값은 필수:요청값이 type이 맞지 않으면 호출 X
+	call01.do?name=홍길동
+	@RequestParam("name") String name
+2. 요청값 있으면 처리, 없으면 없는데로 호출
+	- @ReuestParam 속성 defaultValue	
+	- Dept d : 객체로 만들면 요청값 있으면 해당 property자동, 없으면 객체가 할당이 안된 객체로 전달.
+		==> 요청값 + 모델데이터까지 처리가 된다.(와우!!###)	
 	
-	
-	
+# 모델
+
+# 요청 service(dao)	
 	
 	
 	

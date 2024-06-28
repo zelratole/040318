@@ -85,6 +85,25 @@ public class A02_RequestController {
 		
 		return "WEB-INF\\views\\a05_mvcexp\\a06_one_request.jsp";
 	}	
+	// http://localhost:7080/springweb/call108.do
+	// http://localhost:7080/springweb/call108.do?weeksche=친구와만남
+	// call108.do?weeksche=친구와만남&pay=30000
+	// 다중의 데이터 처리..
+	@GetMapping("call108.do")
+	public String call108(@RequestParam(value="weeksche", 
+										defaultValue = "없음^^멍!!") 
+										String weeksche,
+						  @RequestParam(value="pay", 
+										defaultValue = "0") 
+										int pay										
+			              ) {
+		System.out.println("요청처리1:"+weeksche);
+		System.out.println("요청처리2:"+pay);
+		
+		return "WEB-INF\\views\\a05_mvcexp\\a07_zero_multi_request.jsp";
+	}		
+	
+	
 	
 	
 }
