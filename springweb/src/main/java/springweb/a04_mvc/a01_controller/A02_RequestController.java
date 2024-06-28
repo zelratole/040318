@@ -78,8 +78,13 @@ public class A02_RequestController {
 		
 		return "WEB-INF\\views\\a05_mvcexp\\a05_one_request.jsp";
 	}
-	
-	
+	// http://localhost:7080/springweb/call107.do?music=IAM
+	@GetMapping("call107.do")
+	public String call107(@RequestParam("music") String music) {
+		System.out.println("서버에 온 요청값:"+music);
+		
+		return "WEB-INF\\views\\a05_mvcexp\\a06_one_request.jsp";
+	}	
 	
 	
 }

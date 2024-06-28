@@ -28,36 +28,18 @@
 <script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-		var food = "${param.food}"
-		if(food!='') alert(food)
+		var music = "${param.music}"
+		alert(music)
+		$("h2").append(music)
 	});
 </script>
 </head>
 
 <body>
 <div class="jumbotron text-center">
-  <h2>요청값 연습</h2>
-  <h3>요청값(음식):${param.food}</h3>
-  <a href="call106.do?food=아이스크림">아이스크림(요청값 link로 전달)</a><br>
-  <h3 onclick="call01()">요청값을 전달할까요? 탕후루!! </h3>
-  <script type="text/javascript">
-  	function call01(){
-  		location.href="call106.do?food=탕후루!!"
-  	}
-  </script>
-  <%--
-  1. 단계 a href
-  2. 이벤트 location
-  3. form
-  ex)http://localhost:7080/springweb/call107.do?music=IAM
-  1) controller 요청 메서드 추가
-  2) a06_one_request.jsp
-  		a href 처리
-  		dom onclick 이벤트로 전달
-  		<form 객체 요청값으로 전달..
-  		
-   --%>
-
+  	<h2>요청값연습:</h2>
+	<a href="call107.do?music=어느 멋진 날">어느 멋진 날</a><br>
+	<h3 onclick="location.href='call107.do?music=비타민걸'">클릭해볼까요(비타민걸)</h3>
 </div>
 <%-- 
 		
@@ -65,8 +47,8 @@
 <div class="container">
 	<form id="frm01" class="form"  method="get">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input placeholder="음식입력" name="food"  class="form-control mr-sm-2" />
-	    <button class="btn btn-info" type="submit">전송</button>
+	    <input placeholder="음악입력하세요" name="music"  class="form-control mr-sm-2" />
+	    <button class="btn btn-info" type="submit">Search</button>
  	</nav>
 	</form>
    <table class="table table-hover table-striped">
