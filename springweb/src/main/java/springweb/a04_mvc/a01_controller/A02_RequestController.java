@@ -3,11 +3,13 @@ package springweb.a04_mvc.a01_controller;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import a01_diexp.z01_vo.Person;
 import springweb.a04_mvc.z01_vo.Product;
 import springweb.a04_mvc.z01_vo.Student;
 
@@ -149,6 +151,20 @@ public class A02_RequestController {
 
 		return "WEB-INF\\views\\a05_mvcexp\\a09_obj_request.jsp";
 	}	
+	// 모델데이터 처리(view에 넘겨줄 데이터 처리)
+	@RequestMapping("call112.do")
+	public String call112(Model d) { 
+		d.addAttribute("msg", "안녕하세요"); // ==> alert("${msg}"); javascript
+		d.addAttribute("arry", new int[] {1000,2000,3000}); // DB의 경우 단일컬럼, 여러행 데이터..
+		// <c:for var="price" items="${arry}">
+		//      ${price}
+		d.addAttribute("product", new Product("사과",3000,2));
+		// ${product.prodName}, ${product.price}, ${product.cnt}
+
+		return "WEB-INF\\views\\a05_mvcexp\\a09_obj_request.jsp";
+	}	
+	
+	
 	
 	
 	
