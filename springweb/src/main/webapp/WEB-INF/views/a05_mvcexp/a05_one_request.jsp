@@ -28,7 +28,8 @@
 <script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-	
+		var food = "${param.food}"
+		if(food!='') alert(food)
 	});
 </script>
 </head>
@@ -55,14 +56,10 @@
 		
 --%>
 <div class="container">
-	<form id="frm01" class="form"  method="post">
+	<form id="frm01" class="form"  method="get">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input placeholder="제목" name=""  class="form-control mr-sm-2" />
-	    <input placeholder="내용" name=""  class="form-control mr-sm-2"/>
-	    <button class="btn btn-info" type="submit">Search</button>
-	    <button class="btn btn-success" 
-	    	data-toggle="modal" data-target="#exampleModalCenter"
-	        type="button">등록</button>
+	    <input placeholder="음식입력" name="food"  class="form-control mr-sm-2" />
+	    <button class="btn btn-info" type="submit">전송</button>
  	</nav>
 	</form>
    <table class="table table-hover table-striped">
