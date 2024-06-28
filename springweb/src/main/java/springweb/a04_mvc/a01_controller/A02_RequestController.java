@@ -88,7 +88,7 @@ public class A02_RequestController {
 	// http://localhost:7080/springweb/call108.do
 	// http://localhost:7080/springweb/call108.do?weeksche=친구와만남
 	// call108.do?weeksche=친구와만남&pay=30000
-	// 다중의 데이터 처리..
+	// 다중의 데이터 처리.. : defaultValue 요청값이 없더라도 호출이 가능하게 해준다.
 	@GetMapping("call108.do")
 	public String call108(@RequestParam(value="weeksche", 
 										defaultValue = "없음^^멍!!") 
@@ -102,6 +102,19 @@ public class A02_RequestController {
 		
 		return "WEB-INF\\views\\a05_mvcexp\\a07_zero_multi_request.jsp";
 	}		
+	// call109.do ==> 삼각형의 면적을 처리하기 위한 밑변/높이를 요청값을 받아들어
+	//       출력하되 controller 안에선 없으면 1로 설정 처리,,,.. 화면단에는 출력되지않게..
+	//   a07_zero_multi_request.jsp
+	// http://localhost:7080/springweb/call109.do
+	// http://localhost:7080/springweb/call109.do?base=3&height=5
+	@GetMapping("call109.do")
+	public String call109( @RequestParam(value="base", defaultValue = "1") int base,
+						   @RequestParam(value="height", defaultValue = "1") int height
+			              ) {
+		System.out.println("삼각형의 면적(controller):"+(base*height/2));
+		return "WEB-INF\\views\\a05_mvcexp\\a07_zero_multi_request.jsp";
+	}
+	
 	
 	
 	

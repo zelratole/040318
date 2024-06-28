@@ -37,7 +37,10 @@
 <div class="jumbotron text-center">
   <h2>다중 처리1..${param.weeksche}</h2>
   <h2>다중 처리2..${param.pay}</h2>
-
+  <h3>삼각형의 면적</h3>
+  <h3>밑변:${param.base}, 높이:${param.height}, 
+  	면적:${param.base*param.height/2}
+  </h3>
 </div>
 <%-- 
 		
