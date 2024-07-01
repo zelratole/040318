@@ -17,6 +17,11 @@ public class A02_FileUploadService {
 	
 	public List<String> getFileList(){
 		List<String> flist = new ArrayList<String>();
+		File fold = new File(path);
+		for(File file:fold.listFiles()) {
+			System.out.println(file.getName());
+			flist.add(file.getName());
+		}		
 		return flist;
 	}
 	
