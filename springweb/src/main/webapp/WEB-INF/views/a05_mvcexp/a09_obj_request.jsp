@@ -28,7 +28,8 @@
 <script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-	
+		var msg = "${msg}"
+		alert("넘겨온 모델데이터 메시지:"+msg)
 	});
 </script>
 </head>

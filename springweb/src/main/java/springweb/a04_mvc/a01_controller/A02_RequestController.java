@@ -1,5 +1,8 @@
 package springweb.a04_mvc.a01_controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
@@ -9,7 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import a01_diexp.z01_vo.Person;
+import springweb.a04_mvc.z01_vo.Dept;
 import springweb.a04_mvc.z01_vo.Product;
 import springweb.a04_mvc.z01_vo.Student;
 
@@ -160,6 +163,15 @@ public class A02_RequestController {
 		//      ${price}
 		d.addAttribute("product", new Product("사과",3000,2));
 		// ${product.prodName}, ${product.price}, ${product.cnt}
+		List<Dept> dlist = new ArrayList<Dept>();
+		dlist.add(new Dept(10,"인사","서울"));
+		dlist.add(new Dept(20,"재무","수원"));
+		dlist.add(new Dept(30,"회계","인천"));
+		d.addAttribute("dlist", dlist);
+		// msg : 단일변수, arry : 단일배열, 
+		// product : 단일객체, dlist : 리스트형 객체 )
+		
+		
 
 		return "WEB-INF\\views\\a05_mvcexp\\a09_obj_request.jsp";
 	}	
