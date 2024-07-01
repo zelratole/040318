@@ -245,6 +245,11 @@ INSERT INTO product01 values('1000','컴퓨터CPU I7 3.4GHZ', 300000);
 SELECT *
 FROM product01
 WHERE pid LIKE '%%';
+
+SELECT *
+FROM product01
+WHERE pid LIKE #{pid}
+
 /*
 private String pid
 private String name;
@@ -259,7 +264,12 @@ private int price;
 	4) 화면 및 요청값 처리
 		controller 작성
 		초기 view(jsp) 구성 : 요청값 처리(form)
+		요청값 : 제품id(pid)
+		리스트 : 제품 ID, 제품명, 가격 pid, name, price
+		
 	5) service ==> dao
+	
+	------------------------
 	6) controller ==> servic  (모델데이터 설정)	
 	7) jsp(최종 모델 데이터 출력 처리	
 			
