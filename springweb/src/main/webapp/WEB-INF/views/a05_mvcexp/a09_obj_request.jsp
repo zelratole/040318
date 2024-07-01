@@ -33,47 +33,35 @@
 	});
 </script>
 </head>
-
+<%--
+		// msg : 단일변수, arry : 단일배열, 
+		// product : 단일객체, dlist : 리스트형 객체 
+ --%>
 <body>
 <div class="jumbotron text-center">
   <h2>물건객체</h2>
   <h3>물건명:${product.prodName}</h3>
   <h3>가격:${product.price}</h3>
   <h3>갯수:${product.cnt}</h3>
-
+  <h2>물건가격</h2>
+  <c:forEach var="price" items="${arry}">
+  	<h3>${price}</h3>
+  </c:forEach>
 </div>
-<%-- 
-		
---%>
 <div class="container">
-	<form id="frm01" class="form"  method="get">
-  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input placeholder="물건명" name="prodName"  class="form-control mr-sm-2" />
-	    <input placeholder="가격" name="price"  class="form-control mr-sm-2"/>
-	    <input placeholder="갯수" name="cnt"  class="form-control mr-sm-2"/>
-	    <button class="btn btn-info" type="submit">등록</button>
- 	</nav>
-	</form>
    <table class="table table-hover table-striped">
-   	<col width="10%">
-   	<col width="50%">
-   	<col width="15%">
-   	<col width="15%">
-   	<col width="10%">
     <thead>
-    
       <tr class="table-success text-center">
-        <th>번호</th>
-        <th>제목</th>
-        <th>작성자</th>
-        <th>작성일</th>
-        <th>조회</th>
+        <th>부서번호</th>
+        <th>부서명</th>
+        <th>부서위치</th>
       </tr>
     </thead>	
     <tbody>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<c:forEach var = "dept" items="${dlist}">
+    	<tr><td>${dept.deptno}</td><td>${dept.dname }</td>
+    		<td>${dept.loc }</td></tr>
+    	</c:forEach>
     </tbody>
 	</table>    
     

@@ -155,6 +155,7 @@ public class A02_RequestController {
 		return "WEB-INF\\views\\a05_mvcexp\\a09_obj_request.jsp";
 	}	
 	// 모델데이터 처리(view에 넘겨줄 데이터 처리)
+	//http://localhost:7080/springweb/call112.do
 	@RequestMapping("call112.do")
 	public String call112(Model d) { 
 		d.addAttribute("msg", "안녕하세요"); // ==> alert("${msg}"); javascript
