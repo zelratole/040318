@@ -17,6 +17,15 @@ public class A02_FileUploadCtrl {
 	
 	@Autowired(required = false)
 	private A02_FileUploadService service;
+	// http://localhost:7080/springweb/upLoadList.do
+	@GetMapping("upLoadList.do")
+	public String upLoadList(Model d) {
+		d.addAttribute("flist", service.getFileList());
+		return "WEB-INF\\views\\a04_fileUpload\\a03_fileList.jsp";
+	}
+	
+	
+	
 	
 	// http://localhost:7080/springweb/uploadExp01.do
 	@GetMapping("uploadExp01.do")
