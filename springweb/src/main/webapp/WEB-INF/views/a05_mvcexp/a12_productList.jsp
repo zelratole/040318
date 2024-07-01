@@ -60,7 +60,9 @@
       </tr>
     </thead>	
     <tbody>
-    	<tr><td></td><td></td><td></td></tr>
+    	<c:forEach var="prod" items="${plist}">
+    	<tr><td>${prod.pid}</td><td>${prod.name}</td><td>${prod.price}</td></tr>
+    	</c:forEach>
     </tbody>
 	</table>    
 </div>
