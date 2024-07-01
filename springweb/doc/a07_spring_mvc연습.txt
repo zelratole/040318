@@ -183,10 +183,32 @@ ex) 회원관리 페이지 만들기(회원정보 - 아이디, 패스워드, 이
 		
 		
 		dao 작성
+			SELECT * 
+			FROM member01
+			WHERE id LIKE '%%'
+			AND name LIKE '%%'
+			AND auth LIKE '%%'
+
+SELECT * 
+FROM member01
+WHERE id LIKE #{id}
+AND name LIKE #{name}
+AND auth LIKE #{auth}
+			A02_ExpDao.java 기능메서드 추가(memberList)
+		
 	4) 화면 및 요청값 처리
 		controller 작성
 		초기 view(jsp) 구성 : 요청값 처리(form)
+		아이디:[   ] 이름:[    ], 권한:[    ] [검색]
+		id, name, auth
+		아이디 이름 권한 포인트
+		id   name auth point
+		
+		
+				
+		
 	5) service ==> dao
+	------
 	6) controller ==> servic  (모델데이터 설정)	
 	7) jsp(최종 모델 데이터 출력 처리			
 		

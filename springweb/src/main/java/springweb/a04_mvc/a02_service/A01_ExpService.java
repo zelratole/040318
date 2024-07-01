@@ -15,6 +15,7 @@ import springweb.a04_mvc.z01_vo.Emp02;
 import springweb.a04_mvc.z01_vo.EmpDept;
 import springweb.a04_mvc.z01_vo.Emp_Dept01;
 import springweb.a04_mvc.z01_vo.Employee01;
+import springweb.a04_mvc.z01_vo.Member;
 
 @Service
 public class A01_ExpService {
@@ -150,7 +151,17 @@ public class A01_ExpService {
 	public	List<String> getEnames2(){
 		return dao.getEnames2();
 	}
-
+	// memberList 호출 처리..
+	public List<Member> memberList(Member sch){
+		if(sch.getId()==null) sch.setId("");
+		if(sch.getName()==null) sch.setName("");
+		if(sch.getAuth()==null) sch.setAuth("");
+		
+		sch.setId("%"+sch.getId()+"%");
+		sch.setName("%"+sch.getName()+"%");
+		sch.setAuth("%"+sch.getAuth()+"%");
+		return dao2.memberList(sch);
+	}
 		
 	
 	
