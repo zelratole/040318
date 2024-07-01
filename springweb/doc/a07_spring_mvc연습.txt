@@ -124,7 +124,74 @@ d.addAttribute("ename", 모델객체")
 
 # 요청 service(dao)	
 	
-	
+
+# 화면 요청값과 database 연동된 처리 화면..
+1. 개발 순서
+	1) 요구사항 분석/화면설계
+	2) 요청값 처리 데이터  
+	   모델처리 데이터 
+	   구분 및 요청값은 화면 form객체로 처리
+	   모델데이터 dao 처리 및 화면에 출력 처리.. 
+	3) DB 처리
+		데이터베이스 설계(테이블 만들기)
+		sql 작성
+		vo 생성:매개변수요청값 처리/출력할 내용
+		dao 작성
+	4) 화면 및 요청값 처리
+		controller 작성
+		초기 view(jsp) 구성 : 요청값 처리(form)
+	5) service ==> dao
+	6) controller ==> servic  (모델데이터 설정)	
+	7) jsp(최종 모델 데이터 출력 처리	
+		
+ex) 회원관리 페이지 만들기(회원정보 - 아이디, 패스워드, 이름, 권한, 포인트)		
+	1) 요구사항 분석/화면설계
+		아이디와 회원명과 권한을 검색할 수 있는 리스트 페이지로 리스트 내용으로는 (아이디, 이름, 권한, 포인트)
+		가 있다.
+		아이디:[   ] 이름:[    ], 권한:[    ] [검색]
+		아이디 이름 권한 포인트
+	2) 요청값 처리 데이터 : 아이디, 이름, 권한  
+	   모델처리 데이터  : 아이디, 이름, 권한, 포인트 (패스워드)
+	   구분 및 요청값은 화면 form객체로 처리
+	   모델데이터 dao 처리 및 화면에 출력 처리.. 
+	3) DB 처리
+		데이터베이스 설계(테이블 만들기)
+			CREATE TABLE member01(
+				id varchar2(50),
+				pwd varchar2(20),
+				name varchar2(50),
+				auth varchar2(10),
+				point number
+			);
+			SELECT * FROM member01;
+			INSERT INTO member01 values('himan','7777','홍길동','관리자',10000);
+			SELECT * 
+			FROM member01
+			WHERE id LIKE '%%'
+			AND name LIKE '%%'
+			AND auth LIKE '%%';			
+		sql 작성
+		------------------------------
+		vo 생성:매개변수요청값 처리/출력할 내용
+		class Member01{
+			private String id;
+			private String pwd;
+			private String name;
+			private String auth;
+			private int point;
+		}
+		
+		
+		dao 작성
+	4) 화면 및 요청값 처리
+		controller 작성
+		초기 view(jsp) 구성 : 요청값 처리(form)
+	5) service ==> dao
+	6) controller ==> servic  (모델데이터 설정)	
+	7) jsp(최종 모델 데이터 출력 처리			
+		
+		 
+			
 	
 	
 	
