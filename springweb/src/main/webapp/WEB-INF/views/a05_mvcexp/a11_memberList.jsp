@@ -71,7 +71,9 @@
       </tr>
     </thead>	
     <tbody>
-    	<tr><td></td><td></td><td></td><td></td></tr>
+    	<c:forEach var="mem" items="${memberList }">
+    	<tr><td>${mem.id}</td><td>${mem.name}</td><td>${mem.auth}</td><td>${mem.point}</td></tr>
+    	</c:forEach>
 
     </tbody>
 	</table>    
