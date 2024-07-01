@@ -16,6 +16,8 @@ public class A02_FileUploadService {
 	private String path;
 	
 	public List<String> getFileList(){
+		// upload 폴드에 있는 파일이름 정보를 List<String>으로 만들어
+		// 리턴 처리..
 		List<String> flist = new ArrayList<String>();
 		File fold = new File(path);
 		for(File file:fold.listFiles()) {
