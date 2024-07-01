@@ -10,12 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.servlet.view.AbstractView;
 
-
-
-// downloadView board.A04_DownloadView
+@Component("downloadView") // downloadView 자동 등록 처리.
 public class DownloadView extends AbstractView{
 	// 다운로드할 특정한 폴드 공통 위치
 	@Value("${user.upload}")

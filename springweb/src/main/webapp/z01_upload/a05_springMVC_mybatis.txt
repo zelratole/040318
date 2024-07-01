@@ -1,0 +1,368 @@
+# spring MVC를 통한 Mybatis 연동 프로그램 처리..
+1. 기본 흐름 처리
+	1) url 입력/요청값 처리 (브라우저)
+		http://localhost:7080/springweb/empList.do?ename=&job=
+	2) web.xml 
+		.do를 확인하고, front컨트롤러인 dispatcher-servlet이라는 스프링 프레임워크를
+		처리여부 결정해서 처리하고 이와 연계되어 있는 컨테이너( dispatcher-servlet.xml) 호출하여
+		class에서 객체를 로딩
+	3) dispatcher-servlet.xml
+		객체 로딩 중에서 위 url에 있는 empList.do?ename=&job= 형태 url 패턴을 controller 중에서
+		특정한 기능 메서드를 찾음..
+	4) Controller : @Controller 선언된 것 중에, url 패턴과 요청값이 맞는 메서드를 찾아서 진행..
+		@RequestMapping("empList.do")
+		public String empList(Emp sch) { setEname(String ename), setJob(String job)(useBean개념)
+		public String empList(@RequestParam("ename") String ename, 
+							  @RequestParam("job") String job, .) {	
+	5) Controller ==> Service단에 요청값을 전송
+		service.getEmpList(sch)
+	6) Service ==> Dao단에 요청값 전송
+		중간에 조건문/반복문을 통해서 알고리즘을 처리 if(sch.getEname()==null) sch.setEname("");
+		dao.getEmpList(sch)
+	7) Dao단에서는 요청값을 받아서 sql을 통해 서버단에서 데이터를 가져온 후, mybatisframework에 의해
+		결과 객체를 만들어 준다.(interface를 상속받은 실제 객체를 만들어 준다)
+		@Select("SELECT * FROM EMP05 "
+				+ "WHERE ename like '%'||#{ename}||'%' " // sch.getEname()
+				+ "and job like '%'||#{job}||'%' ")      //  sch.getJob()
+		List<Emp> getEmpList(Emp sch);	
+		
+		최종적으로 List<Emp>안에 조회 결과 객체를 DB에서 받아서 할당 처리..
+	8) Service단에서
+		return dao.getEmpList(sch): (할당된 List<Emp> 리턴 처리)
+	9) Controller에서..
+		service 에 받은 리턴된 객체 데이터를 모델로 할당하여 view단 넘겨줄 준비를 한다.
+		d.addAttribute("empList", service.getEmpList(sch));
+		
+		호출할 뷰단(jsp/jsonView....)
+		return "WEB-INF\\views\\a03_mvc\\a01_empList.jsp";
+	10) View단(jsp)
+		모델로 넘겨온 데이터를 el태그로 jstl과 함께 반복문 수행하여 출력 처리
+    	<c:forEach var="emp" items="${empList }">
+    	<tr><td>${emp.empno}</td><td>${emp.ename}</td>
+    		<td>${emp.job}</td><td>${emp.sal}</td><td>${emp.deptno}</td></tr>
+    	</c:forEach>				
+
+2. 개발 순서
+	1) 요구사항 정의서 확인 : 사원명과 직책명을 입력하여 검색버튼 클릭시, 
+							사원정보리스트(사원번호, 사원명, 직책명, 급여, 부서번호)를 출력한다.
+	2) 화면설계서 내용 확인 : [   ] [   ] [검색]
+	                     ........
+	3) controller단을 통한 초기 화면 호출..
+		- Controller 생성
+		- 요청url mapping 선언 메서드 선언 @RequestMapping("empList.do")
+		- 호출할 jsp 선언.
+	4) JSP(view단)
+		- form 구현(사용자 인터페이스/타이틀)..
+			name="ename" name="job" 
+		- 테이블 리스트 구현..	
+	5) DB 처리
+		sql 작성 : 입력값(where조건, insert/update/delete) 요청값/리스트
+				  출력할 내용(select 컬럼명 데이터 유형 확인)
+	6) VO만들기 	
+		SQL 처리 결과에 맞는 vo 작성..
+	7) Dao인터페이스 생성
+		@Select("sql 구문")
+		List<Emp> getEmpList(Emp sch);
+	8) Service
+	9) Controller 요청값 VO 할당, Model 선언
+		모델데이터 설정 Model d
+		d.addAttribute("모델명", service.메서드명());
+	10) jsp단에서
+		form요청값 확인
+		테이블 형식으로 출력할 내용 처리..
+	11) 테스트 진행 - 에러 내용 정리(에러 노트)..	
+			
+			
+# 사원정보 등록 처리
+1. 등록 버튼 클릭시, 등록화면 로딩
+2. 사원정보 입력 후, 등록 처리, 등록 완료, 조회화면이동시 등록된 내용 처리.
+
+								
+ex) 1. 등록 버튼 클릭시, 등록화면 로딩		
+							
+	1) 요구사항 정의서 확인 : 사원정보조회화면에서 등록버튼을 클릭시, 사원정보 조회화면으로 이동하여
+			사원번호, 사원명, 직책명, 입사일, 급여, 보너스, 부서번호가 입력되는 화면이 나타난다.
+	2) 화면설계서 내용 확인 : [등록] 클릭시, 이동
+			사원번호 : [  ] 
+			사원명 :  [  ]
+	                     ........
+	3) controller단을 통한 초기 화면 호출..
+		- Controller 생성(A01_Controller.java)
+		- 요청url mapping 선언 메서드 선언 @RequestMapping("empInsertForm100.do")
+		- 호출할 jsp 선언.(jsp만들어 추가)..
+	4) JSP(view단)
+		- form 구현(사용자 인터페이스/타이틀)..
+			name="ename" name="job" 
+		- 테이블 리스트 구현..	
+	5) JSP(리스트 화면에서 이벤트로 등록화면 이동 처리)
+ex) 2. 사원정보 입력 후, 등록 처리, 등록 완료, 조회화면이동시 등록된 내용 처리.
+	5) DB 처리
+		sql 작성 : 입력값(where조건, insert/update/delete) 요청값/리스트
+				  출력할 내용(select 컬럼명 데이터 유형 확인)
+	6) VO만들기 	
+		SQL 처리 결과에 맞는 vo 작성..
+	7) Dao인터페이스 생성
+		@Insert("sql 구문") ==> 기존 emp 등록 sql 참고..
+		void insertEmp(Emp insert);
+	8) Service
+	9) Controller 요청값 VO 할당, Model 선언
+		- 요청url mapping 선언 메서드 선언 @RequestMapping("empInsert.do")	
+	
+		모델데이터 설정 Model d
+		d.addAttribute("result", service.메서드명());
+	10) jsp단에서
+		form action="empInsert.do"
+		form요청값 확인
+		테이블 형식으로 출력할 내용 처리..
+	11) 테스트 진행 - 에러 내용 정리(에러 노트)..		
+	
+# 부서정보 form이동
+
+# 부서정보 등록 처리..
+
+# 상세화면 처리
+1. sql 작성
+	select *
+	from emp05
+	where empno = #{empno}
+2. dao 작성
+	Emp getEmpno(@Param("empno") int empno);
+
+3. service		
+4. controller
+	emp.do
+	
+	d.addAttribute("emp",service.getEmp(empno));
+	return "a05_empDetail.jsp"
+	
+5. view(a05_empDetail.jsp)
+	name="empno" value="${emp.empno}"	
+	name="ename" value="${emp.ename}"	
+	name="job" value="${emp.job}"	
+	
+6. view(a11_empList.jsp)
+	<tr ondblclick="detail(${emp.empno})">
+	
+	function detail(empno){
+		location.href="emp.do?empno="+empno
+	}
+
+# 상세화면로딩
+1. 기본 흐름 처리
+	0) 상세화면 데이터 처리를 위한 list 화면에서 처리할 내용(a01_empList.jsp)
+	    <tbody>
+	    	<c:forEach var="emp" items="${empList }">
+	    	<tr ondblclick="detail(${emp.empno})">
+	    	</c:forEach>
+	    </tbody>
+		</table>    
+		<script type="text/javascript">
+			function detail(empno){
+				location.href="emp.do?empno="+empno
+			}
+		</script>		
+	1) url 입력/요청값 처리 (브라우저)
+		http://localhost:7080/springweb/emp.do?empno=1000
+	4) Controller : @Controller 선언된 것 중에, url 패턴과 요청값이 맞는 메서드를 찾아서 진행..
+		@RequestMapping("emp.do?")
+		public String getEmp(@RequestParam("empno") int empno) {	
+	5) Controller ==> Service단에 요청값을 전송
+		service.getEmp(empno)
+	6) Service ==> Dao단에 요청값 전송
+		dao.getEmp(empno)
+		
+	7) Dao단에서는 요청값을 받아서 sql을 통해 서버단에서 데이터를 가져온 후, mybatisframework에 의해
+		결과 객체를 만들어 준다.(interface를 상속받은 실제 객체를 만들어 준다)
+		@Select("select *\r\n"
+				+ "	from emp05\r\n"
+				+ "	where empno = #{empno}")
+		Emp getEmp(@Param("empno") int empno);
+		
+	8) Service단에서
+		return dao.getEmp(empno); (Emp 객체 전달.
+	9) Controller에서..
+		service 에 받은 리턴된 객체 데이터를 모델로 할당하여 view단 넘겨줄 준비를 한다.
+		d.addAttribute("emp", service.dao.getEmp(empno));
+		
+		호출할 뷰단(jsp/jsonView....)
+		return "WEB-INF\\views\\a03_mvc\\05_empDetail.jsp";
+--------------------------------------------------------------------		
+	10) view단(a05_empDetail.jsp)
+		<form method="post" action="empInsert100.do"> <!-- 등록시 controller호출.. -->
+		<div class="input-group mb-3">	
+			<div class="input-group-prepend ">
+				<span class="input-group-text  justify-content-center">사원번호</span>
+			</div>
+			<input type="number" name="empno" class="form-control" value="${emp.empno}" />
+				
+			controller에서 넘겨온 모델을 emp라는 이름과 getEmpno()으 property형 empno를 할당하여 출력한다.
+			
+				
+		<input type="date" name="hiredateStr" class="form-control" 
+			value='<fmt:formatDate value="${emp.hiredate}" pattern="yyyy-MM-dd" />' />	
+			
+			emp.hiredate : Date 타입이어서 문자열로 출력하기 위하여 jstl에서 <fmt:formatDate>를 활용하여
+			form요소에서 type="data"로 사용되는 기본 형식은 YYYY-MM-DD로 나타나기 위하여  pattern="yyyy-MM-dd" 
+			사용. pattern형식으로 yyyy-MM-dd 내장된 속성값이기에 대소문자 구분하여 처리하여야 한다.
+
+
+# 상세화면서 수정/삭제 처리..
+
+1. 기본 흐름 처리
+	0) 상세화면 데이터 처리를 위한 요청값을 전달할 때 화면에서 처리할 내용(a05_empDatail.jsp)
+	    form에 있는 내용을 변경 후, 수정 삭제 버튼 클릭
+	    <input type="button" id="regBtn" value="수정"/>
+	    <input type="button" id="delBtn" value="삭제"/>
+	    
+	    $("#regBtn").click(function(){
+	    	if(confirm("수정하시겠습니까?")){
+				// 유효성 check 필요시 처리..
+				$("form").attr("action","updateEmp.do");
+				$("form")[0].submit();	  // $("form")[0].reset() 반드시 배열로 선언해야 처리가 된다.(초기화시)  		
+				// $("form")[0].submit() $("form").submit() 둘다 사용가능..		
+	    	}
+	    })
+	    $("#delBtn").click(function(){
+	    	if(confirm("삭제하시겠습니까?")){
+				// 유효성 check 필요시 처리..
+				/*
+				$("form").attr("action","deleteEmp.do");
+				$("form")[0].submit();   document.querySelector("form").submit();
+				*/	    	
+				location.href="deleteEmp.do?empno="+$("[name=empno]").val()	
+	    	}
+	    })	    
+	   ----------------------------------------------- 
+	    	
+	1) url 입력/요청값 처리 (브라우저)
+		http://localhost:7080/springweb/updateEmp.do  : post방식
+		http://localhost:7080/springweb/deleteEmp.do?empno=1000 : get방식
+	4) Controller : @Controller 선언된 것 중에, url 패턴과 요청값이 맞는 메서드를 찾아서 진행..
+		@RequestMapping("updateEmp.do?")
+		public String updateEmp(Emp upt) {	
+		
+		@RequestMapping("deleteEmp.do?")
+		public String deleteEmp(@RequestParam("empno") int empno) {	
+
+		
+		
+	5) Controller ==> Service단에 요청값을 전송
+		service.updateEmp(upt)
+		service.deleteEmp(empno)
+	6) Service ==> Dao단에 요청값 전송
+		dao.updateEmp(upt)
+		dao.deleteEmp(empno)
+		
+	7) Dao단에서는 요청값을 받아서 sql을 통해 서버단에서 데이터를 가져온 후, mybatisframework에 의해
+		결과 객체를 만들어 준다.(interface를 상속받은 실제 객체를 만들어 준다)
+		@Update
+		update emp05
+			set ename = #{ename},
+				job = #{job},
+				mgr = #{mgr},
+				hiredate = to_date(#{hiredateStr},'YYYY-MM-DD'),
+				sal = #{sal},
+				comm = #{comm},
+				deptno = #{deptno}
+		where empno = #{empno}	
+		
+		int updateEmp(Emp upt);
+		
+		@Delete
+		delete
+		from emp05
+		where empno=#{empno}	
+		
+		int deleteEmp(@Param("empno") int empno );
+		
+		
+		
+	8) Service단에서
+		return dao.updateEmp(emp)>0?"수정성공":"수정실패"; 
+		return dao.deleteEmp(empno)>0?"삭제성공":"삭제실패"; 
+	9) Controller에서..
+		service 에 받은 리턴된 객체 데이터를 모델로 할당하여 view단 넘겨줄 준비를 한다.
+		@RequestMapping("updateEmp.do?")
+		//d.addAttribute("proc", "수정");
+		d.addAttribute("msg", service.updateEmp(upt));
+		d.addAttribute("emp", service.getEmp(upt.getEmpno())); // 수정후, 수정된 데이터로 다시 확인하기 위하여..
+		
+		
+		@RequestMapping("deleteEmp.do?")
+		d.addAttribute("proc", "삭제");
+		d.addAttribute("msg", service.deleteEmp(empno));
+		
+		호출할 뷰단(jsp/jsonView....)
+		return "WEB-INF\\views\\a03_mvc\\05_empDetail.jsp";
+	10) view단(a05_empDetail.jsp)
+		var msg = "${msg}"     var msg = "수정성공"
+		var proc = "${proc}"
+		if(msg!=""){    // 공백이ㅠ아닐 때 처리..
+			alert(msg)
+			if(proc=="삭제"){
+				alert("조회화면이동");
+				location.href="empList100.do"
+			}
+			
+		}
+
+		<input value="${emp.ename}">
+
+
+
+
+
+
+
+
+# ex) 부서정보 상세 화면 로딩 처리...
+1) dao/service 처리 완료
+select *
+from dept01
+where deptno = 10;
+
+select *
+from dept01
+where deptno = #{deptno}
+
+
+
+-----------------------------------
+2) controller dept.do 메서드 처리 완료
+3) view(jsp) 로딩 완료..(상세화면)
+4) view(jsp) 리스트 화면에서 link 처리.(상세화면 이동을 위해)
+
+
+# 부서정보 수정 삭제
+1. dao
+	sql
+	메서드 선언
+-----------------------------------	
+2. service
+
+3. controller
+
+4. jsp
+	1)  수정 버튼 클릭시, action 변경
+	2)  수정 버튼 클릭시, location.href
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
