@@ -19,7 +19,6 @@ public class A02_FileUploadCtrl {
 	private A02_FileUploadService service;
 
 	// http://localhost:7080/springweb/downLoad.do?fname=a01_spring.txt  
-	// http://192.168.0.17:7080/springweb/downLoad.do?fname=a01_spring.txt  
 	// 호출시 특정 파일을 다운로드 처리..
 	@GetMapping("downLoad.do")
 	public String downLoad(@RequestParam("fname") String fname, Model d) {
@@ -54,7 +53,20 @@ public class A02_FileUploadCtrl {
 	//     	a04_fileUpload\a02_upload.jsp]
 	//      업로드 파일 올리고 처리
 	
-	
+	// http://localhost:7080/springweb/uploadExp04.do
+	@GetMapping("uploadExp04.do")
+	public String uploadExp04( Model d) {
+		d.addAttribute("flist", service.getFileList());
+		return "WEB-INF\\views\\a04_fileUpload\\a04_upload.jsp";
+	}
+	@PostMapping("uploadExp04.do")
+	public String uploadExp04Post( @RequestParam("report") MultipartFile mf, Model d ) {
+		System.out.println("서버에 온 mutipart파일:"+mf.getOriginalFilename());
+		d.addAttribute("msg", service.upload01(mf));
+		d.addAttribute("flist", service.getFileList());
+		
+		return "WEB-INF\\views\\a04_fileUpload\\a04_upload.jsp";
+	}	
 	
 	
 }
