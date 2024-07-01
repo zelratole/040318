@@ -175,7 +175,22 @@ public class A02_RequestController {
 		
 
 		return "WEB-INF\\views\\a05_mvcexp\\a09_obj_request.jsp";
+	}
+	// http://localhost:7080/springweb/call113.do
+	@RequestMapping("call113.do")
+	public String call113(Model d) { 
+		d.addAttribute("name", "홍길동"); // ==> alert("${name}"); javascript
+		return "WEB-INF\\views\\a05_mvcexp\\a10_model_Data.jsp";
 	}	
+	
+	//http://localhost:7080/springweb/call113.do
+	// a10_model_Data.jsp
+///  1)학생명, 
+//	 2) 점수(3개),  
+//    3) 학생정보(번호, 이름, 과목1),  
+//    4) 성적정보(학생정보3명리스트)
+	// 위 내용을 모델 데이터를 설정해서 출력하세요..
+	
 	
 	
 	
