@@ -183,6 +183,13 @@ public class A02_RequestController {
 		d.addAttribute("name", "홍길동"); // ==> alert("${name}"); javascript
 		d.addAttribute("points", new int[] {80,90,100});
 		d.addAttribute("stu",  new Student2(1,"홍길동",80) );
+		// 리스트 모델 처리..
+		List<Student2> stList = new ArrayList<Student2>();
+		stList.add(new Student2(1,"마길동",90));
+		stList.add(new Student2(2,"오길동",80));
+		stList.add(new Student2(3,"하길동",70));
+		d.addAttribute("stList", stList); // stList no name subject1
+		
 		
 		return "WEB-INF\\views\\a05_mvcexp\\a10_model_Data.jsp";
 	}	
@@ -192,8 +199,8 @@ public class A02_RequestController {
 ///  1)학생명, 
 //	 2) 점수(3개),  
 //    3) 학생정보(번호, 이름, 과목1),
-//	-------------------------
 //    4) 성적정보(학생정보3명리스트)
+//   -------------------------
 	// 위 내용을 모델 데이터를 설정해서 출력하세요..
 	
 	
