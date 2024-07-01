@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import springweb.a04_mvc.z01_vo.Dept;
 import springweb.a04_mvc.z01_vo.Product;
 import springweb.a04_mvc.z01_vo.Student;
+import springweb.a04_mvc.z01_vo.Student2;
 
 @Controller
 public class A02_RequestController {
@@ -181,8 +182,7 @@ public class A02_RequestController {
 	public String call113(Model d) { 
 		d.addAttribute("name", "홍길동"); // ==> alert("${name}"); javascript
 		d.addAttribute("points", new int[] {80,90,100});
-		
-		
+		d.addAttribute("stu",  new Student2(1,"홍길동",80) );
 		
 		return "WEB-INF\\views\\a05_mvcexp\\a10_model_Data.jsp";
 	}	
@@ -191,8 +191,8 @@ public class A02_RequestController {
 	// a10_model_Data.jsp
 ///  1)학생명, 
 //	 2) 점수(3개),  
-//	-----------------------------
-//    3) 학생정보(번호, 이름, 과목1),  
+//    3) 학생정보(번호, 이름, 과목1),
+//	-------------------------
 //    4) 성적정보(학생정보3명리스트)
 	// 위 내용을 모델 데이터를 설정해서 출력하세요..
 	

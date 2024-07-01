@@ -40,6 +40,9 @@
   <c:forEach var="pt" items="${points}">
   <h3>${pt}</h3>
   </c:forEach>
+  <h3>번호:${stu.no}</h3>
+  <h3>이름:${stu.name}</h3>
+  <h3>과목1점수:${stu.subject1}</h3>
 </div>
 <%-- 
 		
