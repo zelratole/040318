@@ -36,8 +36,10 @@
 
 <body>
 <div class="jumbotron text-center">
-  <h2>타이틀</h2>
-
+  <h2>모델데이터</h2>
+  <c:forEach var="pt" items="${points}">
+  <h3>${pt}</h3>
+  </c:forEach>
 </div>
 <%-- 
 		
