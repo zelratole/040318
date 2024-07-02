@@ -1,0 +1,57 @@
+# 스프링에서 실무적으 주로 처리해주는 jquery event와 bootstrap 처리
+1. 화면 UI 참고 사이트
+	https://www.w3schools.com/bootstrap5/bootstrap_buttons.php
+
+2. button
+	<button id="regBtn" class="btn btn-success" type="button">등록</button>
+	$("#regBtn").이벤트명( function(){
+		// 해당 이벤트가 일어날 때, 처리할 내용..
+		location.href="이동할 페이지(컨트롤러 호출)"
+	} )
+	
+3. 상세화면 boostrap 처리
+	1) 하나의 행단위 요소들..
+	<div class="input-group mb-3">	
+		2) 열단위 타이틀과 입력 form 내용..
+		<div class="input-group-prepend ">
+			<span class="input-group-text  justify-content-center">사원번호</span>
+		</div>
+		<input type="number" name="empno" class="form-control" value="" />
+		3) 열을 추가할 때.. 아래 코드를 반복하여 처리..
+		<div class="input-group-prepend ">
+			<span class="input-group-text  justify-content-center">사원번호</span>
+		</div>
+		<input type="number" name="empno" class="form-control" value="" />		
+	</div>		
+4. 입력 form 요소객체들 내용
+	<input type="number" name="empno" class="form-control" value="" />		
+	type : number, text, password, date, color, ... 입력할 형식에 따른 처리
+	name = "empno" : 서버 controller에 넘길 데이터의 요청값 형식 @RequestParam("empno") int empno
+														  Emp sch    public void setEmpno(int empno);
+5. 등록 버튼 클릭시, 중요한 내용..
+	1) 등록 버튼을 하는 목적은 <form 하위에 있는 모든 요소내용을 전송할려는 목적이다
+		- 버튼 클릭시, 
+			<input type="button"  id값을 설정하고 해당 아이디로 event 처리로 전송을 한다.
+				$("#regBtn").click(function(){
+					
+				})
+			 														  
+			<input type="submit" :  바로 처리하면 지정한 action이 지정한 곳을 전송이 된다. 														  
+		
+		- 대상 컨트롤로 url 호출..
+			action 생략되었을 때?? <form >  action : jsp ==> action 이 페이지를 호출한 곳을 이동 url로 이동..
+			action이 있을 때..    <form action="empList.do">
+			action을 이벤트시 지정할 때..
+				$("#regBtn").click(function(){
+					// 1. 유효성 체크 후, 서버에 전송
+					
+					// 2. 처리할 컨트롤러가 로직에 따라서 여러개 있을 때.
+					//    상세화면 ==> 수정/삭제...
+					$("form").attr("action", "empList.do")
+					$("form").submit()
+				})			
+															  
+														  
+														  
+	
+	

@@ -1,0 +1,282 @@
+# 단계별 MVC연습
+0. sql
+	select count(*)
+	from emp
+	where deptno=#{deptno}
+	
+	select ename
+	from emp
+	where sal beween #{start} and #{end}
+
+1. dao 연습
+
+
+	1) 결과값 단일데이터
+	2) 결과값 단일컬럼 여러행
+	3) 결과값 단일행 여러 컬럼
+	4) 결과값 여러행 여러 컬럼
+	
+	5) 입력값 단일
+	6) 입력값 여러개
+2. service 연습(dao/service연습)
+	1) dao단에서 호출
+		dao service 1:1
+		dao service 다:1
+
+3. controller 연습
+	1) 요청값 연습
+		단일 요청값
+		여러 요청값
+		
+	2) 모델 데이터
+		단일 데이터
+		여러 데이터
+		객체형 여러데이터
+4. view 연습
+	1) 모델 데이터 가져오기
+	2) 요청값 처리..
+	
+####  화면  ####
+조회:[    ] @RequestParam
+등록1:[    ] Emp sch setXXX
+등록2:[    ] Emp ins setXXX
+수정1:[    ] 요청처리(서버에 데이터 전달) 컨트롤러?key=val&key=val
+[   ] ~ [    ]
+d.addAttribute("key", 모델객체")
+d.addAttribute("ename", 모델객체")
+데이터 단일데이터(메시지) 서버에 데이터를 가져오는 것(모델)   var msg = "${msg}"
+데이터 단일데이터(객체)  input value="${emp.ename}"
+데이터 다중리스트데이터  <c:for var="emp" items="${empList}">
+ <c:for var="ename" items="${enames}">
+	${ename}	
+
+# 결과값 단일행 여러 컬럼(sql, dao, service 기본메서드/호출출력)
+1) 사원 번호가 7369인 사원의 이름, 직책, 급여를 조회하세요.
+----------------------------------------------
+2) 부서 번호가 20인 부서의 부서 이름과 위치를 조회하세요.
+3) 사원명 ALLEN인 사원 번호, 이름, 부서명, 부서위치를 조회하세요.
+4) 가장 낮은 급여를 받는 사원의 이름, 직책, 급여를 조회하세요.
+5) 'ACCOUNTING' 부서에 속한 가장 급여가 높은 사원의 이름, 직책, 입사 날짜를 조회하세요.
+
+
+### 단일 행, 다중 열 처리 출력 예제 SQL 문제 (5문제)
+
+1. 사원 번호가 7369인 사원의 이름, 직책, 급여를 조회하세요.
+2. 부서 번호가 20인 부서의 부서 이름과 위치를 조회하세요.
+3. 매니저 번호가 7839인 사원의 사원 번호, 이름, 부서 번호를 조회하세요.
+4. 'ACCOUNTING' 부서에 속한 사원의 이름, 직책, 입사 날짜를 조회하세요.
+5. 가장 높은 급여를 받는 사원의 이름, 직책, 급여를 조회하세요.
+
+### 다중 행, 다중 열 처리 출력 예제 SQL 문제 (5문제)
+1. 부서 번호가 10인 모든 사원의 이름, 직책, 급여를 조회하세요.
+2. 'CLERK' 직책을 가진 모든 사원의 이름, 입사 날짜, 부서 번호를 조회하세요.
+3. 모든 부서의 부서 이름과 그 부서에 속한 사원의 이름을 조회하세요.
+4. 급여가 2000 이상인 모든 사원의 이름, 직책, 부서 이름을 조회하세요.
+5. 부서 번호가 30인 부서의 모든 사원의 이름, 급여, 커미션을 조회하세요.
+
+	
+# controller/view단 연동 처리 연습..
+1. 요청값 처리 : view단에서 데이터 전송했을 때, 서버단에서 받는 방법
+   요청url?key=val
+   	0) get방식/post방식, 둘다 받게 처리..
+	1) 단일 데이터
+	----------------------------
+	2) 다중 데이터
+	3) 객체 처리
+	
+	
+2. 모델 데이터 처리 : view단으로 데이터를 전송할 때 사용되는 형식, 
+	view단에서 el로 받는다.
+	1) 단일 데이터
+	2) 다중 데이터(배열/리스트)
+	3) 객체형 데이터
+	4) 리스트 객체형 데이터
+3. 요청값 + 모델 처리는 동시에 해주는 modelAttribute 처리..
+
+4. session 처리..
+
+5. dao/service단에서 요청값으로 전달 및 모델데이터로 받아서 처리하기
+
+
+
+
+# view단에서 요청값 전송
+1. 요청값을 get방식을 때, 처리하는 방식
+	1) js 이벤트 요청값 전송 처리 : location.href="컨트롤러?요청키=요청값"
+			location.href="emp.do?empno=1000"
+	
+	2) a href를 통해서 요청값 전송 처리
+		a href="컨트롤러?요청키=요청값
+	3) form에서 method방식을 get으로 변경 후.
+		name="요청키"  value="요청값" 입력후, submit로 처리..
+
+	 	
+# 여러가지 요청값 처리 방식
+1. 요청값은 필수:요청값이 type이 맞지 않으면 호출 X
+	call01.do?name=홍길동
+	@RequestParam("name") String name
+2. 요청값 있으면 처리, 없으면 없는데로 호출
+	- @ReuestParam 속성 defaultValue	
+	- Dept d : 객체로 만들면 요청값 있으면 해당 property자동, 없으면 객체가 할당이 안된 객체로 전달.
+		==> 요청값 + 모델데이터까지 처리가 된다.(와우!!###)	
+	
+# 모델
+
+# 요청 service(dao)	
+	
+
+# 화면 요청값과 database 연동된 처리 화면..
+1. 개발 순서
+	1) 요구사항 분석/화면설계
+	2) 요청값 처리 데이터  
+	   모델처리 데이터 
+	   구분 및 요청값은 화면 form객체로 처리
+	   모델데이터 dao 처리 및 화면에 출력 처리.. 
+	3) DB 처리
+		데이터베이스 설계(테이블 만들기)
+		sql 작성
+		vo 생성:매개변수요청값 처리/출력할 내용
+		dao 작성
+	4) 화면 및 요청값 처리
+		controller 작성
+		초기 view(jsp) 구성 : 요청값 처리(form)
+	5) service ==> dao
+	6) controller ==> servic  (모델데이터 설정)	
+	7) jsp(최종 모델 데이터 출력 처리	
+		
+ex) 회원관리 페이지 만들기(회원정보 - 아이디, 패스워드, 이름, 권한, 포인트)		
+	1) 요구사항 분석/화면설계
+		아이디와 회원명과 권한을 검색할 수 있는 리스트 페이지로 리스트 내용으로는 (아이디, 이름, 권한, 포인트)
+		가 있다.
+		아이디:[   ] 이름:[    ], 권한:[    ] [검색]
+		아이디 이름 권한 포인트
+	2) 요청값 처리 데이터 : 아이디, 이름, 권한  
+	   모델처리 데이터  : 아이디, 이름, 권한, 포인트 (패스워드)
+	   구분 및 요청값은 화면 form객체로 처리
+	   모델데이터 dao 처리 및 화면에 출력 처리.. 
+	3) DB 처리
+		데이터베이스 설계(테이블 만들기)
+			CREATE TABLE member01(
+				id varchar2(50),
+				pwd varchar2(20),
+				name varchar2(50),
+				auth varchar2(10),
+				point number
+			);
+			SELECT * FROM member01;
+			INSERT INTO member01 values('himan','7777','홍길동','관리자',10000);
+			SELECT * 
+			FROM member01
+			WHERE id LIKE '%%'
+			AND name LIKE '%%'
+			AND auth LIKE '%%';			
+		sql 작성
+		------------------------------
+		vo 생성:매개변수요청값 처리/출력할 내용
+		class Member01{
+			private String id;
+			private String pwd;
+			private String name;
+			private String auth;
+			private int point;
+		}
+		
+		
+		dao 작성
+			SELECT * 
+			FROM member01
+			WHERE id LIKE '%%'
+			AND name LIKE '%%'
+			AND auth LIKE '%%'
+
+SELECT * 
+FROM member01
+WHERE id LIKE #{id}
+AND name LIKE #{name}
+AND auth LIKE #{auth}
+			A02_ExpDao.java 기능메서드 추가(memberList)
+		
+	4) 화면 및 요청값 처리
+		controller 작성
+		초기 view(jsp) 구성 : 요청값 처리(form)
+		아이디:[   ] 이름:[    ], 권한:[    ] [검색]
+		id, name, auth
+		아이디 이름 권한 포인트
+		id   name auth point
+		
+		
+				
+		
+	5) service ==> dao
+	------
+	6) controller ==> servic  (모델데이터 설정)	
+	7) jsp(최종 모델 데이터 출력 처리			
+		
+		 
+# 제품 목록 조회
+
+**화면 및 기능 요구사항:**
+- **화면:** 제품 목록 화면
+- **기능:** 특정 카테고리에 속한 모든 제품을 조회하여 출력합니다.
+- **요구사항:**
+  - 각 제품에는 제품 ID, 제품명, 가격이 포함됩니다.
+  - 카테고리 ID를 입력받아 해당 카테고리의 제품을 조회합니다.
+  - 조회된 제품 목록을 HTML 테이블(제품 ID, 제품명, 가격)로 출력합니다.
+
+**구현 세부사항:**
+- **Controller:** `ProductController`에서 `/products.do' 요청을 처리
+- **Service:** `ProductService`에서 특정 카테고리의 제품 목록 조회
+- **DAO:** `ProductDAO`에서 `getProductsByCategoryList` 메서드를 사용하여 데이터베이스에서 제품 목록 조회
+	1) 요구사항 분석/화면설계
+	2) 요청값 처리 데이터  
+	   모델처리 데이터 
+	   구분 및 요청값은 화면 form객체로 처리
+	   모델데이터 dao 처리 및 화면에 출력 처리.. 
+	3) DB 처리
+		데이터베이스 설계(테이블 만들기)
+		sql 작성
+-- 제품 ID, 제품명, 가격
+CREATE TABLE product01(
+	pid varchar2(20),
+	name varchar2(50),
+	price number
+);
+INSERT INTO product01 values('1000','컴퓨터CPU I7 3.4GHZ', 300000);
+SELECT *
+FROM product01
+WHERE pid LIKE '%%';
+
+SELECT *
+FROM product01
+WHERE pid LIKE #{pid}
+
+/*
+private String pid
+private String name;
+private int price;
+
+ * */
+ 		
+		
+		vo 생성:매개변수요청값 처리/출력할 내용 ## Dao까지 처리완료(손)
+		dao 작성
+		----------------------------------
+	4) 화면 및 요청값 처리
+		controller 작성
+		초기 view(jsp) 구성 : 요청값 처리(form)
+		요청값 : 제품id(pid)
+		리스트 : 제품 ID, 제품명, 가격 pid, name, price
+		
+	5) service ==> dao
+	
+	------------------------
+	6) controller ==> servic  (모델데이터 설정)	
+	7) jsp(최종 모델 데이터 출력 처리	
+			
+	
+	
+	
+	
+	
+	
+			

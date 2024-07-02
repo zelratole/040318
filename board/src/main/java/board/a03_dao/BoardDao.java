@@ -2,6 +2,7 @@ package board.a03_dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -36,5 +37,22 @@ public interface BoardDao {
 			+ "   set readcnt = readcnt + 1\r\n"
 			+ "where no = #{no}")
 	int uptReadCnt(@Param("no") int no);
+	
+	@Update("	UPDATE BOARD \r\n"
+			+ "	SET subject = #{subject},\r\n"
+			+ "	    content = #{content},\r\n"
+			+ "	    uptdte = sysdate\r\n"
+			+ "WHERE NO = #{no}")
+	int updateBoard(Board upt);
+
+	@Delete("DELETE FROM board\r\n"
+			+ "WHERE NO = #{no}")
+	int deleteBoard(@Param("no") int no);
+/*
+int updateBoard(Board upt);
+int deleteBoard(@Param("no") int no);
+ * */	
+	
+	
 	
 }

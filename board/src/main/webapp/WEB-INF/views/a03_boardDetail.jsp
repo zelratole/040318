@@ -33,6 +33,11 @@
 		var msg = "${msg}"
 		if(msg!=""){
 			alert(msg)  // 등록 성공 alert()로딩 : 모델 데이터를 받아서..
+			var proc = "${proc}"
+			if(proc == 'del'){
+				location.href="boardList.do"
+			}
+				
 		}
 	});
 </script>
@@ -129,9 +134,14 @@
 		})	
 		$("#uptBtn").click(function(){
 			if(confirm("수정하시겠습니까?")){
+				// boardUpdate.do boardDelete.do
+				$("form").attr("action","boardUpdate.do");
 				$("form").submit()
 			}
 		})
+		$("#delBtn").click(function(){
+			location.href="boardDelete.do?no="+$("[name=no]").val();
+		})		
 		$("#mainBtn").click(function(){
 			location.href="boardList.do"
 		})

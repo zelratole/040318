@@ -37,6 +37,20 @@ public class BoardCtrl {
 		d.addAttribute("board", service.detail(no));
 		return "WEB-INF\\views\\a03_boardDetail.jsp";
 	}
+
+	@PostMapping("boardUpdate.do")
+	public String boardUpdate(Board upt, Model d) {
+		d.addAttribute("msg", service.updateBoard(upt));
+		d.addAttribute("board", service.detail(upt.getNo()));
+		return "WEB-INF\\views\\a03_boardDetail.jsp";
+	}
+	// boardUpdate.do boardDelete.do
+	@GetMapping("boardDelete.do")
+	public String boardDelete(@RequestParam("no") int no, Model d) {
+		d.addAttribute("msg", service.deleteBoard(no));
+		d.addAttribute("proc", "del");
+		return "WEB-INF\\views\\a03_boardDetail.jsp";
+	}	
 	
 	
 	

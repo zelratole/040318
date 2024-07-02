@@ -12,13 +12,19 @@ Oracle 데이터베이스는 전 세계 수많은 기업과 조직에서 사용�
 - 실제 비즈니스 사례를 통한 실무 적용 능력 배양
 
 #### 3. 주요 핵심 키워드와 핵심개념
-- **RDBMS**: 관계형 데이터베이스 관리 시스템으로, 데이터의 저장, 수정, 삭제 등을 관리하는 시스템.
-- **ERD (Entity-Relationship Diagram)**: 데이터베이스 구조를 시각적으로 표현한 다이어그램.
-- **Normalization (정규화)**: 데이터 중복을 최소화하고 데이터 무결성을 유지하기 위한 데이터베이스 설계 기법.
-- **SQL (Structured Query Language)**: 데이터베이스와의 상호작용을 위한 표준 언어.
+- **RDBMS**: 관계형 데이터베이스 관리 시스템으로, 데이터의 저장, 수정, 삭제 등을 
+     관리하는 시스템.
+- **ERD (Entity-Relationship Diagram)**: 데이터베이스 구조를 시각적으로 
+    표현한 다이어그램.
+- **Normalization (정규화)**: 데이터 중복을 최소화하고 데이터 무결성을 유지하기 
+    위한 데이터베이스 설계 기법.
+- **SQL (Structured Query Language)**: 데이터베이스와의 상호작용을 위한  
+    표준 언어.
 - **Tablespace**: 데이터베이스 객체를 논리적으로 구분하여 저장하는 공간.
-- **Indexing**: 데이터 검색 성능을 향상시키기 위해 데이터베이스 테이블의 특정 컬럼에 대한 인덱스를 생성하는 기법.
-- **ACID Properties**: 데이터베이스 트랜잭션의 신뢰성을 보장하는 원칙 (Atomicity, Consistency, Isolation, Durability).
+- **Indexing**: 데이터 검색 성능을 향상시키기 위해 데이터베이스 테이블의 특정 컬럼에
+     대한 인덱스를 생성하는 기법.
+- **ACID Properties**: 데이터베이스 트랜잭션의 신뢰성을 보장하는 원칙 
+    (Atomicity, Consistency, Isolation, Durability).
 
 #### 4. 퀴즈문제/토론과제
 - **퀴즈문제:**
