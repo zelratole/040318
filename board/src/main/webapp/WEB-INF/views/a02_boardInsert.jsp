@@ -42,13 +42,13 @@
   <h2>게시물 등록</h2>
 </div>
 <div class="container">
-	<form method="post" enctype="multipart/form-data">
-		<input type="hidden" name="refno" value="0"/>
+	<form action="boardInsert.do" method="post" enctype="multipart/form-data">
+		<input type="hidden" name="refno" value="${empty param.refno?'0':param.refno}"/>
 	<div class="input-group mb-3">	
 		<div class="input-group-prepend ">
 			<span class="input-group-text  justify-content-center">제목</span>
 		</div>
-		<input type="text" name="subject" class="form-control" value="" />
+		<input type="text" name="subject" class="form-control" value="${param.subject}" />
 	</div>	
 	<div class="input-group mb-3">	
 		<div class="input-group-prepend ">
@@ -60,7 +60,7 @@
 		<div class="input-group-prepend">
 			<span class="input-group-text  justify-content-center">내용</span>
 		</div>
-		<textarea name="content" rows="10" class="form-control" ></textarea>
+		<textarea name="content" rows="10" class="form-control" >${param.content}</textarea>
 	</div>	
 	<div class="input-group mb-3">	
 		<div class="input-group-prepend">

@@ -128,7 +128,22 @@
 	</div>	
 	</form>	
 	<script type="text/javascript">
-
+		$("#repBtn").click(function(){
+			if(confirm("답글을 등록하시겠습니까?")){
+				// 답글 form 요청값을 변경해서 ==> 입력 form으로 전달 처리..
+				$("[name=refno]").val($("[name=no]").val())
+				$("[name=subject]").val("RE:"+$("[name=subject]").val())
+				$("[name=content]").val(
+					"\n\n\n\n=== 이전글 ===\n"+$("[name=content]").val()	
+				)
+				$("form").attr("action","insertBoard.do")
+				$("form").submit()
+				
+				
+				
+			}
+			
+		})
 		$("#initBtn").click(function(){
 			$("form")[0].reset()
 		})	

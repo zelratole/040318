@@ -29,7 +29,7 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		$("#regBtn").click(function(){
-			location.href="boardInsert.do"
+			location.href="boardInsertFrm.do"
 		})
 	});
 </script>

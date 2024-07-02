@@ -22,7 +22,7 @@ public class BoardCtrl {
 		d.addAttribute("blist", service.getBoardList(sch));
 		return "WEB-INF\\views\\a01_boardList.jsp";
 	}
-	@GetMapping("boardInsert.do")
+	@RequestMapping("boardInsertFrm.do")
 	public String boardInsertFrm() {
 		return "WEB-INF\\views\\a02_boardInsert.jsp";
 	}
