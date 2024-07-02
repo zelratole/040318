@@ -136,7 +136,7 @@
 				$("[name=content]").val(
 					"\n\n\n\n=== 이전글 ===\n"+$("[name=content]").val()	
 				)
-				$("form").attr("action","insertBoard.do")
+				$("form").attr("action","boardInsertFrm.do")
 				$("form").submit()
 				
 				
