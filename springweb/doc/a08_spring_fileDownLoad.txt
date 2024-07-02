@@ -8,3 +8,16 @@
 	1) 다운로드 view 생성(class선언 ==> 컨테이너 등록)
 	2) 다운로드 controller 호출
 	3) view단(jsp)에서 다운로드 controller 호출..
+	
+# 파일관리 처리
+1. 관련 파일 및 주요 기능
+    resource\config
+    	- 업로드파일경로
+    
+	A02_FileUploadCtrl.java 
+	 	@GetMapping("uploadExp04.do")
+	 	@PostMapping("uploadExp04.do")
+	a04_upload.jsp
+
+	
+	
