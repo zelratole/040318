@@ -33,7 +33,10 @@
 		var msg = "${msg}"
 		if(msg!=""){
 			alert(msg)  // 등록 성공 alert()로딩 : 모델 데이터를 받아서..
-			$("form")[0].reset()
+			$("[name=refno]").val("0")
+			$("[name=subject]").val("")
+			$("[name=content]").val("")
+			//$("form")[0].reset()
 		}
 	});
 </script>

@@ -69,7 +69,7 @@
     <script>
     	function download(fname){
     		if(confirm(fname+" 다운로드 하시겠습니까2?")){
-    			location.href="download.do?fname="+fname
+    			location.href="downLoad.do?fname="+fname
     		}
     	}
     
