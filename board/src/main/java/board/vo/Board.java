@@ -6,6 +6,9 @@ import java.util.List;
 import org.springframework.web.multipart.MultipartFile;
 
 public class Board {
+	private int cnt;
+	private int level;
+	
 	private int no;
 	private int refno;
 	private String subject;
@@ -29,6 +32,20 @@ public class Board {
 		this.readcnt = readcnt;
 		this.regdte = regdte;
 		this.uptdte = uptdte;
+	}
+	
+	
+	public int getCnt() {
+		return cnt;
+	}
+	public void setCnt(int cnt) {
+		this.cnt = cnt;
+	}
+	public int getLevel() {
+		return level;
+	}
+	public void setLevel(int level) {
+		this.level = level;
 	}
 	public int getNo() {
 		return no;

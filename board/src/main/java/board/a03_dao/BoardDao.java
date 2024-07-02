@@ -12,12 +12,18 @@ import board.vo.Board;
 import board.vo.Boardfile;
 
 public interface BoardDao {
-	@Select("select * \r\n"
-			+ "from board\r\n"
-			+ "where subject like '%'||#{subject}||'%'\r\n"
-			+ "and writer like '%'||#{writer}||'%'"
-			+ "order by no desc ")
+	
+	@Select("		select rownum cnt, level, b.*   \r\n"
+			+ "		from board b\r\n"
+			+ "		where subject like '%'||#{subject}||'%'\r\n"
+			+ "		and writer like '%'||#{writer}||'%'\r\n"
+			+ "		start with refno = 0\r\n"
+			+ "		connect by prior no = refno\r\n"
+			+ "		order siblings by no desc")
 	List<Board> getBoardList(Board sch);
+	
+	
+	
 	
 	@Insert("insert into board values(board_seq.nextval,#{refno},#{subject},\r\n"
 			+ "	#{content},#{writer},#{readcnt},sysdate,sysdate) ")

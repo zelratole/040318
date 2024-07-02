@@ -70,7 +70,9 @@
     </thead>	
     <tbody>
     	<c:forEach var="bd" items="${blist}">
-    	<tr ondblclick="goDetail(${bd.no})"><td>${bd.no}</td><td>${bd.subject}</td><td>${bd.writer}</td>
+    	<tr ondblclick="goDetail(${bd.no})"><td>${bd.no}</td>
+    	
+    	<td style="text-align:left;">${bd.subject}</td><td>${bd.writer}</td>
     	<td><fmt:formatDate value="${bd.regdte}"/></td>
     	<td>${bd.readcnt}</td></tr>
     	</c:forEach>
@@ -81,6 +83,7 @@
 			location.href="boardDetail.do?no="+no
 		}
 	</script>
+	<!-- 14:50~  글등록시 바로 밑에 나오는지 확인.. -->
 </div>
 </body>
 </html>

@@ -113,6 +113,42 @@ WHERE NO = #{no}
 			<input name="refno" value="${board.refno}"/> 
 								
 	
+# 계층적 sql에 의한 답글리스트 처리
+1. 오라클에서는 글과 상위글이라는 계층적 데이터로 계층적 sql을 처리할 수 있다.
+2. 이 계층적 sql을 통해, 답변형 게시판의 경우, 해당 답글이 바로 밑에 처리되는 형식으로
+	게시판의 리스트를 구현할 수 있다.
+3. 계층적 sql의 원리와 구조
+	1) 계층적 sql 처리를 위한 데이터 저장
+		- 기본 데이터를 입력하면,
+		- 이 기본 데이터를 기반으로 하는 상위/하위 컬럼이 존재하여야 한다.
+		- 그래서, 두 컬럼간의 상/하위 관계에 의해 데이터가 저장되어 있을 때 가능하다.
+		ex) emp 테이블의 경우 empno, mgr이 사원번호와 관리자번호가 계층적으로 데이터가
+		저장되어 있다. 이렇게 상/하위 관계의 컬럼이 있을 때만 가능하다.
+	2) 게시판에서 계층적 컬럼 구조
+		- no 기본 글번호, refno 이글의 상위 글번호..
+		- no/refno는 답글을 처리할 때, refno데이터가 저장이 된다.
+	3) 계증적 sql의 주요 속성
+		start with 컬럼명 = 조건데이터   : 최상위 계층의 데이터 조건을 선언한다.
+		connect by prior 하위컬럼 = 상위컬럼  : 계층적으로 연결된 컬럼을 지정한다.
+		order siblings by 컴럼명 desc : 기본적으로 같은 계층에 대하여 asc(오름차순이나), 내림 차순으로
+										처리할 필요할 때, 옵션을 설정한다.
+										ps) siblings : 형제....
+	4) 게시판 sql 처리  == rownum 행단위 고유 numbering 처리, level 계층레벨..
+		select rownum cnt, level, b.*   
+		from board b
+		where subject like '%%'
+		and writer like '%%'
+		start with refno = 0
+		connect by prior no = refno
+		order siblings by no desc
+		
+		;
+		==> vo(board) cnt, level													
+	7) 화면단
+		제목은 기본적으로 왼쪽 정렬 처리, 계층레벨(level)을 가져와서, 레벨에 따라서 공백 처리..
+
+
+# 하단에 paging 처리 로직..
 	
 	
 	
