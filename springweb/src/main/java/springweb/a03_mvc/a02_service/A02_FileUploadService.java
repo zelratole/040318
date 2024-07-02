@@ -26,7 +26,13 @@ public class A02_FileUploadService {
 		}		
 		return flist;
 	}
-	
+	/*
+	A02_FileUploadService
+		public List<String> getFileList()
+		public String upload01(MultipartFile mf)
+		
+		
+	 * */
 	
 	public String upload01(MultipartFile mf) {
 		// 자바객체 ==> 물리적으로 저장하는 File(물리적 파일 저장되는 객체)

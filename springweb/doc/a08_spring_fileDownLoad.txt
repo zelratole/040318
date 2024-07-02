@@ -26,17 +26,21 @@
     		}
     	}
  	DownLoadCtrl.java
+ 	@GetMapping("downLoad.do")
 	public String downLoad(@RequestParam("fname") String fname, 
 			                 Model d) {
 		d.addAttribute("downloadFile", fname);
-		return "downloadView";/
+		return "downloadView";
 		
     			
 	@Component("downloadView") // downloadView 자동 등록 처리.
+		파일명을 모델로 받아서 client(브라우저)에 전달해주는 역할..
 	public class DownloadView extends AbstractView{
 		// 다운로드할 특정한 폴드 공통 위치
 		@Value("${user.upload}")
 		private String upload;	
-
+		String fname = (String)model.get("downloadFile");
+		//	2) 경로명과 함께 파일 객체 생성
+		File file = new File(upload+fname);
 	
 	
