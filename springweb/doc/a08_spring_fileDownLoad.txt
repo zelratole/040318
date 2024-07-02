@@ -12,12 +12,31 @@
 # 파일관리 처리
 1. 관련 파일 및 주요 기능
     resource\config
-    	- 업로드파일경로
-    
-	A02_FileUploadCtrl.java 
-	 	@GetMapping("uploadExp04.do")
-	 	@PostMapping("uploadExp04.do")
+    	- 업로드파일경로 : # 2. 파일업로드 위치 경로 ${user.upload}
+		user.upload=C:/Users/human/git/04031866/springweb/src/main/webapp/z01_upload/
+
+
 	a04_upload.jsp
+    	<c:forEach var="fname" items="${flist}" varStatus="sts">
+    	<tr ondblclick="download('${fname}')"><td>${sts.count }</td><td>${fname }</td></tr>
+    	</c:forEach>
+    	function download(fname){
+    		if(confirm(fname+" 다운로드 하시겠습니까2?")){
+    			location.href="download.do?fname="+fname
+    		}
+    	}
+ 	DownLoadCtrl.java
+	public String downLoad(@RequestParam("fname") String fname, 
+			                 Model d) {
+		d.addAttribute("downloadFile", fname);
+		return "downloadView";/
+		
+    			
+	@Component("downloadView") // downloadView 자동 등록 처리.
+	public class DownloadView extends AbstractView{
+		// 다운로드할 특정한 폴드 공통 위치
+		@Value("${user.upload}")
+		private String upload;	
 
 	
 	
