@@ -100,8 +100,16 @@
 			<span class="input-group-text  justify-content-center">첨부파일</span>
 		</div>
 		<c:forEach var="fname" items="${board.fnames}">
-			<a href="#">${fname}</a>,&nbsp;&nbsp;
+			<a href="javascript:download('${fname}')">${fname}</a>,&nbsp;&nbsp;
 		</c:forEach>
+		<script>
+		function download(fname){
+			if(confirm(fname+"다운로드 하시겠습니까?")){
+				location.href="downLoad.do?fname="+fname
+			}
+		}
+		
+		</script>
 		<%--
 		<input type="file"  name="reports" multiple="multiple" class="form-control" value="" />	
 		 --%>
