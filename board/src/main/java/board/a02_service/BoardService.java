@@ -81,5 +81,12 @@ public class BoardService {
 	public int uptReadCnt(int no) {
 		return dao.uptReadCnt(no);
 	}
-	
+	public String updateBoard(Board upt) {
+		
+		return dao.updateBoard(upt)>0?"수정성공":"수정실패";
+	}
+	public String deleteBoard(int no) {
+		
+		return dao.deleteBoard(no)>0?"삭제성공":"삭제실패";
+	}	
 }

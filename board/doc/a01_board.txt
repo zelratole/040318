@@ -60,6 +60,39 @@
 			
 			첨부파일			
 
+# 게시물 수정 삭제 처리.
+1. sql  작성
+	1)  수정
+	2)  삭제
+------------------------
+2. dao 처리
+
+UPDATE BOARD 
+	SET subject = #{subject},
+	    content = #{content},
+	    uptdte = sysdate
+WHERE NO = #{no}
+
+DELETE FROM board
+WHERE NO = #{no}
+	int updateBoard(Board upt);
+	int deleteBoard(@Param("no") int no);
+	
+-------------------------------------	
+3. service/controller 호출 처리
+4. controller
+	1) updateBoard.do
+	2) deleteBoard.do
+5. jsp
+	1) 수정버튼 클릭시,
+		$("form").attr("action","updateBoard.do")
+	2) 삭제버튼 클릭시
+		location.href="deleteBoard.do?no="+no
+			
+	
+	
+	
+	
 	        
 		
 
