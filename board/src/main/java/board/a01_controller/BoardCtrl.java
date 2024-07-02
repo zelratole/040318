@@ -20,22 +20,22 @@ public class BoardCtrl {
 	@RequestMapping("boardList.do")
 	public String boardList(Board sch, Model d) {
 		d.addAttribute("blist", service.getBoardList(sch));
-		return "a01_boardList";
+		return "WEB-INF\\views\\a01_boardList.jsp";
 	}
 	@GetMapping("boardInsert.do")
 	public String boardInsertFrm() {
-		return "a02_boardInsert";
+		return "WEB-INF\\views\\a02_boardInsert.jsp";
 	}
 	
 	@PostMapping("boardInsert.do")
 	public String boardInsert(Board ins, Model d) {
 		d.addAttribute("msg", service.boardInsert(ins));
-		return "a02_boardInsert";
+		return "WEB-INF\\views\\a02_boardInsert.jsp";
 	}
 	@GetMapping("boardDetail.do")
 	public String boardDetail(@RequestParam("no") int no, Model d) {
 		d.addAttribute("board", service.detail(no));
-		return "a03_boardDetail";
+		return "WEB-INF\\views\\a03_boardDetail.jsp";
 	}
 	
 	
