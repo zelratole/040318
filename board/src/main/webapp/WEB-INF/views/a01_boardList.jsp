@@ -72,7 +72,7 @@
     	<c:forEach var="bd" items="${blist}">
     	<tr ondblclick="goDetail(${bd.no})"><td>${bd.no}</td>
     	
-    	<td style="text-align:left;">${bd.subject}</td><td>${bd.writer}</td>
+    	<td class="text-left" >${bd.subject}</td><td>${bd.writer}</td>
     	<td><fmt:formatDate value="${bd.regdte}"/></td>
     	<td>${bd.readcnt}</td></tr>
     	</c:forEach>
