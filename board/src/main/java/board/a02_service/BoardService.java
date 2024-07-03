@@ -22,11 +22,42 @@ public class BoardService {
 	public List<Board> getBoardList(BoardSch sch){
 		if(sch.getSubject()==null) sch.setSubject("");
 		if(sch.getWriter()==null) sch.setWriter("");
+		// 1. 총데이터 수(DB)
+		sch.setCount(dao.getBoardCount(sch));
+		
+		// 2. 현재 클릭한 번호(화면단 요청값)..- 초기값 1(첫번째페이지)
+		if(sch.getCurPage()==0) {
+			sch.setCurPage(1);
+		}
+		
+		// 3. 한페이지에 보일 데이터 건수(화면단 선택으로 요청값) - 초기값5(첫번째 페이지)
+		if(sch.getPageSize()==0) {
+			sch.setPageSize(5);
+		}
+		
+		// 4. 총페이지수(수치연산/알고리즘 - 총데이터건수/한페이지에 보일 데이터 수)
+		
+		//    13건   5  ==>  13/5 ==> 2.6  ==> 3.0 ==> 3
+		//                  10/5 ==> 2   ==> 2.0 ==> 2
+		//                  7/5 ==> 1.4 ==> 2.0 ==> 2
+		//                  5/5 ==> 1  ==> 1.0 ==> 1
+		//  정수/정수 ==> 실수/정수 vs 정수/실수 ==> 실수
+		// sch.getCount()/sch.getPageSize() ==> 정수..
+		//  sch.getCount()/(double)sch.getPageSize() ==> 실수
+		//  Math.ceil(sch.getCount()/(double)sch.getPageSize()) ==> 실수
+		// (int)(Math.ceil(sch.getCount()/(double)sch.getPageSize())) ==> 정수
+		sch.setPageCount( (int)(Math.ceil(sch.getCount()/(double)sch.getPageSize())) );
 		
 		
+		// 5. 시작번호/마지막번호 -  마지막번호?( 한페이지에 보일 데이터 건수*현재 클릭한 번호)
+		///   1페이지 클릭 ==> 1~5
+		///   2페이지    ==> 6~10
+		//    3        ==> 11~15
+		sch.setStart(1);
+		sch.setEnd(5);
 		
 		
-		
+		// start, end  ==> 특정 페이지 범위에 데이터 출력..
 		
 		
 		return dao.getBoardList(sch);
