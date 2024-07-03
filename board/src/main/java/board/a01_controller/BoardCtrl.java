@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import board.a02_service.BoardService;
 import board.vo.Board;
+import board.vo.BoardSch;
 
 @Controller
 public class BoardCtrl {
@@ -18,7 +19,7 @@ public class BoardCtrl {
 	
 	// http://localhost:7080/board/boardList.do
 	@RequestMapping("boardList.do")
-	public String boardList(Board sch, Model d) {
+	public String boardList(BoardSch sch, Model d) {
 		d.addAttribute("blist", service.getBoardList(sch));
 		return "WEB-INF\\views\\a01_boardList.jsp";
 	}

@@ -32,7 +32,7 @@ public interface BoardDao {
 			+ "	connect by prior no = refno\r\n"
 			+ "	order siblings by no DESC )\r\n"
 			+ "WHERE cnt BETWEEN #{start} AND #{end}")
-	List<Board> getBoardList(Board sch);
+	List<Board> getBoardList(BoardSch sch);
 	
 	
 	

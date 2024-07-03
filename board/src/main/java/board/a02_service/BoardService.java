@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -12,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import board.a03_dao.BoardDao;
 import board.vo.Board;
+import board.vo.BoardSch;
 import board.vo.Boardfile;
 
 @Service
@@ -19,9 +19,15 @@ public class BoardService {
 	@Autowired(required=false)
 	private BoardDao dao;
 	
-	public List<Board> getBoardList(Board sch){
+	public List<Board> getBoardList(BoardSch sch){
 		if(sch.getSubject()==null) sch.setSubject("");
 		if(sch.getWriter()==null) sch.setWriter("");
+		
+		
+		
+		
+		
+		
 		
 		return dao.getBoardList(sch);
 	}
