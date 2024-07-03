@@ -29,5 +29,14 @@
 	5) 공통 mybatis.xml 파일 : vo별칭/mapper.xml 등록
 	6) mapper.xml 추가..
 				
-			
+ex)	mybatis_config.xml ==> alias(dept), mapper 추가..
+    a02_deptMapper.xml
+    ---------------------------------
+    A03_DeptDao.java
+    A03_DeptService.java
+    A03_DeptController.java
+    
+    
+    
+     	 	
 			

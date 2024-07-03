@@ -4,9 +4,11 @@
 <configuration>
 	<typeAliases>
 		<typeAlias alias="emp" type="springweb.z01_vo.Emp" />
+		<typeAlias alias="dept" type="springweb.z01_vo.Dept" />
 	</typeAliases>
 	<mappers>
 		<mapper resource="resource/mapper/a01_empMapper.xml" />
+		<mapper resource="resource/mapper/a02_deptMapper.xml" />
 	</mappers>
 
 </configuration>
