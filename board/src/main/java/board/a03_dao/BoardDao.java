@@ -9,17 +9,29 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 import board.vo.Board;
+import board.vo.BoardSch;
 import board.vo.Boardfile;
 
 public interface BoardDao {
 	
-	@Select("		select rownum cnt, level, b.*   \r\n"
-			+ "		from board b\r\n"
-			+ "		where subject like '%'||#{subject}||'%'\r\n"
-			+ "		and writer like '%'||#{writer}||'%'\r\n"
-			+ "		start with refno = 0\r\n"
-			+ "		connect by prior no = refno\r\n"
-			+ "		order siblings by no desc")
+	
+	
+	@Select("SELECT count(*)\r\n"
+			+ "FROM board\r\n"
+			+ "WHERE subject LIKE '%'||#{subject}||'%'\r\n"
+			+ "AND writer LIKE '%'||#{writer}||'%'\r\n")
+	int getBoardCount(BoardSch sch);
+	
+	@Select("SELECT *\r\n"
+			+ "FROM (\r\n"
+			+ "	select rownum cnt, level, b.*  \r\n"
+			+ "	from board b\r\n"
+			+ "	where subject like '%'||#{subject}||'%'\r\n"
+			+ "	and writer like '%'||#{writer}||'%'\r\n"
+			+ "	start with refno = 0\r\n"
+			+ "	connect by prior no = refno\r\n"
+			+ "	order siblings by no DESC )\r\n"
+			+ "WHERE cnt BETWEEN #{start} AND #{end}")
 	List<Board> getBoardList(Board sch);
 	
 	
