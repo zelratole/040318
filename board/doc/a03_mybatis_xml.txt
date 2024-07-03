@@ -1,0 +1,33 @@
+# mybatis 확장형 xml형식 처리
+1. mybatis는 dao에서 간단하게 sql을 처리할 수 있지만,
+2. 보다, 동적인 쿼리(조건에 따른 sql변경), 컬럼명과 property의 변경 설정 등,
+	복잡한 기능을 할 때는 xml형식의  mapper.xml 파일을 사용하여 처리한다.
+3. 처리 방법
+	1) 컨테이너 설정...
+		- 공통 mybatis 설정 파일 추가 지정(xml)
+			xxxMapper.xml 설정
+			mapper파일에서 사용하는 공통 vo의 alias 명 지정..
+	2) xxxMapper.xml 설정
+		- mybatis 공통 설정 파일에서 지정한 각, dao단위로 연계되는 mappper.xml
+			추가설정..
+4. 핵심 처리 프로세스
+	1) 기본에 dao 상단에 선언된 sql 처리대신하여, mapper.xml 파일로 sql을 처리하는 방식이다.
+	2) 처리 프로세스
+		dao 인터페이스 선언과 메서드 선언, 매개변수 선언, 리턴값 선언을 mapper.xml에서 선언하여
+		연관관계를 이어서 처리한다.
+		- 아래와 같이 dao와 mapper.xml은 연관관계로 설정이 된다.
+					dao						XXXMapper.xml
+			dao의 패키지명.인터페이스 명 ==> namespace명		
+			메서드명 				   ==> xml의 id명
+			메서드의 리턴타입          ==> xml의 resultType
+			메서드의 매개변수          ==> xml의 parameterType
+5. 개발 순서
+	1) 공통 컨테이너 설정/공통 mybatis 설정 xml
+	2) sql 확인
+	3) dao 메서드 선언
+	4) XXXmapper.xml 선언
+	5) 공통 mybatis.xml 파일 : vo별칭/mapper.xml 등록
+	6) mapper.xml 추가..
+				
+			
+			

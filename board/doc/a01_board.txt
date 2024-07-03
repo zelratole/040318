@@ -180,12 +180,20 @@ WHERE NO = #{no}
 		등의 여러가지 페이징 처리를 위해 속성이 추가적으로 필요하여 BoardSch라는 요청처리와
 		모델처리는 같이 하는 VO가 따로 필요로 한다.
 		주요 속성 : 검색-제목(subject),작성자(writer)  
-		기본페이지처리 - 전체데이터건수(count), 한번에 보여줄 데이터 건수(pageSize), 총페이지수(pageCount), 
-			현재 클릭한 페이지 번호(curPage),시작번호(start), 마지막번호(end)
+		기본페이지처리 - 전체데이터건수(count), 한번에 보여줄 데이터 건수(pageSize), 
+			총페이지수(pageCount), 현재 클릭한 페이지 번호(curPage),
+			시작번호(start), 마지막번호(end)
 		페이지블럭처리 - 한번에 보여줄 block의 크기(blockSize), block 시작번호(startBlock),
 					 block 마지막번호(endBlock)
 	3) dao
+		- 검색하는 VO 생성
+		- 전체 기본 데이터를 가져오는 처리
+			int getBoardCount()
+		- 페이징 처리되는 데이터	 
+			List<Board> getBoardList(BoardSch sch);
+	
 	4) service(***)
+	
 	5) view(jsp)				 	
 		
 		
