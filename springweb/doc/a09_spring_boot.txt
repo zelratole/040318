@@ -1,0 +1,11 @@
+# 설치
+1. sts 다운로드
+2. c:\a00_javaexp\sts.jar 로 복사 및 파일명 변경..
+3. cmd창
+	java -jar sts.jar
+	
+	c:\a00_javaexp\sts-4.23.1.RELEASE\SpringToolSuite4.exe
+	클릭, 아래 폴드로 workspace 설정 실행
+4. 폴드 생성
+	c:\a00_javaexp\z01_bootworkspace\	
+	
