@@ -263,9 +263,25 @@ WHERE NO = #{no}
 
 	
 	5) view(jsp)				 	
+	 	<input type="hidden" name="curPage" value="${sch.curPage}"/>
+		</form>	
 		
-		
-		
+		<ul class="pagination justify-content-end">
+	  <li class="page-item"><a class="page-link" href="javascript:goPage(${sch.startBlock-1})">Previous</a></li>
+	  <c:forEach var="pCnt" begin="${sch.startBlock}" 
+	  						end="${sch.endBlock}">
+	  <li class="page-item ${sch.curPage==pCnt?'active':''}">
+	  	<a class="page-link" href="javascript:goPage(${pCnt})">${pCnt}</a></li>
+	  </c:forEach>
+	  <li class="page-item"><a class="page-link" href="javascript:goPage(${sch.endBlock+1})">Next</a></li>
+	</ul>	
+	<script type="text/javascript">
+		function goPage(pCnt){
+			$("[name=curPage]").val(pCnt)  // 클릭한 것을 현제 페이지 번호로 전송.. 페이지가 이동 처리.
+			$("form").submit()
+			
+		}
+	</script>	
 		
 		 		
 		
