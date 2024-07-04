@@ -46,8 +46,8 @@
 <div class="container">
 	<form id="frm01" class="form"  method="post">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input placeholder="제목" name="subject" value="${param.subject }"  class="form-control mr-sm-2" />
-	    <input placeholder="작성자"  name="writer"  value="${param.writer }"  class="form-control mr-sm-2"/>
+	    <input placeholder="제목" name="subject" value="${sch.subject }"  class="form-control mr-sm-2" />
+	    <input placeholder="작성자"  name="writer"  value="${sch.writer }"  class="form-control mr-sm-2"/>
 	    <button class="btn btn-info" type="submit">Search</button>
 	    <button class="btn btn-success" id="regBtn"
 	        type="button">등록</button>
@@ -87,12 +87,12 @@
 			location.href="boardDetail.do?no="+no
 		}
 	</script>
-	<!-- 14:50~  글등록시 바로 밑에 나오는지 확인.. -->
+	<!-- 14:50~  글등록시 바로 밑에 나오는지 확인.. active-->
 	<ul class="pagination justify-content-end">
 	  <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-	  <li class="page-item active"><a class="page-link" href="#">1</a></li>
-	  <li class="page-item"><a class="page-link" href="#">2</a></li>
-	  <li class="page-item"><a class="page-link" href="#">3</a></li>
+	  <c:forEach var="pCnt" begin="1" end="${sch.pageCount}">
+	  <li class="page-item "><a class="page-link" href="#">${pCnt}</a></li>
+	  </c:forEach>
 	  <li class="page-item"><a class="page-link" href="#">Next</a></li>
 	</ul>	
 </div>
