@@ -89,7 +89,6 @@
 			location.href="boardDetail.do?no="+no
 		}
 	</script>
-	<!-- 14:50~  글등록시 바로 밑에 나오는지 확인.. active-->
 	<ul class="pagination justify-content-end">
 	  <li class="page-item"><a class="page-link" href="#">Previous</a></li>
 	  <c:forEach var="pCnt" begin="1" end="${sch.pageCount}">

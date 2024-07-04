@@ -67,6 +67,26 @@ public class BoardService {
 		// start, end  ==> 특정 페이지 범위에 데이터 출력..
 		
 		// 6. 페이징 블럭 처리..
+		/*
+		이전 [ 1][ 2][ 3][ 4][ 5] 이후  ==> 1번 block
+		이전 [ 6][ 7][ 8][ 9][10] 이후  ==> 2번 block
+		이전 [11][12][13] 이후          ==> 3번 block
+		
+		특정 페이지번호에 시작블럭 번호와 마지막 번호를 BoardSch에 설정함으로 화면에서 위와 같은
+		UI(user interface)를 보이게 하기 위한 것이다.
+		결국은 각 block에서 시작블럭번호(startBlock)과 마지막블럭번호(endBlock)를 화면단에 넘겨주어서
+		출력하기 위해서 처리하는 것이다.
+		 * */
+		// 	1) 블럭 크기 설정.-일반적으로 홀수로 정함..
+		sch.setBlockSize(5);
+		//  2) 블럭 번호 지정..1~5 ==> 1,  6~10 ==> 2,  11~15 ==> 3...
+		//  (int) Math.ceil(sch.getCurPage()/(double)sch.getBlockSize())  1/5, 2/5, 3/5, 4/5, 5/5 =>1
+		int blockNum = (int) Math.ceil(sch.getCurPage()/(double)sch.getBlockSize());
+		//  3) 시작블럭
+		sch.setStartBlock((blockNum-1)*sch.getBlockSize()+1);
+		//  4) 마지막블럭..
+		int endBlock = blockNum*sch.getBlockSize();
+		sch.setEndBlock( (endBlock>sch.getPageCount())?sch.getPageCount():endBlock );
 		
 		
 		return dao.getBoardList(sch);
