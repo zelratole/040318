@@ -52,11 +52,13 @@ public class BoardService {
 		///   2페이지    ==> 6~10
 		//    3페이지    ==> 11~15
 		//    4페이지    ==> 16~20     17...
+		//   ex) 3 ===>  1,4,7,10....
+		//   ex) 10 ===>  1,11,21,31....
 		//    마지막번호는 마지막데이터건수보다 클 수 없다.. 
 		//    if( sch.getCount() < sch.getEnd() )
 		//    	sch.setEnd( sch.getCount() )
 		
-		sch.setStart(sch.getPageSize()+1*(sch.getCurPage()-1));
+		sch.setStart((sch.getCurPage()-1)*sch.getPageSize()+1);
 		
 		int imEnd = sch.getPageSize()*sch.getCurPage();
 		sch.setEnd(imEnd > sch.getCount()?sch.getCount():imEnd);

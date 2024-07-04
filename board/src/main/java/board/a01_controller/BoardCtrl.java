@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,7 +20,8 @@ public class BoardCtrl {
 	
 	// http://localhost:7080/board/boardList.do
 	@RequestMapping("boardList.do")
-	public String boardList(BoardSch sch, Model d) {
+	public String boardList(@ModelAttribute("sch") BoardSch sch, Model d) { 
+		// boardSch의 모델명을 변경할 때.. 사용 옵션 : ModelAttribute
 		d.addAttribute("blist", service.getBoardList(sch));
 		return "WEB-INF\\views\\a01_boardList.jsp";
 	}
