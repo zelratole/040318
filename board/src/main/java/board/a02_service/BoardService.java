@@ -47,8 +47,6 @@ public class BoardService {
 		//  Math.ceil(sch.getCount()/(double)sch.getPageSize()) ==> 실수
 		// (int)(Math.ceil(sch.getCount()/(double)sch.getPageSize())) ==> 정수
 		sch.setPageCount( (int)(Math.ceil(sch.getCount()/(double)sch.getPageSize())) );
-		
-		
 		// 5. 시작번호/마지막번호 -  마지막번호?( 한페이지에 보일 데이터 건수*현재 클릭한 번호)
 		///   1페이지 클릭 ==> 1~5
 		///   2페이지    ==> 6~10
@@ -58,6 +56,8 @@ public class BoardService {
 		
 		
 		// start, end  ==> 특정 페이지 범위에 데이터 출력..
+		
+		// 6. 페이징 블럭 처리..
 		
 		
 		return dao.getBoardList(sch);
