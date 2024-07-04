@@ -50,9 +50,16 @@ public class BoardService {
 		// 5. 시작번호/마지막번호 -  마지막번호?( 한페이지에 보일 데이터 건수*현재 클릭한 번호)
 		///   1페이지 클릭 ==> 1~5
 		///   2페이지    ==> 6~10
-		//    3        ==> 11~15
-		sch.setStart(1);
-		sch.setEnd(5);
+		//    3페이지    ==> 11~15
+		//    4페이지    ==> 16~20     17...
+		//    마지막번호는 마지막데이터건수보다 클 수 없다.. 
+		//    if( sch.getCount() < sch.getEnd() )
+		//    	sch.setEnd( sch.getCount() )
+		
+		sch.setStart(sch.getPageSize()+1*(sch.getCurPage()-1));
+		
+		int imEnd = sch.getPageSize()*sch.getCurPage();
+		sch.setEnd(imEnd > sch.getCount()?sch.getCount():imEnd);
 		
 		
 		// start, end  ==> 특정 페이지 범위에 데이터 출력..
