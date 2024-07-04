@@ -51,7 +51,9 @@
 	    <button class="btn btn-info" type="submit">Search</button>
 	    <button class="btn btn-success" id="regBtn"
 	        type="button">등록</button>
+	        
  	</nav>
+ 		<input type="hidden" name="curPage" value="${sch.curPage}"/>
 	</form>
    <table class="table table-hover table-striped">
    	<col width="10%">
@@ -91,10 +93,18 @@
 	<ul class="pagination justify-content-end">
 	  <li class="page-item"><a class="page-link" href="#">Previous</a></li>
 	  <c:forEach var="pCnt" begin="1" end="${sch.pageCount}">
-	  <li class="page-item "><a class="page-link" href="#">${pCnt}</a></li>
+	  <li class="page-item ${sch.curPage==pCnt?'active':''}">
+	  	<a class="page-link" href="javascript:goPage(${pCnt})">${pCnt}</a></li>
 	  </c:forEach>
 	  <li class="page-item"><a class="page-link" href="#">Next</a></li>
 	</ul>	
+	<script type="text/javascript">
+		function goPage(pCnt){
+			$("[name=curPage]").val(pCnt)  // 클릭한 것을 현제 페이지 번호로 전송.. 페이지가 이동 처리.
+			$("form").submit()
+			
+		}
+	</script>
 </div>
 </body>
 </html>
