@@ -29,6 +29,7 @@ public class BoardService {
 		if(sch.getCurPage()==0) {
 			sch.setCurPage(1);
 		}
+
 		
 		// 3. 한페이지에 보일 데이터 건수(화면단 선택으로 요청값) - 초기값5(첫번째 페이지)
 		if(sch.getPageSize()==0) {
@@ -47,6 +48,13 @@ public class BoardService {
 		//  Math.ceil(sch.getCount()/(double)sch.getPageSize()) ==> 실수
 		// (int)(Math.ceil(sch.getCount()/(double)sch.getPageSize())) ==> 정수
 		sch.setPageCount( (int)(Math.ceil(sch.getCount()/(double)sch.getPageSize())) );
+		
+		// 마지막 page block에서 next를 클릭하더라도, 더 이상 페이지번호가
+		// 증가되지 않게 처리..
+		if(sch.getCurPage()>sch.getPageCount()) {
+			sch.setCurPage(sch.getPageCount());
+		}
+		
 		// 5. 시작번호/마지막번호 -  마지막번호?( 한페이지에 보일 데이터 건수*현재 클릭한 번호)
 		///   1페이지 클릭 ==> 1~5
 		///   2페이지    ==> 6~10

@@ -90,12 +90,13 @@
 		}
 	</script>
 	<ul class="pagination justify-content-end">
-	  <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-	  <c:forEach var="pCnt" begin="1" end="${sch.pageCount}">
+	  <li class="page-item"><a class="page-link" href="javascript:goPage(${sch.startBlock-1})">Previous</a></li>
+	  <c:forEach var="pCnt" begin="${sch.startBlock}" 
+	  						end="${sch.endBlock}">
 	  <li class="page-item ${sch.curPage==pCnt?'active':''}">
 	  	<a class="page-link" href="javascript:goPage(${pCnt})">${pCnt}</a></li>
 	  </c:forEach>
-	  <li class="page-item"><a class="page-link" href="#">Next</a></li>
+	  <li class="page-item"><a class="page-link" href="javascript:goPage(${sch.endBlock+1})">Next</a></li>
 	</ul>	
 	<script type="text/javascript">
 		function goPage(pCnt){
