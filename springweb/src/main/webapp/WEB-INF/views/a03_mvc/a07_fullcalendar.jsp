@@ -47,7 +47,7 @@ body {
 				center : 'title',
 				right : 'dayGridMonth,timeGridWeek,timeGridDay'
 			},
-			initialDate : '2023-01-12',
+			initialDate : '2024-07-05',
 			navLinks : true, // can click day/week names to navigate views
 			selectable : true,
 			selectMirror : true,
@@ -70,51 +70,57 @@ body {
 			},
 			editable : true,
 			dayMaxEvents : true, // allow "more" link when too many events
-			events : [ {
+			events : [ 
+			{
 				title : '시작일정^^',
-				start : '2023-01-02'
-			}, {
+				start : '2024-07-02'
+			}, 
+			{
+				title : '오늘의 일정(프로젝트!!)',
+				start : '2024-07-05'
+			}, 			
+			{
 				title : 'All Day Event',
-				start : '2023-01-01'
+				start : '2024-07-01'
 			}, {
 				title : 'Long Event',
-				start : '2023-01-07',
-				end : '2023-01-10'
+				start : '2024-07-07',
+				end : '2024-07-10'
 			}, {
 				groupId : 999,
 				title : 'Repeating Event',
-				start : '2023-01-09T16:00:00'
+				start : '2024-07-09T16:00:00'
 			}, {
 				groupId : 999,
 				title : 'Repeating Event',
-				start : '2023-01-16T16:00:00'
+				start : '2024-07-16T16:00:00'
 			}, {
 				title : 'Conference',
-				start : '2023-01-11',
-				end : '2023-01-13'
+				start : '2024-07-11',
+				end : '2024-07-13'
 			}, {
 				title : 'Meeting',
-				start : '2023-01-12T10:30:00',
-				end : '2023-01-12T12:30:00'
+				start : '2024-07-12T10:30:00',
+				end : '2024-07-12T12:30:00'
 			}, {
 				title : 'Lunch',
-				start : '2023-01-12T12:00:00'
+				start : '2024-07-12T12:00:00'
 			}, {
 				title : 'Meeting',
-				start : '2023-01-12T14:30:00'
+				start : '2024-07-12T14:30:00'
 			}, {
 				title : 'Happy Hour',
-				start : '2023-01-12T17:30:00'
+				start : '2024-07-12T17:30:00'
 			}, {
 				title : 'Dinner',
-				start : '2023-01-12T20:00:00'
+				start : '2024-07-12T20:00:00'
 			}, {
 				title : 'Birthday Party',
-				start : '2023-01-13T07:00:00'
+				start : '2024-07-13T07:00:00'
 			}, {
 				title : 'Click for Google',
 				url : 'http://google.com/',
-				start : '2023-01-28'
+				start : '2024-07-28'
 			} ]
 		});
 
