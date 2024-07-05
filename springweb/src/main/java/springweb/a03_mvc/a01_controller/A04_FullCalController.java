@@ -10,6 +10,6 @@ public class A04_FullCalController {
 	// http://localhost:7080/springweb/calendar.do
 	@GetMapping("calendar.do")
 	public String calendar() {
-		return "";
+		return "WEB-INF\\views\\a03_mvc\\a07_fullcalendar.jsp";
 	}
 }
