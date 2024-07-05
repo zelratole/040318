@@ -127,6 +127,7 @@ body {
 	<div class="jumbotron text-center">
 		<h2>캘린더</h2>
 	</div>
+	
 	<div class="container">
 		<div id='calendar'></div>
 		
