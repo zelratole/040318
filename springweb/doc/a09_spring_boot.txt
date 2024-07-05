@@ -1,5 +1,8 @@
 # 설치
 1. sts 다운로드
+	
+
+
 2. c:\a00_javaexp\sts.jar 로 복사 및 파일명 변경..
 3. cmd창
 	java -jar sts.jar
@@ -8,4 +11,24 @@
 	클릭, 아래 폴드로 workspace 설정 실행
 4. 폴드 생성
 	c:\a00_javaexp\z01_bootworkspace\	
+
+# 스프링 부트
+0. 필요한 LIB online으로 받기..
+	board\pom.xml : online상으로 @@@.jar
+	==> container 설정도 같이 처리.(maven.jar)
+
+1. 컨테이너 설정
+	pom.xml에 받는 기준으로 객체들을 설정 처리..
+	resources\application.properties
+	
+	기본적인 mvc 패턴과 호출 처리 공통적인 부분은 내부적으로 설정 처리되어 있음.
+
+2. 웹서버
+	스프링 부트는 tomcat 최신버젼을 자동을 연동 처리되어 있음..
+
+
+
+
+
+
 	

@@ -29,7 +29,6 @@ public class BoardService {
 		if(sch.getCurPage()==0) {
 			sch.setCurPage(1);
 		}
-
 		
 		// 3. 한페이지에 보일 데이터 건수(화면단 선택으로 요청값) - 초기값5(첫번째 페이지)
 		if(sch.getPageSize()==0) {
