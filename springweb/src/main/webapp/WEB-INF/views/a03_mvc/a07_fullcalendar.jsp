@@ -72,6 +72,21 @@ body {
 			dayMaxEvents : true, // allow "more" link when too many events
 			events : function(info, successCallback, failureCallback){
 				// callList.do
+				$.ajax({
+					url:"callList.do",
+					dataType:"json",
+					success:function(data){
+						console.log(data)
+						calendar.removeAllEvents()
+						successCallback(data.calList)
+						
+					}
+					
+				})	
+			},
+			error:function(err){
+				console.log(err)
+				failureCallback(err)
 			}
 		});
 
