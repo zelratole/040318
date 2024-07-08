@@ -65,7 +65,19 @@ body {
 				console.log(arg.endStr)
 				console.log(arg.allDay)
 				$("#modalTitle").text("일정 등록")
+				$("form")[0].reset()
+				$("#regBtn").show()
+				$("#start").val(arg.start.toLocaleString())
+				$("[name=start]").val(arg.startStr)
+				$("#end").val(arg.end.toLocaleString())
+				$("[name=end]").val(arg.endStr)
+				$("#allDay").val(""+arg.allDay)
+				$("[name=allDay]").val(arg.allDay?1:0)
+				
 				$("#showModel").click() //강제이벤트 처리.
+				
+				
+				
 				
 				/*
 				var title = prompt('Event Title:');
