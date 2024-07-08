@@ -40,10 +40,12 @@ body {
 <script src="${path}/a00_com/dist/index.global.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
+		$("#showModel").hide()
 
 	});
 
 	document.addEventListener('DOMContentLoaded', function() {
+		
 		var calendarEl = document.getElementById('calendar');
 
 		var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -57,6 +59,15 @@ body {
 			selectable : true,
 			selectMirror : true,
 			select : function(arg) {
+				console.log("# 캘린터듸 기본 속성 확인 #")
+				//console.log(arg)
+				console.log(arg.startStr)
+				console.log(arg.endStr)
+				console.log(arg.allDay)
+				$("#modalTitle").text("일정 등록")
+				$("#showModel").click() //강제이벤트 처리.
+				
+				/*
 				var title = prompt('Event Title:');
 				if (title) {
 					calendar.addEvent({
@@ -66,6 +77,7 @@ body {
 						allDay : arg.allDay
 					})
 				}
+				*/
 				calendar.unselect()
 			},
 			eventClick : function(arg) {
@@ -102,7 +114,7 @@ body {
 
 <body>
 	<div class="jumbotron text-center">
-		<h2>캘린더</h2>
+		<h2 >캘린더</h2>
 	</div>
 	
 	<div class="container">
@@ -110,13 +122,17 @@ body {
 		
 		
 	</div>
-	<div class="modal fade" id="exampleModalCenter" tabindex="-1"
+	<script type="text/javascript">
+		
+	</script>
+	<div id="showModel" data-toggle="modal" data-target="#calModal"></div>
+	<div class="modal fade" id="calModal" tabindex="-1"
 		role="dialog" aria-labelledby="exampleModalCenterTitle"
 		aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLongTitle">타이틀</h5>
+					<h5 class="modal-title" id="modalTitle">타이틀</h5>
 					<button type="button" class="close" data-dismiss="modal"
 						aria-label="Close">
 						<span aria-hidden="true">&times;</span>
@@ -169,13 +185,13 @@ body {
 							<div class="input-group-prepend ">
 								<span class="input-group-text  justify-content-center">배경색상</span>
 							</div>
-							<input name="backgroundColor" type="color" placeholder="색상선택"  class="form-control" />	
+							<input name="backgroundColor" value="#0099cc" type="color" placeholder="색상선택"  class="form-control" />	
 						</div>	
 						<div class="input-group mb-3">	
 							<div class="input-group-prepend ">
 								<span class="input-group-text  justify-content-center">글자색상</span>
 							</div>
-							<input name="textColor" type="color" placeholder="글자선택"  class="form-control" />	
+							<input name="textColor"   value="#ccffff"  type="color" placeholder="글자선택"  class="form-control" />	
 						</div>							
 						<div class="input-group mb-3">	
 							<div class="input-group-prepend ">
