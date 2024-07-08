@@ -16,7 +16,7 @@ public interface A04_CalendarDao {
 	
 	@Insert("	INSERT INTO calendar values(cal_seq.nextval,\r\n"
 			+ "		#{title},#{writer},#{start},#{end},\r\n"
-			+ "		#{content},#{backgroundColor},#{textColor}#{allDay},#{urlLink})")
+			+ "		#{content},#{backgroundColor},#{textColor}, #{allDay},#{urlLink})")
 	int insertCalendar(Calendar ins);
 	
 	

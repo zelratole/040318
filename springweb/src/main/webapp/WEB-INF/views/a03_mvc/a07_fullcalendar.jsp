@@ -41,8 +41,11 @@ body {
 <script type="text/javascript">
 	$(document).ready(function() {
 		$("#showModel").hide()
+		
+
 
 	});
+
 
 	document.addEventListener('DOMContentLoaded', function() {
 		
@@ -59,7 +62,7 @@ body {
 			selectable : true,
 			selectMirror : true,
 			select : function(arg) {
-				console.log("# 캘린터듸 기본 속성 확인 #")
+				console.log("# 캘린터 기본 속성 확인 #")
 				//console.log(arg)
 				console.log(arg.startStr)
 				console.log(arg.endStr)
@@ -120,6 +123,30 @@ body {
 		});
 
 		calendar.render();
+		$("#regBtn").click(function(){
+			if(confirm("등록하시겠습니까?")){
+				ajaxFun("insertCalendar.do")
+			}
+		})	
+		function ajaxFun(url){
+			$.ajax({
+				type:"post",
+				url:url,
+				data:$("form").serialize(),
+				dataType:"json",
+				success:function(data){
+					alert(data.msg)
+					calendar.removeAllEvents()
+					calendar.addEventSource(data.calList)
+					$("#clsBtn").click()
+				},
+				error:function(err){
+					console.log(err)
+				}
+			})
+		}		
+		
+		
 	});
 </script>
 </head>
@@ -225,7 +252,7 @@ body {
 				</div>
 				<div class="modal-footer">
 					<button id="regBtn" type="button" class="btn btn-primary">등록</button>				
-					<button type="button" class="btn btn-secondary"
+					<button id="clsBtn" type="button" class="btn btn-secondary"
 						data-dismiss="modal">창닫기</button>
 
 				</div>

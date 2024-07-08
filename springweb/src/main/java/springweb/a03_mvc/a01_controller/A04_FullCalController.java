@@ -30,6 +30,7 @@ public class A04_FullCalController {
 	@PostMapping("insertCalendar.do")
 	public String insertCalendar(Calendar insert, Model d) {
 		d.addAttribute("msg", service.insertCalendar(insert));
+		d.addAttribute("calList", service.getFullCalendarList());
 		return "jsonView";
 	}
 	
