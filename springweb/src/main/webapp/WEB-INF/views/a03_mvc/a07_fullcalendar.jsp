@@ -27,6 +27,11 @@ body {
 	max-width: 1100px;
 	margin: 0 auto;
 }
+.input-group-text{width:100%;background-color:linen;
+		color:black;font-weight:bolder;}
+.input-group-prepend{width:35%;}
+	
+
 </style>
 <script src="${path}/a00_com/jquery.min.js"></script>
 <script src="${path}/a00_com/popper.min.js"></script>
@@ -117,18 +122,55 @@ body {
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
+				<%--
+				<style>
+.input-group-text{width:100%;background-color:linen;
+		color:black;font-weight:bolder;}
+.input-group-prepend{width:35%;}				
+				</style>
+				 --%>
 				<div class="modal-body">
 					<form id="frm02" class="form" method="post">
-						<div class="row">
-							<div class="col">
-								<input type="text" class="form-control" placeholder="사원명 입력"
-									name="ename">
+						<input type="hidden" name="id" value="0"/>
+						<div class="input-group mb-3">	
+							<div class="input-group-prepend ">
+								<span class="input-group-text  justify-content-center">일정명</span>
 							</div>
-							<div class="col">
-								<input type="text" class="form-control" placeholder="직책명 입력"
-									name="job">
+							<input name="title" placeholder="입정 입력"  class="form-control" />	
+						</div>	
+						<div class="input-group mb-3">	
+							<div class="input-group-prepend ">
+								<span class="input-group-text  justify-content-center">작성자</span>
 							</div>
-						</div>
+							<input name="writer" placeholder="작성자 입력"  class="form-control" />	
+						</div>	
+						<div class="input-group mb-3">	
+							<div class="input-group-prepend ">
+								<span class="input-group-text  justify-content-center">시작일</span>
+							</div>
+							<input id="start" placeholder="시작일 입력"  class="form-control" />	
+							<input name="start" type="hidden"   />	
+						</div>	
+						<div class="input-group mb-3">	
+							<div class="input-group-prepend ">
+								<span class="input-group-text  justify-content-center">종료일</span>
+							</div>
+							<input id="end" placeholder="종료일 입력"  class="form-control" />	
+							<input name="end" type="hidden"   />	
+						</div>		
+						<div class="input-group mb-3">	
+							<div class="input-group-prepend ">
+								<span class="input-group-text  justify-content-center">내용</span>
+							</div>
+							<textarea name="content" rows="5" cols="10" class="form-control"></textarea>			
+						</div>	
+																	
+						<div class="input-group mb-3">	
+							<div class="input-group-prepend ">
+								<span class="input-group-text  justify-content-center">작성자</span>
+							</div>
+							<input name="writer" placeholder="작성자 입력"  class="form-control" />	
+						</div>								
 					</form>
 				</div>
 				<div class="modal-footer">

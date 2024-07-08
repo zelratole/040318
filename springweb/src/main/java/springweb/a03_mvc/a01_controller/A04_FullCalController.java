@@ -4,8 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import springweb.a03_mvc.a02_service.A04_CalendarService;
+import springweb.z01_vo.Calendar;
 
 @Controller
 public class A04_FullCalController {
@@ -24,4 +26,14 @@ public class A04_FullCalController {
 		d.addAttribute("calList", service.getFullCalendarList());
 		return "jsonView";
 	}
+	// // http://localhost:7080/springweb/insertCalendar.do
+	@PostMapping("insertCalendar.do")
+	public String insertCalendar(Calendar insert, Model d) {
+		d.addAttribute("msg", service.insertCalendar(insert));
+		return "jsonView";
+	}
+	
+	
+	
+	
 }

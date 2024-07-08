@@ -13,8 +13,8 @@ public class A04_CalendarService {
 	@Autowired(required = false)
 	private A04_CalendarDao dao;
 	
-	public int insertCalendar(Calendar ins){
-		return dao.insertCalendar(ins);
+	public String insertCalendar(Calendar ins){
+		return dao.insertCalendar(ins)>0?"등록성공":"등록실패";
 	}
 	public List<Calendar> getFullCalendarList(){
 		return dao.getFullCalendarList();
