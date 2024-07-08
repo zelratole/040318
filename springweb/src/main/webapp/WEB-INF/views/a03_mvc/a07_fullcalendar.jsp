@@ -167,16 +167,39 @@ body {
 																	
 						<div class="input-group mb-3">	
 							<div class="input-group-prepend ">
-								<span class="input-group-text  justify-content-center">작성자</span>
+								<span class="input-group-text  justify-content-center">배경색상</span>
 							</div>
-							<input name="writer" placeholder="작성자 입력"  class="form-control" />	
-						</div>								
+							<input name="backgroundColor" type="color" placeholder="색상선택"  class="form-control" />	
+						</div>	
+						<div class="input-group mb-3">	
+							<div class="input-group-prepend ">
+								<span class="input-group-text  justify-content-center">글자색상</span>
+							</div>
+							<input name="textColor" type="color" placeholder="글자선택"  class="form-control" />	
+						</div>							
+						<div class="input-group mb-3">	
+							<div class="input-group-prepend ">
+								<span class="input-group-text  justify-content-center">종일여부</span>
+							</div>
+							<select id="allDay"  class="form-control" >
+								<option value="true">종일</option>
+								<option value="false">시간</option>
+							</select>	
+							<input type="hidden" name="allDay"/>	
+						</div>	
+						<div class="input-group mb-3">	
+							<div class="input-group-prepend ">
+								<span class="input-group-text  justify-content-center">연관페이지</span>
+							</div>
+							<input name="urlLink" placeholder="연관 url링크 주소 입력"  class="form-control" />	
+						</div>																										
 					</form>
 				</div>
 				<div class="modal-footer">
+					<button id="regBtn" type="button" class="btn btn-primary">등록</button>				
 					<button type="button" class="btn btn-secondary"
-						data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary">Save changes</button>
+						data-dismiss="modal">창닫기</button>
+
 				</div>
 			</div>
 		</div>
