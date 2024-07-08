@@ -28,7 +28,26 @@
 <script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-	
+		$("#callBtn").click(function(){
+			$.ajax({
+				url:"data01.do",
+				dataType:"json",
+				success:function(result){
+					// data.모델명  : d.addAttribute("data", new Person())
+					var person = result.data
+					// tbody의 td 중에서 1번째.. 2번째, 3번째에 데이터 할당 처리..
+					$("tbody td").eq(0).text(person.name)
+					$("tbody td").eq(1).text(person.age)
+					$("tbody td").eq(2).text(person.loc)
+					// <tr><td></td><td></td><td></td></tr>
+				},
+				error:function(err){
+					console.log(err)
+				}
+				
+			})
+			
+		})
 	});
 </script>
 </head>
@@ -46,32 +65,25 @@
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 	    <input placeholder="제목" name=""  class="form-control mr-sm-2" />
 	    <input placeholder="내용" name=""  class="form-control mr-sm-2"/>
-	    <button class="btn btn-info" type="submit">Search</button>
+	    <button id="callBtn" class="btn btn-info" type="button">Person 호출</button>
 	    <button class="btn btn-success" 
 	    	data-toggle="modal" data-target="#exampleModalCenter"
 	        type="button">등록</button>
  	</nav>
 	</form>
    <table class="table table-hover table-striped">
-   	<col width="10%">
-   	<col width="50%">
-   	<col width="15%">
-   	<col width="15%">
-   	<col width="10%">
+   	<col width="33%">
+   	<col width="34%">
+   	<col width="33%">
     <thead>
-    
       <tr class="table-success text-center">
-        <th>번호</th>
-        <th>제목</th>
-        <th>작성자</th>
-        <th>작성일</th>
-        <th>조회</th>
+        <th>이름</th>
+        <th>나이</th>
+        <th>사는곳</th>
       </tr>
     </thead>	
     <tbody>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td></tr>
     </tbody>
 	</table>    
     
