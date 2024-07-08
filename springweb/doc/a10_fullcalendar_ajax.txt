@@ -20,6 +20,75 @@
  2. dao 처리를 통한 ajax 연동 처리
  3. 사원정보 ajax spring으로 처리해보기..
  
+# fullcalendar json 데이터 처리를 위한 DB설계 및 Dao 처리
+1. fullcalendar api, json 데이터 참고하여 테이블 만들기
+				title : 'Long Event',
+				start : '2024-07-07',
+				end : '2024-07-10'
+	주요 속성(고유속성)
+	id : 일정에 대한 고유 식별자
+	title : 일정 타이틀
+	start : 시작일
+	end : 종료일
+	backgroundColor : 배경색상
+	textColor : 글자색상
+	allDay : 종일여부
+	--------------
+	추가속성
+	writer : 작성자
+	content : 내용
+	테이블
+	create table calendar(
+		id number primary key,
+		title varchar2(200),
+		writer varchar2(50),
+		start1 varchar2(50),
+		end1 varchar2(50),
+		content varchar2(1000),
+		backgroundColor varchar2(50),
+		textColor varchar2(50),
+		allDay number(1),
+		url varchar2(200)
+	)	
+
+	CREATE SEQUENCE cal_seq;
+	INSERT INTO calendar values(cal_seq.nextval,
+		'첫일정','홍길동','2024-07-08','2024-07-09',
+		'첫일정입니다.','#0099cc','#ccffff',1,
+		'http://www.naver.com');	
+		select * 
+	from calendar;	
+	VO 
+	class Calendar
+	private int id;
+	private String title;
+	private String writer;
+	private String start;
+	private String end;
+	private String content;
+	private String backgroundColor;
+	private String textColor;
+	private boolean allDay;
+	private String url;
+	
+	select id, title, writer, start1 "start", end1 "end", content, backgroundcolor,
+			textcolor, allday, url
+	from calendar
+	INSERT INTO calendar values(cal_seq.nextval,
+		#{title},#{writer},#{start},#{end},
+		#{content},#{backgroundColor},#{textColor}#{allDay},#{url})		
+	기준을 dao/service/controller	
+	
+	http://localhost:7080/springweb/callList.do
+	위 json 데이터 호출 출력..
+		
+	
+	
+	
+	
+	
+
+
  
 		 
 		 

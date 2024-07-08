@@ -28,6 +28,8 @@
 <script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
+		
+		
 		$("#callBtn").click(function(){
 			$.ajax({
 				url:"data01.do",
@@ -51,7 +53,7 @@
 
 		$("#callBtnReq").click(function(){
 			$.ajax({
-				url:"data02.do",
+				url:"data03.do",
 				data:"name="+$("[name=name]").val(),
 				dataType:"json",
 				success:function(result){

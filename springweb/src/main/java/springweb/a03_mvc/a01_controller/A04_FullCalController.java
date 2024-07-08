@@ -12,4 +12,5 @@ public class A04_FullCalController {
 	public String calendar() {
 		return "WEB-INF\\views\\a03_mvc\\a07_fullcalendar.jsp";
 	}
+	// 
 }
