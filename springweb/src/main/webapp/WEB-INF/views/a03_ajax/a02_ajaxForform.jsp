@@ -48,6 +48,28 @@
 			})
 			
 		})
+
+		$("#callBtnReq").click(function(){
+			$.ajax({
+				url:"data02.do",
+				data:"name="+$("[name=name]").val(),
+				dataType:"json",
+				success:function(result){
+					// data.모델명  : d.addAttribute("person", new Person())
+					var person = result.person
+					// tbody의 td 중에서 1번째.. 2번째, 3번째에 데이터 할당 처리..
+					var addHTML="<tr><td>"+person.name+"</td><td>"+
+						person.age+"</td><td>"+person.loc+"</td></tr>"
+					$("tbody").append(addHTML)
+				},
+				error:function(err){
+					console.log(err)
+				}
+				
+			})	
+		})
+		
+		
 	});
 </script>
 </head>
@@ -63,9 +85,9 @@
 <div class="container">
 	<form id="frm01" class="form"  method="post">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input placeholder="제목" name=""  class="form-control mr-sm-2" />
-	    <input placeholder="내용" name=""  class="form-control mr-sm-2"/>
+	    <input placeholder="사원명" name="name"  class="form-control mr-sm-2" />
 	    <button id="callBtn" class="btn btn-info" type="button">Person 호출</button>
+	    <button id="callBtnReq" class="btn btn-info" type="button">Person 호출(요청)</button>
 	    <button class="btn btn-success" 
 	    	data-toggle="modal" data-target="#exampleModalCenter"
 	        type="button">등록</button>
