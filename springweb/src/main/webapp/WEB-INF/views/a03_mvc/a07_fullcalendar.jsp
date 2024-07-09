@@ -117,6 +117,14 @@ body {
 				}
 				*/
 			},
+			eventDrop:function(arg){
+				addForm(arg.event)
+				ajaxFun("updateCalendar.do")
+			},
+			eventResize:function(arg){
+				addForm(arg.event)
+				ajaxFun("updateCalendar.do")				
+			},
 			editable : true,
 			dayMaxEvents : true, // allow "more" link when too many events
 			events : function(info, successCallback, failureCallback){
