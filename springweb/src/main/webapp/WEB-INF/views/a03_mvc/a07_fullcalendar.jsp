@@ -73,6 +73,8 @@ body {
 				$("form")[0].reset()
 				// 입력form의 내용을 초기화:이전 입력데이터/상세데이터 삭제 처리
 				$("#regBtn").show()
+				$("#uptBtn").hide()
+				$("#delBtn").hide()
 				// 같은 모달창(등록/상세)에서 등록버튼만 화성화 처리..
 				$("#start").val(arg.start.toLocaleString())
 				// 보이는 날짜 처리 형식
@@ -99,10 +101,25 @@ body {
 				calendar.unselect()
 			},
 			eventClick : function(arg) {
+				console.log("# 상세 일정 #")
+				console.log(arg.event)
+				$("#modalTitle").text("일정상세")
+				$("#regBtn").hide()
+				$("#uptBtn").show()
+				$("#delBtn").show()
+				
+				
+				
+				
+				
+				
+				$("#showModel").click() 
 				// 상세화면 - 수정/삭제
+				/*
 				if (confirm('Are you sure you want to delete this event?')) {
 					arg.event.remove()
 				}
+				*/
 			},
 			editable : true,
 			dayMaxEvents : true, // allow "more" link when too many events
