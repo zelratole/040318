@@ -57,29 +57,32 @@ body {
 				center : 'title',
 				right : 'dayGridMonth,timeGridWeek,timeGridDay'
 			},
-			initialDate : '2024-07-05',
+			initialDate : '2024-07-05', /*초기 로딩되는 날짜.*/
 			navLinks : true, // can click day/week names to navigate views
 			selectable : true,
 			selectMirror : true,
-			select : function(arg) {
+			select : function(arg) { // 기본 일정 등록시, 처리되는 이벤트..
+				$("#showModel").click() //강제이벤트 처리.
 				console.log("# 캘린터 기본 속성 확인 #")
-				//console.log(arg)
+				console.log(arg)
 				console.log(arg.startStr)
 				console.log(arg.endStr)
 				console.log(arg.allDay)
-				$("#modalTitle").text("일정 등록")
+				$("#modalTitle").text("일정 등록") 
+				// 같은 모달창에서 상세와 등록 같이 처리하기에
 				$("form")[0].reset()
+				// 입력form의 내용을 초기화:이전 입력데이터/상세데이터 삭제 처리
 				$("#regBtn").show()
+				// 같은 모달창(등록/상세)에서 등록버튼만 화성화 처리..
 				$("#start").val(arg.start.toLocaleString())
+				// 보이는 날짜 처리 형식
 				$("[name=start]").val(arg.startStr)
+				// 실제 저장할 날짜 처리 형식..
 				$("#end").val(arg.end.toLocaleString())
 				$("[name=end]").val(arg.endStr)
-				$("#allDay").val(""+arg.allDay)
-				$("[name=allDay]").val(arg.allDay?1:0)
 				
-				$("#showModel").click() //강제이벤트 처리.
-				
-				
+				$("#allDay").val(""+arg.allDay) // 문자열로 형변환설정.
+				$("[name=allDay]").val(arg.allDay?1:0) // 문자열을 vo boolean형식으로 전달하기 위해설정.
 				
 				
 				/*
@@ -96,6 +99,7 @@ body {
 				calendar.unselect()
 			},
 			eventClick : function(arg) {
+				// 상세화면 - 수정/삭제
 				if (confirm('Are you sure you want to delete this event?')) {
 					arg.event.remove()
 				}
@@ -108,9 +112,10 @@ body {
 					url:"callList.do",
 					dataType:"json",
 					success:function(data){
-						console.log(data)
-						calendar.removeAllEvents()
-						successCallback(data.calList)
+						console.log(data) // 서버에서 받은 데이터(controller)
+						calendar.removeAllEvents() // 현재 기본 일정 데이터 초기화(삭제처리)
+						successCallback(data.calList) // data.모델명(json형식데이터)
+						// d.addAttribute("calList", service.getFullCalendarList());
 						
 					}
 					
@@ -132,12 +137,15 @@ body {
 			$.ajax({
 				type:"post",
 				url:url,
-				data:$("form").serialize(),
+				data:$("form").serialize(),// form안에 있는 name/value 속성값을 key=val변환 처리.
 				dataType:"json",
 				success:function(data){
+					// 등록이 완료된 후,  등록성공/실패 메시지와 다시 등록이 된 내용을 적용한
+					// 화면을 로딩하기 위한 처리..
 					alert(data.msg)
 					calendar.removeAllEvents()
 					calendar.addEventSource(data.calList)
+					// 등록 완료된 후에는 등록 모달창 닫기 처리.
 					$("#clsBtn").click()
 				},
 				error:function(err){
@@ -165,6 +173,11 @@ body {
 		
 	</script>
 	<div id="showModel" data-toggle="modal" data-target="#calModal"></div>
+	<!--showModel 클릭시, 연동되어 있는 모달창이 로딩..
+		특정한 기능에 의해서 모달창을 로딩할려면, showModel를 강제로 클릭과 동일한
+		코드로 처리. $("#showModel").click() 실제 클릭이 아니고 코드로 이벤트
+		수행과 동일한 효과..
+	 -->
 	<div class="modal fade" id="calModal" tabindex="-1"
 		role="dialog" aria-labelledby="exampleModalCenterTitle"
 		aria-hidden="true">
@@ -201,16 +214,16 @@ body {
 						</div>	
 						<div class="input-group mb-3">	
 							<div class="input-group-prepend ">
-								<span class="input-group-text  justify-content-center">시작일</span>
+								<span class="input-group-text  justify-content-center">시 작(일/시)</span>
 							</div>
-							<input id="start" placeholder="시작일 입력"  class="form-control" />	
-							<input name="start" type="hidden"   />	
+							<input id="start"  class="form-control" /><!-- 화면에 보일 날짜/시간.. -->	
+							<input name="start" type="hidden"   />	<!-- 실제 저장할 날짜/시간 -->
 						</div>	
 						<div class="input-group mb-3">	
 							<div class="input-group-prepend ">
-								<span class="input-group-text  justify-content-center">종료일</span>
+								<span class="input-group-text  justify-content-center">종 료(일/시)</span>
 							</div>
-							<input id="end" placeholder="종료일 입력"  class="form-control" />	
+							<input id="end"  class="form-control" />	
 							<input name="end" type="hidden"   />	
 						</div>		
 						<div class="input-group mb-3">	
@@ -252,6 +265,8 @@ body {
 				</div>
 				<div class="modal-footer">
 					<button id="regBtn" type="button" class="btn btn-primary">등록</button>				
+					<button id="uptBtn" type="button" class="btn btn-info">수정</button>				
+					<button id="delBtn" type="button" class="btn btn-warning">삭제</button>				
 					<button id="clsBtn" type="button" class="btn btn-secondary"
 						data-dismiss="modal">창닫기</button>
 

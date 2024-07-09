@@ -19,7 +19,11 @@ public class A04_CalendarService {
 		return dao.insertCalendar(ins)>0?"등록성공":"등록실패";
 	}
 	public List<Calendar> getFullCalendarList(){
-		return dao.getFullCalendarList();
+		List<Calendar> list = dao.getFullCalendarList();
+		System.out.println(dao);
+		System.out.println("트래킹 연습");
+		//System.out.println(dao.getFullCalendarList());
+		return list;
 	}	
 	
 }
