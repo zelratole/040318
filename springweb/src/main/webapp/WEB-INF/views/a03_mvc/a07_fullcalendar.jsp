@@ -198,6 +198,7 @@ body {
 					calendar.removeAllEvents()
 					calendar.addEventSource(data.calList)
 					// 등록 완료된 후에는 등록 모달창 닫기 처리.
+					console.log(data.msg.indexof('수정'))
 					$("#clsBtn").click()
 				},
 				error:function(err){
