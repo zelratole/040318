@@ -109,10 +109,6 @@ body {
 				$("#delBtn").show()
 				
 				addForm(arg.event)
-				
-				
-				
-				
 				$("#showModel").click() 
 				// 상세화면 - 수정/삭제
 				/*
@@ -151,7 +147,6 @@ body {
 			$("[name=title]").val(event.title)
 			$("[name=backgroundColor]").val(event.backgroundColor)
 			$("[name=textColor]").val(event.textColor)
-			console.log("###종일일정:"+event.allDay)
 
 			// 전달되는 데이터와 호출하여 보이는 데이터 차이가 있는 데이터
 			$("[name=start]").val(event.startStr)
@@ -300,7 +295,7 @@ body {
 								<option value="true">종일</option>
 								<option value="false">시간</option>
 							</select>	
-							<input type="hidden" name="allDay"/>	
+							<input type="hidden" name="allDay"/>
 						</div>	
 						<div class="input-group mb-3">	
 							<div class="input-group-prepend ">
