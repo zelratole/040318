@@ -60,14 +60,14 @@ a<%@ page language="java" contentType="text/html; charset=UTF-8"
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                     </div>
-                                    <form class="user">
+                                    <form method="post" class="user">
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user"
+                                            <input name="id" type="email" class="form-control form-control-user"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
                                                 placeholder="Enter Email Address...">
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user"
+                                            <input name="pwd" type="password" class="form-control form-control-user"
                                                 id="exampleInputPassword" placeholder="Password">
                                         </div>
                                         <div class="form-group">
@@ -77,9 +77,21 @@ a<%@ page language="java" contentType="text/html; charset=UTF-8"
                                                     Me</label>
                                             </div>
                                         </div>
-                                        <a href="index.html" class="btn btn-primary btn-user btn-block">
+                                        <a href="javascript:login()" class="btn btn-primary btn-user btn-block">
                                             Login
                                         </a>
+                                        <script type="text/javascript">
+                                        	function login(){
+                                        		$("form").submit();
+                                        	}
+                                        	var msg = "${msg}"
+                                        	if(msg!=""){ 
+                                        		alert(msg)
+	                                        	if(msg == "로그인 성공"){
+	                                        		alert("메인페이지 이동(프로세스)")	
+	                                        	}
+                                        	}
+                                        </script>
                                         <hr>
                                         <a href="index.html" class="btn btn-google btn-user btn-block">
                                             <i class="fab fa-google fa-fw"></i> Login with Google
