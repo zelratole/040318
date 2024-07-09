@@ -2,6 +2,7 @@ package springweb.a03_mvc.a02_service;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,5 +26,11 @@ public class A04_CalendarService {
 		//System.out.println(dao.getFullCalendarList());
 		return list;
 	}	
+	public String updateCalendar(Calendar upt) {
+		return dao.updateCalendar(upt)>0?"수정 성공":"수정 실패";
+	}
+	public String deleteCalendar(int id) {
+		return dao.deleteCalendar(id)>0?"삭제 성공":"삭제 실패";
+	}
 	
 }

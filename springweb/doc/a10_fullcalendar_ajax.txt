@@ -133,13 +133,38 @@
 		등록과 수정 삭제 버튼에 대한 show()/hide()처리 - 등록 버튼 시에도 구분 처리..
 		매개변수로 받아오는 속성값(fullcalendar자체 DB에서 할당된 데이터)을 통해서 모달 form데이터할당처리
 		모달창 로딩처리(모달창 로딩 이벤트 처리)
-		
-		 
-		
-		
-		
 
-# 수정/삭제 처리 
+# 수정/삭제 처리
+1. 요구사항 내용
+	1) 상세화면에서 데이터를 변경 후, 수정 삭제 처리시, 해당 내용을 수정/삭제 처리된다.
+	2) 일정의 경우, 일정을 늘리거나, 클릭 후 드래그하여 다른 일정으로 드랍시 일정 변경된다.
+2. 처리 순서
+	1) sql 작성(수정/삭제)
+UPDATE CALENDAR 
+SET title = #{title},
+    start1=#{start},
+    end1=#{end},
+    writer=#{writer},
+    content=#{content},
+    backgroundColor=#{backgroundColor},
+    textColor=#{textColor},
+    allDay = #{allDay},
+    url=#{urlLink}
+WHERE id = #{id}
+DELETE FROM calendar
+WHERE id = #{id}
+	2) dao 처리
+	3) service
+	4) controller 호출..
+		updateCalendar.do
+		deleteCalendar.do
+	----------------------------------	
+	4) 화면단 처리..
+		- 상세화면에서 변경후 수정버튼클릭시 수정 ajax 호출
+		- 상세화면에서 변경후 수정버튼클릭시 삭제 ajax 호출	
+		- 일정 늘이기/일정 드래그앤드랍시 수정 ajax 호출..
+		
+	
 		 
 		 
 		 
