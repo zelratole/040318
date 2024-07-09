@@ -108,7 +108,7 @@ body {
 				$("#uptBtn").show()
 				$("#delBtn").show()
 				
-				
+				addForm(arg.event)
 				
 				
 				
@@ -143,7 +143,33 @@ body {
 				failureCallback(err)
 			}
 		});
-
+		
+		function addForm(event){
+			$("form")[0].reset()
+			// 기본 설정값으로 설정이 가능한 데이터
+			$("[name=id]").val(event.id)
+			$("[name=title]").val(event.title)
+			$("[name=backgroundColor]").val(event.backgroundColor)
+			$("[name=textColor]").val(event.textColor)
+			$("[name=allDay]").val(event.allDay?1:0)
+			// 전달되는 데이터와 호출하여 보이는 데이터 차이가 있는 데이터
+			$("[name=start]").val(event.startStr)
+			$("#start").val(event.start.toLocaleString())
+			$("[name=end]").val(event.endStr)
+			$("#end").val(event.end.toLocaleString())
+			// fullcalendar 자체에서는 없지만 사용자에 의해서 필요한 추가 속성..
+			$("[name=writer]").val(event.extendedProps.writer)
+			$("[name=content]").val(event.extendedProps.content)
+			$("[name=urlLink]").val(event.extendedProps.urlLink)
+			
+			
+			
+			
+			
+			
+		}
+		
+		
 		calendar.render();
 		$("#regBtn").click(function(){
 			if(confirm("등록하시겠습니까?")){
