@@ -1,0 +1,36 @@
+# 스프링으로 세션 처리하기
+1. 세션을 실무프로젝트에서 여러가지 권한처리할 때, 많이 활용된다.
+	권한에 따른 페이지 접속과 기능버튼 수행가능 여부들을 사용할 때, 많이 사용된다.
+2. 위 내용을 처리할 때마다 DB로 확인하는 방법도 있지만, 서버부하에 대한 문제로
+	위 내용을 session을 처리할 때가 많다.
+3. 주요 처리할 내용
+	1) 회원 정보 테이블로 로그인 처리..
+	2) 로그인 성공시, session 설정
+	3) session값에 의하여 특정한 화면 처리면, 기능 버튼 처리..
+	4) page별 session 설정 유무에 따른 접근 처리..
+4. 개발 순서
+	1) db설계 및 sql 작성..
+		member(id, pwd, name, auth, point)
+		select *
+		from member
+		where id = 'himan'
+		and pwd = '7777'
+	2) dao
+		@Select("select *\r\n"
+				+ "from MEMBER01\r\n"
+				+ "where id = #{id}\r\n"
+				+ "and pwd = #{pwd}")
+		Member login(Member mem);	
+	3) service
+	3) controller
+		loginFrm.do
+		login.do
+			해당 아이디/패스워드가 있을 때, 로그인 성공과 session 설정.
+-------------------------------------------
+			
+			
+			
+			
+		main.do
+			메인 페이지에서 session에 따른 출력과 특정 권한에 따를 기능 처리..
+			session 권한이 없을 때, 로그인 페이지도 이동 처리..	

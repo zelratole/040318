@@ -166,7 +166,6 @@ body {
 				$("[name=end]").val(event.endStr)
 				$("#end").val(event.end.toLocaleString())				
 			}
-
 			$("[name=allDay]").val(event.allDay?1:0)
 			$("#allDay").val(""+event.allDay)	
 			
@@ -174,12 +173,6 @@ body {
 			$("[name=writer]").val(event.extendedProps.writer)
 			$("[name=content]").val(event.extendedProps.content)
 			$("[name=urlLink]").val(event.extendedProps.urlLink)
-			
-			
-			
-			
-			
-			
 		}
 		$("#allDay").change(function(){
 			if($(this).val()=="true"){
