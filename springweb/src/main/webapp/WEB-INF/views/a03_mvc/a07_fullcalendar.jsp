@@ -159,8 +159,14 @@ body {
 			// 전달되는 데이터와 호출하여 보이는 데이터 차이가 있는 데이터
 			$("[name=start]").val(event.startStr)
 			$("#start").val(event.start.toLocaleString())
-			$("[name=end]").val(event.endStr)
-			$("#end").val(event.end.toLocaleString())
+			if(event.end==null){
+				$("[name=end]").val(event.startStr)
+				$("#end").val(event.start.toLocaleString())			
+			}else{
+				$("[name=end]").val(event.endStr)
+				$("#end").val(event.end.toLocaleString())				
+			}
+
 			$("[name=allDay]").val(event.allDay?1:0)
 			$("#allDay").val(""+event.allDay)	
 			
@@ -175,7 +181,13 @@ body {
 			
 			
 		}
-		
+		$("#allDay").change(function(){
+			if($(this).val()=="true"){
+				$("[name=allDay]").val(1)
+			}else{
+				$("[name=allDay]").val(0)
+			}
+		})
 		
 		calendar.render();
 		$("#regBtn").click(function(){
