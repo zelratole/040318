@@ -12,6 +12,7 @@ public class A05_MemberService {
 	@Autowired(required=false)
 	private A05_MemberDao dao;
 	
+	
 	public Member login(Member mem) {
 		return dao.login(mem);
 	}
