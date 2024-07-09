@@ -175,6 +175,16 @@ body {
 				ajaxFun("insertCalendar.do")
 			}
 		})	
+		$("#uptBtn").click(function(){
+			if(confirm("수정하시겠습니까?")){
+				ajaxFun("updateCalendar.do")
+			}
+		})	
+		$("#delBtn").click(function(){
+			if(confirm("삭제하시겠습니까?")){
+				ajaxFun("deleteCalendar.do")
+			}
+		})	
 		function ajaxFun(url){
 			$.ajax({
 				type:"post",
