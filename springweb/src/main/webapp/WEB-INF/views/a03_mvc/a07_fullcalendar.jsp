@@ -198,8 +198,11 @@ body {
 					calendar.removeAllEvents()
 					calendar.addEventSource(data.calList)
 					// 등록 완료된 후에는 등록 모달창 닫기 처리.
-					console.log(data.msg.indexof('수정'))
-					$("#clsBtn").click()
+					console.log(data.msg.indexOf('수정'))
+					// 메시지가 '수정'포함인 경우만 창닫는 처리 방지
+					if(data.msg.indexOf('수정')==-1){
+						$("#clsBtn").click()
+					}
 				},
 				error:function(err){
 					console.log(err)
