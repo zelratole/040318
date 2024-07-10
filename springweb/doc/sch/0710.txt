@@ -1,0 +1,86 @@
+### 1. 흥미로운 도입
+
+jQuery는 웹 개발자들 사이에서 가장 널리 사용되는 JavaScript 라이브러리 중 하나입니다. 
+특히, 이벤트 관리는 웹 애플리케이션에서 사용자 상호작용을 원활하게 처리하는 데 중요한 역할을 합니다.
+스프링 MVC와 같은 서버 측 프레임워크와 결합하면 강력한 웹 애플리케이션을 구축할 수 있습니다. 
+이 문서에서는 jQuery 이벤트를 스프링 MVC와 통합하여 어떻게 활용할 수 있는지에 대해 알아보겠습니다.
+웹 페이지에서 버튼을 클릭할 때 데이터를 서버에 전송하고, 서버에서 응답을 받아와 화면에 반영하는 
+과정은 어떻게 이루어질까요? 함께 탐구해봅시다!
+
+### 2. 학습목표
+
+- jQuery 이벤트의 기본 개념과 활용 방법을 이해합니다.
+- 스프링 MVC와 jQuery를 통합하여 웹 애플리케이션을 개발하는 방법을 익힙니다.
+- jQuery 이벤트를 사용하여 사용자 인터페이스를 동적으로 업데이트하는 방법을 학습합니다.
+- 서버와 클라이언트 간의 비동기 통신을 이해하고 이를 실무에 적용합니다.
+
+### 3. 주요 핵심 키워드와 핵심개념
+
+- **jQuery**: JavaScript 라이브러리로, DOM 조작과 이벤트 처리를 쉽게 할 수 있게 해줍니다.
+- **이벤트**: 사용자의 상호작용(클릭, 입력 등)에 반응하여 실행되는 코드입니다.
+- **AJAX**: Asynchronous JavaScript and XML의 약자로, 서버와 비동기적으로 데이터를 교환할 수 있습니다.
+- **스프링 MVC**: Java 기반의 웹 프레임워크로, 모델-뷰-컨트롤러 패턴을 지원합니다.
+- **비동기 통신**: 서버와 클라이언트 간의 데이터 교환이 동기적으로 이루어지지 않고, 요청-응답이 별도로 처리되는 방식입니다.
+
+### 4. 퀴즈문제/토론과제
+
+#### 퀴즈문제
+
+1. jQuery에서 `click` 이벤트를 사용하는 방법은 무엇인가요?
+2. 스프링 MVC에서 데이터를 JSON 형식으로 응답하기 위해 사용하는 어노테이션은 무엇인가요?
+3. AJAX 요청의 장점은 무엇인가요?
+
+#### 토론과제
+
+1. jQuery와 순수 JavaScript 이벤트 처리의 차이점에 대해 토론해보세요.
+2. 스프링 MVC와 jQuery를 함께 사용할 때의 장점과 단점에 대해 논의해보세요.
+3. 비동기 통신을 활용한 웹 애플리케이션의 성능 향상 방법에 대해 이야기해보세요.
+
+### 5. 실무적용사례
+
+#### 사례 1: 사용자 로그인 시스템
+
+jQuery와 스프링 MVC를 활용하여 실시간 로그인 시스템을 구축할 수 있습니다. 사용자가 로그인 버튼을 클릭하면 jQuery의 `click` 이벤트를 통해 AJAX 요청을 보내고, 서버에서는 사용자의 자격 증명을 확인한 후 JSON 형식의 응답을 반환합니다. 클라이언트는 이 응답을 받아 로그인 성공 또는 실패 메시지를 동적으로 화면에 표시합니다.
+
+```javascript
+// jQuery를 사용한 로그인 버튼 이벤트 처리
+$('#loginButton').click(function() {
+    var username = $('#username').val();
+    var password = $('#password').val();
+    
+    $.ajax({
+        type: 'POST',
+        url: '/login',
+        data: JSON.stringify({username: username, password: password}),
+        contentType: 'application/json',
+        success: function(response) {
+            if(response.success) {
+                window.location.href = '/home';
+            } else {
+                $('#errorMessage').text('Invalid credentials. Please try again.');
+            }
+        }
+    });
+});
+```
+
+#### 사례 2: 실시간 데이터 업데이트
+
+주식 거래 웹사이트에서 실시간 주식 가격을 표시하는 예시입니다. jQuery의 `setInterval` 함수를 사용하여 일정 시간 간격으로 AJAX 요청을 보내고, 서버에서 최신 주식 가격 데이터를 받아와 화면에 업데이트합니다.
+
+```javascript
+// 주기적으로 주식 가격을 업데이트하는 함수
+function updateStockPrices() {
+    $.ajax({
+        type: 'GET',
+        url: '/stocks/latest',
+        success: function(data) {
+            $('#stockPrice').text(data.price);
+        }
+    });
+}
+
+// 5초마다 주식 가격 업데이트
+setInterval(updateStockPrices, 5000);
+```
+
