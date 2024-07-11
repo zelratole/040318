@@ -69,12 +69,15 @@ body {
 				console.log(arg.endStr)
 				console.log(arg.allDay)
 				$("#modalTitle").text("일정 등록") 
+				$("#regBtn").show()
+				$("#uptBtn").hide()
+				$("#delBtn").hide()				
+				addForm(arg,"I")
+				/*
 				// 같은 모달창에서 상세와 등록 같이 처리하기에
 				$("form")[0].reset()
 				// 입력form의 내용을 초기화:이전 입력데이터/상세데이터 삭제 처리
-				$("#regBtn").show()
-				$("#uptBtn").hide()
-				$("#delBtn").hide()
+
 				// 같은 모달창(등록/상세)에서 등록버튼만 화성화 처리..
 				$("#start").val(arg.start.toLocaleString())
 				// 보이는 날짜 처리 형식
@@ -85,7 +88,7 @@ body {
 				
 				$("#allDay").val(""+arg.allDay) // 문자열로 형변환설정.
 				$("[name=allDay]").val(arg.allDay?1:0) // 문자열을 vo boolean형식으로 전달하기 위해설정.
-				
+				*/
 				
 				/*
 				var title = prompt('Event Title:');
@@ -98,7 +101,7 @@ body {
 					})
 				}
 				*/
-				calendar.unselect()
+				//calendar.unselect()
 			},
 			eventClick : function(arg) {
 				console.log("# 상세 일정 #")
@@ -148,15 +151,19 @@ body {
 			}
 		});
 		
-		function addForm(event){
+		function addForm(event, proc){
+			
 			$("form")[0].reset()
-			// 기본 설정값으로 설정이 가능한 데이터
-			$("[name=id]").val(event.id)
+			if(proc != "I"){
+				$("[name=id]").val(event.id)
+				$("[name=writer]").val(event.extendedProps.writer)
+				$("[name=content]").val(event.extendedProps.content)
+				$("[name=urlLink]").val(event.extendedProps.urlLink)
+				$("[name=backgroundColor]").val(event.backgroundColor)
+				$("[name=textColor]").val(event.textColor)
+				
+			}
 			$("[name=title]").val(event.title)
-			$("[name=backgroundColor]").val(event.backgroundColor)
-			$("[name=textColor]").val(event.textColor)
-
-			// 전달되는 데이터와 호출하여 보이는 데이터 차이가 있는 데이터
 			$("[name=start]").val(event.startStr)
 			$("#start").val(event.start.toLocaleString())
 			if(event.end==null){
@@ -167,21 +174,7 @@ body {
 				$("#end").val(event.end.toLocaleString())				
 			}
 			$("[name=allDay]").val(event.allDay?1:0)
-			$("#allDay").val(""+event.allDay)	
-			
-			// fullcalendar 자체에서는 없지만 사용자에 의해서 필요한 추가 속성..
-			$("[name=writer]").val(event.extendedProps.writer)
-			$("[name=content]").val(event.extendedProps.content)
-			$("[name=urlLink]").val(event.extendedProps.urlLink)
 		}
-		$("#allDay").change(function(){
-			if($(this).val()=="true"){
-				$("[name=allDay]").val(1)
-			}else{
-				$("[name=allDay]").val(0)
-			}
-		})
-		
 		calendar.render();
 		$("#regBtn").click(function(){
 			if(confirm("등록하시겠습니까?")){
@@ -318,11 +311,13 @@ body {
 							<div class="input-group-prepend ">
 								<span class="input-group-text  justify-content-center">종일여부</span>
 							</div>
-							<select id="allDay"  class="form-control" >
-								<option value="true">종일</option>
-								<option value="false">시간</option>
+							<select name="allDay" class="form-control" >
+								<option value="1">종일</option>
+								<option value="0">시간</option>
 							</select>	
+							<%--
 							<input type="hidden" name="allDay"/>
+							 --%>
 						</div>	
 						<div class="input-group mb-3">	
 							<div class="input-group-prepend ">

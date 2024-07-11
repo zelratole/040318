@@ -16,7 +16,7 @@ public class A05_MemberController {
 	
 	@Autowired(required=false)
 	private A05_MemberService service;
-	
+	// http://localhost:7080/springweb/login.do
 	@GetMapping("login.do")
 	public String loginFrm() {
 		return "WEB-INF\\views\\a03_mvc\\a08_login.jsp";
@@ -33,7 +33,10 @@ public class A05_MemberController {
 		
 		return "WEB-INF\\views\\a03_mvc\\a08_login.jsp";
 	}
-	
+	@GetMapping("main.do")
+	public String main() {
+		return "WEB-INF\\views\\a03_mvc\\a09_main.jsp";
+	}	
 	
 	
 }

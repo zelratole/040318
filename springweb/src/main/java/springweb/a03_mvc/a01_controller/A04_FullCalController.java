@@ -1,14 +1,20 @@
 package springweb.a03_mvc.a01_controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.google.gson.Gson;
 
 import springweb.a03_mvc.a02_service.A04_CalendarService;
+import springweb.a04_mvc.z01_vo.Product;
 import springweb.z01_vo.Calendar;
+import springweb.z01_vo.Emp;
 
 @Controller
 public class A04_FullCalController {
@@ -46,7 +52,5 @@ public class A04_FullCalController {
 		d.addAttribute("calList", service.getFullCalendarList());
 		return "jsonView";
 	}	
-	
-	
 	
 }
