@@ -1,4 +1,4 @@
-package springweb.z01_util.task;
+package task;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;

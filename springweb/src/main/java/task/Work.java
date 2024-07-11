@@ -1,4 +1,4 @@
-package springweb.z01_util.task;
+package task;
 
 public class Work {
 

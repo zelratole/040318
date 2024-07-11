@@ -1,4 +1,4 @@
-package springweb.z01_util.task;
+package task;
 
 import org.springframework.scheduling.annotation.Async;
 
