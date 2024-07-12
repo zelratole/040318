@@ -105,14 +105,6 @@
 
 	<bean id="logCollector" class="springweb.z01_util.task.LogCollector" />
      -->
-	<task:scheduler id="scheduler" pool-size="4" />
-
-	<task:scheduled-tasks scheduler="scheduler">
-		<task:scheduled ref="logCollector" method="collect"
-			cron="*/5 * * * * *" />
-	</task:scheduled-tasks>
-
-	<bean id="logCollector" class="springweb.z01_util.task.LogCollector" />
 </beans>  
 
     
