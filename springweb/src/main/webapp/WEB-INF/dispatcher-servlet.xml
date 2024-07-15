@@ -35,7 +35,22 @@
       <context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
       <context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
    </context:component-scan>   
+   <!-- 
+   # 웹소켓 통신을 위한 선언
+   1. java로 핸들러 클래스가 가능하게 mapper/adapter 선언
    
+    -->
+   
+   <!-- 
+   2. java핸들러 클래스 선언과 함께 client단에서 접속시 호출되는 url 지정
+   <mvc:default-servlet-handler/>
+   <websocket:handlers>
+   	  <websocket:mapping handler="chatHandler" path="/chat-ws.do"/>
+   </websocket:handlers>     
+    -->
+    
+    
+    
    <!-- 
    # 공통설정파일 위치 지정...
     -->
