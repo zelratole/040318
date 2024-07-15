@@ -9,7 +9,16 @@ a<%@ page language="java" contentType="text/html; charset=UTF-8"
 <head>
 <meta charset="UTF-8">
 <title>Good day!!</title>
+<script type="text/javascript">
+	var msg = "${msg}"
+	if(msg!=""){ 
+		alert(msg)
+    	if(msg == "로그인 성공"){
 
+			location.href="main.do"
+    	}
+	}
+</script>
 
 
 
@@ -84,14 +93,7 @@ a<%@ page language="java" contentType="text/html; charset=UTF-8"
                                         	function login(){
                                         		$("form").submit();
                                         	}
-                                        	var msg = "${msg}"
-                                        	if(msg!=""){ 
-                                        		alert(msg)
-	                                        	if(msg == "로그인 성공"){
 
-													location.href="main.do"
-	                                        	}
-                                        	}
                                         </script>
                                         <hr>
                                         <a href="index.html" class="btn btn-google btn-user btn-block">
