@@ -49,10 +49,15 @@
 			$(this).attr("align",align ).text(align)
 		})
 		// chBtn 클릭시 마다, h5의 과일명이 변경되면서 글자색상도 변경되게 처리하세요.
+		var fruits = ['사과','바나나','키위']
+		var fcolors = ['red','yellow','green']
+		var chIdx = 0;
+		$("#chBtn").click(function(){
+			$("h5").text(fruits[chIdx%3]).css("color",fcolors[chIdx++%3])
+		})
 	});
 </script>
 </head>
-
 <body>
 <div class="jumbotron text-center">
   <h2>타이틀</h2>
@@ -61,7 +66,7 @@
   <h3>Touch me!!!^^</h3>
   <h3>Touch me!!!^^</h3>
   <h4>left</h4>
-  <button id="chBtn" class="btn btn-info" type="button">변신은 무죄 (변신!!)</button>
+  <button id="chBtn" class="btn btn-info" type="button">변신은 무죄 (변신!!)</button><br>
   <h5></h5> 	
 </div>
 <%-- 
