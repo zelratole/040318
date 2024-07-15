@@ -27,23 +27,28 @@
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
 <script type="text/javascript">
-	// ? $(document) : 전체 DOM객체가 메모리로 로딩된 후에 처리할 내용을 선언...
 	$(document).ready(function(){
-		// $("h2") : DOM 객체를 호출하여 text() 해당 객체 출력할 문자열을 지정...
-		$("h2").text("jquery 본격적으로 시작!!<h2>안녕</h2>")
-		$("p").html("<h2>jquery 본격적으로 시작!!</h2>")
-		$("p").append("<h2>추가 코드 시작!!</h2>")
-		// text() : 기본 문자열 처리
-		// html() : html 코드를 해석 처리해준다.
-		// append() : 기존의 데이터에서 추가적으로 넣을 내용을 처리해준다.
-		// h2 클릭시마다..  p태그에 카운트1, 카운트2..   추가되게 처리해보세요
-		var cnt = 1;
-		$("h2").text("클릭해보세요!!").click(function(){
-			
-			$("p").append("<h3>카운트 "+(cnt++)+"</h3>")
-			
+		// $("선택자").css("속성","속성값") : css 속성..
+		$("h2").text("클릭해보실래요?").css("color","red")
+		var colors = ['red','orange','yellow','green',
+					  'blue','navy','purple']
+		$("h2").click(function(){
+			$("h2").text("변경 파랑둥이").css("color","blue")
 		})
-		
+		var idx=0;
+		$("h3").click(function(){
+			// $(this) click대상객체..
+			// idx++%7  1... 6, 7, 8, .... 10 .....
+			//                  0  1 ....  
+			$(this).css("color",colors[ idx++%7 ])
+		})
+		var aligns = ["left","center","right"]
+		var aIdx = 0;
+		$("h4").click(function(){
+			var align = aligns[ aIdx++%3 ]
+			$(this).attr("align",align ).text(align)
+		})
+		// chBtn 클릭시 마다, h5의 과일명이 변경되면서 글자색상도 변경되게 처리하세요.
 	});
 </script>
 </head>
@@ -51,8 +56,13 @@
 <body>
 <div class="jumbotron text-center">
   <h2>타이틀</h2>
-  <p>타이틀</p>
-
+  <h3>Touch me!!!^^</h3>
+  <h3>Touch me!!!^^</h3>
+  <h3>Touch me!!!^^</h3>
+  <h3>Touch me!!!^^</h3>
+  <h4>left</h4>
+  <button id="chBtn" class="btn btn-info" type="button">변신은 무죄 (변신!!)</button>
+  <h5></h5> 	
 </div>
 <%-- 
 		
