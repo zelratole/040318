@@ -349,7 +349,14 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">${mem.name}</span>
                                 <img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg">
+                                    src="${path}/a00_com/img/undraw_profile.svg" onclick="logout()">
+                                <script type="text/javascript">
+                                	function logout(){
+                                		$("#exampleModalLabel").click();
+                                	}
+                                </script>    
+                                    
+                                    
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -748,7 +755,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="${path}/login.do">Logout</a>
                 </div>
             </div>
         </div>

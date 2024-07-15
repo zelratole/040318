@@ -18,7 +18,8 @@ public class A05_MemberController {
 	private A05_MemberService service;
 	// http://localhost:7080/springweb/login.do
 	@GetMapping("login.do")
-	public String loginFrm() {
+	public String loginFrm(HttpSession session) {
+		session.removeAttribute("mem");
 		return "WEB-INF\\views\\a03_mvc\\a08_login.jsp";
 	}
 	@PostMapping("login.do")
