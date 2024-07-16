@@ -36,6 +36,14 @@
 <body>
 <div class="jumbotron text-center">
   <h2>form요소 객체 활성/비활성화 처리</h2>
+  <form>
+  	<fieldset>
+  		<input type="text" id="first">
+  		<input type="text" id="second" disabled="disabled">
+  		<input type="button"  id="enable" value="enable">
+  		<button  id="disable">disable</button>
+  	</fieldset>
+  </form>
 </div>
 <%-- 
 # show/hide와 enabled/disabled의 차이
