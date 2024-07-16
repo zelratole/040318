@@ -38,13 +38,26 @@ td {
 		//    회원가입 항목으로  id, pwd, name을 설정하여
 		//    입력시, 해당 항목을 강조하여 처리하고 벗어났을 때, 원래 css로 돌아가게 처리하세요..
 		$(".input-group-append").hide()
+		$(".reg").click(function(){
+			$("input.reg:focus").css({"background":"yellow","font-size":"15pt"})
+			$("input.reg:not(:focus)").removeAttr("style")
+		})
+		$(".reg").keyup(function(){
+			console.log("입력된 내용:"+$(this).val())
+			if($(this).val()==""){
+				$(this).next().show()
+			}else{
+				$(this).next().hide()
+			}
+			
+		})
 	});
 </script>
 </head>
 
 <body>
 	<div class="jumbotron text-center">
-		<h2>회워가입</h2>
+		<h2>회원가입</h2>
 	</div>
 	<%-- 
 		
@@ -57,7 +70,7 @@ td {
 				</div>
 				<input name="id" class="form-control reg" value="" />
 				<div class="input-group-append">
-					<span class="input-group-text  justify-content-center"></span>
+					<span class="input-group-text  justify-content-center">입력이 필요합니다.</span>
 				</div>				
 			</div>
 			<div class="input-group mb-3">
@@ -66,7 +79,7 @@ td {
 				</div>
 				<input name="pwd" type="password" class="form-control reg" value="" />
 				<div class="input-group-append ">
-					<span class="input-group-text  justify-content-center"></span>
+					<span class="input-group-text  justify-content-center">입력이 필요합니다.</span>
 				</div>				
 			</div>
 			<div class="input-group mb-3">
@@ -75,7 +88,7 @@ td {
 				</div>
 				<input name="name" class="form-control reg" value="" />
 				<div class="input-group-append ">
-					<span class="input-group-text  justify-content-center"></span>
+					<span class="input-group-text  justify-content-center">입력이 필요합니다.</span>
 				</div>				
 			</div>
 		</form>
