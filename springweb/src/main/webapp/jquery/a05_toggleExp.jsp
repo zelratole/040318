@@ -28,42 +28,25 @@
 <script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-		// $("요청선택자").eq(0,1,2,...)  : 해당 객체를 index로 0부터... 구분해줌..
-		// hide()통해서 보이지 않게 처리, show() 보이게 처리...
-		$("h2").eq(1).hide()
-		$("#regBtn").hide()
-		
-		$("h2").eq(0).click(function(){
-			$("h2").eq(0).hide()
-			$("h2").eq(1).show()
-			$("#regBtn").show()
-		})
-		$("h2").eq(1).click(function(){
-			$("h2").eq(1).hide()
-			$("h2").eq(0).show()
-			$("#regBtn").hide()
-		})		
-		$("h3").click(function(){
-			/// $("대상객체").toggle(1/1000시간동안처리, 
-			//              function(){ 토글처리후 마지막으로 할 기능})
-			$(".container").toggle(1000,function(){
-				console.log("이벤트 처리 완료")
+		$("#deptInfo").hide()
+		$("#deptBtn").click(function(){
+			$("#deptInfo").toggle(1000,function(){
+				// 사라졌을 때는 부서정보 확인으로 버튼 레이블 처리, 나타났을 때는 부서정보 닫기 버튼 레이블
+				if($("#deptInfo").text()=="부서정보확인"){
+					$("#deptBtn").text("부서정보닫기")
+				}else{
+					$("#deptBtn").text("부서정보확인")
+				}
 			})
 		})
 	});
-	// ex) form 아이디 입력과 부서정보확인 클리시, 토글로 부서정보를 보였다가.
-	//     확인후, 닫기로 부서정보내용이 닫아지는 것을 처리하세요.
 </script>
 </head>
 
 <body>
 <div class="jumbotron text-center">
-  <h2>보여라</h2>
-  <h2>사라져라</h2>
-  <h3>toggle기능</h3>
-  <button id="regBtn" class="btn btn-success" ㅠdata-toggle="modal" 
-  	data-target="#exampleModalCenter"
-	type="button">등록</button>
+  <h2>회원정보 등록</h2>
+
 </div>
 <%-- 
 		
@@ -71,34 +54,26 @@
 <div class="container">
 	<form id="frm01" class="form"  method="post">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input placeholder="제목" name=""  class="form-control mr-sm-2" />
-	    <input placeholder="내용" name=""  class="form-control mr-sm-2"/>
-	    <button class="btn btn-info" type="submit">Search</button>
+	    <input placeholder="회원아이디" name=""  class="form-control mr-sm-2" />
+	    <button class="btn btn-info" id="deptBtn" type="button">부서정보확인</button>
 	    <button class="btn btn-success" 
 	    	data-toggle="modal" data-target="#exampleModalCenter"
 	        type="button">등록</button>
  	</nav>
 	</form>
-   <table class="table table-hover table-striped">
-   	<col width="10%">
-   	<col width="50%">
-   	<col width="15%">
-   	<col width="15%">
-   	<col width="10%">
+   <table id="deptInfo" class="table table-hover table-striped">
+   	<col width="30%">
+   	<col width="40%">
+   	<col width="30%">
     <thead>
-    
       <tr class="table-success text-center">
-        <th>번호</th>
-        <th>제목</th>
-        <th>작성자</th>
-        <th>작성일</th>
-        <th>조회</th>
+        <th>부서명</th>
+        <th>부서직급</th>
+        <th>부서위치</th>
       </tr>
     </thead>	
     <tbody>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td>인사과</td><td>대리</td><td>서울종로</td></tr>
     </tbody>
 	</table>    
     
