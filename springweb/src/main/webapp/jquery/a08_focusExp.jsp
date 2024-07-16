@@ -45,7 +45,11 @@ td {
 		$(".reg").keyup(function(){
 			console.log("입력된 내용:"+$(this).val())
 			if($(this).val()==""){
-				$(this).next().show()
+				$(this).next().show()// .children().eq(0).text("글자수는 4~8입니다.")
+				//  개별적인 메시지 처리..
+				$(".ckMsg").eq(0).text("아이디는 4~8 필요합니다.")
+				$(".ckMsg").eq(1).text("패스워드는 8~12 필요합니다.")
+				$(".ckMsg").eq(2).text("이름은 2이상 필요합니다.")
 			}else{
 				$(this).next().hide()
 			}
@@ -70,7 +74,7 @@ td {
 				</div>
 				<input name="id" class="form-control reg" value="" />
 				<div class="input-group-append">
-					<span class="input-group-text  justify-content-center">입력이 필요합니다.</span>
+					<span class="input-group-text  justify-content-center  ckMsg">입력이 필요합니다.</span>
 				</div>				
 			</div>
 			<div class="input-group mb-3">
@@ -79,7 +83,7 @@ td {
 				</div>
 				<input name="pwd" type="password" class="form-control reg" value="" />
 				<div class="input-group-append ">
-					<span class="input-group-text  justify-content-center">입력이 필요합니다.</span>
+					<span class="input-group-text  justify-content-center ckMsg">입력이 필요합니다.</span>
 				</div>				
 			</div>
 			<div class="input-group mb-3">
@@ -88,7 +92,7 @@ td {
 				</div>
 				<input name="name" class="form-control reg" value="" />
 				<div class="input-group-append ">
-					<span class="input-group-text  justify-content-center">입력이 필요합니다.</span>
+					<span class="input-group-text  justify-content-center ckMsg">입력이 필요합니다.</span>
 				</div>				
 			</div>
 		</form>
