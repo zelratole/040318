@@ -1,0 +1,111 @@
+### 1. 흥미로운 도입
+
+**웹 개발의 진화: jQuery의 중요성**
+
+웹 개발이 처음 시작되었을 때는 단순한 정적 웹 페이지가 주를 이루었습니다. 
+그러나 시간이 지나면서 웹 페이지는 더욱 동적이고 인터랙티브한 요소를 필요로 하게 되었습니다. 
+바로 이때 등장한 것이 jQuery입니다. jQuery는 자바스크립트 라이브러리로, 
+적은 코드로 복잡한 작업을 쉽게 할 수 있게 해주었습니다. 이제, 우리는 실무에서 
+어떻게 jQuery를 적용할 수 있는지 구체적인 예시를 통해 알아보겠습니다.
+
+### 2. 학습목표
+
+- jQuery의 기본 개념과 중요성을 이해한다.
+- jQuery를 사용하여 DOM을 조작하는 방법을 학습한다.
+- AJAX 요청을 통해 서버와 비동기 통신을 구현한다.
+- 실무에서 자주 사용하는 jQuery 플러그인을 활용할 수 있다.
+
+### 3. 주요 핵심 키워드와 핵심개념
+
+**DOM 조작:** jQuery를 사용하여 HTML 요소를 선택하고 조작하는 방법을 배웁니다.
+	$("태그")
+	$("#아이디명")
+	$(".클래스명")
+	$(".클래스명").text("안녕하세요") 해당 클래스로 선언된 모든 태그에 적용(반복문 없이)
+	$("태그").eq(0).css("color","blue") : 여러개중에 첫번째 내용에 대한 적용
+	$("태그").each(function(idx, obj){
+		// 해당 태그가 여러개 있을 때, 반복문을 통해서 개별적인 내용 적용..
+		$(obj) : jquery 적용시 처리할 내용..
+	})
+
+
+**이벤트 처리:** 클릭, 키보드 입력 등 다양한 사용자 이벤트를 처리하는 방법을 배웁니다.
+	$("선택자").click(function(){})
+	$("선택자").on("click",function(){})
+	$("선택자").on( {"click":function(){},
+	              {"focus":function(){},
+	              {"blur":function(){}				})
+
+**AJAX:** 비동기식 자바스크립트와 XML을 통해 서버와 통신하는 방법을 배웁니다.
+
+**플러그인:** jQuery를 확장하여 다양한 기능을 추가하는 방법을 배웁니다.
+
+### 4. 퀴즈문제/토론과제
+
+**퀴즈문제**
+
+1. jQuery에서 HTML 요소를 선택하는 기본 문법은 무엇인가요?
+2. jQuery를 사용하여 버튼 클릭 시 특정 요소의 텍스트를 변경하는 코드를 작성해보세요.
+3. AJAX 요청을 통해 데이터를 가져오고 HTML에 표시하는 방법을 설명하세요.
+
+**토론과제**
+
+- jQuery의 장점과 단점에 대해 토론해보세요.
+- 최근 자바스크립트 프레임워크(React, Vue, Angular)와 jQuery의 차이점에 대해 논의해보세요.
+- 실무에서 jQuery를 사용하는 것이 유리한 상황과 불리한 상황에 대해 토론해보세요.
+  Vue
+  아두이노
+  파이썬
+
+### 5. 실무적용사례
+
+**사례 1: 동적인 콘텐츠 로딩**
+
+한 전자상거래 웹사이트에서 제품 목록을 비동기적으로 로드하고 페이지를 새로 고치지 않고도 제품 상세 정보를 표시해야 하는 요구사항이 있었습니다. 이를 위해 jQuery의 AJAX 기능을 활용했습니다.
+
+```javascript
+$(document).ready(function(){
+    $(".product").on("click", function(){
+        var productId = $(this).data("id");
+        $.ajax({
+            url: "/getProductDetails",
+            method: "GET",
+            data: { id: productId },
+            success: function(data) {
+                $("#productDetails").html(data);
+            },
+            error: function() {
+                alert("Failed to load product details.");
+            }
+        });
+    });
+});
+```
+
+**사례 2: 폼 유효성 검사**
+
+웹사이트의 회원가입 폼에서 사용자가 입력한 데이터가 유효한지 실시간으로 확인하기 위해 jQuery를 사용했습니다.
+
+```javascript
+$(document).ready(function(){
+    $("#signupForm").on("submit", function(event){
+        var isValid = true;
+        $(".error").remove();
+
+        if($("#username").val().length < 6) {
+            $("#username").after('<span class="error">Username must be at least 6 characters long</span>');
+            isValid = false;
+        }
+
+        if($("#password").val().length < 8) {
+            $("#password").after('<span class="error">Password must be at least 8 characters long</span>');
+            isValid = false;
+        }
+
+        if(!isValid) {
+            event.preventDefault();
+        }
+    });
+});
+```
+

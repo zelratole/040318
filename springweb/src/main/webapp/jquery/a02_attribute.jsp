@@ -29,7 +29,15 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		// $("선택자").css("속성","속성값") : css 속성..
+		// $("선택자").css({속성1:속성1값,속성2:속성2값,....})
+		// $("선택자").attr({속성1:속성1값,속성2:속성2값,....})
+		// $("선택자").on({이벤트1:속성1값,이벤트2:속성2값,....})
 		$("h2").text("클릭해보실래요?").css("color","red")
+		$("h2").css({"color":"yellow",
+			         "background":"navy",
+			         "border":"2px solid orange"  
+				   }) 
+		
 		var colors = ['red','orange','yellow','green',
 					  'blue','navy','purple']
 		$("h2").click(function(){

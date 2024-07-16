@@ -43,6 +43,13 @@
 			$("h2").eq(0).show()
 			$("#regBtn").hide()
 		})		
+		$("h3").click(function(){
+			/// $("대상객체").toggle(1/1000시간동안처리, 
+			//              function(){ 토글처리후 마지막으로 할 기능})
+			$(".container").toggle(1000,function(){
+				console.log("이벤트 처리 완료")
+			})
+		})
 	});
 </script>
 </head>
@@ -51,6 +58,7 @@
 <div class="jumbotron text-center">
   <h2>보여라</h2>
   <h2>사라져라</h2>
+  <h3>toggle기능</h3>
   <button id="regBtn" class="btn btn-success" ㅠdata-toggle="modal" 
   	data-target="#exampleModalCenter"
 	type="button">등록</button>
