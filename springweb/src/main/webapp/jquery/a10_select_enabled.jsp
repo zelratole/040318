@@ -28,29 +28,33 @@
 <script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-		
-		$("form").submit(function(event){
-			event.preventDefault(); // submit자동 처리 되는 옵션 방지 처리..(기본 이벤트 방지 역할..)
-		})
-		// ==> 이후에 submit()를 처리할려면 이벤트 핸들러 메서드 정의 $("form").submit() 직접적으로 처리
-		//   처리 통해서 한다.
-		// type="button"에 대한 가상클래스 선언 :button
-		// <input type="button", <button > 태그는 모두 다 공통 css로 설정 가능..
-		$(":button").css("border","3px red solid")
-		// 비활성화 버트늘 눌렀을 때 처리 내용
-		$("#disable").click(function(){
-			// 활성화된 내용을 비활성화로 변경..
-			$("input[type=text]:enabled").removeAttr("enabled") //  enabled 속성값 삭제..
-			// 주의) 특정 속성을 변경시 기존 속성값을 삭제 후, 신규속성값 설정..
-			$("input[type=text]:enabled").attr("disabled","disabled") //  enabled 속성값 삭제..
-		})
-		$("#enable").click(function(){
-			// 활성화를 클릭시, 비활성화된 내용을 활성화 처리
-			$("input[type=text]:disabled").removeAttr("disabled") //  enabled 속성값 삭제..
-			// 주의) 특정 속성을 변경시 기존 속성값을 삭제 후, 신규속성값 설정..
-			$("input[type=text]:disabled").attr("enabled","enabled") //  enabled 속성값 삭제..
+		$("[name=chMember]").change(function(){
+			if($(this).val() == '회원'){
+				// $("선택자").메서드1().메서드2().메서드3() : chainning으로 메서드를 연속해서 설정 가능
+				$("[name=member]").removeAttr("disabled").attr("enabled","enabled")
+				$("[name=nonmember]").removeAttr("enabled").attr("disabled","disabled")
+			}else{
+				
+				$("[name=member]").removeAttr("enabled").attr("disabled","disabled")
+				$("[name=nonmember]").removeAttr("disabled").attr("enabled","enabled")				
+			}
 		})
 	});
+</script>
+</head>
+
+<body>
+<div class="jumbotron text-center">
+  <h2>활성화/비활성화 연습</h2>
+  <select name="chMember">
+  		<option>회원</option>
+  		<option>비회원</option>
+  </select><br>
+  회원:<input type="text" name="member"/><br>
+  비회원:<input type="text" name="nonmember" disabled="disabled"/>
+
+</div>
+<%-- 
 	/*
 	a10_select_enabled.jsp
 	
@@ -59,40 +63,7 @@
 	비회원[   ]                          비회원선택시, 비회원 입력항목 활성화 회원항목 비활성화  
 	
 	
-	*/
-	
-</script>
-</head>
-
-<body>
-<div class="jumbotron text-center">
-  <h2>form요소 객체 활성/비활성화 처리</h2>
-  <form>
-  	<fieldset>
-  		<input type="text" id="first">
-  		<input type="text" id="second" disabled="disabled">
-  		<input type="button"  id="enable" value="활성화">
-  		<button  id="disable">비활성화</button>
-  		<%--
-  		# 주의
-  		<button  id="disable">disable</button>
-  		button 태그의 형태는 default type ? submit 이기에 그냥 이벤트 핸들러 메서드를
-  		연결처리하면 바로 전송이 되어 처리가 원하는데로 되지 않는 경우가 많다.
-  		왜냐하면? 서버로 전송된 이후 화면에서 처리되기 때문이다.
-  		기능 이벤트 처리시는 반드시 type="button"으로 설정하여야 한다..
-  		
-  		 --%>
-  		
-  	</fieldset>
-  </form>
-</div>
-<%-- 
-# show/hide와 enabled/disabled의 차이
-1. hide()시에 단순히, 보이지 않을 뿐이지, 요청객체로서 의미를 가지기에
-	요청값이 전달 된다.
-2. 하지만 disabled된 요청객체는 자체의 기능이 비활성화되 것이기에 
-	요청객체로서 요청값 전달이 되지 않는다.(주의)
-		
+	*/		
 --%>
 <div class="container">
 	<form id="frm01" class="form"  method="post">
