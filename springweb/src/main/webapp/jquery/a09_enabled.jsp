@@ -30,14 +30,28 @@
 	$(document).ready(function(){
 		
 		$("form").submit(function(event){
-			event.preventDefault(); // submit자동 처리 되는 옵션 방지 처리..
+			event.preventDefault(); // submit자동 처리 되는 옵션 방지 처리..(기본 이벤트 방지 역할..)
 		})
-		
+		// ==> 이후에 submit()를 처리할려면 이벤트 핸들러 메서드 정의 $("form").submit() 직접적으로 처리
+		//   처리 통해서 한다.
 		// type="button"에 대한 가상클래스 선언 :button
 		// <input type="button", <button > 태그는 모두 다 공통 css로 설정 가능..
 		$(":button").css("border","3px red solid")
-		
+		// 비활성화 버트늘 눌렀을 때 처리 내용
+		$("#disable").click(function(){
+			// 활성화된 내용을 비활성화로 변경..
+			$("input[type=text]:enabled").removeAttr("enabled") //  enabled 속성값 삭제..
+			// 주의) 특정 속성을 변경시 기존 속성값을 삭제 후, 신규속성값 설정..
+			$("input[type=text]:enabled").attr("disabled","disabled") //  enabled 속성값 삭제..
+		})
+		$("#enable").click(function(){
+			// 활성화를 클릭시, 비활성화된 내용을 활성화 처리
+			$("input[type=text]:disabled").removeAttr("disabled") //  enabled 속성값 삭제..
+			// 주의) 특정 속성을 변경시 기존 속성값을 삭제 후, 신규속성값 설정..
+			$("input[type=text]:disabled").attr("enabled","enabled") //  enabled 속성값 삭제..
+		})
 	});
+	
 </script>
 </head>
 
@@ -48,8 +62,8 @@
   	<fieldset>
   		<input type="text" id="first">
   		<input type="text" id="second" disabled="disabled">
-  		<input type="button"  id="enable" value="enable">
-  		<button  id="disable">disable</button>
+  		<input type="button"  id="enable" value="활성화">
+  		<button  id="disable">비활성화</button>
   		<%--
   		# 주의
   		<button  id="disable">disable</button>
