@@ -28,7 +28,15 @@
 <script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-	
+		
+		$("form").submit(function(event){
+			event.preventDefault(); // submit자동 처리 되는 옵션 방지 처리..
+		})
+		
+		// type="button"에 대한 가상클래스 선언 :button
+		// <input type="button", <button > 태그는 모두 다 공통 css로 설정 가능..
+		$(":button").css("border","3px red solid")
+		
 	});
 </script>
 </head>
@@ -42,6 +50,16 @@
   		<input type="text" id="second" disabled="disabled">
   		<input type="button"  id="enable" value="enable">
   		<button  id="disable">disable</button>
+  		<%--
+  		# 주의
+  		<button  id="disable">disable</button>
+  		button 태그의 형태는 default type ? submit 이기에 그냥 이벤트 핸들러 메서드를
+  		연결처리하면 바로 전송이 되어 처리가 원하는데로 되지 않는 경우가 많다.
+  		왜냐하면? 서버로 전송된 이후 화면에서 처리되기 때문이다.
+  		기능 이벤트 처리시는 반드시 type="button"으로 설정하여야 한다..
+  		
+  		 --%>
+  		
   	</fieldset>
   </form>
 </div>
