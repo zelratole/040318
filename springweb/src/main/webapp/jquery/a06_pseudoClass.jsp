@@ -28,24 +28,34 @@
 <script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-		$("#deptInfo").hide()
-		$("#deptBtn").click(function(){
-			$("#deptInfo").toggle(1000,function(){
-				// 사라졌을 때는 부서정보 확인으로 버튼 레이블 처리, 나타났을 때는 부서정보 닫기 버튼 레이블
-				if($("#deptBtn").text()=="부서정보확인"){
-					$("#deptBtn").text("부서정보닫기")
-				}else{
-					$("#deptBtn").text("부서정보확인")
-				}
-			})
+		// input:checked   input타입에 checked가 된 경우..
+		// 요소1 + 요소2    요소1을 같은 레벨에서 앞에 둔 형제 객체 요소2 객체
+		// not() 특정 조건이 아닌 경우..
+		$("input:not(:checked) + span").css("background-color","green")
+		$("input[type=checkbox]").click(function(){
+			$("input:checked + span").css("background-color","white")
+			$("input:not(:checked) + span").css("background-color","green")
 		})
+		
 	});
 </script>
 </head>
 
 <body>
 <div class="jumbotron text-center">
-  <h2>회원정보 등록</h2>
+  <h2>가상클래스 jquery로 적용</h2>
+  <div>
+  	<input type="checkbox" name="ck01"  >
+  	<span>홍길동</span>
+  </div>
+  <div>
+  	<input type="checkbox" name="ck02"  >
+  	<span>김길동</span>
+  </div>
+  <div>
+  	<input type="checkbox" name="ck03"  >
+  	<span>신길동</span>
+  </div>
 
 </div>
 <%-- 
@@ -54,26 +64,34 @@
 <div class="container">
 	<form id="frm01" class="form"  method="post">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input placeholder="회원아이디" name=""  class="form-control mr-sm-2" />
-	    <button class="btn btn-info" id="deptBtn" type="button">부서정보확인</button>
+	    <input placeholder="제목" name=""  class="form-control mr-sm-2" />
+	    <input placeholder="내용" name=""  class="form-control mr-sm-2"/>
+	    <button class="btn btn-info" type="submit">Search</button>
 	    <button class="btn btn-success" 
 	    	data-toggle="modal" data-target="#exampleModalCenter"
 	        type="button">등록</button>
  	</nav>
 	</form>
-   <table id="deptInfo" class="table table-hover table-striped">
-   	<col width="30%">
-   	<col width="40%">
-   	<col width="30%">
+   <table class="table table-hover table-striped">
+   	<col width="10%">
+   	<col width="50%">
+   	<col width="15%">
+   	<col width="15%">
+   	<col width="10%">
     <thead>
+    
       <tr class="table-success text-center">
-        <th>부서명</th>
-        <th>부서직급</th>
-        <th>부서위치</th>
+        <th>번호</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>작성일</th>
+        <th>조회</th>
       </tr>
     </thead>	
     <tbody>
-    	<tr><td>인사과</td><td>대리</td><td>서울종로</td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
     </tbody>
 	</table>    
     
