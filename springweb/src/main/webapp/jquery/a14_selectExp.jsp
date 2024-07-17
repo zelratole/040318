@@ -28,7 +28,21 @@
 <script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-	
+		$("select").change(function(){
+			chOpt()
+		})
+		$(":text").keyup(function(){
+			chOpt()
+		})
+		function chOpt(){
+			var color = $("[name=color]>:selected").val()
+			console.log("색상:"+color)
+			var size =  $("[name=size]>:selected").text()
+			console.log("크기:"+size)
+			var str = $(":text").val()
+			console.log("문자열:"+str)	
+			// p에 데이터할당 및 css 설정..
+		}
 	});
 </script>
 </head>
@@ -37,11 +51,13 @@
 <div class="jumbotron text-center">
   <h2>문자열 만들기(decoration)</h2>
   색상:<select name="color">
+  		  <option value="">선택</option>
   		  <option value="red">빨강</option>
   		  <option value="blue">파랑</option>
   		  <option value="yellow">노랑</option>
   	  </select><br>
   크기:<select name="size">
+  		  <option value="0pt">선택</option>
   		  <option>10pt</option>
   		  <option>20pt</option>
   		  <option>30pt</option>
