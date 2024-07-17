@@ -42,6 +42,7 @@
 			var str = $(":text").val()
 			console.log("문자열:"+str)	
 			// p에 데이터할당 및 css 설정..
+			$("p").text(str).css({"color":color,"font-size":size})
 		}
 	});
 </script>
