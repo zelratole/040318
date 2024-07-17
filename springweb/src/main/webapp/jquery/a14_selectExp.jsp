@@ -51,6 +51,7 @@
 <body>
 <div class="jumbotron text-center">
   <h2>문자열 만들기(decoration)</h2>
+  글자:<input type="text"/><br> 
   색상:<select name="color">
   		  <option value="">선택</option>
   		  <option value="red">빨강</option>
@@ -63,7 +64,7 @@
   		  <option>20pt</option>
   		  <option>30pt</option>
   	  </select><br>  	  
-  글자:<input type="text"/><br>
+
   <p></p>
 </div>
 <%-- 
