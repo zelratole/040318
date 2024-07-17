@@ -28,46 +28,34 @@
 <script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-		$("select").change(function(){
-			// 선택되어진 번호 
-			var ph01 = $(":selected").text()
-			ph01 +=" - "+$(":text").eq(0).val()
-			ph01 +=" - "+$(":text").eq(1).val()
-			$("p").text(ph01)
-		})
-		$(":text").keyup(function(){
-			var ph01 = $(":selected").text()
-			ph01 +=" - "+$(":text").eq(0).val()
-			ph01 +=" - "+$(":text").eq(1).val()
-			$("p").text(ph01)			
-		})
-	});
-	// ex) 색상 선택/크기선택/입력글자..
-	//    색상:select 빨/파/노
-	//    크기:select 10/20/30pt
-	//    글자:[    ]
-	//    위와 같이 선택과 입력시 아래에 해당 내용이 적용된 글자를 출력하세요..
-	//    @@@@@(색상,크기,글자 적용 문자)
 	
+	});
 </script>
 </head>
 
 <body>
 <div class="jumbotron text-center">
-  <h2>select 처리</h2>
-  <select name="phone01">
-  	<option value="" selected>선택하세요</option>
-  	<option>010</option>
-  	<option>011</option>
-  	<option>02</option>
-  </select> - 
-  <input size="4" type="text" name="phone02"/> - 
-  <input  size="4" type="text" name="phone03"/><br>
-  <p></p> 
-
+  <h2>문자열 만들기(decoration)</h2>
+  색상:<select name="color">
+  		  <option value="red">빨강</option>
+  		  <option value="blue">파랑</option>
+  		  <option value="yellow">노랑</option>
+  	  </select><br>
+  크기:<select name="size">
+  		  <option>10pt</option>
+  		  <option>20pt</option>
+  		  <option>30pt</option>
+  	  </select><br>  	  
+  글자:<input type="text"/><br>
+  <p></p>
 </div>
 <%-- 
-		
+	// ex) 색상 선택/크기선택/입력글자..
+	//    색상:select 빨/파/노
+	//    크기:select 10/20/30pt
+	//    글자:[    ]
+	//    위와 같이 선택과 입력시 아래에 해당 내용이 적용된 글자를 출력하세요..
+	//    @@@@@(색상,크기,글자 적용 문자)		
 --%>
 <div class="container">
 	<form id="frm01" class="form"  method="post">
