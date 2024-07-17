@@ -32,7 +32,8 @@
 			$("li").filter(function(idx, obj){
 				console.log(idx)
 				console.log($(obj).text())
-				var rIdx = Math.floor( Math.random()*$("li").length )
+				var rIdx = Math.floor( Math.random()*$("li").length)
+				console.log("랜덤:"+rIdx)
 				if(idx==rIdx){ 
 					$(obj).css("color","blue")
 					$(obj).text("빙고!!")
