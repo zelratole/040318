@@ -28,32 +28,39 @@
 <script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-		$(":checkbox").click(function(){
-			console.log("체크한 갯수:" +$(":checked").length )
-			// each 구문을 사용하여 출력 처리
-			// $(배열형객체).each(function(index, obj){ }) 
-			//   	index :인덱스 번호,   obj : 배열안에 있는 단위 객체
-			var ckMenu = ""
-			$(":checked").each(function(idx, obj){
-				ckMenu += $(obj).val()+", "
-			})
-			$("p").text(ckMenu)
+		$("select").change(function(){
+			// 선택되어진 번호 
+			var ph01 = $(":selected").text()
+			ph01 +=" - "+$(":text").eq(0).val()
+			ph01 +=" - "+$(":text").eq(1).val()
+			$("p").text(ph01)
+		})
+		$(":text").keyup(function(){
+			var ph01 = $(":selected").text()
+			ph01 +=" - "+$(":text").eq(0).val()
+			ph01 +=" - "+$(":text").eq(1).val()
+			$("p").text(ph01)			
 		})
 	});
 </script>
 </head>
+
 <body>
 <div class="jumbotron text-center">
-  <h2>주문 메뉴 선택</h2>
-  <input type="checkbox" value="짜장면"/>짜장면
-  <input type="checkbox" value="짬뽕"/>짬뽕
-  <input type="checkbox" value="탕수육"/>탕수육
-  <p></p>
+  <h2>select 처리</h2>
+  <select name="phone01">
+  	<option value="" selected>선택하세요</option>
+  	<option>010</option>
+  	<option>011</option>
+  	<option>02</option>
+  </select> - 
+  <input size="4" type="text" name="phone02"/> - 
+  <input  size="4" type="text" name="phone03"/><br>
+  <p></p> 
+
 </div>
 <%-- 
-	// ex) 주문 메뉴 선택.. a12_checkExp.jsp
-	//     []짜장면  []짬뽕   []탕수육 ==> check시 바로 하단에 출력...  
-	//     주문 내용 : @@, @@@		
+		
 --%>
 <div class="container">
 	<form id="frm01" class="form"  method="post">
