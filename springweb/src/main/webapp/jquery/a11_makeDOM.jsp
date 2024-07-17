@@ -28,19 +28,23 @@
 <script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-		// select 선택 객체에서 변경을 했을 때,....
-		$("[name=chMember]").change(function(){
-			if($(this).val() == '회원'){
-				// $("선택자").메서드1().메서드2().메서드3() : chainning으로 메서드를 연속해서 설정 가능
-				$("[name=member]").removeAttr("disabled").attr("enabled","enabled")
-				$("[name=nonmember]").removeAttr("enabled")
-				$("[name=nonmember]").attr("disabled","disabled")
-				// 회원 : [    ] ==> disabled(비활성) 속성 삭제, enabled(활성화) 속성 설정
-				// 비회원 : [    ]==> enabled(활성화) 속성 삭제, disabled(비활성화) 속성 설정
-			}else{
-				$("[name=member]").removeAttr("enabled").attr("disabled","disabled")
-				$("[name=nonmember]").removeAttr("disabled").attr("enabled","enabled")				
-			}
+		$("#funBtn").click(function(){
+			// .wrap() 해당 checkbox에 span 태그로 감싸서 처리 : 
+			// <span><input type="checkbox" value="배"></span>
+			// parent() : 계층구조 바로 상위 부모객체를 지칭 : 현재는 감싸고 있는 span 태그를 지칭
+			$("input:checkbox").wrap("<span></span>").parent().css("border","3px dotted red")
+			// checked가 된 값을 할당 처리..
+			
+			// checked가 된 값을 할당하기 위한 변수..
+			var vals = ""
+			$("input:checked").each(function(idx, ob){
+				// 배열형.each(function(index번호, 단위객체){})
+				console.log(idx)
+				// 해당 객체의 값을 누적 처리..
+				vals += $(ob).val()+", "
+			})
+			
+			$(":text").val(vals)
 		})
 	});
 </script>
@@ -48,25 +52,15 @@
 
 <body>
 <div class="jumbotron text-center">
-  <h2>활성화/비활성화 연습</h2>
-  <select name="chMember">
-  		<option>회원</option>
-  		<option>비회원</option>
-  </select><br>
-  회원:<input type="text" name="member"/><br>
-  비회원:<input type="text" name="nonmember" disabled="disabled"/>
-
+  <h2>dom객체 만들기와 여러가지 기능메서드</h2>
+  	사과<input type="checkbox" checked="checked" value="사과"><br>
+  	배<input type="checkbox" value="배"><br>
+  	바나나<input type="checkbox" value="바나나"><br>
+	<input type="button" value="기능 처리" id="funBtn"/><br>
+	<input type="text"/>
 </div>
 <%-- 
-	/*
-	a10_select_enabled.jsp
-	
-	선택 select 회원/비회원
-	회원[   ]   select의 change() 이벤트로 회원선택시, 회원 입력항목 활성화 비회원항목 비활성화
-	비회원[   ]                          비회원선택시, 비회원 입력항목 활성화 회원항목 비활성화  
-	
-	
-	*/		
+		
 --%>
 <div class="container">
 	<form id="frm01" class="form"  method="post">
