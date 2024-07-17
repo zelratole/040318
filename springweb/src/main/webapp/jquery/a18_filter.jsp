@@ -28,42 +28,36 @@
 <script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-		$("h3").click(function(){
-			$("li").filter(function(idx, obj){
-				console.log(idx)
-				console.log($(obj).text())
-				var rIdx = Math.floor( Math.random()*$("li").length)
-				console.log("랜덤:"+rIdx)
-				if(idx==rIdx){ 
-					$(obj).css("color","blue")
-					$(obj).text("빙고!!")
+		$("h2").click(function(){
+			// $("h4") filter()함수 선언하여 기본적으로 css 적용...
+			$("h4").filter(function(idx, ob){
+				if(idx==0){
+					var chKingIdx = Math.floor(Math.random()*$("h4").length)
+					var chName = $("h4").eq(chKingIdx).text()
+					$("h4").eq(chKingIdx).text("[왕!! 당첨]"+chName)
 				}
-				return idx%3==2  // 검색 filtering 조건문으로 해당 객체를 지정하여 다음 chainning기능 처리
-			}).css("background","orange")
+				return idx%2==1
+			}).css("background","pink")
 		})
 	});
+</script>
+</head>
+
+<body>
+<div class="jumbotron text-center">
+  <h2>왕게임(시작!)</h2>
+  <h4>강성원</h4>
+  <h4>김기억</h4>
+  <h4>김남원</h4>
+  <h4>김은수</h4>
+  <h4>김태형</h4>
+  <h4>박민경</h4>
+  <h4>황서영</h4>
+</div>
+<%-- 
 	// ex) a18_filter.jsp
 	//     h4 왕게임 참석자 5명 리스트..
 	//     클릭하면 배경색상으로 홀수 번째 pink색상, 왕이 된 사람 (왕!! 선정 표시..) 
-	
-</script>
-</head>
-<body>
-<div class="jumbotron text-center">
-  <h2>filter function</h2>
-  <ul>
-  	<li>아이템1</li>
-  	<li>아이템2</li>
-  	<li>아이템3</li>
-  	<li>아이템4</li>
-  	<li>아이템5</li>
-  	<li>아이템6</li>
-  	<li>아이템7</li>
-  </ul>
-  <h3>적용하고 싶으면 click!!</h3>
-
-</div>
-<%-- 
 		
 --%>
 <div class="container">
