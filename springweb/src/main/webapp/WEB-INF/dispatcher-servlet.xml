@@ -166,7 +166,7 @@
    					SMTP라는 패킷전송 언어를 사용하겠다고 선언 -->
    				<prop key="mail.debug">true</prop>
    				<!-- 디버그 모드를 활성화하여 메일 전송 과정의 상세 로그를 출력. 개발 중에 문제 해결에 유용 -->
-   				<prop key="mail.smtp.ssl.enable">true</prop>
+   				<prop key="mail.smtp.ssl.true">smtp.gmail.com</prop>
    				<!-- SSL설정 관련 속성.. -->
    				<prop key="mail.smtp.ssl.protocols">TLSv1.2</prop>
    				<!-- SSL/TLS 연결에 사용할 프로토콜를 지정. TLS 1.2를 사용하여 보안을 강화 
