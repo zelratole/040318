@@ -28,73 +28,45 @@
 <script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-		$("h3").click(function(){
-			$("div").find("span").css("font-size","30px")
+		$("#regFruBtn").click(function(){
+			var fruitVal = $("#fruit").val()
+			$("p").append("<span>"+fruitVal+"</span>,")
+			$("#fruit").val("").focus()
+			//$("p").append( $("<span></span>").text(fruitVal).html()+",")
 		})
-		$("h4").click(function(){
-			$("div").children("span").css("background","red")
+		$("#regMeatBtn").click(function(){
+			var meatVal = $("#meat").val()
+			$("p").append("<b>"+meatVal+"</b>,")
+			$("#meat").val("").focus()
+			//$("p").append( $("<b></b>").text(meatVal).html()+",")
+		})		
+		$("#findFrui").click(function(){
+			$("p").find("span").css("background","pink")
 		})
-		$("h1").click(function(){
-			$("div").append("<span>안녕하세요^^</span>")
-		})
+		$("#findMeat").click(function(){
+			$("p").find("b").css("background","yellow")
+		})		
 	});
+</script>
+</head>
+<body>
+<div class="jumbotron text-center">
+  <h2>계층 구조 처리 연습</h2>
+  구매할 과일 : <input type="text" id="fruit"><input type="button" id="regFruBtn" value="장바구니담기"><br>
+  구매할 육류 : <input type="text" id="meat"><input type="button" id="regMeatBtn" value="장바구니담기"><br>
+  <h3>장바구니리스트</h3>
+  <p></p>
+  <input type="button" id="findFrui" value="과일확인">
+  <input type="button" id="findMeat" value="육류확인">
+
+</div>
+<%-- 
 	// ex) 구매할 과일 :[   ] [장바구니 담기]
 	//     구매할 육류 :[   ] [장바구니 담기]
 	//     위 내용에서 장바구니 담기를 클릭시, 아래 항목에 담아지게 처리
 	//     단, 과일은 span으로 입력, 육류는 b 으로 입력 처리
 	//     [과일확인] [육류확인] ==> 각각 클릭시, 구분하여 색상표현 핑크/노랑색
-	//     사과, 바나나, 소고기, 딸기, 돼지고기
-	
-	
-</script>
-</head>
-
-<body>
-<div class="jumbotron text-center">
-  
-  <h2>계층 구조 찾아가기</h2>
-  <h1>추가추가 span</h1>
-  <h3>find로 span 찾기..</h3>
-  <h4>children에서 span 찾기..</h4>
-  <div>
-  	<span>홍길동</span>이순신
-  </div>
-  <div>
-  	유관순<p>
-  			<span>강감찬</span>
-  		</p>
-  </div>
-  
-  
-
-</div>
-<%-- 
-# jquery DOM 계층 구조..
-1. html 태그는 기본적을 계층 구조로 되어 있고, 이것에 대한 접근을 계층 구조 메서드에
-	의해서 호출하여 처리를 하고 있다.
-2. 계층 구조 기능 메서드
-	1) children() : 하위에 있는 요소 객체들 접근..
-		<div>
-			<p>
-			<a>
-			<h1>
-		div 입장에서 p, a, h1 태그는 하위에 요소객체이다.
-	2) parents() : 상위에 있는 요소 객체들 접근.
-		<body>
-			<div>
-				<p>
-					<h1>
-		h1 입장에서는 p, div, body는 상위의 요소객체들이다.
-	3) parent() : 바로 상위에 있는 요소 객체
-		<div>
-			<p>
-			<h1>
-		p,h1은 div가 바로 상위에 있는 요소 객체이다.
-	4) find("찾는 요소") : 하위에 있는 요소 객체를 찾는 처리..
-	5) next()/prev() : 같은 레벨의 요소에서 이전 요소, 이후 요소 객체에 대한 선택을
-		할 때, 주로 사용된다.
-			
-				
+	//     사과, 바나나, 소고기, 딸기, 돼지고기		
 --%>
 <div class="container">
 	<form id="frm01" class="form"  method="post">
