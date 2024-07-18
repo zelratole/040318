@@ -142,26 +142,39 @@
      <bean id="localeResolver" 
         class="org.springframework.web.servlet.i18n.SessionLocaleResolver"></bean>
      <!-- 
-     # 메일 발송 서버접속 객체 선언
+     # 메일 발송 서버접속 객체 선언 -->
      
      <bean id="mailSender" class=
    "org.springframework.mail.javamail.JavaMailSenderImpl">
    		<property name="host" value="smtp.gmail.com"/>
+   		<!-- 이메일을 전송할 SMTP 서버의 호스트 이름을 지정. 여기서는 Gmail의 SMTP서버 설정 -->
    		<property name="port" value="587"/>
+   		<!-- SMTP서버와 통신할 포트 번호를 지정, 포트 587은 TLS(Transport Layer Security)를
+   		사용한 SMTP 전송에 일반적으로 사용 -->
    		<property name="username" value="ssangyoung5555@gmail.com"/>
    		<property name="password" value="vytxyzxlmyldjkst"/>
    		<property name="javaMailProperties">
+   		<!-- 추가적으로 JavaMail 속성을 설정하기 위한 속성값 지정 -->
    			<props>
    				<prop key="mail.smtp.starttls.enable">true</prop>
+   				<!-- TLS를 사용하여 이메일 전송을 보안하는 것을 활성화한다. TLS는 데이터를 암호화하여
+   				전송 중에 보호 -->
    				<prop key="mail.smtp.auth">true</prop>
+   				<!-- SMTP 서버에 대한 인증을 요구하는지 여부를 지정. 여기서는 인증이 필요하게끔 처리. -->
    				<prop key="mail.transport.protocol">smtp</prop>
+   				<!-- 이메일 전송에 사용할 프로토콜(전송규약-좀더 쉬운말로 패킷전송언어) 지정.
+   					SMTP라는 패킷전송 언어를 사용하겠다고 선언 -->
    				<prop key="mail.debug">true</prop>
-   				<prop key="mail.smtp.ssl.true">smtp.gmail.com</prop>
+   				<!-- 디버그 모드를 활성화하여 메일 전송 과정의 상세 로그를 출력. 개발 중에 문제 해결에 유용 -->
+   				<prop key="mail.smtp.ssl.enable">true</prop>
+   				<!-- SSL설정 관련 속성.. -->
    				<prop key="mail.smtp.ssl.protocols">TLSv1.2</prop>
+   				<!-- SSL/TLS 연결에 사용할 프로토콜를 지정. TLS 1.2를 사용하여 보안을 강화 
+   				-->
+   				
    			</props>
    		</property>	
    	
      </bean> 
-       --> 
     
 </beans>      
