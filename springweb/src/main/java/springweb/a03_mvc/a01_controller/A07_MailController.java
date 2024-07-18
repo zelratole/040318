@@ -37,7 +37,7 @@ public class A07_MailController {
 	@PostMapping("regEmpTmp.do")
 	public String regEmpTmpMail(RegMember mem, Model d) {
 		//mem.getEmpno(), mem.getEmail()
-		//d.addAttribute("msg", service.sendMail(mail));
+		d.addAttribute("msg", service.makeEmpMail(mem));
 		return "WEB-INF\\views\\a02_mvc\\a04_regEmpTmpForm.jsp";
 	}	
 
