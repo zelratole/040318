@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import springweb.a03_mvc.a02_service.A07_MailService;
 import springweb.z01_vo.MailVo;
+import springweb.z01_vo.RegMember;
 
 @Controller
 public class A07_MailController {
@@ -27,6 +28,17 @@ public class A07_MailController {
 		d.addAttribute("msg", service.sendMail(mail));
 		return "WEB-INF\\views\\a02_mvc\\a03_mailForm.jsp";
 	}
-	
+	// 자동 사원접속정보 발생..
+	// http://localhost:7080/springweb/regEmpTmp.do
+	@GetMapping("regEmpTmp.do")
+	public String regEmpTmpForm() {
+		return "WEB-INF\\views\\a02_mvc\\a04_regEmpTmpForm.jsp";
+	}
+	@PostMapping("regEmpTmp.do")
+	public String regEmpTmpMail(RegMember mem, Model d) {
+		//mem.getEmpno(), mem.getEmail()
+		//d.addAttribute("msg", service.sendMail(mail));
+		return "WEB-INF\\views\\a02_mvc\\a04_regEmpTmpForm.jsp";
+	}	
 
 }
