@@ -24,6 +24,7 @@ public class A01_Service {
 	@Autowired(required=false)
 	private A02_EmpDao dao2;
 	
+	
 	public List<Emp> getEmpList(Emp sch){
 		// 요청값이 없는 초기 화면에서 전체 검색 가능하게 처리..
 		if(sch.getEname()==null) sch.setEname("");

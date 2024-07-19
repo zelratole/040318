@@ -6,7 +6,7 @@
 	<select id="getEmpList" resultType="emp" 
 						    parameterType="emp" >
 		select *
-		from emp
+		from EMP05
 		where 1=1
 		<if test="ename != null">
 		and ename like '%'||#{ename}||'%'
