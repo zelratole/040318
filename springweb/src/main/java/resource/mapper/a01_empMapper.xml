@@ -13,6 +13,12 @@
 		</if>				    
 		<if test="job != null">
 		and job like '%'||#{job}||'%'
-		</if>				    
+		</if>		
+		<if test="deptno != 0">
+		and deptno = #{deptno}
+		</if>		
+		
+		
+				    
 	</select>
 </mapper>
