@@ -66,7 +66,7 @@
 	    <select name="deptno"  class="form-control mr-sm-2">
 	    		<option value="0">부서선택</option>
 	    	<c:forEach var="dept" items="${depts}">
-	    		<option value="${dept.deptno}">${dept.dname}</option>
+	    		<option value="${dept.deptno}">${dept.dname}[${dept.deptno}]</option>
 	    	</c:forEach>
 	    </select>
 	    <script type="text/javascript">
