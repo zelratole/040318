@@ -16,7 +16,8 @@
 		</if>		
 		<if test="deptno != 0">
 		and deptno = #{deptno}
-		</if>		
+		</if>	
+		order by deptno, empno	
 		
 		
 				    

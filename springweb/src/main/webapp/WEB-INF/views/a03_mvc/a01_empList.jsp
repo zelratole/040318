@@ -84,18 +84,21 @@
    	<col width="20%">
     <thead> 
       <tr class="table-success text-center">
+        <th>부서번호</th>      
         <th>사원번호</th>
         <th>사원명</th>
         <th>직책명</th>
         <th>급여</th>
-        <th>부서번호</th>
+
       </tr>
     </thead>	
     <tbody>
     	<c:forEach var="emp" items="${empList }">
     	<tr ondblclick="detail(${emp.empno})">
+    		<td>${emp.deptno}</td>
     		<td>${emp.empno}</td><td>${emp.ename}</td>
-    		<td>${emp.job}</td><td>${emp.sal}</td><td>${emp.deptno}</td></tr>
+    		<td>${emp.job}</td><td>${emp.sal}</td>
+    	</tr>
     	</c:forEach>
     </tbody>
 	</table>    
