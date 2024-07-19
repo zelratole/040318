@@ -14,3 +14,20 @@
 
 
 3. DB Framework(mybatis) 연습.
+
+# 모델 attribute 개념
+1. controller 메서드의 parameter로 설정시
+	public String search(@ModelAttribute("sch") Emp sch)
+	검색되는 요청값이 객체일 때, 기본적으로 Emp ==> emp 로 요청값+모델값을
+	설정하나 명식적으로 이 모델값을 sch로 변경할 때, 사용한다.
+2. controller단에서 공통으로 설정시
+	모든 기능 요청되는 url에 의해서 호출되는 기능 메서드에서 공통적인
+	모델값이 필요로 할 때, 기능메서드 상단에 이 @ModelAttribute를 선언하고
+	해당 controller단으로 처리하는 모든 메서드는 이 모델값을 공유하여
+	처리가 가능하다.
+	ex) 부서정보 combo box, 공통 설정값 처리시 등등..
+	
+
+
+
+

@@ -1,10 +1,13 @@
 package springweb.a03_mvc.a01_controller;
 
-import org.apache.ibatis.annotations.Param;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,6 +20,18 @@ import springweb.z01_vo.Emp;
 public class A01_Controller {
 	@Autowired(required=false)
 	private A01_Service service;
+	
+	@ModelAttribute("depts")
+	public List<Dept> getDeptList(){
+		List<Dept> dlist = new ArrayList<Dept>();
+		dlist.add(new Dept(10,"인사","서울"));
+		dlist.add(new Dept(20,"재무","수원"));
+		dlist.add(new Dept(30,"기획","제주"));
+		dlist.add(new Dept(40,"IT","부산"));
+		return dlist;
+	}
+	
+	
 	
 	// http://localhost:7080/springweb/empList100.do
 	@RequestMapping("empList100.do")
