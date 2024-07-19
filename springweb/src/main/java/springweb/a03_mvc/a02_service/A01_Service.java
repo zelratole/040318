@@ -2,11 +2,11 @@ package springweb.a03_mvc.a02_service;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import springweb.a03_mvc.a03_dao.A01_Dao;
+import springweb.a03_mvc.a03_dao.A02_EmpDao;
 import springweb.z01_vo.Dept;
 import springweb.z01_vo.Emp;
 
@@ -21,12 +21,15 @@ public class A01_Service {
 	@Autowired(required=false)
 	private A01_Dao dao;
 	
+	@Autowired(required=false)
+	private A02_EmpDao dao2;
+	
 	public List<Emp> getEmpList(Emp sch){
 		// 요청값이 없는 초기 화면에서 전체 검색 가능하게 처리..
 		if(sch.getEname()==null) sch.setEname("");
 		if(sch.getJob()==null) sch.setJob("");
 		
-		return dao.getEmpList(sch);
+		return dao2.getEmpList(sch);
 	}
 	public Emp getEmp(int empno) {
 		return dao.getEmp(empno);
