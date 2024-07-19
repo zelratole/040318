@@ -23,15 +23,8 @@ public class A01_Controller {
 	
 	@ModelAttribute("depts")
 	public List<Dept> getDeptList(){
-		List<Dept> dlist = new ArrayList<Dept>();
-		dlist.add(new Dept(10,"인사","서울"));
-		dlist.add(new Dept(20,"재무","수원"));
-		dlist.add(new Dept(30,"기획","제주"));
-		dlist.add(new Dept(40,"IT","부산"));
-		return dlist;
+		return service.getDeptList(new Dept());
 	}
-	
-	
 	
 	// http://localhost:7080/springweb/empList100.do
 	@RequestMapping("empList100.do")
