@@ -135,7 +135,15 @@
 		<div class="input-group-prepend ">
 			<span class="input-group-text  justify-content-center">부서번호</span>
 		</div>
-		<input type="number"  name="deptno" class="form-control" value="${emp.deptno}" />	
+        <select name="deptno"  class="form-control mr-sm-2">
+	    		<option value="0">부서선택</option>
+	    	<c:forEach var="dept" items="${depts}">
+	    		<option value="${dept.deptno}">${dept.dname}[${dept.deptno}]</option>
+	    	</c:forEach>
+	    </select>
+	    <script type="text/javascript">
+	    	$("[name=deptno]").val("${empty emp.deptno?'0':emp.deptno}")
+	    </script>			
 	</div>						
 	<div style="text-align:right;">
 			<input type="button" class="btn btn-info" value="수정" id="uptBtn"/>
