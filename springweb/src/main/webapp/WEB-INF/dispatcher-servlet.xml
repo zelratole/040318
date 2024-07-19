@@ -150,9 +150,12 @@
    		<!-- 이메일을 전송할 SMTP 서버의 호스트 이름을 지정. 여기서는 Gmail의 SMTP서버 설정 -->
    		<property name="port" value="587"/>
    		<!-- SMTP서버와 통신할 포트 번호를 지정, 포트 587은 TLS(Transport Layer Security)를
-   		사용한 SMTP 전송에 일반적으로 사용 -->
-   		<property name="username" value="ssangyoung5555@gmail.com"/>
-   		<property name="password" value="vytxyzxlmyldjkst"/>
+   		사용한 SMTP 전송에 일반적으로 사용 
+   		mailaccount=ssangyoung5555@gmail.com
+   		mailpwd=vytxyzxlmyldjkst
+   		-->
+   		<property name="username" value="${mailaccount}"/>
+   		<property name="password" value="${mailpwd}"/>
    		<property name="javaMailProperties">
    		<!-- 추가적으로 JavaMail 속성을 설정하기 위한 속성값 지정 -->
    			<props>

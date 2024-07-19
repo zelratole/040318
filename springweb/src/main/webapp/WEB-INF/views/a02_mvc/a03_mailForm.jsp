@@ -67,7 +67,7 @@
 		<div class="input-group-prepend "> 
 			<span class="input-group-text  justify-content-center">발신자</span>
 		</div>
-		<input name="sender" class="form-control" value="" placeholder="발신자 메일 등록" />
+		<input name="sender" class="form-control" value="${mailaccount}" readonly/>
 		<!-- SMTP 서버를 차용해서 사용하기에 등록된 smtp 서버 계정으로 발신자로 전송이 됨.. -->
 	</div>	
 	<div class="input-group mb-3">	

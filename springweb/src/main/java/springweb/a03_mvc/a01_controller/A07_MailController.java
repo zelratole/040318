@@ -1,9 +1,11 @@
 package springweb.a03_mvc.a01_controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import springweb.a03_mvc.a02_service.A07_MailService;
@@ -15,6 +17,15 @@ public class A07_MailController {
 	
 	@Autowired(required=false)
 	private A07_MailService service;
+	
+	@Value("${mailaccount}")
+	private String mailaccount;
+	
+	// controller단에서 사용할 공통적인 모델 데이터를 선언할 때, 활용...
+	@ModelAttribute("mailaccount")
+	public String getMailAccount() {
+		return mailaccount;
+	}
 	
 	
 	// http://localhost:7080/springweb/mail.do
