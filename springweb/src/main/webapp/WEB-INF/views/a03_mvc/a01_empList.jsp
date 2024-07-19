@@ -63,6 +63,15 @@
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 	    <input placeholder="사원명" name="ename" value="${param.ename}" class="form-control mr-sm-2" />
 	    <input placeholder="직책" name="job" value="${param.job}"  class="form-control mr-sm-2"/>
+	    <select name="deptno"  class="form-control mr-sm-2">
+	    		<option value="0">부서선택</option>
+	    	<c:forEach var="dept" items="${depts}">
+	    		<option value="${dept.deptno}">${dept.dname}</option>
+	    	</c:forEach>
+	    </select>
+	    <script type="text/javascript">
+	    	$("[name=deptno]").val("${empty param.deptno?'0':param.deptno}")
+	    </script>
 	    <button class="btn btn-info" type="submit">Search</button>
 	    <button id="regBtn" class="btn btn-success" type="button">등록</button>
  	</nav>
