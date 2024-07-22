@@ -28,28 +28,15 @@
 <script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-		$("li").first().css("background","yellow")
-		$("li").last().css("background","pink")
-		$("h2").eq(0).click(function(){
-			$("li").first().next().css("background","yellow")
-			// li의 첫번째 내용의 다음 내용을 노랑색으로 처리..
-		})
-		$("h2").eq(1).click(function(){
-			$("li").last().prev().css("background","pink")
-		})		
+	
 	});
 </script>
 </head>
+
 <body>
 <div class="jumbotron text-center">
-  	<h2>다음내용(next)</h2>
-  	<h2>이전내용(prev)</h2>
-	<ul>
-		<li>사과</li>
-		<li>바나나</li>
-		<li>딸기</li>
-		<li>오렌지</li>
-	</ul>
+  <h2>타이틀</h2>
+
 </div>
 <%-- 
 		

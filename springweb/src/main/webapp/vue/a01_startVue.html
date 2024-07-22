@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://unpkg.com/vue" type="text/javascript"></script>
+<script type="text/javascript">
+/*
+# Vue 시작
+1. Vue란?
+	1) Google Creative Lab 에반 유
+	2) 2013년 12월에 UI의 빠른 view단 개발을 위해 만들어짐
+	3) 웹 화면 작성에 최적화된 프레임워크
+	4) 최근 가장 빠르게 발전하고 확산되고 있는 자바스크립트 프레임워크
+2. 특징
+	1) 대단히 유연하고 가볍다
+	2) SPA(Single Page Application)아키텍쳐 구성을 위한 라우터 기능으로 에코시스템에서 지원
+	3) 학습 곡선의 기울기가 다른 프레임워크(react등)에 비해 완만하다. - 배우기가 상대적으로 쉽다.
+	4) 전형적인(MVVM- model-view-viewModel)패턴으로 기본적인 구조를 이룬다.
+	
+# MVVM(Model-view-view model) 패턴
+1. 소프트웨어 아키텍처 패턴 중 하나로, 사용자 인터페이스(UI)와 비즈니스 로직을 분리하는데 도움을 준다.
+Vue.js에서는 이 패턴을 사용하여 데이터 바이딩과 뷰 업데이터를 효율적으로 관리 할 수 있다.
+2. Model
+	1) 애플리케이션의 데이터와 비즈니스 로직을 담당한다. Vue.js에서는 주로 data 객체(속성)가 Model
+		역할을 한다. cf) backend단으로 스프링에서 controller단에서 ajax로 넘겨준 모델데이터를 사용한다.
+	ex) var appData = { message:"Hello! Vue!"}
+3. View
+	1) 사용자 인터페이스(UI)를 나타낸다. Vue.js에서는 html템플릿이 View 역할을 한다.
+	ex) <div id="app">
+			<p>{{message}}</p>
+			<input v-model="message"/>
+		<div>
+4. view model
+	1) View와 model 사이에서 데이터 바인딩을 관리한다. vue.js에서는 새로운 vue 인스턴스가 viewmodel
+		역할을 한다.
+	ex) var app = new Vue({
+			el:"#app",
+			data:appData
+		
+		})	
+5. MVVM 패턴의 이점
+	1) 데이터 바인딩 : Vue.js는 단방향 데이터 처리, 양방향 데이터 처리 통해 Model과 view를 동기화한다.
+	`	사용자가 view에서 데이터를 입력하면 Model이 업데이터되고, model이 업데이터되면 view가 
+		자동으로 갱신된다.
+	2) 코드 분리 : MVVM패턴을 사용하면 UI와 비즈니스 로직을 분리할 수 있어 코드의 가독성과 유지보수성이
+		향상된다.
+	3) 재사용성 : viewmodel은 비즈니스 로직을 캡슐화하여 여러 view에서 재사용할 수 있다.
+		
+ */
+</script>
+</head>
+<body>
+	<!-- # view 처리  -->
+	<div id="app">
+	<h2>{{message}}</h2>
+	</div>
+<script type="text/javascript">
+	// # model데이터 선언
+	var model = {message:"Vue.js세계로 오신것을 환영합니다.!!"}
+	// # viewmodel
+	var vm = Vue.createApp({
+		name:"App",
+		data(){
+			return model
+		}
+	}).mount("#app")	
+	// ex) a02_morningGreet.html
+	//    greet 모델에 간단한 아침인사말로 설정하고..
+	//    mvvm패턴에 의해서 화면을 출력하세요..
+	
+	
+	
+	
+</script>
+</body>
+</html>
