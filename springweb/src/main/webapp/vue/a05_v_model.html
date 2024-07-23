@@ -33,7 +33,10 @@
 		var model = {msg:"v-model 연습예제",
 				     name:"",
 				     price:0,
-				     cnt:0
+				     cnt:0,
+				     msg2:"삼각형면적",
+				     base:0,
+				     height:0
 		             }
 		var vm = Vue.createApp({
 			name:"App",
@@ -50,17 +53,36 @@
 
 <div class="container">
 	<div class="jumbotron text-center">
+	  <h2 v-text="msg2"></h2>
+	  <h3>밑면:{{base}}</h3>
+	  <h3>높이:{{height}}</h3>
+	  <h3>면적:{{base*height/2}}</h3>
 	  <h2 >{{msg}}</h2>
 	  <h3>물건명:{{name}}</h3>
 	  <h3>가격:{{price}}</h3>
 	  <h3>갯수:{{cnt}}</h3>
 	  <h3>총계:{{price*cnt}}</h3>
 	</div>
+	<h2>삼각형면적</h2>
+  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  		<input class="form-control mr-sm-2" placeholder="삼각형의 밑면 입력" v-model="base" />
+	    <input class="form-control mr-sm-2" placeholder="삼각형의 높이 입력" v-model="height" />
+ 	</nav>
+ 	<h2>물건정보</h2>	
 	<form id="frm01" class="form"  method="post">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 	    <input class="form-control mr-sm-2" placeholder="물건명 입력" v-model="name" />
 	    <input class="form-control mr-sm-2" placeholder="가격 입력" v-model="price" />
-	    <input class="form-control mr-sm-2" placeholder="갯수 입력" v-model="cnt" />
+	    <select v-model="cnt"  class="form-control mr-sm-2">
+	    	<option>0</option>
+	    	<option>1</option>
+	    	<option>2</option>
+	    	<option>3</option>
+	    	<option>4</option>
+	    	<option>5</option>
+	    	<option>10</option>
+	    	<option>20</option>
+	    </select>
 	    <button class="btn btn-info" type="submit">Search</button>
  	</nav>
 	</form>
