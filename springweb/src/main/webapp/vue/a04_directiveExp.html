@@ -12,50 +12,29 @@
 <script src="https://unpkg.com/vue" type="text/javascript"></script>
 <script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
 <script type="text/javascript">
-/*
-# 화면 출력 처리 디렉티브
-1. vue에서 디렉티브를 통해서 화면이나 로직을 처리한다. front단 화면에 모델 데이터를
-	처리하는 방식에서도 디렉티브를 활용하는데, 그 종류와 기능을 알아보자.
-2. 종류
-	1) mustach expression : {{모델명}} 형식으로 출력되는 모델데이터를 콧수염형식으로 변수를
-		지정하여 처리하는 방식을 말한다.
-	2) v-text : 태그 문자열 그대로 모델을 속성으로 선언하여 출력할 때 사용된다. 태그가 모델데이터로
-		설정되더라도 문자열을 바로 출력된다.
-		ex) <h2 v-text="msg"></h2>
-		모델데이터 msg를 화면에 출력해준다.
-	3) v-html : 모델 데이터가 html태그가 포함되어 있으면 html을 랜더링(해석)하여 출력하는 것을 말한다.
-		ex) model = {"show","<h3>안녕하세요(랜더링 처리)</h3>"}
-			<div v-html="show"></div>
- 	4) v-bind:속성, :속성 : 모델 데이터를 요소 객체의 속성으로 할당하여 처리할 때, 사용한다.
- 		ex) model = {"img01","cow.jpg"}
- 			<img v-bind:src="img01"/>
- 			<img :src="img01"/>
- 			위와 같이 src 속성으로 특정 이미지를 지정하여 모델데이터를 출력할 때, 활용된다.
- 			v-bind를 생략도 가능하다.
- 			
- */
 	$(document).ready(function(){
-		var model = { msg:"좋은 하루입니다!!", 
-					  show:"<h2>Good day!!</h2>",
-					  img01:"/springweb/a00_com/images/ui-icons_222222_256x240.png"
-		            }
+		var model = {name:"<h2>사과</h2>",
+				     price:3000,
+				     cnt:3,
+				     img01:"apple01.jfif"
+		             }
 		var vm = Vue.createApp({
 			name:"App",
 			data(){
 				return model;
 			}
 		}).mount(".container")
-		// ex) a04_directiveExp.html
-		//     물건명 가격 갯수 물건이미지 출력하는 directive를 4개형식으로 출력하세요.
 	});
+	// ex) a04_directiveExp.html
+	//     물건명 가격 갯수 물건이미지 출력하는 directive를 4개 형식으로 출력하세요.
 </script>
 </head>
 <body>
 <div class="container">
 	<div class="jumbotron text-center">
-	  <h2 >{{msg}}</h2>
-	  <div v-text="show"></div>
-	  <div v-html="show"></div>
+	  <div v-html="name"></div>
+	  <h3 v-text="price"></h3>
+	  <h3 >{{cnt}}개</h3>
 	  <img v-bind:src="img01"/>
 	</div>
 	<form id="frm01" class="form"  method="post">
