@@ -35,7 +35,8 @@
 	
  */
 	$(document).ready(function(){
-		var model = {msg:"좋은 하루입니다!!"}
+		var model = {msg:"v-if, v-show 처리",
+					 age:0}
 		var vm = Vue.createApp({
 			name:"App",
 			data(){
@@ -50,11 +51,13 @@
 <div class="container">
 	<div class="jumbotron text-center">
 	  <h2 >{{msg}}</h2>
+	  <h3>입력한 나이:{{age}}</h3>
+	  <h3 v-if="age>=18">성인</h3>
+	  <h3 v-if="age<18">미성년</h3>
 	</div>
 	<form id="frm01" class="form"  method="post">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input class="form-control mr-sm-2" placeholder="제목" />
-	    <input class="form-control mr-sm-2" placeholder="내용" />
+	    <input class="form-control mr-sm-2" placeholder="나이를 입력하세요" v-model="age"/>
 	    <button class="btn btn-info" type="submit">Search</button>
  	</nav>
 	</form>
