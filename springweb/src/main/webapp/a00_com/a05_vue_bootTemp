@@ -13,10 +13,13 @@
 <script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
 <script type="text/javascript">
 	$$(document).ready(function(){
-		var vm = new Vue({
-			el:".container",
-			data:{msg:"시작!!(뷰와함께)"}
-		});	
+		var model = {msg:"좋은 하루입니다!!"}
+		var vm = Vue.createApp({
+			name:"App",
+			data(){
+				return model;
+			}
+		}).mount(".container")
 	});
 </script>
 </head>
