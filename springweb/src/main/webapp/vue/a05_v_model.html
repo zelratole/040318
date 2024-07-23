@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/springweb/a00_com/bootstrap.min.css" >
+<style>
+	td{text-align:center;}
+</style>
+<script src="/springweb/a00_com/jquery.min.js"></script>
+<script src="/springweb/a00_com/bootstrap.min.js"></script>
+<script src="https://unpkg.com/vue" type="text/javascript"></script>
+<script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
+<script type="text/javascript">
+/*
+# 양방향 directive v-model 속성
+1. vue는 입력된 데이터를 모델데이터에 영향을 미치고, 그 모델 데이터가
+	화면에 출력하는 속성을 입력하는 form하위 요소객체에 설정할 수 있다.
+	즉, 입력된 데이터 선택되어지는 form 요소객체에 데이터에 따라서 모델 데이터가
+	연동이 되고, 이 모델데이터를 화면에 출력하게 되는 것을 말한다.
+	그래서, 화면에서 입력과 화면에서 출력을 상호간에 처리한다고 하여 양방향 처리 
+	속성이라고 하고 이것을 form 하위 요소객체에 속성으로 v-model="모델명"으로
+	처리할 수 있다.
+2. 기본형식
+	<input v-model="모델명"/>
+	<h2>{{모델명}}</h2>
+	위 입력 input에 데이터를 입력할 때, 바로 모델데이터를 변경하고, 그 모델
+	데이터를 출력하는 h2에서 출력되게 처리된다.
+	
+ */	
+
+	$(document).ready(function(){
+		var model = {msg:"v-model 연습예제",
+				     name:"",
+				     price:0,
+				     cnt:0
+		             }
+		var vm = Vue.createApp({
+			name:"App",
+			data(){
+				return model;
+			}
+		}).mount(".container")
+	});
+	// ex) 삼각형의 밑면과 높이를 입력하여 여기에 연결되어 있는 모델 데이터를 처리하여 삼각형의 면적으로 바로 출력되게 처리하세요.
+	
+</script>
+</head>
+<body>
+
+<div class="container">
+	<div class="jumbotron text-center">
+	  <h2 >{{msg}}</h2>
+	  <h3>물건명:{{name}}</h3>
+	  <h3>가격:{{price}}</h3>
+	  <h3>갯수:{{cnt}}</h3>
+	  <h3>총계:{{price*cnt}}</h3>
+	</div>
+	<form id="frm01" class="form"  method="post">
+  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	    <input class="form-control mr-sm-2" placeholder="물건명 입력" v-model="name" />
+	    <input class="form-control mr-sm-2" placeholder="가격 입력" v-model="price" />
+	    <input class="form-control mr-sm-2" placeholder="갯수 입력" v-model="cnt" />
+	    <button class="btn btn-info" type="submit">Search</button>
+ 	</nav>
+	</form>
+   <table class="table table-hover table-striped">
+   	<col width="10%">
+   	<col width="50%">
+   	<col width="15%">
+   	<col width="15%">
+   	<col width="10%">
+    <thead>
+    
+      <tr class="table-success text-center">
+        <th>번호</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>작성일</th>
+        <th>조회</th>
+      </tr>
+    </thead>	
+    <tbody>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    </tbody>
+	</table>       
+</div>
+</body>
+</html>
