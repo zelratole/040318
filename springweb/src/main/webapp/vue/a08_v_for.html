@@ -3,17 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="/springweb/a00_com/bootstrap.min.css" >
+<link rel="stylesheet" href="/springweb/a00_com/bootstrap.min.css">
 <style>
-	td{text-align:center;}
+td {
+	text-align: center;
+}
 </style>
 <script src="/springweb/a00_com/jquery.min.js"></script>
 <script src="/springweb/a00_com/bootstrap.min.js"></script>
 <script src="https://unpkg.com/vue" type="text/javascript"></script>
-<script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
+<script
+	src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api"
+	type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-		var model = {msg:"object v-for",person:{name:'홍길동',age:25,loc:'수원'} }
+		//ex) 물건명/가격/갯수  객체선언/v-model속성 선언/테이블에 출력
+		var model = {msg:"object v-for",
+			         person:{name:'홍길동',age:25,loc:'수원'},
+			         product:{name:'',price:0,cnt:0}
+					}
 		var vm = Vue.createApp({
 			name:"App",
 			data(){
@@ -24,35 +32,92 @@
 </script>
 </head>
 <body>
-<div class="container">
-	<div class="jumbotron text-center">
-	  <h2 >{{msg}}</h2>
+	<div class="container">
+		<div class="jumbotron text-center">
+			<h2>{{msg}}</h2>
+		</div>
+		<form id="frm01" class="form" method="post">
+			<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+				<input class="form-control mr-sm-2" placeholder="물건명"
+					v-model="product.name" /> <input class="form-control mr-sm-2"
+					placeholder="가격" v-model="product.price" /> <input
+					class="form-control mr-sm-2" placeholder="갯수" v-model="product.cnt" />
+				<button class="btn btn-info" type="submit">Search</button>
+			</nav>
+		</form>
+		<table class="table table-hover table-striped">
+			<col width="50%">
+			<col width="50%">
+			<thead>
+				<tr class="table-success text-center">
+					<th>속성</th>
+					<th>속성값</th>
+				</tr>
+			</thead>
+			<!-- 
+			# v-for 1단계 객체처리
+			1. v-for는 객체의 속성과 속성값을 반복문에 의해서 가져와서 처리할 수 있다.
+			2. 기본 형식
+				요소태그 v-for='(속성값, 속성) in 객체'
+				객체의 속성과 속성값을 매개변수로 반복해서 화면에 출력이 가능
+			 -->
+			<tbody>
+				<tr v-for="(val,prop) in product">
+					<td>{{prop}}</td>
+					<td>{{val}}</td>
+				</tr>
+			</tbody>
+		</table>		
+		
+		<table class="table table-hover table-striped">
+			<col width="33%">
+			<col width="34%">
+			<col width="33%">
+			<thead>
+				<tr class="table-success text-center">
+					<th>물건명</th>
+					<th>가격</th>
+					<th>갯수</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>{{product.name}}</td>
+					<td v-text="product.price"></td>
+					<td>{{product.cnt}}</td>
+				</tr>
+			</tbody>
+		</table>
+
+
+		<form id="frm01" class="form" method="post">
+			<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+				<input class="form-control mr-sm-2" placeholder="이름"
+					v-model="person.name" /> <input class="form-control mr-sm-2"
+					placeholder="나이" v-model="person.age" /> <input
+					class="form-control mr-sm-2" placeholder="사는곳" v-model="person.loc" />
+				<button class="btn btn-info" type="submit">Search</button>
+			</nav>
+		</form>
+		<table class="table table-hover table-striped">
+			<col width="33%">
+			<col width="34%">
+			<col width="33%">
+			<thead>
+				<tr class="table-success text-center">
+					<th>이름</th>
+					<th>나이</th>
+					<th>사는곳</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>{{person.name}}</td>
+					<td v-text="person.age"></td>
+					<td>{{person.loc}}</td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
-	<form id="frm01" class="form"  method="post">
-  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input class="form-control mr-sm-2" placeholder="이름" v-model="person.name" />
-	    <input class="form-control mr-sm-2" placeholder="나이" v-model="person.age" />
-	    <input class="form-control mr-sm-2" placeholder="사는곳" v-model="person.loc" />
-	    <button class="btn btn-info" type="submit">Search</button>
- 	</nav>
-	</form>
-   <table class="table table-hover table-striped">
-   	<col width="33%">
-   	<col width="34%">
-   	<col width="33%">
-    <thead>   
-      <tr class="table-success text-center">
-        <th>이름</th>
-        <th>나이</th>
-        <th>사는곳</th>
-      </tr>
-    </thead>	
-    <tbody>
-    	<tr><td>{{person.name}}</td>
-    		<td v-text="person.age"></td>
-    		<td>{{person.loc}}</td></tr>
-    </tbody>
-	</table>       
-</div>
 </body>
 </html>
