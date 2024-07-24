@@ -27,13 +27,17 @@ td {
  
  */
 	$(document).ready(function(){
-		var model = {msg:"v-if 문 처리", balance:0}
+		var model = {msg:"v-if 문 처리", balance:0,kor:0,eng:0,math:0}
 		var vm = Vue.createApp({
 			name:"App",
 			data(){
 				return model;
 			}
 		}).mount(".container")
+		// ex)1단계 입력한 점수에 따라서 학점 계산 처리하세요..점수:[   ] 등급:[A/B/C/D/E/F]
+		// ex)2단계 입력한 점수(국어/영어/수학)에 따라서 평균점수 기준으로 학점 계산 처리하세요..
+		//    국어점수:[   ]영어점수:[   ]수학점수:[   ] 등급:[A/B/C/D/E/F]
+		//      
 	});
 </script>
 </head>
@@ -42,6 +46,33 @@ td {
 		<div class="jumbotron text-center">
 			<h2>{{msg}}</h2>
 		</div>
+	<form id="frm01" class="form" method="post">
+			<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+				<input class="form-control mr-sm-2" placeholder="국어점수를 입력" v-model="kor">
+				<input class="form-control mr-sm-2" placeholder="영어점수를 입력" v-model="eng">
+				<input class="form-control mr-sm-2" placeholder="수학점수를 입력" v-model="math">
+			</nav>
+		</form>
+		<table class="table table-hover table-striped">
+			<thead>
+				<tr class="table-success text-center">
+					<th>총점</th><th>평균</th><th>학점등급</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>{{parseInt(kor)+parseInt(eng)+parseInt(math)}}</td>
+					<td>{{(parseInt(kor)+parseInt(eng)+parseInt(math))/3}}</td>
+					<td v-if="(parseInt(kor)+parseInt(eng)+parseInt(math))/3>=90">A학점</td>
+					<td v-else-if="(parseInt(kor)+parseInt(eng)+parseInt(math))/3>=80">B학점</td>
+					<td v-else-if="(parseInt(kor)+parseInt(eng)+parseInt(math))/3>=70">C학점</td>
+					<td v-else-if="(parseInt(kor)+parseInt(eng)+parseInt(math))/3>=60">D학점</td>
+					<td v-else>F학점</td>
+				</tr>
+			</tbody>
+		</table>
+				
+		
 		<form id="frm01" class="form" method="post">
 			<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 				<input class="form-control mr-sm-2" placeholder="잔고를 입력하세요"
