@@ -80,6 +80,10 @@ td {
 			<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 				<input class="form-control mr-sm-2" placeholder="잔고를 입력하세요"
 					v-model="balance">
+				<!-- 
+				v-show: 기본적으로 해당 요소객체를 로딩한 후, 보였다가/보이지 않는 처리를 조건에 처리할 때,
+				주로 활용된다. v-if는 로딩되지 않는 상태에서 다시 로딩하는 처리를 한다.
+				 -->	
 				<img v-show="balance<0" src="https://contactsvc.bmaster.kro.kr/img/error.png"
 					title="마이너스는 허용하지 않습니다."
 					style="width:15px;height:15px;background:white;">					
