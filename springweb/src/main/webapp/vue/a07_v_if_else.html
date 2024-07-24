@@ -25,6 +25,9 @@ td {
 	<요소객체 v-else-if="조건3">
 	<요소객체 v-else="그외">
  
+ '25'*'3' ==> 75
+ '25' + '5' ==> 255 
+ '25' - '5' ==> 20
  */
 	$(document).ready(function(){
 		var model = {msg:"v-if 문 처리", balance:0,kor:0,eng:0,math:0}
@@ -77,8 +80,12 @@ td {
 			<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 				<input class="form-control mr-sm-2" placeholder="잔고를 입력하세요"
 					v-model="balance">
+				<img v-show="balance<0" src="https://contactsvc.bmaster.kro.kr/img/error.png"
+					title="마이너스는 허용하지 않습니다."
+					style="width:15px;height:15px;background:white;">					
 			</nav>
 		</form>
+
 		<table class="table table-hover table-striped">
 			<thead>
 				<tr class="table-success text-center">
