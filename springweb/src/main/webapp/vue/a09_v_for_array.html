@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/springweb/a00_com/bootstrap.min.css" >
+<style>
+	td{text-align:center;}
+</style>
+<script src="/springweb/a00_com/jquery.min.js"></script>
+<script src="/springweb/a00_com/bootstrap.min.js"></script>
+<script src="https://unpkg.com/vue" type="text/javascript"></script>
+<script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
+<script type="text/javascript">
+/*
+# v-for와 배열모델 데이터 처리
+1. 모델데이터가 배열일 때, v-for를 통해서 데이터를 반복적인 DOM객체를 생성하여 출력할 
+	수 있다.
+2. 기본 형식
+	<요소객체 v-for="(단위데이터, index) in 배열모델">{{단위데이터}}
+ */
+	$(document).ready(function(){
+		var model = {msg:"v-for 배열!!",
+					 fruits:['사과','바나나','딸기','오렌지','수박']}
+		var vm = Vue.createApp({
+			name:"App",
+			data(){
+				return model;
+			}
+		}).mount(".container")
+	});
+</script>
+</head>
+<body>
+
+<div class="container">
+	<div class="jumbotron text-center">
+	  <h2 >{{msg}}</h2>
+	</div>
+	<form id="frm01" class="form"  method="post">
+  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	    <input class="form-control mr-sm-2" placeholder="제목" />
+	    <input class="form-control mr-sm-2" placeholder="내용" />
+	    <button class="btn btn-info" type="submit">Search</button>
+ 	</nav>
+	</form>
+   <table class="table table-hover table-striped">
+   	<col width="30%">
+   	<col width="70%">
+    <thead>
+      <tr class="table-success text-center">
+        <th>번호</th>
+        <th>과일명</th>
+      </tr>
+    </thead>	
+    <tbody>
+    	<tr v-for="(fruit, idx) in fruits">
+    		<td>{{idx+1}}</td><td>{{fruit}}</td></tr>
+    </tbody>
+	</table>       
+</div>
+</body>
+</html>

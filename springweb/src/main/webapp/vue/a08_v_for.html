@@ -49,6 +49,11 @@ td {
 					<option v-for="(val,key) in dept" 
 							v-bind:value="key" >{{val}}</option>
 				</select>	
+				<!-- 
+					option value="10"  인사팀				
+					option value="20"  재무팀
+						   :value="모델키"  모델데이터 				
+				 -->
 					
 				<button class="btn btn-info" type="submit">Search</button>
 			</nav>
