@@ -20,7 +20,9 @@ td {
 		var model = {msg:"form요소객체와 v-for",
 					 members:['홍길동','김길동','신길동'],
 					 ckmembers:[],
-					 hobbies:[]
+					 hobbies:["드라마감상","독서","코딩하기"],
+					 ckhobbies:[]
+					/*	hobbies와 ckhobbies를 선언하여 데이터를 할당하고, 체크가 된 내용을 출력 */
 					 }
 		var vm = Vue.createApp({
 			name:"App",
@@ -40,7 +42,31 @@ td {
 				<input type="checkbox" v-model="ckmembers" :value="mem" />
 				{{mem}}&nbsp;&nbsp;&nbsp;
 			</label>
+			<br>
+			<label v-for="hb in hobbies">
+				<input type="checkbox" v-model="ckhobbies" :value="hb"/>
+				{{hb}}&nbsp;&nbsp;
+			</label>
+			<!-- 체크가 되었을 때, value값을 v-model의 배열에 추가 할당 처리.. -->
 		</div>
+		<h2>취미생활</h2>
+		<table class="table table-hover table-striped">
+			<col width="30%">
+			<col width="70%">
+			<thead>
+				<tr class="table-success text-center">
+					<th>번호</th>
+					<th>취미</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr v-for="(hb,idx) in ckhobbies">
+					<td>{{idx+1}}</td>
+					<td>{{hb}}</td>
+				</tr>
+			</tbody>
+		</table>		
+		<h2>회원정보</h2>
 		<table class="table table-hover table-striped">
 			<col width="30%">
 			<col width="70%">
