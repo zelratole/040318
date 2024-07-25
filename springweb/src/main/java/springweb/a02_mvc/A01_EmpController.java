@@ -8,6 +8,7 @@ import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -58,6 +59,7 @@ public class A01_EmpController {
 		return g.toJson(service.getEmpList(sch));
 	}	
 	// http://localhost:7080/springweb/empListData2.do
+	@CrossOrigin(origins = "http://localhost:3000")
 	@RequestMapping("empListData2.do")
 	public String empListData2(Emp sch, Model d) {
 
