@@ -21,7 +21,10 @@
  */
 	$(document).ready(function(){
 		var model = {msg:"v-for 배열!!",
-					 fruits:['사과','바나나','딸기','오렌지','수박']}
+					 fruits:['사과','바나나','딸기','오렌지','수박'],
+					 points:[70,80,90],
+					 names:['홍길동','마길동','신길동']
+					}
 		var vm = Vue.createApp({
 			name:"App",
 			data(){
@@ -41,13 +44,51 @@
 	<div class="jumbotron text-center">
 	  <h2 >{{msg}}</h2>
 	</div>
-	<form id="frm01" class="form"  method="post">
-  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input class="form-control mr-sm-2" placeholder="제목" />
-	    <input class="form-control mr-sm-2" placeholder="내용" />
-	    <button class="btn btn-info" type="submit">Search</button>
- 	</nav>
-	</form>
+   <table class="table table-hover table-striped">
+   	<col width="30%">
+   	<col width="70%">
+    <thead>
+      <tr class="table-success text-center">
+        <th>번호</th>
+        <th>점수</th>
+      </tr>
+    </thead>	
+    <tbody>
+    	<tr v-for="(pt, idx) in points">
+    		<td>{{idx+1}}</td><td>{{pt}}</td></tr>
+    </tbody>
+	</table>    
+   <table class="table table-hover table-striped">
+   	<col width="30%">
+   	<col width="40%">
+   	<col width="30%">
+    <thead>
+      <tr class="table-success text-center">
+        <th>번호</th>
+        <th>이름</th>
+        <th>점수</th>
+      </tr>
+    </thead>	
+    <tbody>
+    	<tr v-for="(pt, idx) in points">
+    		<td>{{idx+1}}</td><td>{{ names[idx] }}</td><td>{{pt}}</td></tr>
+    </tbody>
+	</table>  	
+   <table class="table table-hover table-striped">
+   	<col width="30%">
+   	<col width="70%">
+    <thead>
+      <tr class="table-success text-center">
+        <th>번호</th>
+        <th>과일명</th>
+      </tr>
+    </thead>	
+    <tbody>
+    	<tr v-for="(fruit, idx) in fruits">
+    		<td>{{idx+1}}</td><td>{{fruit}}</td></tr>
+    </tbody>
+	</table>    	
+
    <table class="table table-hover table-striped">
    	<col width="30%">
    	<col width="70%">
