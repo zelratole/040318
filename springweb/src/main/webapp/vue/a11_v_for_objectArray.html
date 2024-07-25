@@ -31,7 +31,16 @@
 				    	{no:1014,name:"김기억", tel:"010-5522-3900"}, 
 				    	{no:1013,name:"제이홉", tel:"010-9922-4400"}, 
 				    	{no:1015,name:"박재현", tel:"010-4422-9900"} 
-				     ]}
+				     ],
+				     depts:[
+				    	 {deptno:10, dname:"인사", loc:"수원"},
+				    	 {deptno:20, dname:"재무", loc:"서울"},
+				    	 {deptno:30, dname:"it사업", loc:"제주"},
+				    	 {deptno:50, dname:"기획", loc:"부산"}
+				     ]
+					}
+		// ex) 부서번호, 부서명, 부서위치 배열 선언하고, 아래에 테이블로 출력하세요..
+		
 		var vm = Vue.createApp({
 			name:"App",
 			data(){
@@ -47,13 +56,29 @@
 	<div class="jumbotron text-center">
 	  <h2 >{{msg}}</h2>
 	</div>
-
    <table class="table table-hover table-striped">
    	<col width="30%">
    	<col width="40%">
    	<col width="30%">
     <thead>
-    
+      <tr class="table-success text-center">
+        <th>부서번호</th>
+        <th>부서명</th>
+        <th>부서위치</th>
+      </tr>
+    </thead>	
+    <tbody>
+    	<tr v-for="dept in depts">
+    		<td v-text="dept.deptno"></td>
+    		<td>{{dept.dname}}</td>
+    		<td>{{dept.loc}}</td></tr>
+    </tbody>
+	</table>  
+   <table class="table table-hover table-striped">
+   	<col width="30%">
+   	<col width="40%">
+   	<col width="30%">
+    <thead>
       <tr class="table-success text-center">
         <th>사번</th>
         <th>이름</th>
