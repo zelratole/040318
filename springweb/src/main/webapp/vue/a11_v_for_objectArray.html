@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/springweb/a00_com/bootstrap.min.css" >
+<style>
+	td{text-align:center;}
+</style>
+<script src="/springweb/a00_com/jquery.min.js"></script>
+<script src="/springweb/a00_com/bootstrap.min.js"></script>
+<script src="https://unpkg.com/vue" type="text/javascript"></script>
+<script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
+<script type="text/javascript">
+/*
+# v-for 객체형 배열 처리..
+1. v-for를 이용하면 배열 데이터가 1단계로 호출되어 처리할 수 있다..
+2. javascript의 객체는 단위 객체와 속성으로 접근할 수 있기에 해당 객체.속성으로
+	처리가 가능하다.
+3. 기본 형식
+	<반복할요소객체  v-for="(단위객체, index) in 객체형배열" >
+		{{index}}  {{단위객체.속성1}}   {{단위객체.속성2}} ...
+ 
+ */
+
+	$(document).ready(function(){
+		var model = {msg:"v-for를 이용한 객체형 배열",
+				     contacts:[
+				    	{no:1011,name:"RM", tel:"010-3422-3400"}, 
+				    	{no:1012,name:"정국", tel:"010-4422-3400"}, 
+				    	{no:1014,name:"김기억", tel:"010-5522-3900"}, 
+				    	{no:1013,name:"제이홉", tel:"010-9922-4400"}, 
+				    	{no:1015,name:"박재현", tel:"010-4422-9900"} 
+				     ]}
+		var vm = Vue.createApp({
+			name:"App",
+			data(){
+				return model;
+			}
+		}).mount(".container")
+	});
+</script>
+</head>
+<body>
+
+<div class="container">
+	<div class="jumbotron text-center">
+	  <h2 >{{msg}}</h2>
+	</div>
+
+   <table class="table table-hover table-striped">
+   	<col width="30%">
+   	<col width="40%">
+   	<col width="30%">
+    <thead>
+    
+      <tr class="table-success text-center">
+        <th>사번</th>
+        <th>이름</th>
+        <th>전화번호</th>
+      </tr>
+    </thead>	
+    <tbody>
+    	<tr v-for="emp in contacts">
+    		<td v-text="emp.no"></td>
+    		<td>{{emp.name}}</td>
+    		<td>{{emp.tel}}</td></tr>
+    </tbody>
+	</table>       
+</div>
+</body>
+</html>
