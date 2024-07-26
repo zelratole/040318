@@ -37,7 +37,8 @@
 			name:"App",
 			data(){
 				return {  msg:"methods 속성 활용 함수 처리", 
-					      greet:"Good day!"
+					      greet:"Good day!",
+					      msg2:"반갑습니다. ^^"
 					   };
 			},
 			methods:{
@@ -47,10 +48,16 @@
 				changeMsg(){
 					// 이 기능 함수가 호출되는 순간 모델 데이터를 변경 처리..
 					this.greet="안녕하세요!(메시지 추가-모델데이터변경)"
+				},
+				showMsg2(){
+					this.msg2 = "두번째 메시지 변경(Good luck!!)"
 				}
 			}
 		}).mount(".container")
 	});
+ 	// ex1) methods 속성에 메서드를 추가 선언(showMsg2)하여, 해당 메서드를 클릭시,
+ 	// 		출력하고 있는 모델 데이터(msg2)의 값이 변경되게 처리하세요..
+ 	// ex2) 
 </script>
 </head>
 <body>
