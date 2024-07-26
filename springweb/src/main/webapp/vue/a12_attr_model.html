@@ -49,7 +49,12 @@
 					    	src:"https://contactsvc.bmaster.kro.kr/photos/19.jpg",
 					    	titleattr2:"title",
 					    	title:"Harry's photo"
-					  }				      
+					  },
+					  title01:{
+						  alignattr:"align",
+						  align:"center",
+						  content:"안녕하세요 속성 설정 성공!!"
+					  }
 		            }
 		/*
 		ex1)[1단계] image2로 속성과 속성값을 설정하여 출력해보세요...
@@ -74,7 +79,14 @@
 	  
 	  <img v-bind:[image1.srcattr]="image1.src"  :[image1.titleattr]="image1.title" /><br>
 	  <img v-bind:[image2.srcattr2]="image2.src"  :[image2.titleattr2]="image2.title" />
+	  <h2 :[title01.alignattr]="title01.align">{{title01.content}}</h2>
 	  <!-- 
+					  title01:{
+						  alignattr:"align",
+						  align:"center",
+						  content:"안녕하세요 속성 설정 성공!!"
+					  }	  
+	  
 					   ,	
 				      image2:{
 					    	srcattr2:"src",
