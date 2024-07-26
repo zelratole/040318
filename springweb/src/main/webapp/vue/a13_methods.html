@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/springweb/a00_com/bootstrap.min.css" >
+<style>
+	td{text-align:center;}
+</style>
+<script src="/springweb/a00_com/jquery.min.js"></script>
+<script src="/springweb/a00_com/bootstrap.min.js"></script>
+<script src="https://unpkg.com/vue" type="text/javascript"></script>
+<script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
+<script type="text/javascript">
+/*
+# vue에서 사용하는 객체 종속 기능함수인 메서드...
+1. vue는 기능적인 처리를 위해여, life cycle/캐시메모리 사용/보안적인 필요에 의해서
+	여러가지 기능메서드를 지원한다.
+2. 그 중에서 가장 일반벅으로 메서드(객체안에 함수)의 기능을 처리하는 methods 속성 아래의
+	함수를 사용해 보자.
+3. 기본형식
+	1) 속성선언..
+		methods:{
+			함수1:function(전달할 매개변수){
+				처리할 프로세스.
+				this.모델데이터 : 호출하거나 처리할 모델데이터
+				this.함수() : 호출하거나 기능적 처리할 메서드..
+			},
+			함수2:function(){
+				
+			}
+		}
+ */
+	$(document).ready(function(){
+
+		var vm = Vue.createApp({
+			name:"App",
+			data(){
+				return {  msg:"methods 속성 활용 함수 처리", 
+					      greet:"Good day!"
+					   };
+			},
+			methods:{
+				showMsg(){
+					return "메시지가 리턴하는 함수"
+				},
+				changeMsg(){
+					// 이 기능 함수가 호출되는 순간 모델 데이터를 변경 처리..
+					this.greet="안녕하세요!(메시지 추가-모델데이터변경)"
+				}
+			}
+		}).mount(".container")
+	});
+</script>
+</head>
+<body>
+
+<div class="container">
+	<div class="jumbotron text-center">
+	  <h2 >{{msg}}</h2>
+	  <h2 >{{greet}}</h2>
+	  <button type="button">메시지 변경</button>
+	  <h2 >{{ showMsg() }}</h2>
+	</div>
+	<form id="frm01" class="form"  method="post">
+  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	    <input class="form-control mr-sm-2" placeholder="제목" />
+	    <input class="form-control mr-sm-2" placeholder="내용" />
+	    <button class="btn btn-info" type="submit">Search</button>
+ 	</nav>
+	</form>
+   <table class="table table-hover table-striped">
+   	<col width="10%">
+   	<col width="50%">
+   	<col width="15%">
+   	<col width="15%">
+   	<col width="10%">
+    <thead>
+    
+      <tr class="table-success text-center">
+        <th>번호</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>작성일</th>
+        <th>조회</th>
+      </tr>
+    </thead>	
+    <tbody>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    </tbody>
+	</table>       
+</div>
+</body>
+</html>
