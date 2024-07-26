@@ -39,6 +39,17 @@ td {
 		<div class="jumbotron text-center">
 			<h2>{{msg}}</h2>
 			<label v-for="mem in members"> 
+				<!-- 
+				# checkbox를 v-model로 모델(배열형)과 연동하면 value에 데이터를 설정하면
+				checked 된는 순간 모델(배열형)에 데이터가 추가 할당이 된다.
+				type="checkbox" v-model="ckmembers" value="홍길동"  checked
+				type="checkbox" v-model="ckmembers" value="김길동"
+				type="checkbox" v-model="ckmembers" value="신길동"  checked
+				
+				chmembers=[] 배열은 위와 같이 설정되었을 때, 사과, 딸기 value가 있는 것을
+				check하면 chmembers=['홍길동','신길동']가 모델 데이터로 할당된다..
+				
+				 -->
 				<input type="checkbox" v-model="ckmembers" :value="mem" />
 				{{mem}}&nbsp;&nbsp;&nbsp;
 			</label>
