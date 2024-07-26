@@ -59,7 +59,9 @@
 	<div class="jumbotron text-center">
 	  <h2 >{{msg}}</h2>
 	  <h2 >{{greet}}</h2>
-	  <button type="button">메시지 변경</button>
+	  <button type="button" onclick="alert('이벤트처리')">기존 이벤트 처리</button>
+	  <button type="button" @click="changeMsg">메시지 변경(vue)</button>
+	  <!-- @click="methods속성에 있는 함수명 호출로 이벤트 처리" -->
 	  <h2 >{{ showMsg() }}</h2>
 	</div>
 	<form id="frm01" class="form"  method="post">
