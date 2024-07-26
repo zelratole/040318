@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/springweb/a00_com/bootstrap.min.css" >
+<style>
+	td{text-align:center;}
+</style>
+<script src="/springweb/a00_com/jquery.min.js"></script>
+<script src="/springweb/a00_com/bootstrap.min.js"></script>
+<script src="https://unpkg.com/vue" type="text/javascript"></script>
+<script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
+<script type="text/javascript">
+/*
+# 모델로 속성을 지정하여 처리
+1. 모델값은 일반적으로 속성값이나 화면에 출력할 데이터를 처리하는 경우가 많다.
+2. 하지만, 간혹 요소의 속성으로 모델로 설정하는 경우도 있어 이에 대한 내용을
+	처리해보자.
+3. 1단계 속성 설정 처리
+	1) 모델 데이터로 필요한 속성 설정
+		img01:{
+			srcattr:"src", // 처리할 속성을 지정
+			titlesrc:"title", // 속성을 지정
+			src:"이미지.jpg", // 속성값을 설정
+			title:"백합이미지", // 속성값을 설정
+		}
+		위와 같이 요소객체에 선언할 속성값 뿐만아니라 속성을 지정하는 경우 모델데이터를
+		설정하고.
+	2) 화면단 요소객체에 속성과 속성값을 모델 데이터를 설정.
+		<객체  v-bind:[모델의속성]="모델의속성값"       ex) var p01 = {name:"홍길동",age:25}
+		      :[모델의속성]="모델의속성값"                 p01.name,  p01['name']
+		ex)
+		<img src="이미지.jpg"/>
+		<img v-bind:[img01.srcattr]="img01.src"
+			 :[img01.titlesrc]="img01.title"
+ 
+ */
+	$(document).ready(function(){
+		var model = { msg:"속성/속성값 모델 데이터 설정!!",
+				      image1:{
+				    	srcattr:"src",
+				    	src:"https://contactsvc.bmaster.kro.kr/photos/18.jpg",
+				    	titleattr:"title",
+				    	title:"Lily's photo"
+				      },
+				      image2:{
+					    	srcattr2:"src",
+					    	src:"https://contactsvc.bmaster.kro.kr/photos/19.jpg",
+					    	titleattr2:"title",
+					    	title:"Harry's photo"
+					  }				      
+		            }
+		/*
+		ex1)[1단계] image2로 속성과 속성값을 설정하여 출력해보세요...
+				srcattr2, title2attr로 속성 설정 처리..
+		ex2)[2단계] h2의 align 속성과 속성값을 설정과 레이블(모델출력 내용)을  title01이라는 이름으로 객체를
+			선언하여 출력하세요..
+			
+		*/
+		var vm = Vue.createApp({
+			name:"App",
+			data(){
+				return model;
+			}
+		}).mount(".container")
+	});
+</script>
+</head>
+<body>
+<div class="container">
+	<div class="jumbotron text-center">
+	  <h2 >{{msg}}</h2>
+	  
+	  <img v-bind:[image1.srcattr]="image1.src"  :[image1.titleattr]="image1.title" /><br>
+	  <img v-bind:[image2.srcattr2]="image2.src"  :[image2.titleattr2]="image2.title" />
+	  <!-- 
+					   ,	
+				      image2:{
+					    	srcattr2:"src",
+					    	src:"https://contactsvc.bmaster.kro.kr/photos/19.jpg",
+					    	titleattr2:"title",
+					    	title:"Harry's photo"
+					  }				  
+	  
+	   -->
+	</div>
+	<form id="frm01" class="form"  method="post">
+  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	    <input class="form-control mr-sm-2" placeholder="제목" />
+	    <input class="form-control mr-sm-2" placeholder="내용" />
+	    <button class="btn btn-info" type="submit">Search</button>
+ 	</nav>
+	</form>
+   <table class="table table-hover table-striped">
+   	<col width="10%">
+   	<col width="50%">
+   	<col width="15%">
+   	<col width="15%">
+   	<col width="10%">
+    <thead>
+    
+      <tr class="table-success text-center">
+        <th>번호</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>작성일</th>
+        <th>조회</th>
+      </tr>
+    </thead>	
+    <tbody>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    </tbody>
+	</table>       
+</div>
+</body>
+</html>
