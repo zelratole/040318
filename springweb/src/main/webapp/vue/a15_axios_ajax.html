@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/springweb/a00_com/bootstrap.min.css" >
+<style>
+	td{text-align:center;}
+</style>
+<script src="/springweb/a00_com/jquery.min.js"></script>
+<script src="/springweb/a00_com/bootstrap.min.js"></script>
+<script src="https://unpkg.com/vue" type="text/javascript"></script>
+<script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
+<script type="text/javascript" src="https://unpkg.com/axios"></script>
+<script type="text/javascript" src="https://unpkg.com/lodash"></script>
+<script type="text/javascript">
+/*
+# axios 라이브러리를 통해서 외부 api(json) 데이터 처리...
+1. vue에서 기본적인 데이터 로딩 방식이 서버에 있는 json 데이터를 받아서, 화면에 
+	출력하는 형태로 사용한다.
+2. 물론, 자체내 DB와 연결된 backend controller를 호출하여, json데이터를 조회/수정/삭제 하는 것과 동일한
+	처리하는 하는 것이다.
+3. 일단, 이러한 외부서버의 json데이터를 제공하는 api를 이용해서 데이터를 처리해보자.
+4. axios란 vue와 호환성이 높은 backend단 json데이터를 처리해주는 js lib이다..
+	1) 기본 형식
+		- lib 호출 : "https://unpkg.com/axios"
+		- 메서드 사용
+			axios.get("사용하고자하는 url"+"요청값 처리").then(함수1).catch(함수2)
+			위형식으로 특정한 backend단 요청으로 json데이터를 ajax로 함수1로 가져와서, 모델데이터를
+			할당하거나 변경하여 처리하는 형태를 말한다.
+			ex)
+			axios.get("/springweb?ename="+$("[name=ename]").val()+"&job="+$("[name=job]").val())
+				.then(response(reponse)=>{
+					// json데이터를 사원정보 리스트 모델 데이터 할당 처리..
+					this.empList = reponse.data
+				})
+			
+		
+ https://contactsvc.bmaster.kro.kr/contacts/search/jo
+ https://contactsvc.bmaster.kro.kr/contacts/search/검색할키워드
+ */
+ 	const BASEURL="https://contactsvc.bmaster.kro.kr"
+	$(document).ready(function(){
+				
+		var vm = Vue.createApp({
+			name:"App",
+			data(){
+				return {msg:"외부 api 연동 처리",
+					    name:"", /*검색할 키워드*/
+					    contacts:[], /*ajax에 의해 가져온 데이터*/
+					    isLoading:false /*로딩하는 지연시간에 로딩이미지 표시를 위해*/
+						};
+			},
+			created:function(){
+				console.log("생성시 호출되는 메서드!!")
+			},
+			watch:{ // 특정 모델데이터의 변경을 통해서 처리하는 기능메서드.
+				name(current){ // 입력되는 모델값을 받음
+					if(curent.length>=2){  // 검색할 이름이 문자열 2개 이상일 때 처리..
+						this.fetchContacts() // 이 뷰 객체에 포함되어 있는 메서드 호출
+					}
+				}	
+			},
+			methods:{
+				fetchContacts:function(){
+					// 검색되어가져오는 처리..
+					console.log("#검색처리할 때, 사용하는 메서드#")
+					console.log("검색 키워드:"+this.name) //  vue가 가지고 있는 모델 호출..
+				}
+			}
+		}).mount(".container")
+	});
+</script>
+</head>
+<body>
+
+<div class="container">
+	<div class="jumbotron text-center">
+	  <h2 >{{msg}}</h2>
+	</div>
+	<form id="frm01" class="form"  method="post">
+  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	    <input class="form-control mr-sm-2" placeholder="제목" />
+	    <input class="form-control mr-sm-2" placeholder="내용" />
+	    <button class="btn btn-info" type="submit">Search</button>
+ 	</nav>
+	</form>
+   <table class="table table-hover table-striped">
+   	<col width="10%">
+   	<col width="50%">
+   	<col width="15%">
+   	<col width="15%">
+   	<col width="10%">
+    <thead>
+    
+      <tr class="table-success text-center">
+        <th>번호</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>작성일</th>
+        <th>조회</th>
+      </tr>
+    </thead>	
+    <tbody>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    </tbody>
+	</table>       
+</div>
+</body>
+</html>

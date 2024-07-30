@@ -40,7 +40,10 @@
 						count:0 };
 			},
 			computed:{
+				// 빠르게 cache메모리를 이용해서 출력할 때, 사용.
+				// 메서드명으로 바로 사용..{{reverseMessage}}
 				reverseMessage(){
+					// 입력하여 출력되는 데이터를 reverse 역순위로 처리..
 					return this.message.split("").reverse().join("")
 				}
 			},
