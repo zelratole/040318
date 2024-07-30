@@ -39,15 +39,17 @@
  https://contactsvc.bmaster.kro.kr/contacts/search/jo
  https://contactsvc.bmaster.kro.kr/contacts/search/검색할키워드
  */
- 	const BASEURL="https://contactsvc.bmaster.kro.kr"
+ // http://localhost:7080/springweb/empListData2.do
+ 	const BASEURL="http://localhost:7080/springweb/empListData2.do"
 	$(document).ready(function(){
 				
 		var vm = Vue.createApp({
 			name:"App",
 			data(){
 				return {msg:"외부 api 연동 처리",
-					    name:"", /*검색할 키워드*/
-					    contacts:[], /*ajax에 의해 가져온 데이터*/
+					    ename:"", /*검색할 키워드*/
+					    job:"", /*검색할 키워드*/
+					    empList:[], /*ajax에 의해 가져온 데이터*/
 					    isLoading:false /*로딩하는 지연시간에 로딩이미지 표시를 위해*/
 						};
 			},
@@ -55,21 +57,21 @@
 				console.log("생성시 호출되는 메서드!!")
 			},
 			watch:{ // 특정 모델데이터의 변경을 통해서 처리하는 기능메서드.
-				name(current){ // 입력되는 모델값을 받음
-					if(current.length>=2){  // 검색할 이름이 문자열 2개 이상일 때 처리..
-						this.fetchContacts() // 이 뷰 객체에 포함되어 있는 메서드 호출
-					}else{
-						this.contacts=[]
-					}
-				}	
+				ename(eVal){ // 입력되는 모델값을 받음
+					this.fetchContacts()
+				},
+				job(jVal){ // 입력되는 모델값을 받음
+					this.fetchContacts()
+				}				
 			},
 			methods:{
 				fetchContacts:function(){
 					this.isLoading=true;
 					// 검색되어가져오는 처리..
 					console.log("#검색처리할 때, 사용하는 메서드#")
-					console.log("검색 키워드:"+this.name) //  vue가 가지고 있는 모델 호출..
-					axios.get(BASEURL+"/contacts/search/"+this.name).then(
+					console.log("검색 키워드:"+this.ename) //  vue가 가지고 있는 모델 호출..
+					console.log("검색 키워드:"+this.job) //  vue가 가지고 있는 모델 호출..
+					axios.get(BASEURL+"?ename="+this.ename+"&job="+this.job).then(
 							(response)=>{
 								this.isLoading=false;
 								// 서버에서 온 데이터를 모델데이터로 할당. 처리..
