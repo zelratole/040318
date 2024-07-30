@@ -42,7 +42,6 @@
  // http://localhost:7080/springweb/empListData2.do
  	const BASEURL="http://localhost:7080/springweb/empListData2.do"
 	$(document).ready(function(){
-				
 		var vm = Vue.createApp({
 			name:"App",
 			data(){
@@ -74,8 +73,10 @@
 					axios.get(BASEURL+"?ename="+this.ename+"&job="+this.job).then(
 							(response)=>{
 								this.isLoading=false;
+								console.log(response.data.empList)
+								console.log(response.data)
 								// 서버에서 온 데이터를 모델데이터로 할당. 처리..
-								this.contacts = response.data;
+								this.empList = response.data.empList;
 							}
 							)
 				}
@@ -95,7 +96,8 @@
 	  Loading..
 	</button>  
    <nav class="navbar navbar-expand-sm bg-dark navbar-dark"  style="z-index:0;">
-	    <input v-model="name" class="form-control mr-sm-2" placeholder="검색할 이름" />
+	    <input v-model="ename" class="form-control mr-sm-2" placeholder="검색할 이름" />
+	    <input v-model="job" class="form-control mr-sm-2" placeholder="검색할 직책" />
 	    <button @click="fetchContacts" class="btn btn-info" type="button">Search</button>
    </nav>
 
@@ -106,24 +108,19 @@
    	<col width="20%">
    	<col width="20%">
     <thead>
-    <!-- 
-    "no":"6645ed2c29a1a32335c2c253","name":"Caroline Jones",
-    "tel":"010-3456-8286","address":"서울시",
-    "photo":"https://contactsvc.bmaster.kro.kr/photos/ny9i40fZhA"
-     -->
       <tr class="table-success text-center">
         <th>번호</th>
         <th>이름</th>
-        <th>전화번호</th>
-        <th>주소</th>
-        <th>사진</th>
+        <th>직책</th>
+        <th>급여</th>
+        <th>부서번호</th>
       </tr>
     </thead>	
     <tbody>
-    	<tr v-for="con in contacts">
-    		<td>{{con.no}}</td><td>{{con.name}}</td>
-    		<td>{{con.tel}}</td><td>{{con.address}}</td>
-    		<td><img width="100%" height="100%" :src="con.photo"/></td></tr>
+    	<tr v-for="emp in empList">
+    		<td>{{emp.empno}}</td><td>{{emp.ename}}</td>
+    		<td>{{emp.job}}</td><td>{{emp.sal}}</td>
+    		<td>{{emp.deptno}}</td></tr>
     </tbody>
 	</table>       
 </div>
