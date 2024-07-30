@@ -29,5 +29,261 @@
 	
 
 
+# 스프링 단계별 학습
+1. 스프링 MVC 기초
+	1) [컨트롤러/view]url와 jsp(view) 연동
+	
+	# 학습 : 요청값이 무엇인지? 형태가 어떻게 나타나는지? get/post방식 차이가 무엇인가?
+	
+	2) [컨트롤러/view]url과 요청처리:단일데이터
+	3) [컨트롤러/view]url과 요청처리:다중데이터
+	4) [컨트롤러/view]url과 요청처리:객체
+	
+	# 학습 : 요청값와 form형식 차리?
+	5) [컨트롤러/view]url과 요청처리:단일데이터(form활용)
+	6) [컨트롤러/view]url과 요청처리:다중데이터(form활용)
+	7) [컨트롤러/view]url과 요청처리:객체(form활용)
+	
+	# 학습 : 모델 데이터가 무엇인지? 모델데이터 표현 형식(el/jstl) 함께 이해.
+	8) [컨트롤러/view]url과 모델데이터:단일데이터
+	9) [컨트롤러/view]url과 모델데이터:다중데이터
+	10) [컨트롤러/view]url과 모델데이터:객체데이터
+	11) [컨트롤러/view]url과 요청값 + 모델데이터:단일/다중
+	12) [컨트롤러/view]url과 요청값 + 모델데이터:객체/리스트
+2. 스프링 dao 처리
+	- sql의 결과에 대한 처리
+	1) 단일 리턴값
+	2) 배열 리턴값
+	3) 객체 리턴값
+	4) 리스트형 리턴값
+	5) 단일 매개변수
+	6) 다중 매개변수
+	7) 객체 매개변수
+	8) 매개변수 + 리턴값 복합 처리(단일/단일)
+	9) 매개변수 + 리턴값 복합 처리(객체/리스트)
+4. dao/service/controller 연동 처리 연습	
+5. 스프링 ajax 이해와 활용
+6. 스프링 ajax 연동 jquery lib 처리
+7. 기타 모듈에 대한 이해
+	1) 로그인 세션 처리
+	2) 파일 업로드/다운로드
+	3) 메일발송
+	4) 게시판
+	5) 다국어처리
+	
+	
+
+
+
+
+
+### 1. 스프링 MVC 기초
+#### 1) [컨트롤러/뷰] URL과 JSP(View) 연동
+
+**학습: 요청값이 무엇인지? 형태가 어떻게 나타나는지? GET/POST 방식 차이가 무엇인가?**
+
+#### 기본 예제
+**컨트롤러:**
+```java
+@Controller
+public class HelloController {
+    @GetMapping("/hello")
+    public String hello(Model model) {
+        model.addAttribute("message", "Hello, Spring MVC!");
+        return "WEB-INF\\iews\\z01_exam\\hello.jsp";
+    }
+}
+```
+
+**JSP (hello.jsp):**
+```jsp
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello Page</title>
+</head>
+<body>
+    <h1>${message}</h1>
+</body>
+</html>
+```
+
+**URL과 요청:**
+- URL: `/hello`
+- 요청 방법: GET
+
+**연습 문제:**
+1. **URL과 요청값:**
+    - URL: `/greet`
+    - 요청 방법: GET
+    - 모델 속성: `greeting`
+    - 값: `"Welcome to Spring MVC!"`
+2. **URL과 요청값:**
+    - URL: `/bye`
+    - 요청 방법: GET
+    - 모델 속성: `farewell`
+    - 값: `"Goodbye from Spring MVC!"`
+3. **URL과 요청값:**
+    - URL: `/info`
+    - 요청 방법: GET
+    - 모델 속성: `info`
+    - 값: `"Spring MVC is a web framework."`
+
+#### 2) [컨트롤러/뷰] URL과 요청 처리: 단일 데이터
+
+**기본 예제**
+**컨트롤러:**
+```java
+@Controller
+public class DataController {
+    @GetMapping("/data")
+    public String data(@RequestParam(name = "value") String value, Model model) {
+        model.addAttribute("value", value);
+        return ""WEB-INF\\iews\\z01_exam\\data.jsp";
+    }
+}
+```
+
+**JSP (data.jsp):**
+```jsp
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Page</title>
+</head>
+<body>
+    <h1>Value: ${value}</h1>
+</body>
+</html>
+```
+
+**URL과 요청:**
+- URL: `/data?value=example`
+- 요청 방법: GET
+
+**연습 문제:**
+1. **URL과 요청값:**
+    - URL: `/singleData?name=John`
+    - 요청 방법: GET
+    - 모델 속성: `name`
+2. **URL과 요청값:**
+    - URL: `/singleData?age=30`
+    - 요청 방법: GET
+    - 모델 속성: `age`
+3. **URL과 요청값:**
+    - URL: `/singleData?city=NewYork`
+    - 요청 방법: GET
+    - 모델 속성: `city`
+
+#### 3) [컨트롤러/뷰] URL과 요청 처리: 다중 데이터
+
+**기본 예제**
+**컨트롤러:**
+```java
+@Controller
+public class MultiDataController {
+    @GetMapping("/multiData")
+    public String multiData(@RequestParam(name = "value1") String value1, 
+                            @RequestParam(name = "value2") String value2, 
+                            Model model) {
+        model.addAttribute("value1", value1);
+        model.addAttribute("value2", value2);
+        return ""WEB-INF\\iews\\z01_exam\\multiData.jsp";
+    }
+}
+```
+
+**JSP (multiData.jsp):**
+```jsp
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multi Data Page</title>
+</head>
+<body>
+    <h1>Value 1: ${value1}</h1>
+    <h1>Value 2: ${value2}</h1>
+</body>
+</html>
+```
+
+**URL과 요청:**
+- URL: `/multiData?value1=example1&value2=example2`
+- 요청 방법: GET
+
+**연습 문제:**
+1. **URL과 요청값:**
+    - URL: `/userDetails?username=Alice&age=25`
+    - 요청 방법: GET
+    - 모델 속성: `username`, `age`
+2. **URL과 요청값:**
+    - URL: `/addressDetails?street=Main&city=Boston`
+    - 요청 방법: GET
+    - 모델 속성: `street`, `city`
+3. **URL과 요청값:**
+    - URL: `/productDetails?product=Phone&price=699`
+    - 요청 방법: GET
+    - 모델 속성: `product`, `price`
+
+#### 4) [컨트롤러/뷰] URL과 요청 처리: 객체
+
+**기본 예제**
+**컨트롤러:**
+```java
+@Controller
+public class ObjectController {
+    @GetMapping("/objectData")
+    public String objectData(User user, Model model) {
+        model.addAttribute("user", user);
+        return ""WEB-INF\\iews\\z01_exam\\objectData.jsp";
+    }
+}
+```
+
+**User 클래스:**
+```java
+public class User {
+    private String name;
+    private int age;
+
+    // getters and setters
+}
+```
+
+**JSP (objectData.jsp):**
+```jsp
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Object Data Page</title>
+</head>
+<body>
+    <h1>Name: ${user.name}</h1>
+    <h1>Age: ${user.age}</h1>
+</body>
+</html>
+```
+
+**URL과 요청:**
+- URL: `/objectData?name=John&age=30`
+- 요청 방법: GET
+
+**연습 문제:**
+1. **URL과 요청값:**
+    - URL: `/personData?firstName=Alice&lastName=Smith&age=28`
+    - 요청 방법: GET
+    - 모델 속성: `person` (FirstName, LastName, Age)
+2. **URL과 요청값:**
+    - URL: `/employeeData?empId=123&empName=Bob&salary=5000`
+    - 요청 방법: GET
+    - 모델 속성: `employee` (EmpId, EmpName, Salary)
+3. **URL과 요청값:**
+    - URL: `/bookData?title=SpringInAction&author=Craig&price=45`
+    - 요청 방법: GET
+    - 모델 속성: `book` (Title, Author, Price)
+
+
+
+
 
 

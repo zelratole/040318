@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 // springweb.a01_start.A01_Controller
 @Controller
 public class A01_Controller {
-	// http://localhost:7080/springweb/start.do
-	@RequestMapping("start.do")
+	// http://localhost:7080/springweb/start
+	@RequestMapping("start")
 	public String start() {
 		return "a01_start.jsp";
 	}

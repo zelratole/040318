@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/springweb/a00_com/bootstrap.min.css" >
+<style>
+	td{text-align:center;}
+</style>
+<script src="/springweb/a00_com/jquery.min.js"></script>
+<script src="/springweb/a00_com/bootstrap.min.js"></script>
+<script src="https://unpkg.com/vue" type="text/javascript"></script>
+<script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
+<script type="text/javascript">
+/*
+# 함수에는 여러가지 형식으로 vue에서 지원이 되고 있다.
+1. vue에서 지원되는 method속성의 함수선언을 일반적인 기능 함수를 처리하는 부분이고,
+	다양한 속성의 메서드들이 특별하게 지원되고 있다.
+2. computed 속성
+	계산적으로 바로 캐시메모리를 반영해서 처리하는 기능이 필요할 때, 사용
+3. watch 속성
+	입력시 해당되는 모델 데이터의 값이 변경될 때, 사용하는 기능 처리
+4. 라이플 사이클 관련 메서드속성
+	vue 인스턴스 객체의 라이프 사이클에 따라서 마운팅, 생성, 변경, 소멸 시기에
+	처리할 기능을 해주는 라이프 사이클 관련 기능 메서드
+	beforeCreate, created,
+	beforeMount, mounted,
+	beforeUpdate, updated,
+	beforeDestory, destroyed
+5. 일반적인 이벤트 핸들러 처리하는 methods 등이 있다.
+ */
+	$(document).ready(function(){
+		
+		var vm = Vue.createApp({
+			name:"App",
+			data(){
+				return {msg:"기능 메서드 처리",
+						message:"",
+						watchedMessage:"",
+						count:0 };
+			},
+			computed:{
+				reverseMessage(){
+					return this.message.split("").reverse().join("")
+				}
+			},
+			watch:{ // 모델명과 동일..: 모델값이 변경할 때, 이 함수가 호출..
+				message(newValue, oldValue){
+					this.watchedMessage="메시지가 변경되었습니다. 이전:"+oldValue+", 이후:"+newValue
+				}
+			},
+			methods:{
+				updateMessage(event){
+					// 이벤트가 일어나는 값을 처리..
+					this.message = event.target.value
+				},
+				increment(){
+					this.count++
+				}
+			},
+			beforeCreate(){
+				console.log("DOM 만들기 전")
+			},
+			created(){
+				console.log("DOM 만들었음")
+			},
+			beforeMount(){
+				console.log("DOM 마운트 전")
+			},
+			mounted(){
+				console.log("DOM 마운트된 이후")
+			},
+			updated(){
+				console.log("DOM 수정된 이후")
+			},
+			destroyed(){
+				console.log("DOM 삭제된 이후")
+			}
+			
+		}).mount(".container")
+	});
+</script>
+</head>
+<body>
+
+<div class="container">
+	<div class="jumbotron text-center">
+	  <h2 >{{msg}}</h2>
+	  <p>Computed 속성 메서드: {{reverseMessage}}</p>
+	  <p>Watched 속성 메서드: {{watchedMessage}}</p>
+	  <p>count: {{count}}</p>
+	</div>
+	<form id="frm01" class="form"  method="post">
+  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	    <input v-model="message" @input="updateMessage" class="form-control mr-sm-2" />
+	    <!-- 모델명을 매핑해서 입력시 updateMessage 함수 호출 -->
+	    <button class="btn btn-info" type="button" @click="increment">카운트 증가</button>
+	    <!-- 클릭시 increment 메서드 호출.. -->
+ 	</nav>
+	</form>
+   <table class="table table-hover table-striped">
+   	<col width="10%">
+   	<col width="50%">
+   	<col width="15%">
+   	<col width="15%">
+   	<col width="10%">
+    <thead>
+    
+      <tr class="table-success text-center">
+        <th>번호</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>작성일</th>
+        <th>조회</th>
+      </tr>
+    </thead>	
+    <tbody>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    </tbody>
+	</table>       
+</div>
+</body>
+</html>

@@ -1,0 +1,298 @@
+# Spring MVC Basics
+
+## Learning: Differences Between Request Values and Form Formats
+### 5. [Controller/View] URL and Request Handling: Single Data (using form)
+- **Basic Example**
+    - **Controller**:
+    ```java
+    @Controller
+    public class FormController {
+        @GetMapping("/singleForm")
+        public String showForm() {
+            return "singleForm";
+        }
+
+        @PostMapping("/processSingleForm")
+        public String processForm(@RequestParam("name") String name, Model model) {
+            model.addAttribute("name", name);
+            return "formResult";
+        }
+    }
+    ```
+    - **View (singleForm.jsp)**:
+    ```html
+    <form action="processSingleForm" method="post">
+        Name: <input type="text" name="name" />
+        <input type="submit" value="Submit" />
+    </form>
+    ```
+    - **View (formResult.jsp)**:
+    ```html
+    <p>Submitted name: ${name}</p>
+    ```
+
+- **Practice URLs and Request Values**
+    1. URL: `/singleForm`, Request Value: `name=John`
+    2. URL: `/singleForm`, Request Value: `name=Jane`
+    3. URL: `/singleForm`, Request Value: `name=Alex`
+
+### 6. [Controller/View] URL and Request Handling: Multiple Data (using form)
+- **Basic Example**
+    - **Controller**:
+    ```java
+    @Controller
+    public class MultiFormController {
+        @GetMapping("/multiForm")
+        public String showForm() {
+            return "multiForm";
+        }
+
+        @PostMapping("/processMultiForm")
+        public String processForm(@RequestParam("name") String name, @RequestParam("email") String email, Model model) {
+            model.addAttribute("name", name);
+            model.addAttribute("email", email);
+            return "formResult";
+        }
+    }
+    ```
+    - **View (multiForm.jsp)**:
+    ```html
+    <form action="processMultiForm" method="post">
+        Name: <input type="text" name="name" />
+        Email: <input type="text" name="email" />
+        <input type="submit" value="Submit" />
+    </form>
+    ```
+    - **View (formResult.jsp)**:
+    ```html
+    <p>Submitted name: ${name}</p>
+    <p>Submitted email: ${email}</p>
+    ```
+
+- **Practice URLs and Request Values**
+    1. URL: `/multiForm`, Request Values: `name=John&email=john@example.com`
+    2. URL: `/multiForm`, Request Values: `name=Jane&email=jane@example.com`
+    3. URL: `/multiForm`, Request Values: `name=Alex&email=alex@example.com`
+
+### 7. [Controller/View] URL and Request Handling: Object (using form)
+- **Basic Example**
+    - **Controller**:
+    ```java
+    @Controller
+    public class ObjectFormController {
+        @GetMapping("/objectForm")
+        public String showForm() {
+            return "objectForm";
+        }
+
+        @PostMapping("/processObjectForm")
+        public String processForm(@ModelAttribute User user, Model model) {
+            model.addAttribute("user", user);
+            return "formResult";
+        }
+    }
+
+    public class User {
+        private String name;
+        private String email;
+        // Getters and Setters
+    }
+    ```
+    - **View (objectForm.jsp)**:
+    ```html
+    <form action="processObjectForm" method="post">
+        Name: <input type="text" name="name" />
+        Email: <input type="text" name="email" />
+        <input type="submit" value="Submit" />
+    </form>
+    ```
+    - **View (formResult.jsp)**:
+    ```html
+    <p>Submitted name: ${user.name}</p>
+    <p>Submitted email: ${user.email}</p>
+    ```
+
+- **Practice URLs and Request Values**
+    1. URL: `/objectForm`, Request Values: `name=John&email=john@example.com`
+    2. URL: `/objectForm`, Request Values: `name=Jane&email=jane@example.com`
+    3. URL: `/objectForm`, Request Values: `name=Alex&email=alex@example.com`
+
+## Learning: Understanding Model Data and Its Representation Format (EL/JSTL)
+### 8. [Controller/View] URL and Model Data: Single Data
+- **Basic Example**
+    - **Controller**:
+    ```java
+    @Controller
+    public class SingleModelController {
+        @GetMapping("/singleModel")
+        public String showData(Model model) {
+            model.addAttribute("message", "Hello, World!");
+            return "singleModel";
+        }
+    }
+    ```
+    - **View (singleModel.jsp)**:
+    ```html
+    <p>Message: ${message}</p>
+    ```
+
+- **Practice URLs and Request Values**
+    1. URL: `/singleModel`, Model Data: `message=Hello, John!`
+    2. URL: `/singleModel`, Model Data: `message=Hello, Jane!`
+    3. URL: `/singleModel`, Model Data: `message=Hello, Alex!`
+
+### 9. [Controller/View] URL and Model Data: Multiple Data
+- **Basic Example**
+    - **Controller**:
+    ```java
+    @Controller
+    public class MultiModelController {
+        @GetMapping("/multiModel")
+        public String showData(Model model) {
+            model.addAttribute("name", "John");
+            model.addAttribute("email", "john@example.com");
+            return "multiModel";
+        }
+    }
+    ```
+    - **View (multiModel.jsp)**:
+    ```html
+    <p>Name: ${name}</p>
+    <p>Email: ${email}</p>
+    ```
+
+- **Practice URLs and Request Values**
+    1. URL: `/multiModel`, Model Data: `name=John, email=john@example.com`
+    2. URL: `/multiModel`, Model Data: `name=Jane, email=jane@example.com`
+    3. URL: `/multiModel`, Model Data: `name=Alex, email=alex@example.com`
+
+### 10. [Controller/View] URL and Model Data: Object Data
+- **Basic Example**
+    - **Controller**:
+    ```java
+    @Controller
+    public class ObjectModelController {
+        @GetMapping("/objectModel")
+        public String showData(Model model) {
+            User user = new User();
+            user.setName("John");
+            user.setEmail("john@example.com");
+            model.addAttribute("user", user);
+            return "objectModel";
+        }
+    }
+
+    public class User {
+        private String name;
+        private String email;
+        // Getters and Setters
+    }
+    ```
+    - **View (objectModel.jsp)**:
+    ```html
+    <p>Name: ${user.name}</p>
+    <p>Email: ${user.email}</p>
+    ```
+
+- **Practice URLs and Request Values**
+    1. URL: `/objectModel`, Model Data: `user{name=John, email=john@example.com}`
+    2. URL: `/objectModel`, Model Data: `user{name=Jane, email=jane@example.com}`
+    3. URL: `/objectModel`, Model Data: `user{name=Alex, email=alex@example.com}`
+
+### 11. [Controller/View] URL and Request Values + Model Data: Single/Multiple
+- **Basic Example**
+    - **Controller**:
+    ```java
+    @Controller
+    public class RequestModelController {
+        @GetMapping("/requestModelForm")
+        public String showForm() {
+            return "requestModelForm";
+        }
+
+        @PostMapping("/processRequestModel")
+        public String processForm(@RequestParam("name") String name, @RequestParam("email") String email, Model model) {
+            model.addAttribute("name", name);
+            model.addAttribute("email", email);
+            model.addAttribute("message", "Request processed successfully!");
+            return "requestModelResult";
+        }
+    }
+    ```
+    - **View (requestModelForm.jsp)**:
+    ```html
+    <form action="processRequestModel" method="post">
+        Name: <input type="text" name="name" />
+        Email: <input type="text" name="email" />
+        <input type="submit" value="Submit" />
+    </form>
+    ```
+    - **View (requestModelResult.jsp)**:
+    ```html
+    <p>Name: ${name}</p>
+    <p>Email: ${email}</p>
+    <p>Message: ${message}</p>
+    ```
+
+- **Practice URLs and Request Values**
+    1. URL: `/requestModelForm`, Request Values: `name=John&email=john@example.com`
+    2. URL: `/requestModelForm`, Request Values: `name=Jane&email=jane@example.com`
+    3. URL: `/requestModelForm`, Request Values: `name=Alex&email=alex@example.com`
+
+### 12. [Controller/View] URL and Request Values + Model Data: Object/List
+- **Basic Example**
+    - **Controller**:
+    ```java
+    @Controller
+    public class RequestObjectController {
+        @GetMapping("/requestObjectForm")
+        public String showForm() {
+            return "requestObjectForm";
+        }
+
+        @PostMapping("/processRequestObject")
+        public String processForm(@ModelAttribute User user,
+
+ Model model) {
+            List<String> messages = new ArrayList<>();
+            messages.add("Welcome " + user.getName());
+            messages.add("Your email: " + user.getEmail());
+            model.addAttribute("user", user);
+            model.addAttribute("messages", messages);
+            return "requestObjectResult";
+        }
+    }
+
+    public class User {
+        private String name;
+        private String email;
+        // Getters and Setters
+    }
+    ```
+    - **View (requestObjectForm.jsp)**:
+    ```html
+    <form action="processRequestObject" method="post">
+        Name: <input type="text" name="name" />
+        Email: <input type="text" name="email" />
+        <input type="submit" value="Submit" />
+    </form>
+    ```
+    - **View (requestObjectResult.jsp)**:
+    ```html
+    <p>Name: ${user.name}</p>
+    <p>Email: ${user.email}</p>
+    <c:forEach var="message" items="${messages}">
+        <p>${message}</p>
+    </c:forEach>
+    ```
+
+- **Practice URLs and Request Values**
+    1. URL: `/requestObjectForm`, Request Values: `name=John&email=john@example.com`
+    2. URL: `/requestObjectForm`, Request Values: `name=Jane&email=jane@example.com`
+    3. URL: `/requestObjectForm`, Request Values: `name=Alex&email=alex@example.com`
+
+This structure provides a comprehensive guide and practice problems for each of the topics, helping learners understand both the theory and application of Spring MVC concepts.
+
+
+
+
