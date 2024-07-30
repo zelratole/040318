@@ -1,0 +1,274 @@
+## Handling DAO in Spring
+### Based on Oracle Scott Schema: EMP and DEPT Tables
+
+### 1. Single Return Value
+
+#### Theory:
+A single return value is used when a query is expected to return only one value. This is typically used for aggregate functions like COUNT, SUM, MAX, etc.
+
+#### Example:
+**Query to find the number of employees:**
+
+```java
+@Repository
+public class EmployeeDAO {
+
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
+
+    public int getEmployeeCount() {
+        String sql = "SELECT COUNT(*) FROM EMP";
+        return jdbcTemplate.queryForObject(sql, Integer.class);
+    }
+}
+```
+
+**Service Layer:**
+
+```java
+@Service
+public class EmployeeService {
+
+    @Autowired
+    private EmployeeDAO employeeDAO;
+
+    public int getEmployeeCount() {
+        return employeeDAO.getEmployeeCount();
+    }
+}
+```
+
+**Controller:**
+
+```java
+@RestController
+public class EmployeeController {
+
+    @Autowired
+    private EmployeeService employeeService;
+
+    @GetMapping("/employee/count")
+    public int getEmployeeCount() {
+        return employeeService.getEmployeeCount();
+    }
+}
+```
+
+#### Practice Problems:
+1. Query to get the maximum salary from the EMP table.
+    - URL: `/employee/max-salary`
+    - Request Value: None
+2. Query to get the minimum salary from the EMP table.
+    - URL: `/employee/min-salary`
+    - Request Value: None
+3. Query to get the total number of departments from the DEPT table.
+    - URL: `/department/count`
+    - Request Value: None
+
+### 2. Array Return Value
+
+#### Theory:
+Array return values are used when a query returns multiple columns of a single row.
+
+#### Example:
+**Query to find the department name and location by department number:**
+
+```java
+@Repository
+public class DepartmentDAO {
+
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
+
+    public String[] getDepartmentInfo(int deptNo) {
+        String sql = "SELECT DNAME, LOC FROM DEPT WHERE DEPTNO = ?";
+        return jdbcTemplate.queryForObject(sql, new Object[]{deptNo}, (rs, rowNum) -> 
+                new String[]{rs.getString("DNAME"), rs.getString("LOC")});
+    }
+}
+```
+
+**Service Layer:**
+
+```java
+@Service
+public class DepartmentService {
+
+    @Autowired
+    private DepartmentDAO departmentDAO;
+
+    public String[] getDepartmentInfo(int deptNo) {
+        return departmentDAO.getDepartmentInfo(deptNo);
+    }
+}
+```
+
+**Controller:**
+
+```java
+@RestController
+public class DepartmentController {
+
+    @Autowired
+    private DepartmentService departmentService;
+
+    @GetMapping("/department/info")
+    public String[] getDepartmentInfo(@RequestParam int deptNo) {
+        return departmentService.getDepartmentInfo(deptNo);
+    }
+}
+```
+
+#### Practice Problems:
+1. Query to get the employee name and job by employee number.
+    - URL: `/employee/info`
+    - Request Value: `empNo`
+2. Query to get the department number and location by department name.
+    - URL: `/department/info-by-name`
+    - Request Value: `dname`
+3. Query to get the employee name and department number by employee number.
+    - URL: `/employee/emp-dept-info`
+    - Request Value: `empNo`
+
+### 3. Object Return Value
+
+#### Theory:
+Object return values are used when a query returns multiple columns that need to be mapped to a Java object.
+
+#### Example:
+**Query to find the details of an employee by employee number:**
+
+```java
+public class Employee {
+    private int empNo;
+    private String eName;
+    private String job;
+    private int mgr;
+    private Date hireDate;
+    private double sal;
+    private double comm;
+    private int deptNo;
+    // getters and setters
+}
+```
+
+```java
+@Repository
+public class EmployeeDAO {
+
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
+
+    public Employee getEmployeeById(int empNo) {
+        String sql = "SELECT * FROM EMP WHERE EMPNO = ?";
+        return jdbcTemplate.queryForObject(sql, new Object[]{empNo}, new BeanPropertyRowMapper<>(Employee.class));
+    }
+}
+```
+
+**Service Layer:**
+
+```java
+@Service
+public class EmployeeService {
+
+    @Autowired
+    private EmployeeDAO employeeDAO;
+
+    public Employee getEmployeeById(int empNo) {
+        return employeeDAO.getEmployeeById(empNo);
+    }
+}
+```
+
+**Controller:**
+
+```java
+@RestController
+public class EmployeeController {
+
+    @Autowired
+    private EmployeeService employeeService;
+
+    @GetMapping("/employee/details")
+    public Employee getEmployeeById(@RequestParam int empNo) {
+        return employeeService.getEmployeeById(empNo);
+    }
+}
+```
+
+#### Practice Problems:
+1. Query to get the details of a department by department number.
+    - URL: `/department/details`
+    - Request Value: `deptNo`
+2. Query to get the details of an employee by employee name.
+    - URL: `/employee/details-by-name`
+    - Request Value: `eName`
+3. Query to get the details of a department by department name.
+    - URL: `/department/details-by-name`
+    - Request Value: `dname`
+
+### 4. List Return Value
+
+#### Theory:
+List return values are used when a query returns multiple rows, each of which maps to a Java object.
+
+#### Example:
+**Query to find all employees in a department:**
+
+```java
+@Repository
+public class EmployeeDAO {
+
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
+
+    public List<Employee> getEmployeesByDeptNo(int deptNo) {
+        String sql = "SELECT * FROM EMP WHERE DEPTNO = ?";
+        return jdbcTemplate.query(sql, new Object[]{deptNo}, new BeanPropertyRowMapper<>(Employee.class));
+    }
+}
+```
+
+**Service Layer:**
+
+```java
+@Service
+public class EmployeeService {
+
+    @Autowired
+    private EmployeeDAO employeeDAO;
+
+    public List<Employee> getEmployeesByDeptNo(int deptNo) {
+        return employeeDAO.getEmployeesByDeptNo(deptNo);
+    }
+}
+```
+
+**Controller:**
+
+```java
+@RestController
+public class EmployeeController {
+
+    @Autowired
+    private EmployeeService employeeService;
+
+    @GetMapping("/employees/by-department")
+    public List<Employee> getEmployeesByDeptNo(@RequestParam int deptNo) {
+        return employeeService.getEmployeesByDeptNo(deptNo);
+    }
+}
+```
+
+#### Practice Problems:
+1. Query to get all departments in a location.
+    - URL: `/departments/by-location`
+    - Request Value: `loc`
+2. Query to get all employees with a specific job title.
+    - URL: `/employees/by-job`
+    - Request Value: `job`
+3. Query to get all employees hired after a specific date.
+    - URL: `/employees/by-hire-date`
+    - Request Value: `hireDate`
+
