@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/springweb/a00_com/bootstrap.min.css">
+<style>
+td {
+	text-align: center;
+}
+</style>
+<script src="/springweb/a00_com/jquery.min.js"></script>
+<script src="/springweb/a00_com/bootstrap.min.js"></script>
+<script src="https://unpkg.com/vue" type="text/javascript"></script>
+<script
+	src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api"
+	type="text/javascript"></script>
+<template id="formTmp">
+	<form class="form" method="post">
+		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+			<input class="form-control mr-sm-2" placeholder="제목" /> <input
+				class="form-control mr-sm-2" placeholder="내용" />
+			<button class="btn btn-info" type="submit">Search</button>
+		</nav>
+	</form>
+</template>
+<template id="tabTmp">
+	<table class="table table-hover table-striped">
+		<col width="10%">
+		<col width="50%">
+		<col width="15%">
+		<col width="15%">
+		<col width="10%">
+		<thead>
+			<tr class="table-success text-center">
+				<th>번호</th>
+				<th>제목</th>
+				<th>작성자</th>
+				<th>작성일</th>
+				<th>조회</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+</template>
+<script type="text/javascript">
+/*
+# 컴포넌트의 템플릿태그 사용과 여러가지 기능 처리
+1. 컴포넌트의 템플릿태그를 상단에 선언하여 호출하며 사용할 수 있다.
+2. 컴포넌트의 일단 최상위 태그는 하나로 해서 처리하여야 한다.
+3. 기본 형식
+	1) 탬플릿 태그 선언과 id값 지정.
+		<template id="tmp01">
+			<div> : 최상위 태그는 하나만 선언...
+				사용 태그 내용...
+			</div>
+	2) 컴포넌트 선언.
+		var com01 = {
+			name:"컴포넌트이름",
+			data(){
+				return {msg:"안녕하세요"} // 컴포넌트 안에서 사용할 모델 데이터
+			},
+			template:"#tmp01" // 상단에 선언한 컴포넌트에 사용할 템플릿..
+			methods:call(){} // 기타 이 컴포넌트에 사용할 메서드..
+		}
+ */
+	$(document).ready(function(){
+		
+		var vm = Vue.createApp({
+			name:"App",
+			data(){
+				return {msg:"좋은 하루입니다!!"};
+			}
+		}).mount(".container")
+	});
+</script>
+</head>
+<body>
+
+	<div class="container">
+		<div class="jumbotron text-center">
+			<h2>{{msg}}</h2>
+		</div>
+
+
+	</div>
+</body>
+</html>
