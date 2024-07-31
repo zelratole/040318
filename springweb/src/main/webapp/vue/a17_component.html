@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/springweb/a00_com/bootstrap.min.css" >
+<style>
+	td{text-align:center;}
+</style>
+<script src="/springweb/a00_com/jquery.min.js"></script>
+<script src="/springweb/a00_com/bootstrap.min.js"></script>
+<script src="https://unpkg.com/vue" type="text/javascript"></script>
+<script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
+<script type="text/javascript">
+/*
+# Vue 컴포넌트
+1. Vue.js는 사용자 인터페이스를 만들기 위한 점진적인 javascript 프레임워크이다. Vue에서
+	컴포넌트 UI 구성하는 재사용 가능한 기본 단위를 말한다. 각각의 컴포넌트는 고유의 html,css,
+	javascript코드로 구성되어 있으면, 이를 통해 하나의 독립된 기능 또는 UI를 나타낸다.
+	Vue컴포넌트는 다음과 같은 구조로 이루어진다.
+	1) Template : HTML 마크업을 정의
+	2) Script : 컴포넌트의 데이터, 메서드, 라이프사이클, 훅 등을 정의
+	3) Style : 컴포넌트에 적용할 css 스타일을 정의
+2. 기본형식
+	1) 컴포넌트 선언
+		const 컴포넌트상수 = {
+			name:"컴포넌트명",
+			data(){
+				return { 속성:속성값} 
+			},
+			template:'<div>컴포넌트로 사용할 태그 내용</div>',
+			methods:{}
+	    }
+	2) 컴포넌트를 Vue인스턴스에 할당.
+		var vm = Vue.createApp({속성:속성값}).component("화면에사용할태그명",컴포넌트상수)
+		
+	3) 화면단...body태그 안에 처리할 내용.
+		<화면에사용할태그명></화면에사용할태그명>
+ */
+	$(document).ready(function(){
+		const com1 = {
+				name:"컴포넌트1",
+				data(){
+					return { msg:'컴포넌트^^'} 
+				},
+				template:'<div><h3>{{msg}}</h3></div>',
+				methods:{}
+		    }			
+		var vm = Vue.createApp({
+			name:"App",
+			data(){
+				return {msg:"좋은 하루입니다!!"};
+			}
+		})
+		.component("comp1",com1)
+		.mount(".container")	
+	});
+</script>
+</head>
+<body>
+<div class="container">
+	<div class="jumbotron text-center">
+	  <h2 >{{msg}}</h2>
+	  <comp1></comp1>
+	</div>
+	<form id="frm01" class="form"  method="post">
+  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	    <input class="form-control mr-sm-2" placeholder="제목" />
+	    <input class="form-control mr-sm-2" placeholder="내용" />
+	    <button class="btn btn-info" type="submit">Search</button>
+ 	</nav>
+	</form>
+   <table class="table table-hover table-striped">
+   	<col width="10%">
+   	<col width="50%">
+   	<col width="15%">
+   	<col width="15%">
+   	<col width="10%">
+    <thead>
+    
+      <tr class="table-success text-center">
+        <th>번호</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>작성일</th>
+        <th>조회</th>
+      </tr>
+    </thead>	
+    <tbody>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    </tbody>
+	</table>       
+</div>
+</body>
+</html>
