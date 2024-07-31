@@ -30,16 +30,26 @@
 			할당하거나 변경하여 처리하는 형태를 말한다.
 			ex)
 			axios.get("/springweb?ename="+$("[name=ename]").val()+"&job="+$("[name=job]").val())
-				.then(response(reponse)=>{
+				.then((reponse)=>{
 					// json데이터를 사원정보 리스트 모델 데이터 할당 처리..
 					this.empList = reponse.data
 				})
+			일반함수와 화살표 함수 차이
+			function call(a,b){
+			}
+			익명함수 처리시 ==> function(a,b){}
+			call(a,b)=>{
+			}
+			일명함수 처리시 ==> (a,b)=>{}
+				
 			
 		
  https://contactsvc.bmaster.kro.kr/contacts/search/jo
  https://contactsvc.bmaster.kro.kr/contacts/search/검색할키워드
  */
  	const BASEURL="https://contactsvc.bmaster.kro.kr"
+ 	// const : javascript에서 변경하지 않을 상수를 선언할 때, 선언자로 선언하고, 해당
+ 	// 		상수는 다른 데이터 할당이 불가능 하다.. 상수는 일반적으로 대문자로 선언한다.
 	$(document).ready(function(){
 				
 		var vm = Vue.createApp({
@@ -53,6 +63,8 @@
 			},
 			created:function(){
 				console.log("생성시 호출되는 메서드!!")
+				// 초기에 화면이 로딩되면서 처리할 내용 ..
+				this.fetchContacts() // Vue안에 있는 속성/메서드 접근 this 키워드 활용..
 			},
 			watch:{ // 특정 모델데이터의 변경을 통해서 처리하는 기능메서드.
 				name(current){ // 입력되는 모델값을 받음

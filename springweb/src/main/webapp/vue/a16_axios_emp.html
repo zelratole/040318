@@ -45,7 +45,7 @@
 		var vm = Vue.createApp({
 			name:"App",
 			data(){
-				return {msg:"외부 api 연동 처리",
+				return {msg:"사원정보",
 					    ename:"", /*검색할 키워드*/
 					    job:"", /*검색할 키워드*/
 					    empList:[], /*ajax에 의해 가져온 데이터*/
@@ -54,6 +54,7 @@
 			},
 			created:function(){
 				console.log("생성시 호출되는 메서드!!")
+				this.fetchContacts() 
 			},
 			watch:{ // 특정 모델데이터의 변경을 통해서 처리하는 기능메서드.
 				ename(eVal){ // 입력되는 모델값을 받음
