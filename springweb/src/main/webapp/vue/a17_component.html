@@ -45,7 +45,16 @@
 				},
 				template:'<div><h3>{{msg}}</h3></div>',
 				methods:{}
-		    }			
+		    }	
+		// com2로  화면에 출력할 태그는 <show01></show01>로 처리하는 컴포넌트를 선언하고,
+		//         새로운 컴포넌트 출력이라고 처리해주세요..
+		const com2 = {
+			name:"컴포넌트2",
+			data(){
+				return {msg:"새로운 컴포넌트 출력"}
+			},
+			template:"<div><h3>{{msg}}</h3></div>"
+		}
 		var vm = Vue.createApp({
 			name:"App",
 			data(){
@@ -53,6 +62,7 @@
 			}
 		})
 		.component("comp1",com1)
+		.component("show01",com2)
 		.mount(".container")	
 	});
 </script>
@@ -62,6 +72,7 @@
 	<div class="jumbotron text-center">
 	  <h2 >{{msg}}</h2>
 	  <comp1></comp1>
+	  <show01></show01>
 	</div>
 	<form id="frm01" class="form"  method="post">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
