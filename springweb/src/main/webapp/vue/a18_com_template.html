@@ -16,6 +16,7 @@ td {
 	src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api"
 	type="text/javascript"></script>
 <template id="formTmp">
+	<div>
 	<form class="form" method="post">
 		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 			<input class="form-control mr-sm-2" placeholder="제목" /> <input
@@ -23,8 +24,10 @@ td {
 			<button class="btn btn-info" type="submit">Search</button>
 		</nav>
 	</form>
+	</div>
 </template>
 <template id="tabTmp">
+	<div>
 	<table class="table table-hover table-striped">
 		<col width="10%">
 		<col width="50%">
@@ -64,6 +67,7 @@ td {
 			</tr>
 		</tbody>
 	</table>
+	</div>
 </template>
 <script type="text/javascript">
 /*
@@ -87,13 +91,29 @@ td {
 		}
  */
 	$(document).ready(function(){
-		
+		const FormCom = {
+				name:"폼컴포넌트",
+				data(){
+					return {msg:"입력 form입니다."}
+				},
+				template:"#formTmp"
+			}	
+		const TabCom = {
+				name:"테이블컴포넌트",
+				data(){
+					return {msg:"테이블 리스트입니다."}
+				},
+				template:"#tabTmp"
+		}		
 		var vm = Vue.createApp({
 			name:"App",
 			data(){
 				return {msg:"좋은 하루입니다!!"};
 			}
-		}).mount(".container")
+		})
+		.component("formcom", FormCom)
+		.component("tabcom", TabCom)
+		.mount(".container")
 	});
 </script>
 </head>
@@ -103,7 +123,10 @@ td {
 		<div class="jumbotron text-center">
 			<h2>{{msg}}</h2>
 		</div>
-
+		<formcom></formcom>
+		<tabcom></tabcom>
+		<formcom></formcom>
+		<tabcom></tabcom>		
 
 	</div>
 </body>
