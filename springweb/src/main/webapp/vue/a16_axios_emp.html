@@ -40,6 +40,8 @@
  https://contactsvc.bmaster.kro.kr/contacts/search/검색할키워드
  */
  // http://localhost:7080/springweb/empListData2.do
+ // Vue ==> html로 되어 있기에 jsp와는 달리 컴파일을 생략(jsp==> java==> class)하기에 서버단 안에서도
+ // client에 전달하는 속도가 빠르다..
  	const BASEURL="http://localhost:7080/springweb/empListData2.do"
 	$(document).ready(function(){
 		var vm = Vue.createApp({
@@ -71,12 +73,15 @@
 					console.log("#검색처리할 때, 사용하는 메서드#")
 					console.log("검색 키워드:"+this.ename) //  vue가 가지고 있는 모델 호출..
 					console.log("검색 키워드:"+this.job) //  vue가 가지고 있는 모델 호출..
+					// http://localhost:7080/springweb/empListData2.do?ename=A&job=A
 					axios.get(BASEURL+"?ename="+this.ename+"&job="+this.job).then(
 							(response)=>{
 								this.isLoading=false;
 								console.log(response.data.empList)
 								console.log(response.data)
 								// 서버에서 온 데이터를 모델데이터로 할당. 처리..
+								// response.data : 전달하는 모든 json 데이터를 가져오고,
+								// response.data.empList : 이중에 속성으로 empList만 가져옮
 								this.empList = response.data.empList;
 							}
 							)
