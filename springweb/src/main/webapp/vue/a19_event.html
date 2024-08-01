@@ -76,19 +76,34 @@
 		var vm = Vue.createApp({
 			name:"App",
 			data(){
-				return {msg:"이벤트 처리..", amount:0, balance:0 };
+				return {msg:"이벤트 처리..", amount:0, balance:0,
+					    title:"깁밥 나라", cnt:0, price:0};
 			}
 		}).mount(".container")
+		// 1단계) 김밥의 단가 : [    ] [갯수증가] [갯수감수]
+		//       김밥의 총금액: @@@
+		// 2단계) 갯수까지 표현
 	});
 </script>
 </head>
 <body>
-
 <div class="container">
 	<div class="jumbotron text-center">
 	  <h2 >{{msg}}</h2>
+	  <h3>입력한 금액:{{amount}}</h3>
 	  <h3>현 계좌 잔액:{{balance}}</h3>
+	  <h2>{{title}}</h2>
+	  <h3>김밥 단가:{{price}}</h3>
+	  <h3>구매 갯수:{{cnt}}</h3>
+	  <h3>김밥 총비용:{{price*cnt}}</h3>
 	</div>
+  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	    <input v-model.number="price" class="form-control mr-sm-2" placeholder="금액" />
+	    <button v-on:click="cnt++" class="btn btn-info" type="button">갯수증가</button>
+	    <button @click="cnt--" class="btn btn-primary" type="button">갯수감소</button>
+	    <!-- 출금 클릭시, 모델데이터  amount를 숫자형으로 변환하여 모델 데이터 balance 차감처리-->
+ 	</nav>
+ 		
 	<form id="frm01" class="form"  method="post">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 	    <input v-model.number="amount" class="form-control mr-sm-2" placeholder="금액" />
