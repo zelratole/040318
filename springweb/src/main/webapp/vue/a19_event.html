@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/springweb/a00_com/bootstrap.min.css" >
+<style>
+	td{text-align:center;}
+</style>
+<script src="/springweb/a00_com/jquery.min.js"></script>
+<script src="/springweb/a00_com/bootstrap.min.js"></script>
+<script src="https://unpkg.com/vue" type="text/javascript"></script>
+<script src="https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api" type="text/javascript"></script>
+<script type="text/javascript">
+/*
+# 이벤트
+1. javascript에서는 이벤트와 이벤트핸들러함수를 통해, 프로그램적으로 동적인 처리를
+	하고 있다.
+2. 특정한 대상 태그(DOM)에 이벤트가 설정하면 해당 이벤트에 연결된 이벤트 핸들러 함수를
+	통해 기능을 처리한다.
+	1) 예시1
+		<h1 onclick="call()">클릭  : on이벤트="이벤트핸들러함수"
+		function call(){
+			alert("이벤트 호출")
+		}
+	2) 예시2
+		$("h1").click(function(){   $("DOM").이벤트(이벤트핸들러함수)
+			alert("이벤트 호출")
+		})
+3. 이러한 이벤트는
+	1) click, 
+	   focus(포커싱시켰을 때) : form하위 요소객체에 focus를 시켰을 때.. [   ]
+	   blur(포커스가 벗어날 때..) : form하위 요소객체에 focus를 시켰다가 다른 요소에 포커스 했을 때 [   ]
+	2) 입력(keyup, keydown) : 키보드를 입력시
+		$("[name=ename]").keyup(function(){
+			// 검색시, 입력하고, enter키를 눌렀을 때.. 처리할 내용
+			if(event.keyCode==13){
+				$("form").submit()
+			}
+		})
+	3) 마우스(mouseover, mouseout) : 마우스 커서를 위치시켰을 때..
+	4) 폼제출(submit()) :  입력 후, submit 버튼을 클릭시.. 
+	등으로 여러가지 동적인 처리를 화면에서 이벤트 핸들러와 함께 기능을 수행해준다.
+	 	$("form").submit(function(){
+	 		// form하위 요소객체들을 입력한 후, 전송버튼(type=submit)를 클릭시,
+	 		전송되기 직전에 처리할 유효성 처리 등을 수행할 때, 사용된다.
+	 		if($("[name=id]").val()==""){
+	 			alert("아이디가 입력되지 않았습니다.")
+	 			$("[name=id]").focus() // 해당 위치로 강제 focus 처리해준다.
+	 			return false; // 전송을 중지처리...
+	 		}
+	 	})
+	5) 그리고, 태그 자체에 내장된 고유 이벤트를 포함할 때도 있다.
+		a href 해당 페이지 이동, 
+		form하위에 요소들 enter키 입력시 submit처리 되는 등
+		또한, 이러한 기본적으로 태그가 가지고 있는 이벤트를 방지하는 .prevent 기능으로 
+		방지하는 등의 내용도 있다.
+4. 자바스크립트에서 위와 같은 이벤트의 처리 내용을 기반으로, vue에서 지원하는 이벤트를
+	처리해보록 한다.
+
+# vue에서 이벤트 처리 방식
+1. Vue인스턴스 안에 이벤트 핸들러 함수 선언 또는 바로 이벤트 처리..
+	methods:{
+		이벤트핸들러함수(){
+			이벤트를 통해서 처리할 내용..			
+		}
+	}
+2. 요소객체에 이벤트 선언및 이벤트 핸들러 함수 호출
+	1) 요소태그 v-on:이벤트="처리할 javascript 내용"
+	2) 요소태그 v-on:이벤트="이벤트핸들러함수"
+	3) 요소태그 @이벤트="이벤트핸들러함수"  : @이벤트로 위 v-on:이벤트를 간략하게 표현할 수도 있다.
+	
+ */
+	$(document).ready(function(){
+		
+		var vm = Vue.createApp({
+			name:"App",
+			data(){
+				return {msg:"이벤트 처리..", amount:0, balance:0 };
+			}
+		}).mount(".container")
+	});
+</script>
+</head>
+<body>
+
+<div class="container">
+	<div class="jumbotron text-center">
+	  <h2 >{{msg}}</h2>
+	  <h3>현 계좌 잔액:{{balance}}</h3>
+	</div>
+	<form id="frm01" class="form"  method="post">
+  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	    <input v-model.number="amount" class="form-control mr-sm-2" placeholder="금액" />
+	    <!--  모델데이터로 amount로 숫자형으로 연결-->
+	    <button v-on:click="balance+=parseInt(amount)" class="btn btn-info" type="button">입금</button>
+	    <!-- 입금 클릭시, 모델데이터  amount를 숫자형으로 변환하여 모델 데이터 balance 누적처리-->
+	    <button @click="balance-=parseInt(amount)" class="btn btn-primary" type="button">출금</button>
+	    <!-- 출금 클릭시, 모델데이터  amount를 숫자형으로 변환하여 모델 데이터 balance 차감처리-->
+ 	</nav>
+	</form>
+   <table class="table table-hover table-striped">
+   	<col width="10%">
+   	<col width="50%">
+   	<col width="15%">
+   	<col width="15%">
+   	<col width="10%">
+    <thead>
+    
+      <tr class="table-success text-center">
+        <th>번호</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>작성일</th>
+        <th>조회</th>
+      </tr>
+    </thead>	
+    <tbody>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    </tbody>
+	</table>       
+</div>
+</body>
+</html>
