@@ -17,7 +17,7 @@
 		var vm = Vue.createApp({
 			name:"App",
 			data(){
-				return {msg:"이벤트 핸들러 함수 처리..", pay:0, tot:0};
+				return {msg:"이벤트 핸들러 함수 처리..", pay:0, tot:0,id:"",ckMsg:"아이디 입력하세요"};
 			},
 			methods:{
 				/// 이벤트 핸들러 함수를 통해 추가 누적 처리
@@ -25,7 +25,21 @@
 					// this.tot : 모델데이터의 총 tot를 누적 증가 처리
 					this.tot+=parseInt(this.pay)	
 					alert("추가 되었습니다!")
+				},
+				ckMember(){
+					if(this.id==""){
+						this.ckMsg="아이디 입력하세요"
+					}else{
+						if(this.id=="himan"){
+							this.ckMsg="등록한 아이디 입니다. 다시 입력하세요"
+							this.id=""
+						}else{
+							this.ckMsg="등록한 가능한 아이디 입니다."
+						}
+					}
 				}
+				// ckMember()함수를 정의하고
+				// [   ][가입여부] 클릭시 himan일 때는 가입된 회원입니다. 그외는 가입가능합니다. 출력되게 처리
 			}
 		}).mount(".container")
 	});
@@ -36,7 +50,12 @@
 	<div class="jumbotron text-center">
 	  <h2 >{{msg}}</h2>
 	  <h3 >총 비용:{{tot}}</h3>
+	  <h2>{{ckMsg}}</h2>
 	</div>
+  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	    <input v-model="id" class="form-control mr-sm-2" placeholder="아이디입력" />
+	    <button @click="ckMember" class="btn btn-info" type="button">등록여부확인</button>
+ 	</nav>	
 	<form id="frm01" class="form"  method="post">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 	    <input v-model.number="pay" class="form-control mr-sm-2" placeholder="제목" />
