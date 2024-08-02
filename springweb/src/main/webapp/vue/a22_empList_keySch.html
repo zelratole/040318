@@ -29,11 +29,30 @@
 		
 */
 	$(document).ready(function(){
-		
+		// 내부 서버에 같이 처리되는 경우 http://localhost:7080 생략가능..
+		const BASEURL="/springweb/empListData2.do?";
 		var vm = Vue.createApp({
 			name:"App",
 			data(){
-				return {msg:"좋은 하루입니다!!"};
+				return {msg:"사원정보 조회!",
+						sch:{ename:"",job:""},
+						empList:[]
+				};
+			},
+			methods:{
+				search(){
+					// 검색을 이벤트를 클릭하거나, 호출 처리할 핸들러함수 선언.
+					axios.get(BASEURL+"ename="+this.sch.ename+"&job="+this.sch.job)
+					.then((response)=>{
+						var list=response.data.empList
+						console.log(list)
+						this.empList = list // 모델 데이터에 할당..
+					})
+				}
+			},
+			created(){
+				// 라이프사이클시, 시작시 처리되는 내용
+				this.search()
 			}
 		}).mount(".container")
 	});
@@ -45,33 +64,31 @@
 	<div class="jumbotron text-center">
 	  <h2 >{{msg}}</h2>
 	</div>
-	<form id="frm01" class="form"  method="post">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input class="form-control mr-sm-2" placeholder="제목" />
-	    <input class="form-control mr-sm-2" placeholder="내용" />
-	    <button class="btn btn-info" type="submit">Search</button>
+	    <input v-model="sch.ename" @keyup.enter="search" class="form-control mr-sm-2" placeholder="사원명" />
+	    <!-- 키를 입력할 때, enter 입력시 search 이벤트 핸들러 메서드 호출.. -->
+	    <input v-model="sch.job"  @keyup.enter="search"  class="form-control mr-sm-2" placeholder="직책" />
+	    <button @click="search" class="btn btn-info" type="button">Search</button>
  	</nav>
-	</form>
    <table class="table table-hover table-striped">
-   	<col width="10%">
-   	<col width="50%">
-   	<col width="15%">
-   	<col width="15%">
-   	<col width="10%">
+   	<col width="20%">
+   	<col width="20%">
+   	<col width="20%">
+   	<col width="20%">
+   	<col width="20%">
     <thead>
-    
       <tr class="table-success text-center">
-        <th>번호</th>
-        <th>제목</th>
-        <th>작성자</th>
-        <th>작성일</th>
-        <th>조회</th>
+        <th>사원번호</th>
+        <th>사원명</th>
+        <th>직책명</th>
+        <th>급여</th>
+        <th>부서번호</th>
       </tr>
     </thead>	
     <tbody>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
-    	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+    	<tr v-for="emp in empList">
+    		<td>{{emp.empno}}</td><td>{{emp.ename}}</td><td>{{emp.job}}</td>
+    		<td>{{emp.sal}}</td><td>{{emp.deptno}}</td></tr>
     </tbody>
 	</table>       
 </div>
