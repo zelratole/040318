@@ -23,12 +23,7 @@ import springweb.z01_vo.Emp;
 //springweb.a02_mvc.A02_EmpService
 @Controller
 public class A01_EmpController {
-    @InitBinder
-    public void initBinder(WebDataBinder binder) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        dateFormat.setLenient(false);
-        binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
-    }	
+
 	@Autowired
 	private A02_EmpMaytisService service;
 	

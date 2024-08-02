@@ -26,7 +26,7 @@ public interface A01_Dao {
 	Emp getEmp(@Param("empno") int empno);
 	
 	@Insert("INSERT INTO emp05 values(#{empno}, #{ename},#{job},#{mgr}, \r\n"
-			+ "	to_date(#{hiredateStr},'YYYY-MM-DD'), #{sal},#{comm},#{deptno})")
+			+ " #{hiredate, jdbcType=DATE},#{sal},#{comm},#{deptno})")
 	int insertEmp(Emp ins);
 	
 	@Select("		select count(*) \r\n"

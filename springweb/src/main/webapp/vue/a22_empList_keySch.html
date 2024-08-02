@@ -48,6 +48,10 @@
 						console.log(list)
 						this.empList = list // 모델 데이터에 할당..
 					})
+					.catch((err)=>{
+						console.log("# 에러 발생 #")
+						console.log(err)
+					})
 				}
 			},
 			created(){
