@@ -34,9 +34,32 @@
 		var vm = Vue.createApp({
 			name:"App",
 			data(){
-				return {msg:"좋은 하루입니다!!"};
+				return {msg:"vue 이벤트 처리(핸들러 함수)!", amount:0, balance:0 };
+			},
+			methods:{
+				deposit(){
+					let amt = parseInt(this.amount)
+					// 유효성 체크 : 마이너스가 못들어가게 처리..
+					if(amt <= 0){
+						alert("0보다 큰 값을 입금하여야 합니다.")
+					}else{
+						this.balance += amt
+					}
+				},
+				withdraw(){
+					let amt = parseInt(this.amount)
+					if(amt <= 0){
+						alert("0보다 큰 값을 출금하여야 합니다.")
+					}else if(amt > this.balance ){
+						alert("출금액은 현잔액보다 많이 할 수 없습니다.")
+					}else{
+						this.balance -= amt
+					}
+				}
 			}
 		}).mount(".container")
+		// ex) 출금 버튼을 추가하고, 이벤트 핸들러 선언,
+		// 출금 이벤트 핸들러 함수에서는 현재 잔액(balance)보다 더 많이 출금이 안되게 처리
 	});
 </script>
 </head>
@@ -45,12 +68,13 @@
 <div class="container">
 	<div class="jumbotron text-center">
 	  <h2 >{{msg}}</h2>
+	  <h3>계좌 잔고:{{balance}}</h3>
 	</div>
 	<form id="frm01" class="form"  method="post">
   	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	    <input class="form-control mr-sm-2" placeholder="제목" />
-	    <input class="form-control mr-sm-2" placeholder="내용" />
-	    <button class="btn btn-info" type="submit">Search</button>
+	    <input v-model="amount" class="form-control mr-sm-2" placeholder="입금/출금액" />
+	    <button @click="deposit" class="btn btn-info" type="button">입금</button>
+	    <button @click="withdraw" class="btn btn-primary" type="button">출금</button>
  	</nav>
 	</form>
    <table class="table table-hover table-striped">
