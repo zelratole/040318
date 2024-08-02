@@ -83,4 +83,7 @@
 			@RequestMapping("start.do")
 			public String start() {
 	6) return "a01_start.jsp" 화면단 호출(view)
-		각 메서드에 마지막에 return형식을 webapp기준으로 특정한 파일을 호출하는데 이것이 jsp View 화면단이다.		
+		각 메서드에 마지막에 return형식을 webapp기준으로 특정한 파일을 호출하는데 이것이 jsp View 화면단이다.
+		
+		
+

@@ -32,9 +32,9 @@
     ```
 
 - **연습용 URL 및 요청값**
-    1. URL: `/singleForm`, 요청값: `name=John`
-    2. URL: `/singleForm`, 요청값: `name=Jane`
-    3. URL: `/singleForm`, 요청값: `name=Alex`
+    1. URL: `/singleForm1`, 요청값: `name=John`
+    2. URL: `/singleForm2`, 요청값: `age=25`
+    3. URL: `/singleForm3`, 요청값: `loc=서울`
 
 ### 6. [컨트롤러/뷰] URL과 요청처리: 다중 데이터 (폼 활용)
 - **기본 예제**
@@ -70,9 +70,9 @@
     ```
 
 - **연습용 URL 및 요청값**
-    1. URL: `/multiForm`, 요청값: `name=John&email=john@example.com`
-    2. URL: `/multiForm`, 요청값: `name=Jane&email=jane@example.com`
-    3. URL: `/multiForm`, 요청값: `name=Alex&email=alex@example.com`
+    1. URL: `/multiForm1`, 요청값: `busno=1000&passCnt=30`
+    2. URL: `/multiForm2`, 요청값: `pname=사과&price=3000&cnt=5`
+    3. URL: `/multiForm3`, 요청값: `mname=슈퍼네튜럴&singer=뉴진`
 
 ### 7. [컨트롤러/뷰] URL과 요청처리: 객체 (폼 활용)
 - **기본 예제**
@@ -113,9 +113,9 @@
     ```
 
 - **연습용 URL 및 요청값**
-    1. URL: `/objectForm`, 요청값: `name=John&email=john@example.com`
-    2. URL: `/objectForm`, 요청값: `name=Jane&email=jane@example.com`
-    3. URL: `/objectForm`, 요청값: `name=Alex&email=alex@example.com`
+    1. URL: `/objectForm1`, 요청값: `busno=1000&passCnt=30`
+    2. URL: `/objectForm2`, 요청값: `pname=사과&price=3000&cnt=5`
+    3. URL: `/objectForm3`, 요청값: `mname=슈퍼네튜럴&singer=뉴진`
 
 ## 학습: 모델 데이터가 무엇인지? 모델 데이터 표현 형식 (EL/JSTL) 이해
 ### 8. [컨트롤러/뷰] URL과 모델 데이터: 단일 데이터
