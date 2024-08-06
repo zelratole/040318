@@ -61,6 +61,10 @@
 			},
 			methods:{
 				insert(){
+					if(confirm("등록하시겠습니까?")){
+						
+						
+					}
 					// aios 등록 	
 				},
 				search(){
@@ -120,68 +124,71 @@
     		<td>{{emp.empno}}</td><td>{{emp.ename}}</td><td>{{emp.job}}</td>
     		<td>{{emp.sal}}</td><td>{{emp.deptno}}</td></tr>
     </tbody>
-	</table>       
-</div>
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">사원정보등록</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-		<form id="frm02" class="form"  method="post">
-	     <div class="row">
-	      <div class="col">
-	        <input type="number" class="form-control" placeholder="사원번호 입력" v-model="empno" name="empno">
+	</table>    
+
+	<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLongTitle">사원정보등록</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
 	      </div>
-	      <div class="col">
-	        <input type="text" class="form-control" placeholder="사원명 입력" v-model="ename" name="ename">
+	      <div class="modal-body">
+			<form id="frm02" class="form"  method="post">
+		     <div class="row">
+		      <div class="col">
+		        <input type="number" class="form-control" placeholder="사원번호 입력" v-model="empno" name="empno">
+		      </div>
+		      <div class="col">
+		        <input type="text" class="form-control" placeholder="사원명 입력" v-model="ename" name="ename">
+		      </div>
+		     </div>	 
+		     <div class="row">    
+		      <div class="col">
+		        <input type="text" class="form-control" placeholder="직책명 입력" v-model="job" name="job">
+		      </div>
+		      <div class="col">
+		        <input type="number" class="form-control" placeholder="관리자번호 입력" v-model="mgr" name="mgr">
+		      </div>
+		     </div> 
+		     <div class="row">    
+		      <div class="col">
+		        <input type="date" class="form-control" placeholder="입사일 입력" v-model="hiredate" name="hiredate">
+		      </div>
+		      <div class="col">
+		        <input type="number" class="form-control" placeholder="급여 입력" v-model="sal" name="sal">
+		      </div>	      
+			 </div>
+			 <div class="row">    
+		      <div class="col">
+		        <input type="number" class="form-control" placeholder="보너스 입력" v-model="comm" name="comm">
+		      </div>
+		      <div class="col">
+		        <select  class="form-control"  v-model="deptno" name="deptno">
+		        	<option value="0">부서번호선택</option>
+		        	<option value="10">인사</option>
+		        	<option value="20">재무</option>
+		        	<option value="30">회계</option>
+		        	<option value="40">기획</option>
+		        </select>
+		      </div>
+		    </div>
+		      
+		    
+		    </form> 
 	      </div>
-	     </div>	 
-	     <div class="row">    
-	      <div class="col">
-	        <input type="text" class="form-control" placeholder="직책명 입력" v-model="job" name="job">
-	      </div>
-	      <div class="col">
-	        <input type="number" class="form-control" placeholder="관리자번호 입력" v-model="mgr" name="mgr">
-	      </div>
-	     </div> 
-	     <div class="row">    
-	      <div class="col">
-	        <input type="date" class="form-control" placeholder="입사일 입력" v-model="hiredate" name="hiredate">
-	      </div>
-	      <div class="col">
-	        <input type="number" class="form-control" placeholder="급여 입력" v-model="sal" name="sal">
-	      </div>	      
-		 </div>
-		 <div class="row">    
-	      <div class="col">
-	        <input type="number" class="form-control" placeholder="보너스 입력" v-model="comm" name="comm">
-	      </div>
-	      <div class="col">
-	        <select  class="form-control"  v-model="deptno" name="deptno">
-	        	<option value="0">부서번호선택</option>
-	        	<option value="10">인사</option>
-	        	<option value="20">재무</option>
-	        	<option value="30">회계</option>
-	        	<option value="40">기획</option>
-	        </select>
+	      <div class="modal-footer">
+	        
+	        <button @click="insert" type="button" class="btn btn-primary">등록</button>
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 	      </div>
 	    </div>
-	      
-	    
-	    </form> 
-      </div>
-      <div class="modal-footer">
-        
-        <button type="button" class="btn btn-primary">등록</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
+	  </div>
+	</div>	
+	   
 </div>
+
 </body>
 </html>
