@@ -62,6 +62,10 @@ public class A01_EmpController {
 		// view 화면호출..
 		return "jsonView";
 	}
+	// http://localhost:7080/springweb/empInsert.do
+	// http://localhost:7080/springweb/getEmp.do?empno=1001
+	// http://localhost:7080/springweb/updateEmp.do
+	// http://localhost:7080/springweb/deleteEmp.do?empno=1001
 	// empInsert.do
 	@RequestMapping("empInsert.do")
 	public String empInsert(Emp ins, Model d) {
