@@ -48,9 +48,19 @@ td {
 		- ajax로 등록 backend 호출
 		- success: 
 			등록 된 이후 내용 alert(msg) 및 등록이후, 다시 검색된 내용 메서드 호출 this.search()
+# 상세 데이터 가져오기
+1. 처리 순서.
+	1) 리스트 데이터 클릭시, 처리한 이벤트 핸들러 선언.
+	2) form화면 초기화 처리, 타이틀 사원정보 상세 출력, 
+		버튼 변경(수정/삭제버튼  보이기, 등록버튼 보이지 않게 처리)
+	3) 요청값을 사원정보 전달.
+	4) 핸들러 메서드에서 사원정보 전달 받아.. 
+	5) ajax로 사원 정보 상세 데이터 가져오기..
+	6) 서버에서 가져온 상세데이터 form 화면에 입력하기..
 		
 */
 	$(document).ready(function(){
+		$("#deFrmBtn").hide()
 		// 내부 서버에 같이 처리되는 경우 http://localhost:7080 생략가능..
 		const BASEURL="/springweb/";
 		var vm = Vue.createApp({
@@ -60,22 +70,121 @@ td {
 						sch:{ename:"",job:""},
 						emp:{empno:0,ename:"",job:"",mgr:0,hiredate:"",
 							sal:0.0,comm:0.0,deptno:0},
-						empList:[]
+						empList:[],
+						mTitle:"사원정보등록",insBtn:true,uptBtn:false,delBtn:false
 				};
 			},
 			methods:{
-				insert(){
+				
+				insEmp(){
 					if(confirm("등록하시겠습니까?")){
-						
+						console.log("등록하는사원")
+						//console.log(emp)
+						console.log($("#frm02").serialize())
+						var vm = this
+						// axios.post(요청url,전송요청값) 
+						axios.post(BASEURL+"empInsert.do", $("#frm02").serialize()
+
+						).then(function(response){
+							console.log(response.data)
+							console.log(response.data.result)
+							var msg = response.data.result
+							
+							alert(msg)
+							vm.search()
+							
+						}).catch(function(err){
+							console.log(err)
+						})
 						
 					}
 					// aios 등록 	
+				},
+				uptEmp(){
+					//console.log(emp)
+					console.log($("#frm02").serialize())
+					if(confirm("수정하시겠습니까?")){
+						// axios.post(요청url,전송요청값) 
+						var vm = this
+						axios.post(BASEURL+"updateEmp.do", $("#frm02").serialize()
+								
+						).then(function(response){
+							console.log(response.data)
+							console.log(response.data.result)
+							var msg = response.data.result
+							
+							alert(msg)
+							vm.search()
+							
+						}).catch(function(err){
+							console.log(err)
+						})		
+					}
+				},
+				delEmp(){
+					if(confirm("삭제하시겠습니까?")){
+						//console.log(emp)
+						console.log($("#frm02").serialize())
+						// axios.post(요청url,전송요청값) 
+						var vm = this
+						axios.delete(BASEURL+"deleteEmp.do?empno="+this.emp.empno
+	
+						).then(function(response){
+							console.log(response.data)
+							console.log(response.data.result)
+							var msg = response.data.result
+							
+							alert(msg)
+							vm.search()
+							$("#clsBtn").click()
+							
+						}).catch(function(err){
+							console.log(err)
+						})							
+					}
+				},
+				insertFrm(){
+					this.mTitle="사원정보등록"
+					this.insBtn=true
+					this.uptBtn=false
+					this.delBtn=false
+					this.emp={}
+					this.emp.deptno=0
+					//alert(this.emp.deptno)
+					
+				},
+				detail(empno){
+					this.mTitle="사원정보상세"
+					//alert("사원 정보 상세:"+this.mTitle)
+					this.insBtn=false
+					this.uptBtn=true
+					this.delBtn=true
+					
+						
+					// getEmp.do?empno=1001
+					//alert("상세화면 처리:"+empno)
+					axios.get(BASEURL+"getEmp.do?empno="+empno)
+					.then((response)=>{
+						console.log("상세데이터 확인")
+						console.log(response.data.emp)
+						this.emp = response.data.emp
+						var dt = new Date(response.data.emp.hiredate)
+						this.emp.hiredate = dt.toISOString().split('T')[0]
+						console.log(this.emp)
+						$("#deFrmBtn").click()
+					})
+					.catch((err)=>{
+						console.log("# 에러 발생 #")
+						console.log(err)
+					})
+					
 				},
 				search(){
 					// 검색을 이벤트를 클릭하거나, 호출 처리할 핸들러함수 선언.
 					axios.get(BASEURL+"empListData2.do?ename="+this.sch.ename+"&job="+this.sch.job)
 					.then((response)=>{
 						var list=response.data.empList
+						
 						console.log(list)
 						this.empList = list // 모델 데이터에 할당..
 					})
@@ -105,8 +214,10 @@ td {
 			<input v-model="sch.job" @keyup.enter="search"
 				class="form-control mr-sm-2" placeholder="직책" />
 			<button @click="search" class="btn btn-info" type="button">Search</button>
-			<button class="btn btn-success" data-toggle="modal"
+			<button id="insFrmBtn" @click="insertFrm" class="btn btn-success" data-toggle="modal"
 				data-target="#exampleModalCenter" type="button">등록</button>
+			<div id="deFrmBtn" data-toggle="modal" data-target="#exampleModalCenter"><div>
+				
 		</nav>
 		<table class="table table-hover table-striped">
 			<col width="20%">
@@ -124,7 +235,7 @@ td {
 				</tr>
 			</thead>
 			<tbody>
-				<tr v-for="emp in empList">
+				<tr v-for="emp in empList" @dblclick="detail(emp.empno)">
 					<td>{{emp.empno}}</td>
 					<td>{{emp.ename}}</td>
 					<td>{{emp.job}}</td>
@@ -140,7 +251,7 @@ td {
 			<div class="modal-dialog modal-dialog-centered" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLongTitle">사원정보등록</h5>
+						<h5 class="modal-title" id="exampleModalLongTitle">{{mTitle}}</h5>
 						<button type="button" class="close" data-dismiss="modal"
 							aria-label="Close">
 							<span aria-hidden="true">&times;</span>
@@ -198,9 +309,11 @@ td {
 						</form>
 					</div>
 					<div class="modal-footer">
-
-						<button @click="insert" type="button" class="btn btn-primary">등록</button>
-						<button type="button" class="btn btn-secondary"
+						<!--insBtn  uptBtn delBtn-->
+						<button v-show="insBtn" @click="insEmp" type="button" class="btn btn-primary">등록</button>
+						<button v-show="uptBtn" @click="uptEmp" type="button" class="btn btn-success">수정</button>
+						<button v-show="delBtn" @click="delEmp" type="button" class="btn btn-danger">삭제</button>
+						<button id="clsBtn" type="button" class="btn btn-secondary"
 							data-dismiss="modal">Close</button>
 					</div>
 				</div>

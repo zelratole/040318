@@ -38,7 +38,7 @@ public interface A01_Dao {
 			+ "	SET ename = #{ename},\r\n"
 			+ "		job=#{job},\r\n"
 			+ "		mgr = #{mgr},\r\n"
-			+ "		hiredate = to_date(#{hiredateStr},'YYYY-MM-DD'),\r\n"
+			+ "		hiredate = #{hiredate, jdbcType=DATE},\r\n"
 			+ "		sal = #{sal},\r\n"
 			+ "		comm = #{comm},\r\n"
 			+ "		deptno = #{deptno}\r\n"

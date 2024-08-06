@@ -1,16 +1,12 @@
 package springweb.a02_mvc;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -67,7 +63,7 @@ public class A01_EmpController {
 	// http://localhost:7080/springweb/updateEmp.do
 	// http://localhost:7080/springweb/deleteEmp.do?empno=1001
 	// empInsert.do
-	@RequestMapping("empInsert.do")
+	@PostMapping("empInsert.do")
 	public String empInsert(Emp ins, Model d) {
 		d.addAttribute("result",service.insertEmp(ins));
 		return "jsonView";
@@ -80,14 +76,14 @@ public class A01_EmpController {
 		return "jsonView";
 	}
 	// http://localhost:7080/springweb/updateEmp.do
-	@GetMapping("updateEmp.do")
+	@PostMapping("updateEmp.do")
 	public String updateEmp(Emp upt, Model d) {
 		d.addAttribute("result",service.updateEmp(upt));
 		d.addAttribute("emp", service.getEmp(upt.getEmpno()));// 수정후, 다시 조회된 결과..
 		return "jsonView";
 	}
 	// http://localhost:7080/springweb/deleteEmp.do?empno=1001
-	@GetMapping("deleteEmp.do")
+	@DeleteMapping("deleteEmp.do")
 	public String deleteEmp(@RequestParam("empno") int empno, Model d) {
 		d.addAttribute("result",service.deleteEmp(empno));
 		return "jsonView";
