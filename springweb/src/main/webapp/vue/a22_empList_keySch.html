@@ -30,7 +30,20 @@
 		// http://localhost:7080/springweb/getEmp.do?empno=1001
 		// http://localhost:7080/springweb/updateEmp.do
 		// http://localhost:7080/springweb/deleteEmp.do?empno=1001
-				
+
+# 등록 처리
+1. 모달창 연동 처리
+2. 모델데이터 설정 emp객체로 등록/수정/상세 화면을 위한 모델 데이터 설정.
+3. 모달 form 안에, 
+	1) 입력 요소객체에 v-model 속성으로 모델데이터 연동 처리..
+	2) button 생성 - 등록/닫기버튼
+	
+4. methods 속성으로 이벤트 핸들러  메서드 선언
+	1) 모달창 안에 있는 등록 버튼 클릭시, 연동 처리
+	2) 이벤트 핸들러 내용
+		- ajax로 등록 backend 호출
+		- success: 
+			등록 된 이후 내용 alert(msg) 및 등록이후, 다시 검색된 내용 메서드 호출 this.search()
 		
 */
 	$(document).ready(function(){
