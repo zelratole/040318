@@ -67,11 +67,13 @@ td {
 			name:"App",
 			data(){
 				return {msg:"사원정보 조회!",
-						sch:{ename:"",job:""},
+						sch:{ename:"",job:""},// 검색
 						emp:{empno:0,ename:"",job:"",mgr:0,hiredate:"",
 							sal:0.0,comm:0.0,deptno:0},
-						empList:[],
+							// 등록/상세조회
+						empList:[], // 검색된 내용 리스트
 						mTitle:"사원정보등록",insBtn:true,uptBtn:false,delBtn:false
+						// 등록/상세 모달창 변경부분 처리 타이틀, 각 버튼(보이는지/보이지 않는지)
 				};
 			},
 			methods:{
@@ -92,6 +94,9 @@ td {
 							
 							alert(msg)
 							vm.search()
+							// 등록 후, 모델 데이터 초기화
+							vm.emp={}
+							vm.emp.deptno=0 // 부서를 초기 선택										
 							
 						}).catch(function(err){
 							console.log(err)
@@ -105,17 +110,16 @@ td {
 					console.log($("#frm02").serialize())
 					if(confirm("수정하시겠습니까?")){
 						// axios.post(요청url,전송요청값) 
-						var vm = this
-						axios.post(BASEURL+"updateEmp.do", $("#frm02").serialize()
-								
+						var vm = this 
+						// Vue 객체를 모든 속성을 접근 할 수 있는 참조
+						axios.post(BASEURL+"updateEmp.do", $("#frm02").serialize()			
 						).then(function(response){
+							// this : axios객체를 지칭
 							console.log(response.data)
 							console.log(response.data.result)
 							var msg = response.data.result
-							
 							alert(msg)
-							vm.search()
-							
+							vm.search() // 수정 이후, 전체 리스트를 보여주게 처리..
 						}).catch(function(err){
 							console.log(err)
 						})		
@@ -169,6 +173,7 @@ td {
 						console.log(response.data.emp)
 						this.emp = response.data.emp
 						var dt = new Date(response.data.emp.hiredate)
+						// 2024-08-07T10:24:35
 						this.emp.hiredate = dt.toISOString().split('T')[0]
 						console.log(this.emp)
 						$("#deFrmBtn").click()
@@ -214,8 +219,11 @@ td {
 			<input v-model="sch.job" @keyup.enter="search"
 				class="form-control mr-sm-2" placeholder="직책" />
 			<button @click="search" class="btn btn-info" type="button">Search</button>
-			<button id="insFrmBtn" @click="insertFrm" class="btn btn-success" data-toggle="modal"
-				data-target="#exampleModalCenter" type="button">등록</button>
+			<button id="insFrmBtn" @click="insertFrm" class="btn btn-success" 
+				data-toggle="modal"
+				data-target="#exampleModalCenter" 
+				type="button">등록</button>
+			<!-- 상세화면 모달창 로딩을 위해서 호출되는 보이지 않는 div 설정.. -->	
 			<div id="deFrmBtn" data-toggle="modal" data-target="#exampleModalCenter"><div>
 				
 		</nav>
@@ -296,7 +304,7 @@ td {
 								</div>
 								<div class="col">
 									<select class="form-control" v-model="emp.deptno" name="deptno">
-										<option value="0">부서번호선택</option>
+										<option value="0">부서선택</option>
 										<option value="10">인사</option>
 										<option value="20">재무</option>
 										<option value="30">회계</option>
@@ -309,7 +317,11 @@ td {
 						</form>
 					</div>
 					<div class="modal-footer">
-						<!--insBtn  uptBtn delBtn-->
+						<!--insBtn  uptBtn delBtn
+						 v-show="insBtn" : 모델데이터 boolean으로 연결되어 보이거나/보이지 않게 처리 할
+						 	때, 활용된다. false일 때는 보이지 않게 처리, true일 때는 보이게 처리..
+						
+						-->
 						<button v-show="insBtn" @click="insEmp" type="button" class="btn btn-primary">등록</button>
 						<button v-show="uptBtn" @click="uptEmp" type="button" class="btn btn-success">수정</button>
 						<button v-show="delBtn" @click="delEmp" type="button" class="btn btn-danger">삭제</button>
