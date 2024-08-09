@@ -38,6 +38,7 @@ public class A01_ExpService {
 		System.out.println("등록처리1:"+dao2.insertDept01(new Dept(24,"기획2","수원3")));
 		
 	}
+
 	public void daoExp01() {
 		System.out.println("1. 단일 데이터 가져오기:"+
 					dao.getCount());

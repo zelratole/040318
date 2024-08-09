@@ -34,4 +34,11 @@ public class A01_ExpController {
 		d.addAttribute("empnos", service.getEmpnos());   
 		return "WEB-INF\\views\\a05_mvcexp\\a01_view.jsp";
 	}	
+	// http://localhost:7080/springweb/mvc_count01.do
+	@GetMapping("mvc_count01.do")
+	public String mvc_count01(Model d) {
+		d.addAttribute("count", service.getCount());
+		return "WEB-INF\\views\\a06_daoexp\\a01_oneData.jsp";
+	}	
+	
 }
