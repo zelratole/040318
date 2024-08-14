@@ -29,27 +29,27 @@ public class A04_FullCalController {
 	}
 	// http://localhost:7080/springweb/callList.do
 	@GetMapping("callList.do")
-	public String callList(Model d) {
-		d.addAttribute("calList", service.getFullCalendarList());
+	public String callList(@RequestParam(value="div", defaultValue = "") String div, Model d) {
+		d.addAttribute("calList", service.getFullCalendarList(div));
 		return "jsonView";
 	}
 	// // http://localhost:7080/springweb/insertCalendar.do
 	@PostMapping("insertCalendar.do")
 	public String insertCalendar(Calendar insert, Model d) {
 		d.addAttribute("msg", service.insertCalendar(insert));
-		d.addAttribute("calList", service.getFullCalendarList());
+		d.addAttribute("calList", service.getFullCalendarList(""));
 		return "jsonView";
 	}
 	@PostMapping("updateCalendar.do")
 	public String updateCalendar(Calendar update, Model d) {
 		d.addAttribute("msg", service.updateCalendar(update));
-		d.addAttribute("calList", service.getFullCalendarList());
+		d.addAttribute("calList", service.getFullCalendarList(""));
 		return "jsonView";
 	}
 	@PostMapping("deleteCalendar.do")
 	public String deleteCalendar(@RequestParam("id") int id, Model d) {
 		d.addAttribute("msg", service.deleteCalendar(id));
-		d.addAttribute("calList", service.getFullCalendarList());
+		d.addAttribute("calList", service.getFullCalendarList(""));
 		return "jsonView";
 	}	
 	

@@ -16,6 +16,19 @@ public interface A04_CalendarDao {
 			+ "			textcolor, allday, url urlLink\r\n"
 			+ "	from calendar")
 	List<Calendar> getFullCalendarList();
+
+	@Select("	select id, title, writer, start1 \"start\", end1 \"end\", content, backgroundcolor,\r\n"
+			+ "			textcolor, allday, url urlLink\r\n"
+			+ "	from calendar1 where div='T' ")
+	List<Calendar> getFullCalendarList2();
+
+	@Select("	select id, title, writer, start1 \"start\", end1 \"end\", content, backgroundcolor,\r\n"
+			+ "			textcolor, allday, url urlLink\r\n"
+			+ "	from calendar1 where div='P'" )
+	List<Calendar> getFullCalendarList3();
+
+	
+	
 	
 	@Insert("	INSERT INTO calendar values(cal_seq.nextval,\r\n"
 			+ "		#{title},#{writer},#{start},#{end},\r\n"
